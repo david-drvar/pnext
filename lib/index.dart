@@ -40,3 +40,5 @@ export '/pages/edit_property_2/edit_property2_widget.dart'
     show EditProperty2Widget;
 export '/pages/edit_property_3/edit_property3_widget.dart'
     show EditProperty3Widget;
+export '/pages/forgot_password/forgot_password_widget.dart'
+    show ForgotPasswordWidget;
