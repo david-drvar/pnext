@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1057573320885",
+    "project_id": "mypnext",
+    "storage_bucket": "mypnext.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057573320885:android:8c48b08cb11cd0c94b66fc",
+        "android_client_info": {
+          "package_name": "com.flutterflow.homeU"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057573320885-5mg42ksfer02afg4ob2nm53id52uti2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3rS8AyljUkQWTJXmHyzgNNRCe0nxurdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057573320885-5mg42ksfer02afg4ob2nm53id52uti2b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1057573320885-6l9k7901bvm0bad46p0dtlj4pate6uof.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.homeU"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
