@@ -35,3 +35,7 @@ String ratingSummaryList(List<ReviewsRecord> rating) {
   }
   return (ratingsSum / rating.length).toStringAsFixed(1);
 }
+
+bool isEmpty(String? myVar) {
+  return myVar == null || myVar.isEmpty;
+}

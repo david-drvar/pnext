@@ -1,16 +1,17 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/email_verification_component/email_verification_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main.dart';
 import '/pages/login/login_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class CreateAccountModel extends FlutterFlowModel {
@@ -24,7 +25,6 @@ class CreateAccountModel extends FlutterFlowModel {
   String? Function(BuildContext, String?)? surnameControllerValidator;
   // State field(s) for phoneNumber widget.
   TextEditingController? phoneNumberController;
-  final phoneNumberMask = MaskTextInputFormatter(mask: '(###) ###-##-##');
   String? Function(BuildContext, String?)? phoneNumberControllerValidator;
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController;

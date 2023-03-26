@@ -1,4 +1,6 @@
 import '/auth/auth_util.dart';
+import '/components/email_verification_component/email_verification_component_widget.dart';
+import '/components/socials_sign_in_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -6,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main.dart';
 import '/pages/create_account/create_account_widget.dart';
 import '/pages/forgot_password/forgot_password_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -76,7 +79,7 @@ class _LoginWidgetState extends State<LoginWidget>
           children: [
             Container(
               width: double.infinity,
-              height: 450.0,
+              height: 550.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
                 boxShadow: [
@@ -314,22 +317,57 @@ class _LoginWidgetState extends State<LoginWidget>
                                   0.0, 0.0, 4.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  final user = await signInWithEmail(
-                                    context,
+                                  _model.returnAuth =
+                                      await actions.authFlutterFire(
                                     _model.emailAddressController.text,
                                     _model.passwordController.text,
                                   );
-                                  if (user == null) {
-                                    return;
+                                  if (_model.returnAuth == 'valid') {
+                                    if (currentUserEmailVerified) {
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => NavBarPage(
+                                              initialPage: 'homePage_MAIN'),
+                                        ),
+                                      );
+                                    } else {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return Padding(
+                                            padding: MediaQuery.of(context)
+                                                .viewInsets,
+                                            child:
+                                                EmailVerificationComponentWidget(
+                                              message:
+                                                  'We\'ve sent  verification link to your email. After verifying please proceed with login.',
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
+                                    }
+                                  } else {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return Padding(
+                                          padding:
+                                              MediaQuery.of(context).viewInsets,
+                                          child:
+                                              EmailVerificationComponentWidget(
+                                            message: _model.returnAuth,
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => setState(() {}));
                                   }
 
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => NavBarPage(
-                                          initialPage: 'homePage_MAIN'),
-                                    ),
-                                  );
+                                  setState(() {});
                                 },
                                 text: 'Login',
                                 options: FFButtonOptions(
@@ -363,7 +401,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 12.0, 0.0, 24.0),
+                            0.0, 12.0, 0.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -419,6 +457,23 @@ class _LoginWidgetState extends State<LoginWidget>
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(0.0),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 12.0, 0.0, 24.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: wrapWithModel(
+                                model: _model.socialsSignInModel,
+                                updateCallback: () => setState(() {}),
+                                child: SocialsSignInWidget(),
                               ),
                             ),
                           ],

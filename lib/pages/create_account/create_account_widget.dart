@@ -1,16 +1,17 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/email_verification_component/email_verification_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main.dart';
 import '/pages/login/login_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'create_account_model.dart';
 export 'create_account_model.dart';
@@ -281,7 +282,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.phoneNumberController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'PhoneNumber',
+                                  labelText: 'Phone number',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyText1,
                                   hintText: 'Enter your phone number here...',
@@ -329,7 +330,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                         signed: true, decimal: true),
                                 validator: _model.phoneNumberControllerValidator
                                     .asValidator(context),
-                                inputFormatters: [_model.phoneNumberMask],
                               ),
                             ),
                           ],
@@ -347,7 +347,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.emailAddressController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Email Address',
+                                  labelText: 'Email address',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyText1,
                                   hintText: 'Enter your email here...',
@@ -486,7 +486,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.repeatPasswordController,
                                 obscureText: !_model.repeatPasswordVisibility,
                                 decoration: InputDecoration(
-                                  labelText: 'RepeatPassword',
+                                  labelText: 'Repeat password',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyText1,
                                   hintText: 'Repeat your password here...',
@@ -562,44 +562,123 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 4.0, 0.0),
                               child: FFButtonWidget(
-                                onPressed: () async {
-                                  if (_model.passwordController.text !=
-                                      _model.repeatPasswordController.text) {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Passwords don\'t match!',
-                                        ),
-                                      ),
-                                    );
-                                    return;
-                                  }
+                                onPressed: (functions.isEmpty(_model
+                                                .emailAddressController.text) ==
+                                            true) ||
+                                        (functions.isEmpty(_model
+                                                .passwordController.text) ==
+                                            true) ||
+                                        (functions.isEmpty(
+                                                _model.nameController.text) ==
+                                            true) ||
+                                        (functions.isEmpty(_model
+                                                .surnameController.text) ==
+                                            true) ||
+                                        (_model.passwordController.text !=
+                                            _model
+                                                .repeatPasswordController.text)
+                                    ? null
+                                    : () async {
+                                        Future Function() _navigate =
+                                            () async {};
+                                        if ((functions.isEmpty(_model
+                                                    .emailAddressController
+                                                    .text) ==
+                                                false) &&
+                                            (functions.isEmpty(_model
+                                                    .passwordController.text) ==
+                                                false) &&
+                                            (functions.isEmpty(_model
+                                                    .nameController.text) ==
+                                                false) &&
+                                            (functions.isEmpty(_model
+                                                    .surnameController.text) ==
+                                                false) &&
+                                            (_model.passwordController.text ==
+                                                _model.repeatPasswordController
+                                                    .text)) {
+                                          if (_model.passwordController.text !=
+                                              _model.repeatPasswordController
+                                                  .text) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Passwords don\'t match!',
+                                                ),
+                                              ),
+                                            );
+                                            return;
+                                          }
 
-                                  final user = await createAccountWithEmail(
-                                    context,
-                                    _model.emailAddressController.text,
-                                    _model.passwordController.text,
-                                  );
-                                  if (user == null) {
-                                    return;
-                                  }
+                                          final user =
+                                              await createAccountWithEmail(
+                                            context,
+                                            _model.emailAddressController.text,
+                                            _model.passwordController.text,
+                                          );
+                                          if (user == null) {
+                                            return;
+                                          }
 
-                                  final usersCreateData = createUsersRecordData(
-                                    phoneNumber:
-                                        _model.phoneNumberController.text,
-                                  );
-                                  await UsersRecord.collection
-                                      .doc(user.uid)
-                                      .update(usersCreateData);
+                                          final usersCreateData =
+                                              createUsersRecordData(
+                                            phoneNumber: _model
+                                                .phoneNumberController.text,
+                                          );
+                                          await UsersRecord.collection
+                                              .doc(user.uid)
+                                              .update(usersCreateData);
 
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => NavBarPage(
-                                          initialPage: 'homePage_MAIN'),
-                                    ),
-                                  );
-                                },
+                                          _navigate = () =>
+                                              Navigator.pushAndRemoveUntil(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      NavBarPage(
+                                                          initialPage:
+                                                              'homePage_MAIN'),
+                                                ),
+                                                (r) => false,
+                                              );
+                                          await sendEmailVerification();
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding: MediaQuery.of(context)
+                                                    .viewInsets,
+                                                child:
+                                                    EmailVerificationComponentWidget(
+                                                  message:
+                                                      'We\'ve sent  verification link to your email. After verifying please proceed with login.',
+                                                ),
+                                              );
+                                            },
+                                          ).then((value) => setState(() {}));
+
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return Padding(
+                                                padding: MediaQuery.of(context)
+                                                    .viewInsets,
+                                                child:
+                                                    EmailVerificationComponentWidget(
+                                                  message:
+                                                      'We\'ve sent  verification link to your email. After verifying please proceed with login.',
+                                                ),
+                                              );
+                                            },
+                                          ).then((value) => setState(() {}));
+                                        }
+
+                                        await _navigate();
+                                      },
                                 text: 'Create Account',
                                 options: FFButtonOptions(
                                   width: 230.0,
@@ -624,6 +703,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                     width: 1.0,
                                   ),
                                   borderRadius: BorderRadius.circular(40.0),
+                                  disabledColor: Color(0xFF949494),
                                 ),
                               ),
                             ),
