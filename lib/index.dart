@@ -20,8 +20,8 @@ export '/pages/payment_info/payment_info_widget.dart' show PaymentInfoWidget;
 export '/pages/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export '/pages/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
-export '/pages/create_property_1/create_property1_widget.dart'
-    show CreateProperty1Widget;
+export '/pages/create_garage_1/create_garage1_widget.dart'
+    show CreateGarage1Widget;
 export '/pages/home_page_a_l_t/home_page_a_l_t_widget.dart'
     show HomePageALTWidget;
 export '/pages/create_property_2/create_property2_widget.dart'
@@ -42,3 +42,9 @@ export '/pages/edit_property_3/edit_property3_widget.dart'
     show EditProperty3Widget;
 export '/pages/forgot_password/forgot_password_widget.dart'
     show ForgotPasswordWidget;
+export '/pages/garage_page1/garage_page1_widget.dart' show GaragePage1Widget;
+export '/pages/create_property_1_copy/create_property1_copy_widget.dart'
+    show CreateProperty1CopyWidget;
+export '/pages/timeslot/timeslot_widget.dart' show TimeslotWidget;
+export '/pages/create_garage_2/create_garage2_widget.dart'
+    show CreateGarage2Widget;

@@ -1,36 +1,34 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import '/pages/create_property_2/create_property2_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_property1_model.dart';
-export 'create_property1_model.dart';
+import 'create_property1_copy_model.dart';
+export 'create_property1_copy_model.dart';
 
-class CreateProperty1Widget extends StatefulWidget {
-  const CreateProperty1Widget({Key? key}) : super(key: key);
+class CreateProperty1CopyWidget extends StatefulWidget {
+  const CreateProperty1CopyWidget({Key? key}) : super(key: key);
 
   @override
-  _CreateProperty1WidgetState createState() => _CreateProperty1WidgetState();
+  _CreateProperty1CopyWidgetState createState() =>
+      _CreateProperty1CopyWidgetState();
 }
 
-class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
-  late CreateProperty1Model _model;
+class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
+  late CreateProperty1CopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateProperty1Model());
+    _model = createModel(context, () => CreateProperty1CopyModel());
 
     _model.propertyNameController ??= TextEditingController();
     _model.propertyAddressController ??= TextEditingController();
@@ -88,88 +86,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    InkWell(
-                      onTap: () async {
-                        final selectedMedia =
-                            await selectMediaWithSourceBottomSheet(
-                          context: context,
-                          allowPhoto: true,
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).tertiaryColor,
-                          textColor: FlutterFlowTheme.of(context).dark600,
-                          pickerFontFamily: 'Lexend Deca',
-                        );
-                        if (selectedMedia != null &&
-                            selectedMedia.every((m) =>
-                                validateFileFormat(m.storagePath, context))) {
-                          setState(() => _model.isDataUploading = true);
-                          var selectedUploadedFiles = <FFUploadedFile>[];
-                          var downloadUrls = <String>[];
-                          try {
-                            showUploadMessage(
-                              context,
-                              'Uploading file...',
-                              showLoading: true,
-                            );
-                            selectedUploadedFiles = selectedMedia
-                                .map((m) => FFUploadedFile(
-                                      name: m.storagePath.split('/').last,
-                                      bytes: m.bytes,
-                                      height: m.dimensions?.height,
-                                      width: m.dimensions?.width,
-                                    ))
-                                .toList();
-
-                            downloadUrls = (await Future.wait(
-                              selectedMedia.map(
-                                (m) async =>
-                                    await uploadData(m.storagePath, m.bytes),
-                              ),
-                            ))
-                                .where((u) => u != null)
-                                .map((u) => u!)
-                                .toList();
-                          } finally {
-                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                            _model.isDataUploading = false;
-                          }
-                          if (selectedUploadedFiles.length ==
-                                  selectedMedia.length &&
-                              downloadUrls.length == selectedMedia.length) {
-                            setState(() {
-                              _model.uploadedLocalFile =
-                                  selectedUploadedFiles.first;
-                              _model.uploadedFileUrl = downloadUrls.first;
-                            });
-                            showUploadMessage(context, 'Success!');
-                          } else {
-                            setState(() {});
-                            showUploadMessage(context, 'Failed to upload data');
-                            return;
-                          }
-                        }
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        height: 180.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFEEEEEE),
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16.0),
-                          child: CachedNetworkImage(
-                            imageUrl: valueOrDefault<String>(
-                              _model.uploadedFileUrl,
-                              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/sample-app-property-finder-834ebu/assets/lhbo8hbkycdw/addCoverImage@2x.png',
-                            ),
-                            width: double.infinity,
-                            height: 180.0,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
@@ -523,7 +439,6 @@ class _CreateProperty1WidgetState extends State<CreateProperty1Widget> {
                                     _model.propertyNameController.text,
                                 propertyDescription:
                                     _model.propertyDescriptionController.text,
-                                mainImage: _model.uploadedFileUrl,
                                 propertyAddress:
                                     _model.propertyAddressController.text,
                                 isDraft: true,

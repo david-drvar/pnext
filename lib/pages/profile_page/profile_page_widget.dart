@@ -6,7 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/change_password/change_password_widget.dart';
-import '/pages/create_property_1/create_property1_widget.dart';
+import '/pages/create_garage_1/create_garage1_widget.dart';
 import '/pages/edit_profile/edit_profile_widget.dart';
 import '/pages/login/login_widget.dart';
 import '/pages/my_bookings/my_bookings_widget.dart';
@@ -907,7 +907,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             type: PageTransitionType.bottomToTop,
                             duration: Duration(milliseconds: 250),
                             reverseDuration: Duration(milliseconds: 250),
-                            child: CreateProperty1Widget(),
+                            child: CreateGarage1Widget(),
                           ),
                         );
                       },

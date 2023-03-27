@@ -14,6 +14,8 @@ import 'schema/chats_record.dart';
 import 'schema/chat_messages_record.dart';
 import 'schema/amenitities_record.dart';
 import 'schema/bookings_record.dart';
+import 'schema/garages_record.dart';
+import 'schema/garage_photos_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -30,6 +32,8 @@ export 'schema/chats_record.dart';
 export 'schema/chat_messages_record.dart';
 export 'schema/amenitities_record.dart';
 export 'schema/bookings_record.dart';
+export 'schema/garages_record.dart';
+export 'schema/garage_photos_record.dart';
 
 /// Functions to query PropertiesRecords (as a Stream and as a Future).
 Future<int> queryPropertiesRecordCount({
@@ -493,6 +497,110 @@ Future<FFFirestorePage<BookingsRecord>> queryBookingsRecordPage({
     queryCollectionPage(
       BookingsRecord.collection,
       BookingsRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query GaragesRecords (as a Stream and as a Future).
+Future<int> queryGaragesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      GaragesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<GaragesRecord>> queryGaragesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      GaragesRecord.collection,
+      GaragesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<GaragesRecord>> queryGaragesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      GaragesRecord.collection,
+      GaragesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<GaragesRecord>> queryGaragesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      GaragesRecord.collection,
+      GaragesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query GaragePhotosRecords (as a Stream and as a Future).
+Future<int> queryGaragePhotosRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      GaragePhotosRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<GaragePhotosRecord>> queryGaragePhotosRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      GaragePhotosRecord.collection,
+      GaragePhotosRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<GaragePhotosRecord>> queryGaragePhotosRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      GaragePhotosRecord.collection,
+      GaragePhotosRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<GaragePhotosRecord>> queryGaragePhotosRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      GaragePhotosRecord.collection,
+      GaragePhotosRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
