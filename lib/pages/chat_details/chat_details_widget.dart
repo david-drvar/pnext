@@ -80,7 +80,7 @@ class _ChatDetailsWidgetState extends State<ChatDetailsWidget> {
           buttonSize: 60.0,
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: FlutterFlowTheme.of(context).tertiaryColor,
+            color: FlutterFlowTheme.of(context).tertiary,
             size: 30.0,
           ),
           onPressed: () async {
@@ -89,9 +89,9 @@ class _ChatDetailsWidgetState extends State<ChatDetailsWidget> {
         ),
         title: Text(
           widget.chatUser!.displayName!,
-          style: FlutterFlowTheme.of(context).subtitle1.override(
+          style: FlutterFlowTheme.of(context).titleMedium.override(
                 fontFamily: 'Urbanist',
-                color: FlutterFlowTheme.of(context).tertiaryColor,
+                color: FlutterFlowTheme.of(context).tertiary,
               ),
         ),
         actions: [],
@@ -162,7 +162,7 @@ class _ChatDetailsWidgetState extends State<ChatDetailsWidget> {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 ),

@@ -49,7 +49,7 @@ class _TotalWidgetState extends State<TotalWidget> {
           maxHeight: 230.0,
         ),
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiary,
           boxShadow: [
             BoxShadow(
               blurRadius: 7.0,
@@ -77,7 +77,7 @@ class _TotalWidgetState extends State<TotalWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
                   'Order Total',
-                  style: FlutterFlowTheme.of(context).title2.override(
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Urbanist',
                         color: FlutterFlowTheme.of(context).dark600,
                       ),
@@ -87,7 +87,7 @@ class _TotalWidgetState extends State<TotalWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
                   'Your order total is a summary of all items in your order minus any fees and taxes associated with your purchase.',
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Urbanist',
                         fontSize: 16.0,
                         fontWeight: FontWeight.w300,
@@ -108,10 +108,11 @@ class _TotalWidgetState extends State<TotalWidget> {
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).cultured,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Urbanist',
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                         ),
+                    elevation: 2.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,

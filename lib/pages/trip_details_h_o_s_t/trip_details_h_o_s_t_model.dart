@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/cancel_trip_h_o_s_t/cancel_trip_h_o_s_t_widget.dart';
 import '/components/total/total_widget.dart';

@@ -86,10 +86,11 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                       children: [
                         Text(
                           'Welcome!',
-                          style: FlutterFlowTheme.of(context).title1.override(
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
                                 fontFamily: 'Urbanist',
-                                color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
+                                color: FlutterFlowTheme.of(context).tertiary,
                               ),
                         ),
                       ],
@@ -105,7 +106,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                         Text(
                           'Find your Dream Space To Getaway',
                           style: FlutterFlowTheme.of(context)
-                              .subtitle2
+                              .titleSmall
                               .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).grayIcon,
@@ -139,7 +140,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                 decoration: InputDecoration(
                                   labelText: 'Address, city, state...',
                                   labelStyle: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
@@ -180,11 +181,11 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
                                     ),
                                 validator: _model.textControllerValidator
                                     .asValidator(context),
@@ -214,10 +215,9 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Urbanist',
                                       color: Colors.white,
@@ -241,10 +241,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: StreamBuilder<List<PropertiesRecord>>(
-                stream: queryPropertiesRecord(
-                  queryBuilder: (propertiesRecord) =>
-                      propertiesRecord.orderBy('lastUpdated', descending: true),
-                ),
+                stream: queryPropertiesRecord(),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -253,7 +250,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                         width: 50.0,
                         height: 50.0,
                         child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                         ),
                       ),
                     );
@@ -339,7 +336,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                             replacement: '…',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .title3,
+                                              .headlineSmall,
                                         ),
                                       ),
                                     ],
@@ -360,7 +357,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                             replacement: '…',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                         ),
                                       ),
                                     ],
@@ -382,7 +379,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                           height: 50.0,
                                           child: CircularProgressIndicator(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                           ),
                                         ),
                                       );
@@ -418,7 +415,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                       CircularProgressIndicator(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryColor,
+                                                        .primary,
                                                   ),
                                                 ),
                                               );
@@ -450,7 +447,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                             .toList()),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                                   ),
                                                 ),
                                                 Padding(
@@ -461,7 +458,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                     'Rating',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                                   ),
                                                 ),
                                               ],

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'auth/firebase_user_provider.dart';
-import 'auth/auth_util.dart';
+import 'auth/firebase_auth/firebase_user_provider.dart';
+import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -41,8 +41,8 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  late Stream<MyPNextFirebaseUser> userStream;
-  MyPNextFirebaseUser? initialUser;
+  late Stream<BaseAuthUser> userStream;
+  BaseAuthUser? initialUser;
   bool displaySplashImage = true;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
@@ -119,7 +119,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'homePage_MAIN';
+  String _currentPageName = 'homePage_MAINDavid';
   late Widget? _currentPage;
 
   @override
@@ -136,6 +136,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'myTrips': MyTripsWidget(),
       'chatMain': ChatMainWidget(),
       'profilePage': ProfilePageWidget(),
+      'homePage_MAINDavid': HomePageMAINDavidWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -147,7 +148,7 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: Colors.white,
-        selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
+        selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: FlutterFlowTheme.of(context).grayIcon,
         showSelectedLabels: true,
         showUnselectedLabels: false,
@@ -195,6 +196,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: 'Profile',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24.0,
+            ),
+            activeIcon: Icon(
+              Icons.home_rounded,
+              size: 24.0,
+            ),
+            label: 'Home',
             tooltip: '',
           )
         ],

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -62,7 +62,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
         ),
         title: Text(
           'My Properties',
-          style: FlutterFlowTheme.of(context).title2,
+          style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
         centerTitle: false,
@@ -80,10 +80,11 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                   TabBar(
                     labelColor: FlutterFlowTheme.of(context).turquoise,
                     unselectedLabelColor: FlutterFlowTheme.of(context).grayIcon,
-                    labelStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily: 'Urbanist',
-                          fontWeight: FontWeight.w500,
-                        ),
+                    labelStyle:
+                        FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Urbanist',
+                              fontWeight: FontWeight.w500,
+                            ),
                     indicatorColor: FlutterFlowTheme.of(context).turquoise,
                     indicatorWeight: 4.0,
                     tabs: [
@@ -127,7 +128,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -235,7 +236,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .title3
+                                                              .headlineSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Urbanist',
@@ -275,7 +276,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                               .propertyAddress!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText2
+                                                              .bodySmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -299,7 +300,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle1,
+                                                              .titleMedium,
                                                     ),
                                                   ],
                                                 ),
@@ -321,7 +322,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -346,7 +347,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',
@@ -399,7 +400,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                       height: 50.0,
                                       child: CircularProgressIndicator(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                       ),
                                     ),
                                   );
@@ -495,7 +496,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .title3
+                                                              .headlineSmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Urbanist',
@@ -535,7 +536,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                               .propertyAddress!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText2
+                                                              .bodySmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -559,7 +560,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .subtitle1,
+                                                              .titleMedium,
                                                     ),
                                                   ],
                                                 ),
@@ -581,7 +582,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -606,7 +607,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Lexend Deca',

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -162,7 +162,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                       child: Text(
                         'Change Profile Photo',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
                     ),
                   ),
@@ -191,8 +191,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                         await selectMediaWithSourceBottomSheet(
                       context: context,
                       allowPhoto: true,
-                      backgroundColor:
-                          FlutterFlowTheme.of(context).tertiaryColor,
+                      backgroundColor: FlutterFlowTheme.of(context).tertiary,
                       textColor: FlutterFlowTheme.of(context).darkText,
                       pickerFontFamily: 'Lexend Deca',
                     );
@@ -254,13 +253,13 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Urbanist',
                           color: FlutterFlowTheme.of(context).primaryText,
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).tertiaryColor,
+                      color: FlutterFlowTheme.of(context).tertiary,
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
@@ -276,6 +275,7 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                       photoUrl: _model.uploadedFileUrl,
                     );
                     await currentUserReference!.update(usersUpdateData);
+                    Navigator.pop(context);
                   },
                   text: 'Save Photo',
                   options: FFButtonOptions(
@@ -284,11 +284,12 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primaryColor,
-                    textStyle: FlutterFlowTheme.of(context).title3.override(
-                          fontFamily: 'Urbanist',
-                          color: FlutterFlowTheme.of(context).tertiaryColor,
-                        ),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.override(
+                              fontFamily: 'Urbanist',
+                              color: FlutterFlowTheme.of(context).tertiary,
+                            ),
                     elevation: 3.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,

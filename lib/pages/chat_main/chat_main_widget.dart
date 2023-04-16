@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -47,9 +47,9 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'All Chats',
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Urbanist',
-                color: FlutterFlowTheme.of(context).tertiaryColor,
+                color: FlutterFlowTheme.of(context).tertiary,
                 fontWeight: FontWeight.bold,
               ),
         ),
@@ -74,7 +74,7 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 );
@@ -120,7 +120,7 @@ class _ChatMainWidgetState extends State<ChatMainWidget> {
                         title: chatInfo.chatPreviewTitle(),
                         userProfilePic: chatInfo.chatPreviewPic(),
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        unreadColor: FlutterFlowTheme.of(context).primaryColor,
+                        unreadColor: FlutterFlowTheme.of(context).primary,
                         titleTextStyle: GoogleFonts.getFont(
                           'Urbanist',
                           color: FlutterFlowTheme.of(context).primaryText,

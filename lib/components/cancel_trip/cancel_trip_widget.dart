@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -85,14 +85,14 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
                   'Cancel Trip',
-                  style: FlutterFlowTheme.of(context).title2,
+                  style: FlutterFlowTheme.of(context).headlineMedium,
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
                   'If you want to cancel your tripl please leave a note below to send to the host.',
-                  style: FlutterFlowTheme.of(context).bodyText1,
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
               Padding(
@@ -101,9 +101,9 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                   controller: _model.emailAddressController,
                   obscureText: false,
                   decoration: InputDecoration(
-                    labelStyle: FlutterFlowTheme.of(context).bodyText1,
+                    labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                     hintText: 'Your reason for cancelling...',
-                    hintStyle: FlutterFlowTheme.of(context).bodyText1,
+                    hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: FlutterFlowTheme.of(context).lineGray,
@@ -137,7 +137,7 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                     contentPadding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 0.0, 24.0),
                   ),
-                  style: FlutterFlowTheme.of(context).subtitle2,
+                  style: FlutterFlowTheme.of(context).titleSmall,
                   maxLines: 4,
                   validator: _model.emailAddressControllerValidator
                       .asValidator(context),
@@ -157,11 +157,10 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                         content: Text(
                           'Your trip has been cancelled.',
                           style: FlutterFlowTheme.of(context)
-                              .bodyText1
+                              .bodyMedium
                               .override(
                                 fontFamily: 'Urbanist',
-                                color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
+                                color: FlutterFlowTheme.of(context).tertiary,
                               ),
                         ),
                         duration: Duration(milliseconds: 4000),
@@ -186,9 +185,9 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Color(0xFFFC4253),
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Urbanist',
-                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                          color: FlutterFlowTheme.of(context).tertiary,
                         ),
                     elevation: 2.0,
                     borderSide: BorderSide(
@@ -221,7 +220,7 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).lineGray,
                         textStyle: FlutterFlowTheme.of(context)
-                            .subtitle2
+                            .titleSmall
                             .override(
                               fontFamily: 'Urbanist',
                               color: FlutterFlowTheme.of(context).primaryText,

@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/email_verification_component/email_verification_component_widget.dart';
 import '/components/socials_sign_in_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -72,7 +72,7 @@ class _LoginWidgetState extends State<LoginWidget>
         width: MediaQuery.of(context).size.width * 1.0,
         height: MediaQuery.of(context).size.height * 1.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiary,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -112,12 +112,13 @@ class _LoginWidgetState extends State<LoginWidget>
                           children: [
                             Text(
                               'PNext',
-                              style:
-                                  FlutterFlowTheme.of(context).title1.override(
-                                        fontFamily: 'Urbanist',
-                                        fontSize: 30.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                              style: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
                           ],
@@ -132,7 +133,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           children: [
                             Text(
                               'Welcome Back,',
-                              style: FlutterFlowTheme.of(context).title1,
+                              style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
                         ),
@@ -151,10 +152,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Email Address',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your email here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -191,7 +192,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 24.0, 0.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                                 validator: _model
                                     .emailAddressControllerValidator
                                     .asValidator(context),
@@ -214,10 +215,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Password',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your email here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -268,7 +269,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                                 validator: _model.passwordControllerValidator
                                     .asValidator(context),
                               ),
@@ -303,7 +304,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Color(0x00FFFFFF),
                                 textStyle:
-                                    FlutterFlowTheme.of(context).subtitle2,
+                                    FlutterFlowTheme.of(context).titleSmall,
                                 elevation: 0.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
@@ -334,11 +335,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                     } else {
                                       await showModalBottomSheet(
                                         isScrollControlled: true,
+                                        backgroundColor: Colors.white,
                                         enableDrag: false,
                                         context: context,
-                                        builder: (context) {
+                                        builder: (bottomSheetContext) {
                                           return Padding(
-                                            padding: MediaQuery.of(context)
+                                            padding: MediaQuery.of(
+                                                    bottomSheetContext)
                                                 .viewInsets,
                                             child:
                                                 EmailVerificationComponentWidget(
@@ -352,12 +355,14 @@ class _LoginWidgetState extends State<LoginWidget>
                                   } else {
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
+                                      backgroundColor: Colors.white,
                                       enableDrag: false,
                                       context: context,
-                                      builder: (context) {
+                                      builder: (bottomSheetContext) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(context).viewInsets,
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
                                           child:
                                               EmailVerificationComponentWidget(
                                             message: _model.returnAuth,
@@ -377,10 +382,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle1
+                                      .titleMedium
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: Colors.white,
@@ -412,7 +416,7 @@ class _LoginWidgetState extends State<LoginWidget>
                               child: Text(
                                 'Don\'t have an account?',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color:
@@ -444,7 +448,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Color(0x00FFFFFF),
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF39D2C0),

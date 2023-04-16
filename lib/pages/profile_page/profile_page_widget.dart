@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -100,7 +100,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 width: 50.0,
                 height: 50.0,
                 child: CircularProgressIndicator(
-                  color: FlutterFlowTheme.of(context).primaryColor,
+                  color: FlutterFlowTheme.of(context).primary,
                 ),
               ),
             );
@@ -136,7 +136,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(60.0),
                             child: Image.network(
-                              columnUsersRecord.photoUrl!,
+                              valueOrDefault<String>(
+                                columnUsersRecord.photoUrl,
+                                'https://via.placeholder.com/600x400?text=Profile+photo',
+                              ),
                               width: 80.0,
                               height: 80.0,
                               fit: BoxFit.cover,
@@ -155,11 +158,25 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             children: [
                               Text(
                                 valueOrDefault<String>(
-                                  columnUsersRecord.displayName,
-                                  'Mr. Rogers',
+                                  columnUsersRecord.name,
+                                  'name',
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title3
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                              Text(
+                                valueOrDefault<String>(
+                                  columnUsersRecord.surname,
+                                  'surname',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Colors.white,
@@ -173,11 +190,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 child: Text(
                                   columnUsersRecord.email!,
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText1
+                                      .bodyMedium
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -231,7 +248,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               Text(
                                 'Switch to Dark Mode',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Outfit',
                                       color: Colors.white,
@@ -332,7 +349,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               Text(
                                 'Switch to Light Mode',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Outfit',
                                       color: Colors.white,
@@ -437,7 +454,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           children: [
                             Text(
                               'Account Details',
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -496,7 +513,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             children: [
                               Text(
                                 'Edit Profile',
-                                style: FlutterFlowTheme.of(context).subtitle2,
+                                style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
@@ -569,7 +586,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               children: [
                                 Text(
                                   'Payment Information',
-                                  style: FlutterFlowTheme.of(context).subtitle2,
+                                  style:
+                                      FlutterFlowTheme.of(context).titleSmall,
                                 ),
                                 FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
@@ -645,7 +663,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               children: [
                                 Text(
                                   'Change Password',
-                                  style: FlutterFlowTheme.of(context).subtitle2,
+                                  style:
+                                      FlutterFlowTheme.of(context).titleSmall,
                                 ),
                                 FlutterFlowIconButton(
                                   borderColor: Colors.transparent,
@@ -726,7 +745,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       child: Text(
                                         'My Properties',
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle2,
+                                            .titleSmall,
                                       ),
                                     ),
                                     Container(
@@ -734,7 +753,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       height: 32.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                            .primary,
                                         shape: BoxShape.circle,
                                       ),
                                       alignment: AlignmentDirectional(0.0, 0.0),
@@ -746,12 +765,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         ),
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Urbanist',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
+                                                      .tertiary,
                                             ),
                                       ),
                                     ),
@@ -832,7 +851,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     child: Text(
                                       'My Bookings',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle2,
+                                          .titleSmall,
                                     ),
                                   ),
                                   FlutterFlowIconButton(
@@ -861,7 +880,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await signOut();
+                    await authManager.signOut();
                     await Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
@@ -878,7 +897,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.of(context).darkText,
                           fontSize: 16.0,
@@ -919,9 +938,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Urbanist',
                                   color: Colors.white,
                                 ),

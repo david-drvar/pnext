@@ -63,14 +63,6 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.videos;
-    if (value != null) {
-      result
-        ..add('videos')
-        ..add(serializers.serialize(value,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
-    }
     value = object.rate;
     if (value != null) {
       result
@@ -98,6 +90,43 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
         ..add('isKey')
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.mondayStart;
+    if (value != null) {
+      result
+        ..add('monday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.mondayEnd;
+    if (value != null) {
+      result
+        ..add('monday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.location;
+    if (value != null) {
+      result
+        ..add('location')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(LatLng)));
+    }
+    value = object.photos;
+    if (value != null) {
+      result
+        ..add('photos')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
+    }
+    value = object.videos;
+    if (value != null) {
+      result
+        ..add('videos')
+        ..add(serializers.serialize(value,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     value = object.ffRef;
     if (value != null) {
@@ -148,12 +177,6 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'videos':
-          result.videos.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      BuiltList, const [const FullType(String)]))!
-              as BuiltList<Object?>);
-          break;
         case 'rate':
           result.rate = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
@@ -169,6 +192,30 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
         case 'isKey':
           result.isKey = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'monday_start':
+          result.mondayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'monday_end':
+          result.mondayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'location':
+          result.location = serializers.deserialize(value,
+              specifiedType: const FullType(LatLng)) as LatLng?;
+          break;
+        case 'photos':
+          result.photos.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'videos':
+          result.videos.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -197,8 +244,6 @@ class _$GaragesRecord extends GaragesRecord {
   @override
   final String? description;
   @override
-  final BuiltList<String>? videos;
-  @override
   final double? rate;
   @override
   final DateTime? startDateValidity;
@@ -206,6 +251,16 @@ class _$GaragesRecord extends GaragesRecord {
   final DateTime? endDateValidity;
   @override
   final bool? isKey;
+  @override
+  final DateTime? mondayStart;
+  @override
+  final DateTime? mondayEnd;
+  @override
+  final LatLng? location;
+  @override
+  final BuiltList<String>? photos;
+  @override
+  final BuiltList<String>? videos;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -219,11 +274,15 @@ class _$GaragesRecord extends GaragesRecord {
       this.zip,
       this.dimensions,
       this.description,
-      this.videos,
       this.rate,
       this.startDateValidity,
       this.endDateValidity,
       this.isKey,
+      this.mondayStart,
+      this.mondayEnd,
+      this.location,
+      this.photos,
+      this.videos,
       this.ffRef})
       : super._();
 
@@ -244,11 +303,15 @@ class _$GaragesRecord extends GaragesRecord {
         zip == other.zip &&
         dimensions == other.dimensions &&
         description == other.description &&
-        videos == other.videos &&
         rate == other.rate &&
         startDateValidity == other.startDateValidity &&
         endDateValidity == other.endDateValidity &&
         isKey == other.isKey &&
+        mondayStart == other.mondayStart &&
+        mondayEnd == other.mondayEnd &&
+        location == other.location &&
+        photos == other.photos &&
+        videos == other.videos &&
         ffRef == other.ffRef;
   }
 
@@ -261,11 +324,15 @@ class _$GaragesRecord extends GaragesRecord {
     _$hash = $jc(_$hash, zip.hashCode);
     _$hash = $jc(_$hash, dimensions.hashCode);
     _$hash = $jc(_$hash, description.hashCode);
-    _$hash = $jc(_$hash, videos.hashCode);
     _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, startDateValidity.hashCode);
     _$hash = $jc(_$hash, endDateValidity.hashCode);
     _$hash = $jc(_$hash, isKey.hashCode);
+    _$hash = $jc(_$hash, mondayStart.hashCode);
+    _$hash = $jc(_$hash, mondayEnd.hashCode);
+    _$hash = $jc(_$hash, location.hashCode);
+    _$hash = $jc(_$hash, photos.hashCode);
+    _$hash = $jc(_$hash, videos.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -280,11 +347,15 @@ class _$GaragesRecord extends GaragesRecord {
           ..add('zip', zip)
           ..add('dimensions', dimensions)
           ..add('description', description)
-          ..add('videos', videos)
           ..add('rate', rate)
           ..add('startDateValidity', startDateValidity)
           ..add('endDateValidity', endDateValidity)
           ..add('isKey', isKey)
+          ..add('mondayStart', mondayStart)
+          ..add('mondayEnd', mondayEnd)
+          ..add('location', location)
+          ..add('photos', photos)
+          ..add('videos', videos)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -318,11 +389,6 @@ class GaragesRecordBuilder
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
-  ListBuilder<String>? _videos;
-  ListBuilder<String> get videos =>
-      _$this._videos ??= new ListBuilder<String>();
-  set videos(ListBuilder<String>? videos) => _$this._videos = videos;
-
   double? _rate;
   double? get rate => _$this._rate;
   set rate(double? rate) => _$this._rate = rate;
@@ -341,6 +407,28 @@ class GaragesRecordBuilder
   bool? get isKey => _$this._isKey;
   set isKey(bool? isKey) => _$this._isKey = isKey;
 
+  DateTime? _mondayStart;
+  DateTime? get mondayStart => _$this._mondayStart;
+  set mondayStart(DateTime? mondayStart) => _$this._mondayStart = mondayStart;
+
+  DateTime? _mondayEnd;
+  DateTime? get mondayEnd => _$this._mondayEnd;
+  set mondayEnd(DateTime? mondayEnd) => _$this._mondayEnd = mondayEnd;
+
+  LatLng? _location;
+  LatLng? get location => _$this._location;
+  set location(LatLng? location) => _$this._location = location;
+
+  ListBuilder<String>? _photos;
+  ListBuilder<String> get photos =>
+      _$this._photos ??= new ListBuilder<String>();
+  set photos(ListBuilder<String>? photos) => _$this._photos = photos;
+
+  ListBuilder<String>? _videos;
+  ListBuilder<String> get videos =>
+      _$this._videos ??= new ListBuilder<String>();
+  set videos(ListBuilder<String>? videos) => _$this._videos = videos;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -358,11 +446,15 @@ class GaragesRecordBuilder
       _zip = $v.zip;
       _dimensions = $v.dimensions;
       _description = $v.description;
-      _videos = $v.videos?.toBuilder();
       _rate = $v.rate;
       _startDateValidity = $v.startDateValidity;
       _endDateValidity = $v.endDateValidity;
       _isKey = $v.isKey;
+      _mondayStart = $v.mondayStart;
+      _mondayEnd = $v.mondayEnd;
+      _location = $v.location;
+      _photos = $v.photos?.toBuilder();
+      _videos = $v.videos?.toBuilder();
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -394,15 +486,21 @@ class GaragesRecordBuilder
               zip: zip,
               dimensions: dimensions,
               description: description,
-              videos: _videos?.build(),
               rate: rate,
               startDateValidity: startDateValidity,
               endDateValidity: endDateValidity,
               isKey: isKey,
+              mondayStart: mondayStart,
+              mondayEnd: mondayEnd,
+              location: location,
+              photos: _photos?.build(),
+              videos: _videos?.build(),
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'photos';
+        _photos?.build();
         _$failedField = 'videos';
         _videos?.build();
       } catch (e) {

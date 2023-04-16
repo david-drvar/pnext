@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -138,7 +138,7 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                       child: Text(
                         'Rate Your Trip',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
                     ),
                   ],
@@ -153,7 +153,7 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         child: Text(
                           'Let us know what you thought of the place below!',
                           textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                     ),
@@ -171,7 +171,7 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                           child: Text(
                             'How would you rate it?',
                             textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context).bodyText2,
+                            style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ),
                       ),
@@ -185,14 +185,14 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         setState(() => _model.ratingBarValue = newValue),
                     itemBuilder: (context, index) => Icon(
                       Icons.star_rounded,
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                     direction: Axis.horizontal,
                     initialRating: _model.ratingBarValue ??= 0.0,
                     unratedColor: FlutterFlowTheme.of(context).lineGray,
                     itemCount: 5,
                     itemSize: 48.0,
-                    glowColor: FlutterFlowTheme.of(context).primaryColor,
+                    glowColor: FlutterFlowTheme.of(context).primary,
                   ),
                 ),
                 Padding(
@@ -202,7 +202,7 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                     obscureText: false,
                     decoration: InputDecoration(
                       hintText: 'Please leave a description of the place...',
-                      hintStyle: FlutterFlowTheme.of(context).bodyText1,
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).lineGray,
@@ -232,7 +232,7 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyText2,
+                    style: FlutterFlowTheme.of(context).bodySmall,
                     maxLines: 4,
                     validator:
                         _model.textControllerValidator.asValidator(context),
@@ -277,12 +277,12 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         SnackBar(
                           content: Text(
                             'Your review was submitted succesffuly!',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                ),
                           ),
                           duration: Duration(milliseconds: 4000),
                           backgroundColor:
@@ -298,11 +298,12 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primaryColor,
-                      textStyle: FlutterFlowTheme.of(context).title3.override(
-                            fontFamily: 'Urbanist',
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
-                          ),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Urbanist',
+                                color: FlutterFlowTheme.of(context).tertiary,
+                              ),
                       elevation: 3.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,

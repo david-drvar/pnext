@@ -1,13 +1,16 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/components/email_verification_component/email_verification_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/main.dart';
 import '/pages/login/login_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -75,7 +78,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
         width: MediaQuery.of(context).size.width * 1.0,
         height: MediaQuery.of(context).size.height * 1.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiary,
           image: DecorationImage(
             fit: BoxFit.fitWidth,
             image: Image.asset(
@@ -88,7 +91,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
           children: [
             Container(
               width: double.infinity,
-              height: 700.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
                 boxShadow: [
@@ -115,18 +117,19 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 56.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
                               'PNext',
-                              style:
-                                  FlutterFlowTheme.of(context).title1.override(
-                                        fontFamily: 'Urbanist',
-                                        fontSize: 30.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                              style: FlutterFlowTheme.of(context)
+                                  .displaySmall
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    fontSize: 30.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
                           ],
@@ -141,7 +144,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                           children: [
                             Text(
                               'Get Started Below,',
-                              style: FlutterFlowTheme.of(context).title1,
+                              style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
                         ),
@@ -160,10 +163,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Name',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your name here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -200,7 +203,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 24.0, 0.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context).bodySmall,
                                 validator: _model.nameControllerValidator
                                     .asValidator(context),
                               ),
@@ -222,10 +225,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Surname',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your surname here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -262,7 +265,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 24.0, 0.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context).bodySmall,
                                 validator: _model.surnameControllerValidator
                                     .asValidator(context),
                               ),
@@ -284,10 +287,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Phone number',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your phone number here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -324,12 +327,116 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 24.0, 0.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context).bodySmall,
                                 keyboardType:
                                     const TextInputType.numberWithOptions(
                                         signed: true, decimal: true),
                                 validator: _model.phoneNumberControllerValidator
                                     .asValidator(context),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.network(
+                                valueOrDefault<String>(
+                                  _model.uploadedFileUrl,
+                                  'https://via.placeholder.com/600x400?text=Upload+document',
+                                ),
+                                width: 100.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  final selectedMedia =
+                                      await selectMediaWithSourceBottomSheet(
+                                    context: context,
+                                    allowPhoto: true,
+                                  );
+                                  if (selectedMedia != null &&
+                                      selectedMedia.every((m) =>
+                                          validateFileFormat(
+                                              m.storagePath, context))) {
+                                    setState(
+                                        () => _model.isDataUploading = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+                                    var downloadUrls = <String>[];
+                                    try {
+                                      selectedUploadedFiles = selectedMedia
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                                height: m.dimensions?.height,
+                                                width: m.dimensions?.width,
+                                              ))
+                                          .toList();
+
+                                      downloadUrls = (await Future.wait(
+                                        selectedMedia.map(
+                                          (m) async => await uploadData(
+                                              m.storagePath, m.bytes),
+                                        ),
+                                      ))
+                                          .where((u) => u != null)
+                                          .map((u) => u!)
+                                          .toList();
+                                    } finally {
+                                      _model.isDataUploading = false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                            selectedMedia.length &&
+                                        downloadUrls.length ==
+                                            selectedMedia.length) {
+                                      setState(() {
+                                        _model.uploadedLocalFile =
+                                            selectedUploadedFiles.first;
+                                        _model.uploadedFileUrl =
+                                            downloadUrls.first;
+                                      });
+                                    } else {
+                                      setState(() {});
+                                      return;
+                                    }
+                                  }
+                                },
+                                text: 'Upload document',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: Colors.white,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               ),
                             ),
                           ],
@@ -349,10 +456,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Email address',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your email here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -389,7 +496,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 24.0, 0.0, 24.0),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context).bodySmall,
                                 validator: _model
                                     .emailAddressControllerValidator
                                     .asValidator(context),
@@ -412,10 +519,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Password',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Enter your password here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -466,7 +573,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context).bodySmall,
                                 validator: _model.passwordControllerValidator
                                     .asValidator(context),
                               ),
@@ -488,10 +595,10 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 decoration: InputDecoration(
                                   labelText: 'Repeat password',
                                   labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Repeat your password here...',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText1,
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color:
@@ -542,7 +649,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyText2,
+                                style: FlutterFlowTheme.of(context).bodySmall,
                                 validator: _model
                                     .repeatPasswordControllerValidator
                                     .asValidator(context),
@@ -585,18 +692,27 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                                     .emailAddressController
                                                     .text) ==
                                                 false) &&
-                                            (functions.isEmpty(_model
-                                                    .passwordController.text) ==
+                                            (functions
+                                                    .isEmpty(_model
+                                                        .passwordController
+                                                        .text) ==
                                                 false) &&
-                                            (functions.isEmpty(_model
-                                                    .nameController.text) ==
+                                            (functions
+                                                    .isEmpty(
+                                                        _model.nameController
+                                                            .text) ==
                                                 false) &&
-                                            (functions.isEmpty(_model
-                                                    .surnameController.text) ==
+                                            (functions
+                                                    .isEmpty(
+                                                        _model.surnameController
+                                                            .text) ==
                                                 false) &&
                                             (_model.passwordController.text ==
                                                 _model.repeatPasswordController
-                                                    .text)) {
+                                                    .text) &&
+                                            (functions.isEmpty(
+                                                    _model.uploadedFileUrl) ==
+                                                false)) {
                                           if (_model.passwordController.text !=
                                               _model.repeatPasswordController
                                                   .text) {
@@ -611,8 +727,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                             return;
                                           }
 
-                                          final user =
-                                              await createAccountWithEmail(
+                                          final user = await authManager
+                                              .createAccountWithEmail(
                                             context,
                                             _model.emailAddressController.text,
                                             _model.passwordController.text,
@@ -625,6 +741,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                               createUsersRecordData(
                                             phoneNumber: _model
                                                 .phoneNumberController.text,
+                                            name: _model.nameController.text,
+                                            surname:
+                                                _model.surnameController.text,
                                           );
                                           await UsersRecord.collection
                                               .doc(user.uid)
@@ -634,21 +753,31 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                               Navigator.pushAndRemoveUntil(
                                                 context,
                                                 MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      NavBarPage(
-                                                          initialPage:
-                                                              'homePage_MAIN'),
+                                                  builder: (context) => NavBarPage(
+                                                      initialPage:
+                                                          'homePage_MAINDavid'),
                                                 ),
                                                 (r) => false,
                                               );
-                                          await sendEmailVerification();
+
+                                          final usersUpdateData =
+                                              createUsersRecordData(
+                                            documentPhotoUrl:
+                                                _model.uploadedFileUrl,
+                                          );
+                                          await currentUserReference!
+                                              .update(usersUpdateData);
+                                          await authManager
+                                              .sendEmailVerification();
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
+                                            backgroundColor: Colors.white,
                                             enableDrag: false,
                                             context: context,
-                                            builder: (context) {
+                                            builder: (bottomSheetContext) {
                                               return Padding(
-                                                padding: MediaQuery.of(context)
+                                                padding: MediaQuery.of(
+                                                        bottomSheetContext)
                                                     .viewInsets,
                                                 child:
                                                     EmailVerificationComponentWidget(
@@ -661,11 +790,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
 
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
+                                            backgroundColor: Colors.white,
                                             enableDrag: false,
                                             context: context,
-                                            builder: (context) {
+                                            builder: (bottomSheetContext) {
                                               return Padding(
-                                                padding: MediaQuery.of(context)
+                                                padding: MediaQuery.of(
+                                                        bottomSheetContext)
                                                     .viewInsets,
                                                 child:
                                                     EmailVerificationComponentWidget(
@@ -687,10 +818,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle1
+                                      .titleMedium
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: Colors.white,
@@ -722,7 +852,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                   20.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 'Already have an account?',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                             FFButtonWidget(
@@ -744,7 +874,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Color(0x00FFFFFF),
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF39D2C0),
@@ -764,32 +894,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                       ),
                     ],
                   ),
-                ),
-              ),
-            ),
-            Container(
-              width: double.infinity,
-              height: 450.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/orig.png',
-                  ).image,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 7.0,
-                    color: Color(0x4D090F13),
-                    offset: Offset(0.0, 3.0),
-                  )
-                ],
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(16.0),
-                  bottomRight: Radius.circular(16.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
                 ),
               ),
             ),

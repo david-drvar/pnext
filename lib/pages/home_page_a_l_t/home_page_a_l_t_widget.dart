@@ -60,7 +60,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                       width: double.infinity,
                       height: 370.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).tertiaryColor,
+                        color: FlutterFlowTheme.of(context).tertiary,
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: Image.asset(
@@ -112,11 +112,11 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                   Text(
                                     'Welcome!',
                                     style: FlutterFlowTheme.of(context)
-                                        .title1
+                                        .displaySmall
                                         .override(
                                           fontFamily: 'Urbanist',
                                           color: FlutterFlowTheme.of(context)
-                                              .tertiaryColor,
+                                              .tertiary,
                                           fontSize: 36.0,
                                         ),
                                   ),
@@ -133,11 +133,11 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                   Text(
                                     'Find your Dream Space',
                                     style: FlutterFlowTheme.of(context)
-                                        .title2
+                                        .headlineMedium
                                         .override(
                                           fontFamily: 'Urbanist',
                                           color: FlutterFlowTheme.of(context)
-                                              .tertiaryColor,
+                                              .tertiary,
                                           fontWeight: FontWeight.w100,
                                         ),
                                   ),
@@ -151,8 +151,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                 width: double.infinity,
                                 height: 60.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .tertiaryColor,
+                                  color: FlutterFlowTheme.of(context).tertiary,
                                   borderRadius: BorderRadius.circular(30.0),
                                 ),
                                 alignment: AlignmentDirectional(0.0, 0.0),
@@ -173,7 +172,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                               borderSide: BorderSide(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .tertiaryColor,
+                                                        .tertiary,
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -207,7 +206,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                             filled: true,
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .tertiaryColor,
+                                                    .tertiary,
                                             prefixIcon: Icon(
                                               Icons.search_sharp,
                                               color:
@@ -216,7 +215,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Urbanist',
                                                 color:
@@ -247,10 +246,10 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2
+                                                  .titleSmall
                                                   .override(
                                                     fontFamily: 'Urbanist',
                                                     color: Colors.white,
@@ -289,7 +288,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                         width: 50.0,
                         height: 50.0,
                         child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                          color: FlutterFlowTheme.of(context).primary,
                         ),
                       ),
                     );
@@ -308,7 +307,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
+                            color: FlutterFlowTheme.of(context).tertiary,
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 4.0,
@@ -377,7 +376,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                       Text(
                                         columnPropertiesRecord.propertyName!,
                                         style: FlutterFlowTheme.of(context)
-                                            .title3
+                                            .headlineSmall
                                             .override(
                                               fontFamily: 'Urbanist',
                                               color:
@@ -399,7 +398,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                         columnPropertiesRecord
                                             .propertyDescription!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText2
+                                            .bodySmall
                                             .override(
                                               fontFamily: 'Lexend Deca',
                                               color:
@@ -422,7 +421,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                         child: Text(
                                           '4/5 reviews',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Lexend Deca',
                                                 color:

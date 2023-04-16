@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -57,7 +57,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               width: 50.0,
               height: 50.0,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
               ),
             ),
           );
@@ -85,7 +85,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
             title: Text(
               'Change Password',
-              style: FlutterFlowTheme.of(context).title2,
+              style: FlutterFlowTheme.of(context).headlineMedium,
             ),
             actions: [],
             centerTitle: false,
@@ -103,9 +103,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'Email Address',
-                      labelStyle: FlutterFlowTheme.of(context).bodyText1,
+                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                       hintText: 'Your email..',
-                      hintStyle: FlutterFlowTheme.of(context).bodyText1,
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: FlutterFlowTheme.of(context).lineGray,
@@ -140,7 +140,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                     ),
-                    style: FlutterFlowTheme.of(context).subtitle2,
+                    style: FlutterFlowTheme.of(context).titleSmall,
                     validator: _model.emailAddressControllerValidator
                         .asValidator(context),
                   ),
@@ -153,7 +153,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                       Expanded(
                         child: Text(
                           'We will send you an email with a link to reset your password, please enter the email associated with your account above.',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
                     ],
@@ -176,7 +176,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           );
                           return;
                         }
-                        await resetPassword(
+                        await authManager.resetPassword(
                           email: _model.emailAddressController.text,
                           context: context,
                         );
@@ -190,9 +190,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
+                            FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Lexend Deca',
                                   color: Colors.white,
                                   fontSize: 16.0,

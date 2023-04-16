@@ -78,7 +78,7 @@ class _EmailVerificationComponentWidgetState
               child: Text(
                 widget.message!,
                 textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyText1,
+                style: FlutterFlowTheme.of(context).bodyMedium,
               ),
             ),
             FFButtonWidget(
@@ -96,13 +96,14 @@ class _EmailVerificationComponentWidgetState
                 height: 60.0,
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: FlutterFlowTheme.of(context).primaryColor,
-                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                color: FlutterFlowTheme.of(context).primary,
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Lexend Deca',
                       color: Colors.white,
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
                     ),
+                elevation: 2.0,
                 borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,

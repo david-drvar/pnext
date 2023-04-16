@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/total/total_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -137,7 +137,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Book Now',
-                            style: FlutterFlowTheme.of(context).title2,
+                            style: FlutterFlowTheme.of(context).headlineMedium,
                           ),
                         ),
                       ],
@@ -178,7 +178,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               maxChars: 70,
                               replacement: '…',
                             ),
-                            style: FlutterFlowTheme.of(context).title1,
+                            style: FlutterFlowTheme.of(context).displaySmall,
                           ),
                         ),
                       ],
@@ -198,7 +198,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               replacement: '…',
                             ),
                             style:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),
                                       fontSize: 12.0,
@@ -224,7 +224,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       children: [
                         Text(
                           'Choose Dates',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -280,7 +280,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                         'Choose Date',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle2,
+                                          .titleSmall,
                                     ),
                                     Icon(
                                       Icons.date_range_outlined,
@@ -335,7 +335,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                       'Choose Date',
                                     ),
                                     style:
-                                        FlutterFlowTheme.of(context).subtitle2,
+                                        FlutterFlowTheme.of(context).titleSmall,
                                   ),
                                   Icon(
                                     Icons.date_range_outlined,
@@ -359,7 +359,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       children: [
                         Text(
                           'Number of Guests',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -397,13 +397,14 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               incrementIconBuilder: (enabled) => FaIcon(
                                 FontAwesomeIcons.plus,
                                 color: enabled
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).grayIcon,
                                 size: 20.0,
                               ),
                               countBuilder: (count) => Text(
                                 count.toString(),
-                                style: FlutterFlowTheme.of(context).title2,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                               count: _model.countControllerValue ??= 1,
                               updateCount: (count) => setState(
@@ -425,7 +426,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       children: [
                         Text(
                           'Choose an Option',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -448,9 +449,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                 () => _model.breakfastValue = val?.first),
                             selectedChipStyle: ChipStyle(
                               backgroundColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                                  FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Colors.white,
@@ -467,7 +468,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               backgroundColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF95A1AC),
@@ -485,7 +486,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             rowSpacing: 8.0,
                             multiselect: false,
                             alignment: WrapAlignment.start,
-                            controller: _model.breakfastController ??=
+                            controller: _model.breakfastValueController ??=
                                 FormFieldController<List<String>>(
                               [],
                             ),
@@ -502,7 +503,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       children: [
                         Text(
                           'Payment Information',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -516,7 +517,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       obscureNumber: true,
                       obscureCvv: false,
                       spacing: 10.0,
-                      textStyle: FlutterFlowTheme.of(context).subtitle2,
+                      textStyle: FlutterFlowTheme.of(context).titleSmall,
                       inputDecoration: InputDecoration(
                         filled: true,
                         fillColor:
@@ -551,7 +552,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             Text(
                               'Base Price',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -561,7 +562,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             ),
                             Text(
                               '\$156.00',
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -576,7 +577,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             Text(
                               'Taxes',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -586,7 +587,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             ),
                             Text(
                               '\$24.20',
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -601,7 +602,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             Text(
                               'Cleaning Fee',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -611,7 +612,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             ),
                             Text(
                               '\$40.00',
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -629,7 +630,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                 Text(
                                   'Total',
                                   style: FlutterFlowTheme.of(context)
-                                      .title3
+                                      .headlineSmall
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
@@ -654,10 +655,11 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                       backgroundColor: Colors.transparent,
                                       barrierColor: Color(0xB3000000),
                                       context: context,
-                                      builder: (context) {
+                                      builder: (bottomSheetContext) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(context).viewInsets,
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
                                           child: Container(
                                             height: 270.0,
                                             child: TotalWidget(),
@@ -671,7 +673,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             ),
                             Text(
                               '\$230.20',
-                              style: FlutterFlowTheme.of(context).title1,
+                              style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
                         ),
@@ -692,7 +694,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 );
@@ -751,12 +753,12 @@ class _BookNowWidgetState extends State<BookNowWidget>
                         SnackBar(
                           content: Text(
                             'Your book has been successfully booked!',
-                            style:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Urbanist',
-                                      color: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                ),
                           ),
                           duration: Duration(milliseconds: 4000),
                           backgroundColor:
@@ -775,12 +777,13 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: Color(0xFF4B39EF),
-                      textStyle: FlutterFlowTheme.of(context).title1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: Colors.white,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).displaySmall.override(
+                                fontFamily: 'Lexend Deca',
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                       elevation: 0.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,

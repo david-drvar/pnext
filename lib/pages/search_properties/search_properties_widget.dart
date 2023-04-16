@@ -69,9 +69,9 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
         ),
         title: Text(
           'Search',
-          style: FlutterFlowTheme.of(context).subtitle1.override(
+          style: FlutterFlowTheme.of(context).titleMedium.override(
                 fontFamily: 'Lexend Deca',
-                color: FlutterFlowTheme.of(context).tertiaryColor,
+                color: FlutterFlowTheme.of(context).tertiary,
                 fontSize: 18.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -119,7 +119,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                               decoration: InputDecoration(
                                 labelText: 'Address, city, state...',
                                 labelStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Urbanist',
                                       color:
@@ -159,11 +159,11 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                 ),
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Urbanist',
-                                    color: FlutterFlowTheme.of(context)
-                                        .tertiaryColor,
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
                                   ),
                               validator: _model.textControllerValidator
                                   .asValidator(context),
@@ -185,9 +185,9 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Urbanist',
                                     color: Colors.white,
@@ -218,7 +218,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -301,7 +301,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                         replacement: '…',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .title3
+                                          .headlineSmall
                                           .override(
                                             fontFamily: 'Urbanist',
                                             color: FlutterFlowTheme.of(context)
@@ -321,7 +321,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                         replacement: '…',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText2
+                                          .bodySmall
                                           .override(
                                             fontFamily: 'Lexend Deca',
                                             color: FlutterFlowTheme.of(context)
@@ -347,7 +347,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                             child: CircularProgressIndicator(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primaryColor,
+                                                      .primary,
                                             ),
                                           ),
                                         );
@@ -385,7 +385,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -419,7 +419,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2
+                                                              .bodySmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',
@@ -442,7 +442,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyText2
+                                                              .bodySmall
                                                               .override(
                                                                 fontFamily:
                                                                     'Lexend Deca',

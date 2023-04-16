@@ -98,7 +98,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
               width: 50.0,
               height: 50.0,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primaryColor,
+                color: FlutterFlowTheme.of(context).primary,
               ),
             ),
           );
@@ -125,7 +125,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
             ),
             title: Text(
               'Reviews',
-              style: FlutterFlowTheme.of(context).title3,
+              style: FlutterFlowTheme.of(context).headlineSmall,
             ),
             actions: [],
             centerTitle: false,
@@ -169,7 +169,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                     '0',
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title1
+                                      .displaySmall
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
@@ -182,7 +182,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                               Text(
                                 '# of Ratings',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText1
+                                    .bodyMedium
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF95A1AC),
@@ -207,7 +207,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                           propertyReviewReviewsRecordList
                                               .toList()),
                                       style: FlutterFlowTheme.of(context)
-                                          .title1
+                                          .displaySmall
                                           .override(
                                             fontFamily: 'Lexend Deca',
                                             color: FlutterFlowTheme.of(context)
@@ -231,7 +231,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                               Text(
                                 'Avg. Rating',
                                 style: FlutterFlowTheme.of(context)
-                                    .bodyText2
+                                    .bodySmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),
@@ -260,7 +260,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -308,7 +308,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                           height: 50.0,
                                           child: CircularProgressIndicator(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                           ),
                                         ),
                                       );
@@ -342,7 +342,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .title3,
+                                                                .headlineSmall,
                                                       ),
                                                       Padding(
                                                         padding:
@@ -425,7 +425,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                                         .ratingDescription!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                                   ),
                                                 ),
                                               ],

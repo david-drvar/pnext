@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -73,7 +73,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
         ),
         title: Text(
           'Create Property',
-          style: FlutterFlowTheme.of(context).title3,
+          style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -98,7 +98,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           Text(
                             'PRICE PER NIGHT',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -117,7 +117,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         decoration: InputDecoration(
                           hintText: '\$ Price',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .title2
+                              .headlineMedium
                               .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).grayIcon,
@@ -165,7 +165,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).title2,
+                        style: FlutterFlowTheme.of(context).headlineMedium,
                         validator: _model.pricePerNightControllerValidator
                             .asValidator(context),
                       ),
@@ -179,7 +179,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           Text(
                             'MINIMUM NIGHT STAY',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -219,13 +219,14 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                               incrementIconBuilder: (enabled) => Icon(
                                 Icons.add_rounded,
                                 color: enabled
-                                    ? FlutterFlowTheme.of(context).primaryColor
+                                    ? FlutterFlowTheme.of(context).primary
                                     : FlutterFlowTheme.of(context).grayIcon,
                                 size: 32.0,
                               ),
                               countBuilder: (count) => Text(
                                 count.toString(),
-                                style: FlutterFlowTheme.of(context).title2,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                               count: _model.countControllerValue ??= 1,
                               updateCount: (count) => setState(
@@ -251,7 +252,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           Text(
                             'TAX RATE',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -270,7 +271,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         decoration: InputDecoration(
                           hintText: '% Rate',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .title3
+                              .headlineSmall
                               .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).grayIcon,
@@ -319,7 +320,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                         keyboardType: TextInputType.number,
                         validator: _model.taxRateControllerValidator
                             .asValidator(context),
@@ -334,7 +335,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           Text(
                             'CLEANING FEE',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -353,7 +354,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         decoration: InputDecoration(
                           hintText: '\$ Price',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .title3
+                              .headlineSmall
                               .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).grayIcon,
@@ -402,7 +403,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                         keyboardType: TextInputType.number,
                         validator: _model.cleaningFeeControllerValidator
                             .asValidator(context),
@@ -417,7 +418,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           Text(
                             'Additional Notes',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -435,7 +436,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Additional notes...',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText1,
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -479,7 +480,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText2,
+                        style: FlutterFlowTheme.of(context).bodySmall,
                         maxLines: 4,
                         validator: _model.notesControllerValidator
                             .asValidator(context),
@@ -501,11 +502,11 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                     children: [
                       Text(
                         'STEP',
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                       Text(
                         '3/3',
-                        style: FlutterFlowTheme.of(context).title2,
+                        style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ],
                   ),
@@ -544,10 +545,11 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).turquoise,
-                      textStyle: FlutterFlowTheme.of(context).title3.override(
-                            fontFamily: 'Urbanist',
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
-                          ),
+                      textStyle:
+                          FlutterFlowTheme.of(context).headlineSmall.override(
+                                fontFamily: 'Urbanist',
+                                color: FlutterFlowTheme.of(context).tertiary,
+                              ),
                       elevation: 2.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,

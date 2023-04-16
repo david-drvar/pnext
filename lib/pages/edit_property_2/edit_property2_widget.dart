@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/amenitity_indicator/amenitity_indicator_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -70,7 +70,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
         ),
         title: Text(
           'Edit Property',
-          style: FlutterFlowTheme.of(context).title3,
+          style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -90,7 +90,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 );
@@ -116,7 +116,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                   Text(
                                     'CHOOSE YOUR AMENITIES',
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Urbanist',
                                           color: FlutterFlowTheme.of(context)
@@ -141,8 +141,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -158,12 +158,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Pool',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -189,8 +189,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -206,12 +206,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'EV Car Charging',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -237,8 +237,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -255,12 +255,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Extra Outlets',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -286,8 +286,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -303,12 +303,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Air Conditioning (AC)',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -334,8 +334,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -351,12 +351,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Heating',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -382,8 +382,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -399,12 +399,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Washer',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -430,8 +430,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -447,12 +447,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Dryer',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -478,8 +478,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -495,12 +495,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Pet Friendly',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -526,8 +526,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -543,12 +543,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Workout Facility',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -574,8 +574,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .gray600,
                                       ),
-                                      background: FlutterFlowTheme.of(context)
-                                          .tertiaryColor,
+                                      background:
+                                          FlutterFlowTheme.of(context).tertiary,
                                       borderColor: Color(0xFFE1EDF9),
                                     ),
                                   ),
@@ -591,12 +591,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                     title: Text(
                                       'Hip',
                                       style: FlutterFlowTheme.of(context)
-                                          .subtitle1,
+                                          .titleMedium,
                                     ),
                                     tileColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    activeColor: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    activeColor:
+                                        FlutterFlowTheme.of(context).primary,
                                     activeTrackColor: Color(0xFF392BBA),
                                     dense: false,
                                     controlAffinity:
@@ -626,7 +626,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                               .gray600,
                                         ),
                                         background: FlutterFlowTheme.of(context)
-                                            .tertiaryColor,
+                                            .tertiary,
                                         borderColor: Color(0xFFE1EDF9),
                                       ),
                                     ),
@@ -642,12 +642,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                       title: Text(
                                         'Night Life',
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle1,
+                                            .titleMedium,
                                       ),
                                       tileColor: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .primaryColor,
+                                      activeColor:
+                                          FlutterFlowTheme.of(context).primary,
                                       activeTrackColor: Color(0xFF392BBA),
                                       dense: false,
                                       controlAffinity:
@@ -678,11 +678,12 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                           children: [
                             Text(
                               'STEP',
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             Text(
                               '2/3',
-                              style: FlutterFlowTheme.of(context).title2,
+                              style:
+                                  FlutterFlowTheme.of(context).headlineMedium,
                             ),
                           ],
                         ),
@@ -721,12 +722,13 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Urbanist',
-                                      color: Colors.white,
-                                    ),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: Colors.white,
+                                ),
                             elevation: 2.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,

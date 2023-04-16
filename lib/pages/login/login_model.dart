@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/email_verification_component/email_verification_component_widget.dart';
 import '/components/socials_sign_in_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';

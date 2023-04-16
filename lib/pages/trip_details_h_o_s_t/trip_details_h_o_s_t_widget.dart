@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/cancel_trip_h_o_s_t/cancel_trip_h_o_s_t_widget.dart';
 import '/components/total/total_widget.dart';
@@ -76,7 +76,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
         ),
         title: Text(
           'Trip Details',
-          style: FlutterFlowTheme.of(context).title3,
+          style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [
           Visibility(
@@ -97,9 +97,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                   backgroundColor: Colors.transparent,
                   barrierColor: Color(0xB314181B),
                   context: context,
-                  builder: (context) {
+                  builder: (bottomSheetContext) {
                     return Padding(
-                      padding: MediaQuery.of(context).viewInsets,
+                      padding: MediaQuery.of(bottomSheetContext).viewInsets,
                       child: Container(
                         height: 430.0,
                         child: CancelTripHOSTWidget(
@@ -130,7 +130,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                         EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: Text(
                       'Dates of trip',
-                      style: FlutterFlowTheme.of(context).bodyText2.override(
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.of(context).gray600,
                             fontSize: 12.0,
@@ -147,11 +147,13 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                         Text(
                           dateTimeFormat(
                               'MMMEd', widget.tripRef!.tripBeginDate!),
-                          style: FlutterFlowTheme.of(context).title1,
+                          style: FlutterFlowTheme.of(context).displaySmall,
                         ),
                         Text(
                           ' - ',
-                          style: FlutterFlowTheme.of(context).title3.override(
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).darkText,
                                 fontWeight: FontWeight.bold,
@@ -159,7 +161,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                         ),
                         Text(
                           dateTimeFormat('MMMEd', widget.tripRef!.tripEndDate!),
-                          style: FlutterFlowTheme.of(context).title1,
+                          style: FlutterFlowTheme.of(context).displaySmall,
                         ),
                       ],
                     ),
@@ -169,7 +171,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                         EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 4.0),
                     child: Text(
                       'Destination',
-                      style: FlutterFlowTheme.of(context).bodyText2.override(
+                      style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.of(context).gray600,
                             fontSize: 12.0,
@@ -186,7 +188,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                         maxChars: 90,
                         replacement: '…',
                       ),
-                      style: FlutterFlowTheme.of(context).title2,
+                      style: FlutterFlowTheme.of(context).headlineMedium,
                     ),
                   ),
                   Padding(
@@ -259,7 +261,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                         EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 0.0),
                     child: Text(
                       widget.propertyRef!.propertyName!,
-                      style: FlutterFlowTheme.of(context).title3,
+                      style: FlutterFlowTheme.of(context).headlineSmall,
                     ),
                   ),
                   Padding(
@@ -283,7 +285,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           Text(
                             widget.propertyRef!.propertyAddress!,
                             style:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),
                                       fontSize: 12.0,
@@ -311,7 +313,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                             Text(
                               'Price Breakdown',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: FlutterFlowTheme.of(context).gray600,
@@ -332,7 +334,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                             Text(
                               'Base Price',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -347,7 +349,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                 decimalType: DecimalType.automatic,
                                 currency: '\$',
                               ),
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -362,7 +364,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                             Text(
                               'Taxes',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -372,7 +374,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                             ),
                             Text(
                               '\$24.20',
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -387,7 +389,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                             Text(
                               'Cleaning Fee',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -397,7 +399,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                             ),
                             Text(
                               '\$40.00',
-                              style: FlutterFlowTheme.of(context).subtitle2,
+                              style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
                         ),
@@ -415,7 +417,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                 Text(
                                   'Total',
                                   style: FlutterFlowTheme.of(context)
-                                      .title3
+                                      .headlineSmall
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
@@ -440,10 +442,11 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                       backgroundColor: Colors.transparent,
                                       barrierColor: Color(0xB3000000),
                                       context: context,
-                                      builder: (context) {
+                                      builder: (bottomSheetContext) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(context).viewInsets,
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
                                           child: Container(
                                             height: 270.0,
                                             child: TotalWidget(),
@@ -462,7 +465,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                 decimalType: DecimalType.automatic,
                                 currency: '\$',
                               ),
-                              style: FlutterFlowTheme.of(context).title1,
+                              style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
                         ),
@@ -479,7 +482,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           children: [
                             Text(
                               'Mark this trip as complete below.',
-                              style: FlutterFlowTheme.of(context).subtitle1,
+                              style: FlutterFlowTheme.of(context).titleMedium,
                             ),
                           ],
                         ),
@@ -507,7 +510,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).turquoise,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Colors.white,
@@ -539,7 +542,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 );
@@ -584,7 +587,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                 child: Text(
                                   'Guest Info',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
@@ -621,7 +624,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                           replacement: '…',
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Urbanist',
                                               color:
@@ -664,10 +667,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Colors.white,

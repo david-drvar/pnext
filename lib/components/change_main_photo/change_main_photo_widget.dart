@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -167,7 +167,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                       child: Text(
                         'Change Main Photo',
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
                     ),
                   ),
@@ -196,8 +196,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                         await selectMediaWithSourceBottomSheet(
                       context: context,
                       allowPhoto: true,
-                      backgroundColor:
-                          FlutterFlowTheme.of(context).tertiaryColor,
+                      backgroundColor: FlutterFlowTheme.of(context).tertiary,
                       textColor: FlutterFlowTheme.of(context).darkText,
                       pickerFontFamily: 'Lexend Deca',
                     );
@@ -259,7 +258,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    textStyle: FlutterFlowTheme.of(context).subtitle2.override(
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Urbanist',
                           color: FlutterFlowTheme.of(context).primaryText,
                         ),
@@ -290,11 +289,12 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primaryColor,
-                    textStyle: FlutterFlowTheme.of(context).title3.override(
-                          fontFamily: 'Urbanist',
-                          color: FlutterFlowTheme.of(context).tertiaryColor,
-                        ),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.override(
+                              fontFamily: 'Urbanist',
+                              color: FlutterFlowTheme.of(context).tertiary,
+                            ),
                     elevation: 3.0,
                     borderSide: BorderSide(
                       color: Colors.transparent,

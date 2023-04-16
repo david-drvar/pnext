@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/review_trip/review_trip_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';

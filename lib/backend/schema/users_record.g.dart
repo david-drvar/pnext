@@ -94,6 +94,27 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add('numberActiveBookings')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.documentPhotoUrl;
+    if (value != null) {
+      result
+        ..add('document_photo_url')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.surname;
+    if (value != null) {
+      result
+        ..add('surname')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -160,6 +181,18 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.numberActiveBookings = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'document_photo_url':
+          result.documentPhotoUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'surname':
+          result.surname = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -197,6 +230,12 @@ class _$UsersRecord extends UsersRecord {
   @override
   final int? numberActiveBookings;
   @override
+  final String? documentPhotoUrl;
+  @override
+  final String? name;
+  @override
+  final String? surname;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -214,6 +253,9 @@ class _$UsersRecord extends UsersRecord {
       this.isHost,
       this.numberProperties,
       this.numberActiveBookings,
+      this.documentPhotoUrl,
+      this.name,
+      this.surname,
       this.ffRef})
       : super._();
 
@@ -239,6 +281,9 @@ class _$UsersRecord extends UsersRecord {
         isHost == other.isHost &&
         numberProperties == other.numberProperties &&
         numberActiveBookings == other.numberActiveBookings &&
+        documentPhotoUrl == other.documentPhotoUrl &&
+        name == other.name &&
+        surname == other.surname &&
         ffRef == other.ffRef;
   }
 
@@ -256,6 +301,9 @@ class _$UsersRecord extends UsersRecord {
     _$hash = $jc(_$hash, isHost.hashCode);
     _$hash = $jc(_$hash, numberProperties.hashCode);
     _$hash = $jc(_$hash, numberActiveBookings.hashCode);
+    _$hash = $jc(_$hash, documentPhotoUrl.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, surname.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -275,6 +323,9 @@ class _$UsersRecord extends UsersRecord {
           ..add('isHost', isHost)
           ..add('numberProperties', numberProperties)
           ..add('numberActiveBookings', numberActiveBookings)
+          ..add('documentPhotoUrl', documentPhotoUrl)
+          ..add('name', name)
+          ..add('surname', surname)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -329,6 +380,19 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   set numberActiveBookings(int? numberActiveBookings) =>
       _$this._numberActiveBookings = numberActiveBookings;
 
+  String? _documentPhotoUrl;
+  String? get documentPhotoUrl => _$this._documentPhotoUrl;
+  set documentPhotoUrl(String? documentPhotoUrl) =>
+      _$this._documentPhotoUrl = documentPhotoUrl;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  String? _surname;
+  String? get surname => _$this._surname;
+  set surname(String? surname) => _$this._surname = surname;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -351,6 +415,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _isHost = $v.isHost;
       _numberProperties = $v.numberProperties;
       _numberActiveBookings = $v.numberActiveBookings;
+      _documentPhotoUrl = $v.documentPhotoUrl;
+      _name = $v.name;
+      _surname = $v.surname;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -385,6 +452,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             isHost: isHost,
             numberProperties: numberProperties,
             numberActiveBookings: numberActiveBookings,
+            documentPhotoUrl: documentPhotoUrl,
+            name: name,
+            surname: surname,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

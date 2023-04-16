@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -71,7 +71,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
         ),
         title: Text(
           'Create Property',
-          style: FlutterFlowTheme.of(context).title2,
+          style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
         centerTitle: false,
@@ -95,7 +95,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           context: context,
                           allowPhoto: true,
                           backgroundColor:
-                              FlutterFlowTheme.of(context).tertiaryColor,
+                              FlutterFlowTheme.of(context).tertiary,
                           textColor: FlutterFlowTheme.of(context).dark600,
                           pickerFontFamily: 'Lexend Deca',
                         );
@@ -179,7 +179,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           Text(
                             'PROPERTY NAME',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -198,7 +198,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         decoration: InputDecoration(
                           hintText: 'Something Catchy...',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .title2
+                              .headlineMedium
                               .override(
                                 fontFamily: 'Urbanist',
                                 color:
@@ -247,7 +247,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).title2,
+                        style: FlutterFlowTheme.of(context).headlineMedium,
                         validator: _model.propertyNameControllerValidator
                             .asValidator(context),
                       ),
@@ -261,7 +261,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           Text(
                             'PROPERTY ADDRESS',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -280,7 +280,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         decoration: InputDecoration(
                           hintText: '123 Disney way here…',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .title3
+                              .headlineSmall
                               .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).grayIcon,
@@ -329,7 +329,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                         validator: _model.propertyAddressControllerValidator
                             .asValidator(context),
                       ),
@@ -343,7 +343,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           Text(
                             'NEIGHBORHOOD',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -362,7 +362,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         decoration: InputDecoration(
                           hintText: 'Neighborhood or city…',
                           hintStyle: FlutterFlowTheme.of(context)
-                              .title3
+                              .headlineSmall
                               .override(
                                 fontFamily: 'Urbanist',
                                 color: FlutterFlowTheme.of(context).grayIcon,
@@ -411,7 +411,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).title3,
+                        style: FlutterFlowTheme.of(context).headlineSmall,
                         validator: _model
                             .propertyNeighborhoodControllerValidator
                             .asValidator(context),
@@ -426,7 +426,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           Text(
                             'DESCRIPTION',
                             style: FlutterFlowTheme.of(context)
-                                .bodyText2
+                                .bodySmall
                                 .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -444,7 +444,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Neighborhood or city…',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText1,
+                          hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -488,7 +488,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                           contentPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 24.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText2,
+                        style: FlutterFlowTheme.of(context).bodySmall,
                         maxLines: 4,
                         validator: _model.propertyDescriptionControllerValidator
                             .asValidator(context),
@@ -507,11 +507,12 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                             children: [
                               Text(
                                 'STEP',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
                                 '1/3',
-                                style: FlutterFlowTheme.of(context).title2,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                             ],
                           ),
@@ -600,9 +601,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Urbanist',
                                     color: Colors.white,

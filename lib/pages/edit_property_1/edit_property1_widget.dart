@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/change_main_photo/change_main_photo_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -78,7 +78,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
         ),
         title: Text(
           'Edit Property',
-          style: FlutterFlowTheme.of(context).title3,
+          style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
         centerTitle: false,
@@ -108,9 +108,10 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 backgroundColor: Colors.transparent,
                                 barrierColor: Color(0xB316202A),
                                 context: context,
-                                builder: (context) {
+                                builder: (bottomSheetContext) {
                                   return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
+                                    padding: MediaQuery.of(bottomSheetContext)
+                                        .viewInsets,
                                     child: ChangeMainPhotoWidget(
                                       propertyRef: widget.propertyRef,
                                     ),
@@ -148,7 +149,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 Text(
                                   'PROPERTY NAME',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
@@ -168,7 +169,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               decoration: InputDecoration(
                                 hintText: 'Something Catchy...',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Urbanist',
                                       color:
@@ -217,7 +218,8 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).title2,
+                              style:
+                                  FlutterFlowTheme.of(context).headlineMedium,
                               textAlign: TextAlign.start,
                               validator: _model.propertyNameControllerValidator
                                   .asValidator(context),
@@ -232,7 +234,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 Text(
                                   'PROPERTY ADDRESS',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
@@ -252,7 +254,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               decoration: InputDecoration(
                                 hintText: '123 Disney way here…',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .title3
+                                    .headlineSmall
                                     .override(
                                       fontFamily: 'Urbanist',
                                       color:
@@ -302,7 +304,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).title3,
+                              style: FlutterFlowTheme.of(context).headlineSmall,
                               textAlign: TextAlign.start,
                               maxLines: 2,
                               validator: _model
@@ -319,7 +321,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 Text(
                                   'NEIGHBORHOOD',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
@@ -339,7 +341,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               decoration: InputDecoration(
                                 hintText: 'Neighborhood or city…',
                                 hintStyle: FlutterFlowTheme.of(context)
-                                    .title3
+                                    .headlineSmall
                                     .override(
                                       fontFamily: 'Urbanist',
                                       color:
@@ -389,7 +391,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).title3,
+                              style: FlutterFlowTheme.of(context).headlineSmall,
                               validator: _model
                                   .propertyNeighborhoodControllerValidator
                                   .asValidator(context),
@@ -404,7 +406,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 Text(
                                   'DESCRIPTION',
                                   style: FlutterFlowTheme.of(context)
-                                      .bodyText2
+                                      .bodySmall
                                       .override(
                                         fontFamily: 'Urbanist',
                                         color: FlutterFlowTheme.of(context)
@@ -424,7 +426,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               decoration: InputDecoration(
                                 hintText: 'Neighborhood or city…',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -468,7 +470,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText2,
+                              style: FlutterFlowTheme.of(context).bodySmall,
                               textAlign: TextAlign.start,
                               maxLines: 4,
                               validator: _model
@@ -499,7 +501,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                             width: 50.0,
                             height: 50.0,
                             child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                             ),
                           ),
                         );
@@ -524,11 +526,12 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                             children: [
                               Text(
                                 'STEP',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
                                 '1/3',
-                                style: FlutterFlowTheme.of(context).title2,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                             ],
                           ),
@@ -565,9 +568,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Urbanist',
                                     color: Colors.white,

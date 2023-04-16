@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/review_trip/review_trip_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -51,9 +51,9 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'My Trips',
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Urbanist',
-                color: FlutterFlowTheme.of(context).tertiaryColor,
+                color: FlutterFlowTheme.of(context).tertiary,
                 fontWeight: FontWeight.bold,
               ),
         ),
@@ -76,7 +76,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                       unselectedLabelColor:
                           FlutterFlowTheme.of(context).grayIcon,
                       labelStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
+                          FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Urbanist',
                                 fontWeight: FontWeight.w500,
                               ),
@@ -123,7 +123,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                         height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                       ),
                                     );
@@ -184,7 +184,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -310,7 +310,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                     .tripBeginDate!),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title3
+                                                                .headlineSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Urbanist',
@@ -326,7 +326,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                             ' - ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title3
+                                                                .headlineSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Urbanist',
@@ -345,7 +345,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                     .tripEndDate!),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title3
+                                                                .headlineSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Urbanist',
@@ -389,7 +389,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                     .propertyAddress!,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyText2
+                                                                    .bodySmall
                                                                     .override(
                                                                       fontFamily:
                                                                           'Lexend Deca',
@@ -414,7 +414,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .subtitle1,
+                                                                .titleMedium,
                                                           ),
                                                         ],
                                                       ),
@@ -448,7 +448,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                   TextAlign.end,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyText1
+                                                                  .bodyMedium
                                                                   .override(
                                                                     fontFamily:
                                                                         'Lexend Deca',
@@ -501,7 +501,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                         height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                       ),
                                     );
@@ -562,7 +562,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .primaryColor,
+                                                              .primary,
                                                     ),
                                                   ),
                                                 );
@@ -655,12 +655,12 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                   'Cancelled',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodyText1
+                                                                      .bodyMedium
                                                                       .override(
                                                                         fontFamily:
                                                                             'Urbanist',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .tertiaryColor,
+                                                                            .tertiary,
                                                                       ),
                                                                 ),
                                                               ),
@@ -687,7 +687,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                     .tripBeginDate!),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title3
+                                                                .headlineSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Urbanist',
@@ -703,7 +703,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                             ' - ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title3
+                                                                .headlineSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Urbanist',
@@ -722,7 +722,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                     .tripEndDate!),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .title3
+                                                                .headlineSmall
                                                                 .override(
                                                                   fontFamily:
                                                                       'Urbanist',
@@ -766,7 +766,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .subtitle1,
+                                                                .titleMedium,
                                                           ),
                                                           if (!listViewTripsRecord
                                                               .rated!)
@@ -785,10 +785,10 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                   context:
                                                                       context,
                                                                   builder:
-                                                                      (context) {
+                                                                      (bottomSheetContext) {
                                                                     return Padding(
                                                                       padding: MediaQuery.of(
-                                                                              context)
+                                                                              bottomSheetContext)
                                                                           .viewInsets,
                                                                       child:
                                                                           Container(
@@ -829,10 +829,10 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                             0.0),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryColor,
+                                                                    .primary,
                                                                 textStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .subtitle2
+                                                                    .titleSmall
                                                                     .override(
                                                                       fontFamily:
                                                                           'Urbanist',

@@ -1,10 +1,10 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/login/login_widget.dart';
+import '/pages/create_garage_foto_video/create_garage_foto_video_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,6 +24,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
   late CreateGarage1Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -67,8 +68,8 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
           },
         ),
         title: Text(
-          'Create Property',
-          style: FlutterFlowTheme.of(context).title2,
+          'Create Garage',
+          style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
         centerTitle: false,
@@ -99,11 +100,11 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               decoration: InputDecoration(
                                 labelText: 'Address',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText:
                                     'Address and number, e.g. Via Montebello 2',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -139,7 +140,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText2,
+                              style: FlutterFlowTheme.of(context).bodySmall,
                               validator: _model.addressNumberControllerValidator
                                   .asValidator(context),
                             ),
@@ -161,10 +162,10 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               decoration: InputDecoration(
                                 labelText: 'City',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText: 'City, e.g. Milano',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -200,7 +201,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText2,
+                              style: FlutterFlowTheme.of(context).bodySmall,
                               validator: _model.cityControllerValidator
                                   .asValidator(context),
                             ),
@@ -222,10 +223,10 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               decoration: InputDecoration(
                                 labelText: 'ZIP',
                                 labelStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 hintText: 'ZIP, e.g. 20063',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText1,
+                                    FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color:
@@ -261,7 +262,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 24.0, 0.0, 24.0),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText2,
+                              style: FlutterFlowTheme.of(context).bodySmall,
                               keyboardType: TextInputType.number,
                               validator: _model.zipControllerValidator
                                   .asValidator(context),
@@ -283,7 +284,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               'Use GPS positioning to determine your precise location',
                               textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Urbanist',
                                     color: FlutterFlowTheme.of(context).gray600,
@@ -304,8 +305,14 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                           Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: FFButtonWidget(
-                              onPressed: () {
-                                print('Button pressed ...');
+                              onPressed: () async {
+                                currentUserLocationValue =
+                                    await getCurrentUserLocation(
+                                        defaultLocation: LatLng(0.0, 0.0));
+                                setState(() {
+                                  _model.garageLocation =
+                                      currentUserLocationValue;
+                                });
                               },
                               text: 'LOCATE ME',
                               options: FFButtonOptions(
@@ -315,19 +322,47 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
+                                    .titleSmall
                                     .override(
                                       fontFamily: 'Urbanist',
                                       color: Colors.white,
                                     ),
+                                elevation: 2.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: 330.0,
+                              height: 40.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  _model.garageLocation?.toString(),
+                                  'Your device location is...',
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ),
@@ -352,7 +387,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               child: Text(
                                 'Select the maximum size of vehicle that your parking space can accommodate',
                                 textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ),
@@ -374,8 +409,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               borderRadius: 10.0,
                               borderWidth: 1.0,
                               buttonSize: 60.0,
-                              fillColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              fillColor: FlutterFlowTheme.of(context).primary,
                               disabledColor:
                                   FlutterFlowTheme.of(context).grayIcon,
                               icon: FaIcon(
@@ -402,8 +436,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               borderRadius: 10.0,
                               borderWidth: 1.0,
                               buttonSize: 60.0,
-                              fillColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              fillColor: FlutterFlowTheme.of(context).primary,
                               disabledColor:
                                   FlutterFlowTheme.of(context).grayIcon,
                               icon: FaIcon(
@@ -430,8 +463,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               borderRadius: 10.0,
                               borderWidth: 1.0,
                               buttonSize: 60.0,
-                              fillColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              fillColor: FlutterFlowTheme.of(context).primary,
                               disabledColor:
                                   FlutterFlowTheme.of(context).grayIcon,
                               icon: Icon(
@@ -458,8 +490,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               borderRadius: 10.0,
                               borderWidth: 1.0,
                               buttonSize: 60.0,
-                              fillColor:
-                                  FlutterFlowTheme.of(context).primaryColor,
+                              fillColor: FlutterFlowTheme.of(context).primary,
                               disabledColor:
                                   FlutterFlowTheme.of(context).grayIcon,
                               icon: FaIcon(
@@ -483,8 +514,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                             borderRadius: 10.0,
                             borderWidth: 1.0,
                             buttonSize: 60.0,
-                            fillColor:
-                                FlutterFlowTheme.of(context).primaryColor,
+                            fillColor: FlutterFlowTheme.of(context).primary,
                             disabledColor:
                                 FlutterFlowTheme.of(context).grayIcon,
                             icon: FaIcon(
@@ -519,11 +549,12 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                             children: [
                               Text(
                                 'STEP',
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
                                 '1/3',
-                                style: FlutterFlowTheme.of(context).title2,
+                                style:
+                                    FlutterFlowTheme.of(context).headlineMedium,
                               ),
                             ],
                           ),
@@ -535,6 +566,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                 address: _model.addressNumberController.text,
                                 zip: _model.zipController.text,
                                 dimensions: _model.vehicleType,
+                                location: _model.garageLocation,
                               );
                               var garagesRecordReference =
                                   GaragesRecord.collection.doc();
@@ -547,7 +579,10 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               await Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginWidget(),
+                                  builder: (context) =>
+                                      CreateGarageFotoVideoWidget(
+                                    newGarageRef: _model.newGarage!.reference,
+                                  ),
                                 ),
                               );
 
@@ -561,9 +596,9 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryColor,
+                              color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
-                                  .subtitle2
+                                  .titleSmall
                                   .override(
                                     fontFamily: 'Urbanist',
                                     color: Colors.white,

@@ -48,7 +48,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
           maxHeight: 200.0,
         ),
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).tertiaryColor,
+          color: FlutterFlowTheme.of(context).tertiary,
           boxShadow: [
             BoxShadow(
               blurRadius: 7.0,
@@ -76,7 +76,7 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
                   'Session Booked!',
-                  style: FlutterFlowTheme.of(context).title2.override(
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Urbanist',
                         color: FlutterFlowTheme.of(context).dark600,
                       ),
@@ -86,16 +86,16 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
                   'You have successfully booked a session on:',
-                  style: FlutterFlowTheme.of(context).bodyText1,
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: Text(
                   'Mon, Dec 11 - 2021',
-                  style: FlutterFlowTheme.of(context).title1.override(
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
                         fontFamily: 'Urbanist',
-                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        color: FlutterFlowTheme.of(context).secondary,
                         fontSize: 32.0,
                         fontWeight: FontWeight.w500,
                       ),

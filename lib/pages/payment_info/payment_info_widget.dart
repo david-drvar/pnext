@@ -60,7 +60,7 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
         ),
         title: Text(
           'Payment Information',
-          style: FlutterFlowTheme.of(context).title2,
+          style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
         centerTitle: false,
@@ -98,7 +98,7 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
                         obscureCvv: false,
                         spacing: 10.0,
                         textStyle:
-                            FlutterFlowTheme.of(context).bodyText1.override(
+                            FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context).darkText,
                                 ),
@@ -137,7 +137,7 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).turquoise,
                           textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
+                              FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Colors.white,
                                     fontSize: 16.0,

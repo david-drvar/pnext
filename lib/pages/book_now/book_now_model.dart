@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/total/total_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -30,7 +30,7 @@ class BookNowModel extends FlutterFlowModel {
   int? countControllerValue;
   // State field(s) for breakfast widget.
   String? breakfastValue;
-  FormFieldController<List<String>>? breakfastController;
+  FormFieldController<List<String>>? breakfastValueController;
   // State field(s) for CreditCardForm widget.
   final creditCardFormKey = GlobalKey<FormState>();
   CreditCardModel creditCardInfo = emptyCreditCard();

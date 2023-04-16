@@ -39,6 +39,11 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
   late PropertyDetailsOwnerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
 
   final animationsMap = {
     'rowOnPageLoadAnimation': AnimationInfo(
@@ -218,7 +223,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                         Expanded(
                           child: Text(
                             widget.propertyRef!.propertyName!,
-                            style: FlutterFlowTheme.of(context).title1,
+                            style: FlutterFlowTheme.of(context).displaySmall,
                           ),
                         ),
                       ],
@@ -234,7 +239,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                           child: Text(
                             widget.propertyRef!.propertyNeighborhood!,
                             style:
-                                FlutterFlowTheme.of(context).bodyText2.override(
+                                FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF8B97A2),
                                       fontSize: 12.0,
@@ -285,7 +290,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                 decimalType: DecimalType.periodDecimal,
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -300,7 +305,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                             child: Text(
                               'Reviews',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -321,7 +326,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                       children: [
                         Text(
                           'DESCRIPTION',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -339,7 +344,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                             child: Text(
                               widget.propertyRef!.propertyDescription!,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -360,7 +365,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                       children: [
                         Text(
                           'Amenities',
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
                     ),
@@ -383,8 +388,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                               width: 50.0,
                               height: 50.0,
                               child: CircularProgressIndicator(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
+                                color: FlutterFlowTheme.of(context).primary,
                               ),
                             ),
                           );
@@ -660,7 +664,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                   Text(
                                     'What people are saying',
                                     style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ],
                               ),
@@ -688,7 +692,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                           height: 50.0,
                                           child: CircularProgressIndicator(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                           ),
                                         ),
                                       );
@@ -787,7 +791,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                                                         CircularProgressIndicator(
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryColor,
+                                                                          .primary,
                                                                     ),
                                                                   ),
                                                                 );
@@ -818,7 +822,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                                                         rowUsersRecord
                                                                             .displayName!,
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .title3,
+                                                                            .headlineSmall,
                                                                       ),
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -907,7 +911,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyText1,
+                                                                          .bodyMedium,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -942,8 +946,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                                 count: pageViewReviewsRecordList
                                                     .length,
                                                 axisDirection: Axis.horizontal,
-                                                onDotClicked: (i) {
-                                                  _model.pageViewController!
+                                                onDotClicked: (i) async {
+                                                  await _model
+                                                      .pageViewController!
                                                       .animateToPage(
                                                     i,
                                                     duration: Duration(
@@ -1021,7 +1026,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                         children: [
                           Text(
                             '\$156',
-                            style: FlutterFlowTheme.of(context).title3.override(
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
                                   fontFamily: 'Urbanist',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -1033,7 +1040,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                             child: Text(
                               '+ taxes/fees',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
@@ -1050,7 +1057,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                         child: Text(
                           'per night',
                           style:
-                              FlutterFlowTheme.of(context).bodyText2.override(
+                              FlutterFlowTheme.of(context).bodySmall.override(
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF8B97A2),
                                     fontSize: 14.0,
@@ -1079,9 +1086,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).secondaryColor,
+                      color: FlutterFlowTheme.of(context).secondary,
                       textStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
+                          FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Lexend Deca',
                                 color: Colors.white,
                                 fontSize: 16.0,

@@ -22,8 +22,6 @@ abstract class GaragesRecord
 
   String? get description;
 
-  BuiltList<String>? get videos;
-
   double? get rate;
 
   DateTime? get startDateValidity;
@@ -31,6 +29,18 @@ abstract class GaragesRecord
   DateTime? get endDateValidity;
 
   bool? get isKey;
+
+  @BuiltValueField(wireName: 'monday_start')
+  DateTime? get mondayStart;
+
+  @BuiltValueField(wireName: 'monday_end')
+  DateTime? get mondayEnd;
+
+  LatLng? get location;
+
+  BuiltList<String>? get photos;
+
+  BuiltList<String>? get videos;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -42,9 +52,10 @@ abstract class GaragesRecord
     ..zip = ''
     ..dimensions = ''
     ..description = ''
-    ..videos = ListBuilder()
     ..rate = 0.0
-    ..isKey = false;
+    ..isKey = false
+    ..photos = ListBuilder()
+    ..videos = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('garages');
@@ -78,6 +89,9 @@ Map<String, dynamic> createGaragesRecordData({
   DateTime? startDateValidity,
   DateTime? endDateValidity,
   bool? isKey,
+  DateTime? mondayStart,
+  DateTime? mondayEnd,
+  LatLng? location,
 }) {
   final firestoreData = serializers.toFirestore(
     GaragesRecord.serializer,
@@ -89,11 +103,15 @@ Map<String, dynamic> createGaragesRecordData({
         ..zip = zip
         ..dimensions = dimensions
         ..description = description
-        ..videos = null
         ..rate = rate
         ..startDateValidity = startDateValidity
         ..endDateValidity = endDateValidity
-        ..isKey = isKey,
+        ..isKey = isKey
+        ..mondayStart = mondayStart
+        ..mondayEnd = mondayEnd
+        ..location = location
+        ..photos = null
+        ..videos = null,
     ),
   );
 
