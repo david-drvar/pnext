@@ -86,3 +86,5 @@ export '/pages/home_page_m_a_i_n_david/home_page_m_a_i_n_david_widget.dart'
     show HomePageMAINDavidWidget;
 export '/pages/garage_details/garage_details_widget.dart'
     show GarageDetailsWidget;
+export '/pages/owners_garages/owners_garages_widget.dart'
+    show OwnersGaragesWidget;

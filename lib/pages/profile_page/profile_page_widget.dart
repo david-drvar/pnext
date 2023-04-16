@@ -6,11 +6,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/change_password/change_password_widget.dart';
-import '/pages/create_garage_1/create_garage1_widget.dart';
 import '/pages/edit_profile/edit_profile_widget.dart';
 import '/pages/login/login_widget.dart';
 import '/pages/my_bookings/my_bookings_widget.dart';
-import '/pages/my_properties/my_properties_widget.dart';
+import '/pages/owners_garages/owners_garages_widget.dart';
 import '/pages/payment_info/payment_info_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -688,114 +687,83 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                 ],
               ),
-              if (columnUsersRecord.isHost ?? true)
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (columnUsersRecord.isHost ?? true)
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                        child: InkWell(
-                          onTap: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MyPropertiesWidget(),
-                              ),
-                            );
-                          },
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 0.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(0.0),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                    child: InkWell(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OwnersGaragesWidget(),
+                          ),
+                        );
+                      },
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 1.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 0.0,
+                                color: FlutterFlowTheme.of(context).lineGray,
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(0.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              width: 0.0,
                             ),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 1.0,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 0.0,
-                                    color:
-                                        FlutterFlowTheme.of(context).lineGray,
-                                    offset: Offset(0.0, 2.0),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(0.0),
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  width: 0.0,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 4.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    'My Properties',
+                                    style:
+                                        FlutterFlowTheme.of(context).titleSmall,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 4.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        'My Properties',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleSmall,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 32.0,
-                                      height: 32.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        shape: BoxShape.circle,
-                                      ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Text(
-                                        formatNumber(
-                                          columnUsersRecord.numberProperties!,
-                                          formatType: FormatType.decimal,
-                                          decimalType: DecimalType.automatic,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Urbanist',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiary,
-                                            ),
-                                      ),
-                                    ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      buttonSize: 46.0,
-                                      icon: Icon(
-                                        Icons.chevron_right_rounded,
-                                        color: Color(0xFF95A1AC),
-                                        size: 20.0,
-                                      ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
-                                      },
-                                    ),
-                                  ],
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30.0,
+                                  buttonSize: 46.0,
+                                  icon: Icon(
+                                    Icons.chevron_right_rounded,
+                                    color: Color(0xFF95A1AC),
+                                    size: 20.0,
+                                  ),
+                                  onPressed: () {
+                                    print('IconButton pressed ...');
+                                  },
                                 ),
-                              ),
+                              ],
                             ),
                           ),
                         ),
                       ),
-                  ],
-                ),
+                    ),
+                  ),
+                ],
+              ),
               if (columnUsersRecord.isHost ?? true)
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -910,49 +878,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     ),
                     borderRadius: BorderRadius.circular(40.0),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          PageTransition(
-                            type: PageTransitionType.bottomToTop,
-                            duration: Duration(milliseconds: 250),
-                            reverseDuration: Duration(milliseconds: 250),
-                            child: CreateGarage1Widget(),
-                          ),
-                        );
-                      },
-                      text: 'Add Property',
-                      options: FFButtonOptions(
-                        width: 240.0,
-                        height: 60.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                        elevation: 2.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(40.0),
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
