@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/lat_lng.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mapbox_search/mapbox_search.dart';
@@ -12,7 +13,12 @@ import 'reservation3_model.dart';
 export 'reservation3_model.dart';
 
 class Reservation3Widget extends StatefulWidget {
-  const Reservation3Widget({Key? key}) : super(key: key);
+  const Reservation3Widget({
+    Key? key,
+    this.reservationref,
+  }) : super(key: key);
+
+  final DocumentReference? reservationref;
 
   @override
   _Reservation3WidgetState createState() => _Reservation3WidgetState();

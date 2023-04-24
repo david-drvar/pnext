@@ -77,24 +77,28 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
               initialIndex: 0,
               child: Column(
                 children: [
-                  TabBar(
-                    labelColor: FlutterFlowTheme.of(context).turquoise,
-                    unselectedLabelColor: FlutterFlowTheme.of(context).grayIcon,
-                    labelStyle:
-                        FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'Urbanist',
-                              fontWeight: FontWeight.w500,
-                            ),
-                    indicatorColor: FlutterFlowTheme.of(context).turquoise,
-                    indicatorWeight: 4.0,
-                    tabs: [
-                      Tab(
-                        text: 'Published',
-                      ),
-                      Tab(
-                        text: 'Drafts',
-                      ),
-                    ],
+                  Align(
+                    alignment: Alignment(0.0, 0),
+                    child: TabBar(
+                      labelColor: FlutterFlowTheme.of(context).turquoise,
+                      unselectedLabelColor:
+                          FlutterFlowTheme.of(context).grayIcon,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Urbanist',
+                                fontWeight: FontWeight.w500,
+                              ),
+                      indicatorColor: FlutterFlowTheme.of(context).turquoise,
+                      indicatorWeight: 4.0,
+                      tabs: [
+                        Tab(
+                          text: 'Published',
+                        ),
+                        Tab(
+                          text: 'Drafts',
+                        ),
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: TabBarView(
@@ -174,6 +178,10 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                               BorderRadius.circular(8.0),
                                         ),
                                         child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             await Navigator.push(
                                               context,
@@ -446,6 +454,10 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                               BorderRadius.circular(8.0),
                                         ),
                                         child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             await Navigator.push(
                                               context,

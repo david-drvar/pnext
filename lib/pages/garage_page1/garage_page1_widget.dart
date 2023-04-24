@@ -89,6 +89,10 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         final selectedMedia =
                             await selectMediaWithSourceBottomSheet(
@@ -117,6 +121,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                                       bytes: m.bytes,
                                       height: m.dimensions?.height,
                                       width: m.dimensions?.width,
+                                      blurHash: m.blurHash,
                                     ))
                                 .toList();
 

@@ -208,6 +208,10 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 await Navigator.push(
                                   context,
@@ -268,6 +272,10 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         await Navigator.push(
                           context,

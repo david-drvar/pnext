@@ -212,6 +212,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 children: [
                   if (!(Theme.of(context).brightness == Brightness.dark))
                     InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         setDarkModeSetting(context, ThemeMode.dark);
                         if (animationsMap[
@@ -313,6 +317,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                     ),
                   if (Theme.of(context).brightness == Brightness.dark)
                     InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         setDarkModeSetting(context, ThemeMode.light);
                         if (animationsMap[
@@ -467,6 +475,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
                     onTap: () async {
                       await Navigator.push(
                         context,
@@ -542,6 +554,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         await Navigator.push(
                           context,
@@ -617,6 +633,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         await Navigator.push(
                           context,
@@ -694,6 +714,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         await Navigator.push(
                           context,
@@ -773,6 +797,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           await Navigator.push(
                             context,

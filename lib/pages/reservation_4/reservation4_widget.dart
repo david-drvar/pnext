@@ -1,7 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/reservation_5/reservation5_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +13,12 @@ import 'reservation4_model.dart';
 export 'reservation4_model.dart';
 
 class Reservation4Widget extends StatefulWidget {
-  const Reservation4Widget({Key? key}) : super(key: key);
+  const Reservation4Widget({
+    Key? key,
+    this.reservationref,
+  }) : super(key: key);
+
+  final DocumentReference? reservationref;
 
   @override
   _Reservation4WidgetState createState() => _Reservation4WidgetState();
@@ -106,8 +115,20 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.8),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        totalPrice: 10.0,
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Reservation5Widget(
+                            reservationref: widget.reservationref,
+                          ),
+                        ),
+                      );
                     },
                     text: 'Procedi con il pagamento',
                     options: FFButtonOptions(

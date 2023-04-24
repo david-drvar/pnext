@@ -2,14 +2,17 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -174,6 +177,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
         List<ReviewsRecord> garageDetailsReviewsRecordList = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
+          resizeToAvoidBottomInset: false,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           body: Column(
             mainAxisSize: MainAxisSize.max,
@@ -202,6 +206,10 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
                                       onTap: () async {
                                         await Navigator.push(
                                           context,
@@ -268,6 +276,11 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
                                               onTap: () async {
                                                 Navigator.pop(context);
                                               },
@@ -294,6 +307,40 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                                     Navigator.pop(context);
                                                   },
                                                 ),
+                                              ),
+                                            ),
+                                            FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: 'Edit',
+                                              options: FFButtonOptions(
+                                                width: 60.0,
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Urbanist',
+                                                          color: Colors.white,
+                                                        ),
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
                                               ),
                                             ),
                                           ],
@@ -412,7 +459,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Amenities',
+                              'Suitable for',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -426,6 +473,294 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           ],
                         ).animateOnPageLoad(
                             animationsMap['rowOnPageLoadAnimation2']!),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 10.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                fillColor: FlutterFlowTheme.of(context).primary,
+                                disabledColor:
+                                    FlutterFlowTheme.of(context).grayIcon,
+                                icon: FaIcon(
+                                  FontAwesomeIcons.truck,
+                                  color: Colors.white,
+                                  size: 30.0,
+                                ),
+                                onPressed:
+                                    widget.garageRef!.dimensions != 'truck'
+                                        ? null
+                                        : () {
+                                            print('IconButton pressed ...');
+                                          },
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 10.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                fillColor: FlutterFlowTheme.of(context).primary,
+                                disabledColor:
+                                    FlutterFlowTheme.of(context).grayIcon,
+                                icon: FaIcon(
+                                  FontAwesomeIcons.carSide,
+                                  color: Colors.white,
+                                  size: 30.0,
+                                ),
+                                onPressed: widget.garageRef!.dimensions != 'car'
+                                    ? null
+                                    : () {
+                                        print('IconButton pressed ...');
+                                      },
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 10.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                fillColor: FlutterFlowTheme.of(context).primary,
+                                disabledColor:
+                                    FlutterFlowTheme.of(context).grayIcon,
+                                icon: Icon(
+                                  Icons.pedal_bike_sharp,
+                                  color: Colors.white,
+                                  size: 30.0,
+                                ),
+                                onPressed:
+                                    widget.garageRef!.dimensions != 'bike'
+                                        ? null
+                                        : () {
+                                            print('IconButton pressed ...');
+                                          },
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 10.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                fillColor: FlutterFlowTheme.of(context).primary,
+                                disabledColor:
+                                    FlutterFlowTheme.of(context).grayIcon,
+                                icon: FaIcon(
+                                  FontAwesomeIcons.caravan,
+                                  color: Colors.white,
+                                  size: 30.0,
+                                ),
+                                onPressed:
+                                    widget.garageRef!.dimensions != 'caravan'
+                                        ? null
+                                        : () {
+                                            print('IconButton pressed ...');
+                                          },
+                              ),
+                            ),
+                            FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 10.0,
+                              borderWidth: 1.0,
+                              buttonSize: 60.0,
+                              fillColor: FlutterFlowTheme.of(context).primary,
+                              disabledColor:
+                                  FlutterFlowTheme.of(context).grayIcon,
+                              icon: FaIcon(
+                                FontAwesomeIcons.truckMoving,
+                                color: Colors.white,
+                                size: 30.0,
+                              ),
+                              onPressed:
+                                  widget.garageRef!.dimensions != 'big_truck'
+                                      ? null
+                                      : () {
+                                          print('IconButton pressed ...');
+                                        },
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        child: Container(
+                          width: 350.0,
+                          height: 250.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            shape: BoxShape.rectangle,
+                          ),
+                          child: Builder(builder: (context) {
+                            final _googleMapMarker = widget.garageRef;
+                            return FlutterFlowGoogleMap(
+                              controller: _model.googleMapsController,
+                              onCameraIdle: (latLng) =>
+                                  _model.googleMapsCenter = latLng,
+                              initialLocation: _model.googleMapsCenter ??=
+                                  widget.garageRef!.location!,
+                              markers: [
+                                if (_googleMapMarker != null)
+                                  FlutterFlowMarker(
+                                    _googleMapMarker.reference.path,
+                                    _googleMapMarker.location!,
+                                  ),
+                              ],
+                              markerColor: GoogleMarkerColor.red,
+                              mapType: MapType.normal,
+                              style: GoogleMapStyle.standard,
+                              initialZoom: 14.0,
+                              allowInteraction: true,
+                              allowZoom: true,
+                              showZoomControls: true,
+                              showLocation: true,
+                              showCompass: false,
+                              showMapToolbar: false,
+                              showTraffic: false,
+                              centerMapOnMarkerTap: true,
+                            );
+                          }),
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        height: 250.0,
+                        decoration: BoxDecoration(),
+                        child: Builder(
+                          builder: (context) {
+                            final photoListView = widget.garageRef!.photos!
+                                .toList()
+                                .map((e) => e)
+                                .toList();
+                            return GridView.builder(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                crossAxisSpacing: 3.0,
+                                mainAxisSpacing: 3.0,
+                                childAspectRatio: 1.0,
+                              ),
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemCount: photoListView.length,
+                              itemBuilder: (context, photoListViewIndex) {
+                                final photoListViewItem =
+                                    photoListView[photoListViewIndex];
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType.fade,
+                                              child:
+                                                  FlutterFlowExpandedImageView(
+                                                image: Image.network(
+                                                  valueOrDefault<String>(
+                                                    photoListViewItem,
+                                                    'https://via.placeholder.com/600x400',
+                                                  ),
+                                                  fit: BoxFit.contain,
+                                                ),
+                                                allowRotation: false,
+                                                tag: valueOrDefault<String>(
+                                                  photoListViewItem,
+                                                  'https://via.placeholder.com/600x400' +
+                                                      '$photoListViewIndex',
+                                                ),
+                                                useHeroAnimation: true,
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                        child: Hero(
+                                          tag: valueOrDefault<String>(
+                                            photoListViewItem,
+                                            'https://via.placeholder.com/600x400' +
+                                                '$photoListViewIndex',
+                                          ),
+                                          transitionOnUserGestures: true,
+                                          child: Image.network(
+                                            valueOrDefault<String>(
+                                              photoListViewItem,
+                                              'https://via.placeholder.com/600x400',
+                                            ),
+                                            width: 100.0,
+                                            height: 100.0,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.95,
+                        height: 250.0,
+                        decoration: BoxDecoration(),
+                        child: Builder(
+                          builder: (context) {
+                            final videoListView = widget.garageRef!.videos!
+                                .toList()
+                                .map((e) => e)
+                                .toList();
+                            return ListView.builder(
+                              padding: EdgeInsets.zero,
+                              scrollDirection: Axis.vertical,
+                              itemCount: videoListView.length,
+                              itemBuilder: (context, videoListViewIndex) {
+                                final videoListViewItem =
+                                    videoListView[videoListViewIndex];
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    FlutterFlowVideoPlayer(
+                                      path: videoListViewItem,
+                                      videoType: VideoType.network,
+                                      autoPlay: false,
+                                      looping: true,
+                                      showControls: true,
+                                      allowFullScreen: true,
+                                      allowPlaybackSpeedMenu: false,
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                        ),
                       ),
                     ],
                   ),

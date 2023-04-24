@@ -63,8 +63,8 @@ class _BookNowWidgetState extends State<BookNowWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 1.0,
-          end: 1.0,
+          begin: Offset(1.0, 1.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -240,6 +240,10 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),
                           child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               await DatePicker.showDatePicker(
                                 context,
@@ -295,6 +299,10 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           ),
                         ),
                         InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             await DatePicker.showDatePicker(
                               context,

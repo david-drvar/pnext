@@ -16,6 +16,7 @@ import 'schema/amenitities_record.dart';
 import 'schema/bookings_record.dart';
 import 'schema/garages_record.dart';
 import 'schema/garage_photos_record.dart';
+import 'schema/reservation_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -34,6 +35,7 @@ export 'schema/amenitities_record.dart';
 export 'schema/bookings_record.dart';
 export 'schema/garages_record.dart';
 export 'schema/garage_photos_record.dart';
+export 'schema/reservation_record.dart';
 
 /// Functions to query PropertiesRecords (as a Stream and as a Future).
 Future<int> queryPropertiesRecordCount({
@@ -601,6 +603,58 @@ Future<FFFirestorePage<GaragePhotosRecord>> queryGaragePhotosRecordPage({
     queryCollectionPage(
       GaragePhotosRecord.collection,
       GaragePhotosRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query ReservationRecords (as a Stream and as a Future).
+Future<int> queryReservationRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ReservationRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ReservationRecord>> queryReservationRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ReservationRecord.collection,
+      ReservationRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ReservationRecord>> queryReservationRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ReservationRecord.collection,
+      ReservationRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ReservationRecord>> queryReservationRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      ReservationRecord.collection,
+      ReservationRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

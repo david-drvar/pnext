@@ -113,6 +113,13 @@ class _CreateProperty3CopyWidgetState extends State<CreateProperty3CopyWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: TextFormField(
                         controller: _model.pricePerNightController,
+                        onFieldSubmitted: (_) async {
+                          final garagesUpdateData = createGaragesRecordData(
+                            rate: double.tryParse(
+                                _model.pricePerNightController.text),
+                          );
+                          await widget.newGarageRef!.update(garagesUpdateData);
+                        },
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: '\$ Price',
@@ -166,6 +173,7 @@ class _CreateProperty3CopyWidgetState extends State<CreateProperty3CopyWidget> {
                               0.0, 24.0, 0.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).headlineMedium,
+                        keyboardType: TextInputType.number,
                         validator: _model.pricePerNightControllerValidator
                             .asValidator(context),
                       ),
@@ -196,11 +204,6 @@ class _CreateProperty3CopyWidgetState extends State<CreateProperty3CopyWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        final garagesUpdateData = createGaragesRecordData(
-                          rate: double.tryParse(
-                              _model.pricePerNightController.text),
-                        );
-                        await widget.newGarageRef!.update(garagesUpdateData);
                         await Navigator.push(
                           context,
                           MaterialPageRoute(

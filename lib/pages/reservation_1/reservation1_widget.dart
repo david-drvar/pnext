@@ -1,18 +1,25 @@
-import '/flutter_flow/flutter_flow_calendar.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
+import '/pages/reservation_2/reservation2_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'reservation1_model.dart';
 export 'reservation1_model.dart';
 
 class Reservation1Widget extends StatefulWidget {
-  const Reservation1Widget({Key? key}) : super(key: key);
+  const Reservation1Widget({
+    Key? key,
+    this.datestart,
+  }) : super(key: key);
+
+  final DateTime? datestart;
 
   @override
   _Reservation1WidgetState createState() => _Reservation1WidgetState();
@@ -81,35 +88,24 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, -1.42),
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(60.0, 100.0, 60.0, 60.0),
-                    child: FlutterFlowCalendar(
-                      color: FlutterFlowTheme.of(context).primary,
-                      weekFormat: false,
-                      weekStartsMonday: false,
-                      onChange: (DateTimeRange? newSelectedDate) {
-                        setState(
-                            () => _model.calendarSelectedDay = newSelectedDate);
-                      },
-                      titleStyle: TextStyle(),
-                      dayOfWeekStyle: TextStyle(),
-                      dateStyle: TextStyle(),
-                      selectedDateStyle: TextStyle(),
-                      inactiveDateStyle: TextStyle(),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-0.7, 0.35),
+                  alignment: AlignmentDirectional(0.03, -0.77),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await DatePicker.showDateTimePicker(
+                        context,
+                        showTitleActions: true,
+                        onConfirm: (date) {
+                          setState(() {
+                            _model.datePicked1 = date;
+                          });
+                        },
+                        currentTime: getCurrentTimestamp,
+                        minTime: getCurrentTimestamp,
+                      );
                     },
-                    text: 'Orario di arrivo',
+                    text: 'Data e orario di arrivo',
                     options: FFButtonOptions(
-                      width: 130.0,
+                      width: 280.0,
                       height: 40.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
@@ -130,53 +126,39 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.45, 0.35),
+                  alignment: AlignmentDirectional(-0.1, -0.17),
                   child: Text(
-                    'hm',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-0.65, 0.6),
-                  child: FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController ??=
-                        FormFieldController<String>(null),
-                    options: ['Option 1'],
-                    onChanged: (val) =>
-                        setState(() => _model.dropDownValue = val),
-                    width: 180.0,
-                    height: 50.0,
-                    searchHintTextStyle:
-                        FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: '',
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            ),
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Please select...',
-                    searchHintText: 'Search for an item...',
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: Colors.transparent,
-                    borderWidth: 0.0,
-                    borderRadius: 0.0,
-                    margin:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 4.0),
-                    hidesUnderline: true,
-                    isSearchable: false,
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(-0.7, 0.45),
-                  child: Text(
-                    'Seleziona durata sosta',
+                    'Seleziona orario fine sosta',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.85),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      final reservationCreateData = createReservationRecordData(
+                        dateStart: _model.datePicked1,
+                        dateEnd: _model.datePicked2,
+                        user: currentUserReference,
+                      );
+                      var reservationRecordReference =
+                          ReservationRecord.collection.doc();
+                      await reservationRecordReference
+                          .set(reservationCreateData);
+                      _model.newReservation =
+                          ReservationRecord.getDocumentFromData(
+                              reservationCreateData,
+                              reservationRecordReference);
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Reservation2Widget(
+                            reservationref: _model.newReservation!.reference,
+                          ),
+                        ),
+                      );
+
+                      setState(() {});
                     },
                     text: 'Conferma',
                     options: FFButtonOptions(
@@ -198,6 +180,64 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-0.04, -0.01),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await DatePicker.showDateTimePicker(
+                        context,
+                        showTitleActions: true,
+                        onConfirm: (date) {
+                          setState(() {
+                            _model.datePicked2 = date;
+                          });
+                        },
+                        currentTime: getCurrentTimestamp,
+                        minTime: getCurrentTimestamp,
+                      );
+                    },
+                    text: 'Data e orario fine sosta',
+                    options: FFButtonOptions(
+                      width: 280.0,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Urbanist',
+                                color: Colors.white,
+                              ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-0.02, -0.59),
+                  child: Text(
+                    valueOrDefault<String>(
+                      _model.datePicked1?.toString(),
+                      'Date time',
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-0.05, 0.14),
+                  child: Text(
+                    valueOrDefault<String>(
+                      _model.datePicked2?.toString(),
+                      'Date time',
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
               ],

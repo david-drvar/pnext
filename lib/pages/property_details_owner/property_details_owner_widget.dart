@@ -60,8 +60,8 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0.4,
-          end: 1.0,
+          begin: Offset(0.4, 0.4),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -121,6 +121,10 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                               Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () async {
                                     await Navigator.push(
                                       context,
@@ -177,6 +181,10 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
                                           onTap: () async {
                                             Navigator.pop(context);
                                           },
@@ -254,6 +262,10 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onTap: () async {
                         await Navigator.push(
                           context,

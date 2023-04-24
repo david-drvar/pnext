@@ -318,6 +318,10 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               await Navigator.push(
                                 context,
@@ -330,6 +334,10 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
                                   onTap: () async {
                                     await Navigator.push(
                                       context,

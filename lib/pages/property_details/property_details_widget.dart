@@ -176,8 +176,8 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 0.4,
-          end: 1.0,
+          begin: Offset(0.4, 0.4),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -256,6 +256,10 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
                                       onTap: () async {
                                         await Navigator.push(
                                           context,
@@ -314,6 +318,11 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
                                               onTap: () async {
                                                 Navigator.pop(context);
                                               },
@@ -397,6 +406,10 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                         padding: EdgeInsetsDirectional.fromSTEB(
                             24.0, 8.0, 24.0, 0.0),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             await Navigator.push(
                               context,

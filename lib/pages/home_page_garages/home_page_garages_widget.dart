@@ -3,31 +3,30 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/garage_details/garage_details_widget.dart';
-import '/pages/search_properties/search_properties_widget.dart';
+import '/pages/reservation_1/reservation1_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'home_page_m_a_i_n_david_model.dart';
-export 'home_page_m_a_i_n_david_model.dart';
+import 'home_page_garages_model.dart';
+export 'home_page_garages_model.dart';
 
-class HomePageMAINDavidWidget extends StatefulWidget {
-  const HomePageMAINDavidWidget({Key? key}) : super(key: key);
+class HomePageGaragesWidget extends StatefulWidget {
+  const HomePageGaragesWidget({Key? key}) : super(key: key);
 
   @override
-  _HomePageMAINDavidWidgetState createState() =>
-      _HomePageMAINDavidWidgetState();
+  _HomePageGaragesWidgetState createState() => _HomePageGaragesWidgetState();
 }
 
-class _HomePageMAINDavidWidgetState extends State<HomePageMAINDavidWidget> {
-  late HomePageMAINDavidModel _model;
+class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
+  late HomePageGaragesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => HomePageMAINDavidModel());
+    _model = createModel(context, () => HomePageGaragesModel());
 
     _model.textController ??= TextEditingController();
   }
@@ -200,10 +199,7 @@ class _HomePageMAINDavidWidgetState extends State<HomePageMAINDavidWidget> {
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        SearchPropertiesWidget(
-                                      searchTerm: _model.textController.text,
-                                    ),
+                                    builder: (context) => Reservation1Widget(),
                                   ),
                                 );
                               },
@@ -270,6 +266,10 @@ class _HomePageMAINDavidWidgetState extends State<HomePageMAINDavidWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 12.0),
                         child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                           onTap: () async {
                             await Navigator.push(
                               context,

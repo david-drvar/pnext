@@ -80,11 +80,18 @@ export '/pages/reservation_2/reservation2_widget.dart' show Reservation2Widget;
 export '/pages/reservation_3/reservation3_widget.dart' show Reservation3Widget;
 export '/pages/reservation_4/reservation4_widget.dart' show Reservation4Widget;
 export '/pages/reservation_5/reservation5_widget.dart' show Reservation5Widget;
-export '/pages/create_garage_1_copy/create_garage1_copy_widget.dart'
-    show CreateGarage1CopyWidget;
-export '/pages/home_page_m_a_i_n_david/home_page_m_a_i_n_david_widget.dart'
-    show HomePageMAINDavidWidget;
+export '/pages/home_page_garages/home_page_garages_widget.dart'
+    show HomePageGaragesWidget;
 export '/pages/garage_details/garage_details_widget.dart'
     show GarageDetailsWidget;
 export '/pages/owners_garages/owners_garages_widget.dart'
     show OwnersGaragesWidget;
+export '/pages/reservation_3_choose_garage/reservation3_choose_garage_widget.dart'
+    show Reservation3ChooseGarageWidget;
+export '/pages/reservation_3_map/reservation3_map_widget.dart'
+    show Reservation3MapWidget;
+export '/pages/create_garage_1_peppe/create_garage1_peppe_widget.dart'
+    show CreateGarage1PeppeWidget;
+export '/pages/create_garage_1_peppe_copy/create_garage1_peppe_copy_widget.dart'
+    show CreateGarage1PeppeCopyWidget;
+export '/pages/reservations/reservations_widget.dart' show ReservationsWidget;

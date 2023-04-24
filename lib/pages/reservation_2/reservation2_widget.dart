@@ -1,7 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/reservation_3_choose_garage/reservation3_choose_garage_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +14,12 @@ import 'reservation2_model.dart';
 export 'reservation2_model.dart';
 
 class Reservation2Widget extends StatefulWidget {
-  const Reservation2Widget({Key? key}) : super(key: key);
+  const Reservation2Widget({
+    Key? key,
+    this.reservationref,
+  }) : super(key: key);
+
+  final DocumentReference? reservationref;
 
   @override
   _Reservation2WidgetState createState() => _Reservation2WidgetState();
@@ -27,7 +36,8 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
     super.initState();
     _model = createModel(context, () => Reservation2Model());
 
-    _model.textController ??= TextEditingController(text: 'XX000XX');
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
   }
 
   @override
@@ -100,8 +110,15 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       color: FlutterFlowTheme.of(context).lineGray,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'motorcycle',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
+                        _model.textController2?.text = 'size: motorcycle';
+                      });
                     },
                   ),
                 ),
@@ -118,8 +135,15 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       color: FlutterFlowTheme.of(context).cultured,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'car',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
+                        _model.textController2?.text = 'size: car';
+                      });
                     },
                   ),
                 ),
@@ -136,8 +160,15 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       color: FlutterFlowTheme.of(context).cultured,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'big car',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
+                        _model.textController2?.text = 'size: big car';
+                      });
                     },
                   ),
                 ),
@@ -154,8 +185,15 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       color: FlutterFlowTheme.of(context).cultured,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'truck',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
+                        _model.textController2?.text = 'size: truck';
+                      });
                     },
                   ),
                 ),
@@ -172,8 +210,15 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       color: FlutterFlowTheme.of(context).cultured,
                       size: 30.0,
                     ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'caravan',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
+                        _model.textController2?.text = 'size: caravan';
+                      });
                     },
                   ),
                 ),
@@ -213,48 +258,61 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, -0.1),
+                  alignment: AlignmentDirectional(0.0, 0.01),
                   child: Text(
                     'inserisci targa',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.17),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(
                         100.0, 100.0, 100.0, 100.0),
                     child: TextFormField(
-                      controller: _model.textController,
+                      controller: _model.textController1,
+                      onFieldSubmitted: (_) async {
+                        final reservationUpdateData =
+                            createReservationRecordData(
+                          carCode: _model.textController1.text,
+                        );
+                        await widget.reservationref!
+                            .update(reservationUpdateData);
+                      },
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: '[Some hint text...]',
-                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                        hintText: 'XX000XX',
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily: 'Urbanist',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                            ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: FlutterFlowTheme.of(context).primary,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(0.0),
                         ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: FlutterFlowTheme.of(context).primary,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(0.0),
                         ),
                         errorBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: FlutterFlowTheme.of(context).primary,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(0.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
-                            color: Color(0x00000000),
+                            color: FlutterFlowTheme.of(context).primary,
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(0.0),
@@ -262,20 +320,32 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Urbanist',
+                            color: FlutterFlowTheme.of(context).primaryText,
                             fontSize: 17.0,
                             fontWeight: FontWeight.normal,
                           ),
                       textAlign: TextAlign.center,
                       validator:
-                          _model.textControllerValidator.asValidator(context),
+                          _model.textController1Validator.asValidator(context),
                     ),
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.4),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      final reservationUpdateData =
+                          createReservationRecordData();
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Reservation3ChooseGarageWidget(
+                            reservationref: widget.reservationref,
+                          ),
+                        ),
+                      );
                     },
                     text: 'Conferma',
                     options: FFButtonOptions(
@@ -297,6 +367,63 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, -0.19),
+                  child: TextFormField(
+                    controller: _model.textController2,
+                    autofocus: true,
+                    readOnly: true,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      hintText: 'size',
+                      hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(4.0),
+                          topRight: Radius.circular(4.0),
+                        ),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(4.0),
+                          topRight: Radius.circular(4.0),
+                        ),
+                      ),
+                      errorBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(4.0),
+                          topRight: Radius.circular(4.0),
+                        ),
+                      ),
+                      focusedErrorBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 1.0,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(4.0),
+                          topRight: Radius.circular(4.0),
+                        ),
+                      ),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    textAlign: TextAlign.center,
+                    validator:
+                        _model.textController2Validator.asValidator(context),
                   ),
                 ),
               ],

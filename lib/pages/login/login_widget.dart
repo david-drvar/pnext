@@ -38,8 +38,8 @@ class _LoginWidgetState extends State<LoginWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: 1.0,
-          end: 1.0,
+          begin: Offset(1.0, 1.0),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -329,7 +329,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => NavBarPage(
-                                              initialPage: 'homePage_MAIN'),
+                                              initialPage: 'homePage_Garages'),
                                         ),
                                       );
                                     } else {

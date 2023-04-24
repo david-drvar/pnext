@@ -4,33 +4,33 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/create_garage_1_peppe_copy/create_garage1_peppe_copy_widget.dart';
 import '/pages/create_garage_foto_video/create_garage_foto_video_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_garage1_copy_model.dart';
-export 'create_garage1_copy_model.dart';
+import 'create_garage1_peppe_model.dart';
+export 'create_garage1_peppe_model.dart';
 
-class CreateGarage1CopyWidget extends StatefulWidget {
-  const CreateGarage1CopyWidget({Key? key}) : super(key: key);
+class CreateGarage1PeppeWidget extends StatefulWidget {
+  const CreateGarage1PeppeWidget({Key? key}) : super(key: key);
 
   @override
-  _CreateGarage1CopyWidgetState createState() =>
-      _CreateGarage1CopyWidgetState();
+  _CreateGarage1PeppeWidgetState createState() =>
+      _CreateGarage1PeppeWidgetState();
 }
 
-class _CreateGarage1CopyWidgetState extends State<CreateGarage1CopyWidget> {
-  late CreateGarage1CopyModel _model;
+class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
+  late CreateGarage1PeppeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateGarage1CopyModel());
+    _model = createModel(context, () => CreateGarage1PeppeModel());
 
     _model.addressNumberController ??= TextEditingController();
     _model.cityController ??= TextEditingController();
@@ -87,6 +87,85 @@ class _CreateGarage1CopyWidgetState extends State<CreateGarage1CopyWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      child: Text(
+                        'Registra con GPS dove si trova il tuo parcheggio',
+                        textAlign: TextAlign.justify,
+                        style: FlutterFlowTheme.of(context).bodySmall,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        CreateGarage1PeppeCopyWidget(),
+                                  ),
+                                );
+                              },
+                              text:
+                                  'Premi qui quando sei di fronte al posto auto ',
+                              options: FFButtonOptions(
+                                width: 300.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      fontSize: 14.0,
+                                    ),
+                                elevation: 2.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                      child: Text(
+                        'OPPURE',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Inserisci l\'indirizzo esatto',
+                            style: FlutterFlowTheme.of(context).bodySmall,
+                          ),
+                        ],
+                      ),
+                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
@@ -274,104 +353,6 @@ class _CreateGarage1CopyWidgetState extends State<CreateGarage1CopyWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Text(
-                              'Use GPS positioning to determine your precise location',
-                              textAlign: TextAlign.justify,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Urbanist',
-                                    color: FlutterFlowTheme.of(context).gray600,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                currentUserLocationValue =
-                                    await getCurrentUserLocation(
-                                        defaultLocation: LatLng(0.0, 0.0));
-                                setState(() {
-                                  _model.garageLocation =
-                                      currentUserLocationValue;
-                                });
-                              },
-                              text: 'LOCATE ME',
-                              options: FFButtonOptions(
-                                width: 130.0,
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: Colors.white,
-                                    ),
-                                elevation: 2.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              width: 330.0,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  _model.garageLocation?.toString(),
-                                  'Your device location is...',
-                                ),
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -397,7 +378,7 @@ class _CreateGarage1CopyWidgetState extends State<CreateGarage1CopyWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -538,7 +519,7 @@ class _CreateGarage1CopyWidgetState extends State<CreateGarage1CopyWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

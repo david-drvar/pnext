@@ -71,25 +71,28 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                 initialIndex: 0,
                 child: Column(
                   children: [
-                    TabBar(
-                      labelColor: FlutterFlowTheme.of(context).turquoise,
-                      unselectedLabelColor:
-                          FlutterFlowTheme.of(context).grayIcon,
-                      labelStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Urbanist',
-                                fontWeight: FontWeight.w500,
-                              ),
-                      indicatorColor: FlutterFlowTheme.of(context).turquoise,
-                      indicatorWeight: 4.0,
-                      tabs: [
-                        Tab(
-                          text: 'Upcoming',
-                        ),
-                        Tab(
-                          text: 'Completed',
-                        ),
-                      ],
+                    Align(
+                      alignment: Alignment(0.0, 0),
+                      child: TabBar(
+                        labelColor: FlutterFlowTheme.of(context).turquoise,
+                        unselectedLabelColor:
+                            FlutterFlowTheme.of(context).grayIcon,
+                        labelStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Urbanist',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                        indicatorColor: FlutterFlowTheme.of(context).turquoise,
+                        indicatorWeight: 4.0,
+                        tabs: [
+                          Tab(
+                            text: 'Upcoming',
+                          ),
+                          Tab(
+                            text: 'Completed',
+                          ),
+                        ],
+                      ),
                     ),
                     Expanded(
                       child: TabBarView(
@@ -192,6 +195,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                               final columnPropertiesRecord =
                                                   snapshot.data!;
                                               return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
                                                 onTap: () async {
                                                   await Navigator.push(
                                                     context,
@@ -211,6 +219,14 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                       MainAxisSize.max,
                                                   children: [
                                                     InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         await Navigator.push(
                                                           context,
@@ -570,6 +586,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                               final columnPropertiesRecord =
                                                   snapshot.data!;
                                               return InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
                                                 onTap: () async {
                                                   await Navigator.push(
                                                     context,

@@ -47,8 +47,8 @@ class _UploadGaragePhotoWidgetState extends State<UploadGaragePhotoWidget>
           curve: Curves.easeInOut,
           delay: 350.ms,
           duration: 600.ms,
-          begin: 0.6,
-          end: 1.0,
+          begin: Offset(0.6, 0.6),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -73,8 +73,8 @@ class _UploadGaragePhotoWidgetState extends State<UploadGaragePhotoWidget>
           curve: Curves.easeInOut,
           delay: 350.ms,
           duration: 600.ms,
-          begin: 0.6,
-          end: 1.0,
+          begin: Offset(0.6, 0.6),
+          end: Offset(1.0, 1.0),
         ),
       ],
     ),
@@ -211,6 +211,7 @@ class _UploadGaragePhotoWidgetState extends State<UploadGaragePhotoWidget>
                                   bytes: m.bytes,
                                   height: m.dimensions?.height,
                                   width: m.dimensions?.width,
+                                  blurHash: m.blurHash,
                                 ))
                             .toList();
 

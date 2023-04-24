@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/main.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +12,12 @@ import 'reservation5_model.dart';
 export 'reservation5_model.dart';
 
 class Reservation5Widget extends StatefulWidget {
-  const Reservation5Widget({Key? key}) : super(key: key);
+  const Reservation5Widget({
+    Key? key,
+    this.reservationref,
+  }) : super(key: key);
+
+  final DocumentReference? reservationref;
 
   @override
   _Reservation5WidgetState createState() => _Reservation5WidgetState();
@@ -106,8 +113,14 @@ class _Reservation5WidgetState extends State<Reservation5Widget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.25),
                   child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              NavBarPage(initialPage: 'homePage_Garages'),
+                        ),
+                      );
                     },
                     text: 'Conferma pagamento',
                     options: FFButtonOptions(

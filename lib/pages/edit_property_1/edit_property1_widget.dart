@@ -102,6 +102,10 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
                             onTap: () async {
                               await showModalBottomSheet(
                                 isScrollControlled: true,
