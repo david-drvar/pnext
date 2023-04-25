@@ -20,7 +20,7 @@ export '/pages/payment_info/payment_info_widget.dart' show PaymentInfoWidget;
 export '/pages/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export '/pages/change_password/change_password_widget.dart'
     show ChangePasswordWidget;
-export '/pages/create_garage_1/create_garage1_widget.dart'
+export '/pages/create_garage_pages/create_garage_1/create_garage1_widget.dart'
     show CreateGarage1Widget;
 export '/pages/home_page_a_l_t/home_page_a_l_t_widget.dart'
     show HomePageALTWidget;
@@ -45,36 +45,25 @@ export '/pages/forgot_password/forgot_password_widget.dart'
 export '/pages/garage_page1/garage_page1_widget.dart' show GaragePage1Widget;
 export '/pages/create_property_1_copy/create_property1_copy_widget.dart'
     show CreateProperty1CopyWidget;
-export '/pages/timeslot_monday/timeslot_monday_widget.dart'
-    show TimeslotMondayWidget;
-export '/pages/create_garage_2/create_garage2_widget.dart'
+export '/pages/create_garage_pages/garage_availabilities/garage_availabilities_widget.dart'
+    show GarageAvailabilitiesWidget;
+export '/pages/create_garage_pages/create_garage_2/create_garage2_widget.dart'
     show CreateGarage2Widget;
-export '/pages/create_property_3_copy/create_property3_copy_widget.dart'
-    show CreateProperty3CopyWidget;
-export '/pages/create_garage_3/create_garage3_widget.dart'
+export '/pages/create_garage_pages/create_garage_price/create_garage_price_widget.dart'
+    show CreateGaragePriceWidget;
+export '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart'
     show CreateGarage3Widget;
-export '/pages/timeslot_calendar/timeslot_calendar_widget.dart'
+export '/pages/create_garage_pages/timeslot_calendar/timeslot_calendar_widget.dart'
     show TimeslotCalendarWidget;
-export '/pages/create_garage_foto_video/create_garage_foto_video_widget.dart'
+export '/pages/create_garage_pages/create_garage_foto_video/create_garage_foto_video_widget.dart'
     show CreateGarageFotoVideoWidget;
 export '/pages/foto_video/foto_video_widget.dart' show FotoVideoWidget;
-export '/pages/timeslot_calendar_copy/timeslot_calendar_copy_widget.dart'
+export '/pages/create_garage_pages/timeslot_calendar_copy/timeslot_calendar_copy_widget.dart'
     show TimeslotCalendarCopyWidget;
-export '/pages/disclaimer_page/disclaimer_page_widget.dart'
+export '/pages/create_garage_pages/disclaimer_page/disclaimer_page_widget.dart'
     show DisclaimerPageWidget;
-export '/pages/confirm_page/confirm_page_widget.dart' show ConfirmPageWidget;
-export '/pages/timeslot_tuesday/timeslot_tuesday_widget.dart'
-    show TimeslotTuesdayWidget;
-export '/pages/timeslot_wednesday/timeslot_wednesday_widget.dart'
-    show TimeslotWednesdayWidget;
-export '/pages/timeslot_thursday/timeslot_thursday_widget.dart'
-    show TimeslotThursdayWidget;
-export '/pages/timeslot_friday/timeslot_friday_widget.dart'
-    show TimeslotFridayWidget;
-export '/pages/timeslot_saturday/timeslot_saturday_widget.dart'
-    show TimeslotSaturdayWidget;
-export '/pages/timeslot_sunday/timeslot_sunday_widget.dart'
-    show TimeslotSundayWidget;
+export '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart'
+    show ConfirmPageWidget;
 export '/pages/reservation_1/reservation1_widget.dart' show Reservation1Widget;
 export '/pages/reservation_2/reservation2_widget.dart' show Reservation2Widget;
 export '/pages/reservation_3/reservation3_widget.dart' show Reservation3Widget;
@@ -90,8 +79,10 @@ export '/pages/reservation_3_choose_garage/reservation3_choose_garage_widget.dar
     show Reservation3ChooseGarageWidget;
 export '/pages/reservation_3_map/reservation3_map_widget.dart'
     show Reservation3MapWidget;
-export '/pages/create_garage_1_peppe/create_garage1_peppe_widget.dart'
+export '/pages/create_garage_pages/create_garage_1_peppe/create_garage1_peppe_widget.dart'
     show CreateGarage1PeppeWidget;
-export '/pages/create_garage_1_peppe_copy/create_garage1_peppe_copy_widget.dart'
+export '/pages/create_garage_pages/create_garage_1_peppe_copy/create_garage1_peppe_copy_widget.dart'
     show CreateGarage1PeppeCopyWidget;
 export '/pages/reservations/reservations_widget.dart' show ReservationsWidget;
+export '/pages/create_garage_pages/create_garage_1_place_picker/create_garage1_place_picker_widget.dart'
+    show CreateGarage1PlacePickerWidget;

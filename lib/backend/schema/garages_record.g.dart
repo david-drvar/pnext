@@ -128,6 +128,90 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
     }
+    value = object.tuesdayStart;
+    if (value != null) {
+      result
+        ..add('tuesday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.tuesdayEnd;
+    if (value != null) {
+      result
+        ..add('tuesday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.wednesdayStart;
+    if (value != null) {
+      result
+        ..add('wednesday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.wednesdayEnd;
+    if (value != null) {
+      result
+        ..add('wednesday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.thursdayStart;
+    if (value != null) {
+      result
+        ..add('thursday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.thursdayEnd;
+    if (value != null) {
+      result
+        ..add('thursday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.fridayStart;
+    if (value != null) {
+      result
+        ..add('friday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.fridayEnd;
+    if (value != null) {
+      result
+        ..add('friday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.saturdayStart;
+    if (value != null) {
+      result
+        ..add('saturday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.saturdayEnd;
+    if (value != null) {
+      result
+        ..add('saturday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.sundayStart;
+    if (value != null) {
+      result
+        ..add('sunday_start')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.sundayEnd;
+    if (value != null) {
+      result
+        ..add('sunday_end')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -217,6 +301,54 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
                       BuiltList, const [const FullType(String)]))!
               as BuiltList<Object?>);
           break;
+        case 'tuesday_start':
+          result.tuesdayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'tuesday_end':
+          result.tuesdayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'wednesday_start':
+          result.wednesdayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'wednesday_end':
+          result.wednesdayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'thursday_start':
+          result.thursdayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'thursday_end':
+          result.thursdayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'friday_start':
+          result.fridayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'friday_end':
+          result.fridayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'saturday_start':
+          result.saturdayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'saturday_end':
+          result.saturdayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'sunday_start':
+          result.sundayStart = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'sunday_end':
+          result.sundayEnd = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -262,6 +394,30 @@ class _$GaragesRecord extends GaragesRecord {
   @override
   final BuiltList<String>? videos;
   @override
+  final DateTime? tuesdayStart;
+  @override
+  final DateTime? tuesdayEnd;
+  @override
+  final DateTime? wednesdayStart;
+  @override
+  final DateTime? wednesdayEnd;
+  @override
+  final DateTime? thursdayStart;
+  @override
+  final DateTime? thursdayEnd;
+  @override
+  final DateTime? fridayStart;
+  @override
+  final DateTime? fridayEnd;
+  @override
+  final DateTime? saturdayStart;
+  @override
+  final DateTime? saturdayEnd;
+  @override
+  final DateTime? sundayStart;
+  @override
+  final DateTime? sundayEnd;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$GaragesRecord([void Function(GaragesRecordBuilder)? updates]) =>
@@ -283,6 +439,18 @@ class _$GaragesRecord extends GaragesRecord {
       this.location,
       this.photos,
       this.videos,
+      this.tuesdayStart,
+      this.tuesdayEnd,
+      this.wednesdayStart,
+      this.wednesdayEnd,
+      this.thursdayStart,
+      this.thursdayEnd,
+      this.fridayStart,
+      this.fridayEnd,
+      this.saturdayStart,
+      this.saturdayEnd,
+      this.sundayStart,
+      this.sundayEnd,
       this.ffRef})
       : super._();
 
@@ -312,6 +480,18 @@ class _$GaragesRecord extends GaragesRecord {
         location == other.location &&
         photos == other.photos &&
         videos == other.videos &&
+        tuesdayStart == other.tuesdayStart &&
+        tuesdayEnd == other.tuesdayEnd &&
+        wednesdayStart == other.wednesdayStart &&
+        wednesdayEnd == other.wednesdayEnd &&
+        thursdayStart == other.thursdayStart &&
+        thursdayEnd == other.thursdayEnd &&
+        fridayStart == other.fridayStart &&
+        fridayEnd == other.fridayEnd &&
+        saturdayStart == other.saturdayStart &&
+        saturdayEnd == other.saturdayEnd &&
+        sundayStart == other.sundayStart &&
+        sundayEnd == other.sundayEnd &&
         ffRef == other.ffRef;
   }
 
@@ -333,6 +513,18 @@ class _$GaragesRecord extends GaragesRecord {
     _$hash = $jc(_$hash, location.hashCode);
     _$hash = $jc(_$hash, photos.hashCode);
     _$hash = $jc(_$hash, videos.hashCode);
+    _$hash = $jc(_$hash, tuesdayStart.hashCode);
+    _$hash = $jc(_$hash, tuesdayEnd.hashCode);
+    _$hash = $jc(_$hash, wednesdayStart.hashCode);
+    _$hash = $jc(_$hash, wednesdayEnd.hashCode);
+    _$hash = $jc(_$hash, thursdayStart.hashCode);
+    _$hash = $jc(_$hash, thursdayEnd.hashCode);
+    _$hash = $jc(_$hash, fridayStart.hashCode);
+    _$hash = $jc(_$hash, fridayEnd.hashCode);
+    _$hash = $jc(_$hash, saturdayStart.hashCode);
+    _$hash = $jc(_$hash, saturdayEnd.hashCode);
+    _$hash = $jc(_$hash, sundayStart.hashCode);
+    _$hash = $jc(_$hash, sundayEnd.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -356,6 +548,18 @@ class _$GaragesRecord extends GaragesRecord {
           ..add('location', location)
           ..add('photos', photos)
           ..add('videos', videos)
+          ..add('tuesdayStart', tuesdayStart)
+          ..add('tuesdayEnd', tuesdayEnd)
+          ..add('wednesdayStart', wednesdayStart)
+          ..add('wednesdayEnd', wednesdayEnd)
+          ..add('thursdayStart', thursdayStart)
+          ..add('thursdayEnd', thursdayEnd)
+          ..add('fridayStart', fridayStart)
+          ..add('fridayEnd', fridayEnd)
+          ..add('saturdayStart', saturdayStart)
+          ..add('saturdayEnd', saturdayEnd)
+          ..add('sundayStart', sundayStart)
+          ..add('sundayEnd', sundayEnd)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -429,6 +633,59 @@ class GaragesRecordBuilder
       _$this._videos ??= new ListBuilder<String>();
   set videos(ListBuilder<String>? videos) => _$this._videos = videos;
 
+  DateTime? _tuesdayStart;
+  DateTime? get tuesdayStart => _$this._tuesdayStart;
+  set tuesdayStart(DateTime? tuesdayStart) =>
+      _$this._tuesdayStart = tuesdayStart;
+
+  DateTime? _tuesdayEnd;
+  DateTime? get tuesdayEnd => _$this._tuesdayEnd;
+  set tuesdayEnd(DateTime? tuesdayEnd) => _$this._tuesdayEnd = tuesdayEnd;
+
+  DateTime? _wednesdayStart;
+  DateTime? get wednesdayStart => _$this._wednesdayStart;
+  set wednesdayStart(DateTime? wednesdayStart) =>
+      _$this._wednesdayStart = wednesdayStart;
+
+  DateTime? _wednesdayEnd;
+  DateTime? get wednesdayEnd => _$this._wednesdayEnd;
+  set wednesdayEnd(DateTime? wednesdayEnd) =>
+      _$this._wednesdayEnd = wednesdayEnd;
+
+  DateTime? _thursdayStart;
+  DateTime? get thursdayStart => _$this._thursdayStart;
+  set thursdayStart(DateTime? thursdayStart) =>
+      _$this._thursdayStart = thursdayStart;
+
+  DateTime? _thursdayEnd;
+  DateTime? get thursdayEnd => _$this._thursdayEnd;
+  set thursdayEnd(DateTime? thursdayEnd) => _$this._thursdayEnd = thursdayEnd;
+
+  DateTime? _fridayStart;
+  DateTime? get fridayStart => _$this._fridayStart;
+  set fridayStart(DateTime? fridayStart) => _$this._fridayStart = fridayStart;
+
+  DateTime? _fridayEnd;
+  DateTime? get fridayEnd => _$this._fridayEnd;
+  set fridayEnd(DateTime? fridayEnd) => _$this._fridayEnd = fridayEnd;
+
+  DateTime? _saturdayStart;
+  DateTime? get saturdayStart => _$this._saturdayStart;
+  set saturdayStart(DateTime? saturdayStart) =>
+      _$this._saturdayStart = saturdayStart;
+
+  DateTime? _saturdayEnd;
+  DateTime? get saturdayEnd => _$this._saturdayEnd;
+  set saturdayEnd(DateTime? saturdayEnd) => _$this._saturdayEnd = saturdayEnd;
+
+  DateTime? _sundayStart;
+  DateTime? get sundayStart => _$this._sundayStart;
+  set sundayStart(DateTime? sundayStart) => _$this._sundayStart = sundayStart;
+
+  DateTime? _sundayEnd;
+  DateTime? get sundayEnd => _$this._sundayEnd;
+  set sundayEnd(DateTime? sundayEnd) => _$this._sundayEnd = sundayEnd;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -455,6 +712,18 @@ class GaragesRecordBuilder
       _location = $v.location;
       _photos = $v.photos?.toBuilder();
       _videos = $v.videos?.toBuilder();
+      _tuesdayStart = $v.tuesdayStart;
+      _tuesdayEnd = $v.tuesdayEnd;
+      _wednesdayStart = $v.wednesdayStart;
+      _wednesdayEnd = $v.wednesdayEnd;
+      _thursdayStart = $v.thursdayStart;
+      _thursdayEnd = $v.thursdayEnd;
+      _fridayStart = $v.fridayStart;
+      _fridayEnd = $v.fridayEnd;
+      _saturdayStart = $v.saturdayStart;
+      _saturdayEnd = $v.saturdayEnd;
+      _sundayStart = $v.sundayStart;
+      _sundayEnd = $v.sundayEnd;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -495,6 +764,18 @@ class GaragesRecordBuilder
               location: location,
               photos: _photos?.build(),
               videos: _videos?.build(),
+              tuesdayStart: tuesdayStart,
+              tuesdayEnd: tuesdayEnd,
+              wednesdayStart: wednesdayStart,
+              wednesdayEnd: wednesdayEnd,
+              thursdayStart: thursdayStart,
+              thursdayEnd: thursdayEnd,
+              fridayStart: fridayStart,
+              fridayEnd: fridayEnd,
+              saturdayStart: saturdayStart,
+              saturdayEnd: saturdayEnd,
+              sundayStart: sundayStart,
+              sundayEnd: sundayEnd,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

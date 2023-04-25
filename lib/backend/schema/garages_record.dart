@@ -42,6 +42,42 @@ abstract class GaragesRecord
 
   BuiltList<String>? get videos;
 
+  @BuiltValueField(wireName: 'tuesday_start')
+  DateTime? get tuesdayStart;
+
+  @BuiltValueField(wireName: 'tuesday_end')
+  DateTime? get tuesdayEnd;
+
+  @BuiltValueField(wireName: 'wednesday_start')
+  DateTime? get wednesdayStart;
+
+  @BuiltValueField(wireName: 'wednesday_end')
+  DateTime? get wednesdayEnd;
+
+  @BuiltValueField(wireName: 'thursday_start')
+  DateTime? get thursdayStart;
+
+  @BuiltValueField(wireName: 'thursday_end')
+  DateTime? get thursdayEnd;
+
+  @BuiltValueField(wireName: 'friday_start')
+  DateTime? get fridayStart;
+
+  @BuiltValueField(wireName: 'friday_end')
+  DateTime? get fridayEnd;
+
+  @BuiltValueField(wireName: 'saturday_start')
+  DateTime? get saturdayStart;
+
+  @BuiltValueField(wireName: 'saturday_end')
+  DateTime? get saturdayEnd;
+
+  @BuiltValueField(wireName: 'sunday_start')
+  DateTime? get sundayStart;
+
+  @BuiltValueField(wireName: 'sunday_end')
+  DateTime? get sundayEnd;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -92,6 +128,18 @@ Map<String, dynamic> createGaragesRecordData({
   DateTime? mondayStart,
   DateTime? mondayEnd,
   LatLng? location,
+  DateTime? tuesdayStart,
+  DateTime? tuesdayEnd,
+  DateTime? wednesdayStart,
+  DateTime? wednesdayEnd,
+  DateTime? thursdayStart,
+  DateTime? thursdayEnd,
+  DateTime? fridayStart,
+  DateTime? fridayEnd,
+  DateTime? saturdayStart,
+  DateTime? saturdayEnd,
+  DateTime? sundayStart,
+  DateTime? sundayEnd,
 }) {
   final firestoreData = serializers.toFirestore(
     GaragesRecord.serializer,
@@ -111,7 +159,19 @@ Map<String, dynamic> createGaragesRecordData({
         ..mondayEnd = mondayEnd
         ..location = location
         ..photos = null
-        ..videos = null,
+        ..videos = null
+        ..tuesdayStart = tuesdayStart
+        ..tuesdayEnd = tuesdayEnd
+        ..wednesdayStart = wednesdayStart
+        ..wednesdayEnd = wednesdayEnd
+        ..thursdayStart = thursdayStart
+        ..thursdayEnd = thursdayEnd
+        ..fridayStart = fridayStart
+        ..fridayEnd = fridayEnd
+        ..saturdayStart = saturdayStart
+        ..saturdayEnd = saturdayEnd
+        ..sundayStart = sundayStart
+        ..sundayEnd = sundayEnd,
     ),
   );
 

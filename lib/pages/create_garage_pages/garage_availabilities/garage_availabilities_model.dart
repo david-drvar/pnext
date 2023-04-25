@@ -1,19 +1,16 @@
+import '/components/availability_bottom_sheet/availability_bottom_sheet_widget.dart';
+import '/components/cancel_trip_h_o_s_t/cancel_trip_h_o_s_t_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_foto_video/create_garage_foto_video_widget.dart';
+import '/pages/create_garage_pages/timeslot_calendar/timeslot_calendar_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FotoVideoModel extends FlutterFlowModel {
-  ///  Local state fields for this page.
-
-  bool anyButtonSelected = false;
-
-  String? vehicleType;
-
+class GarageAvailabilitiesModel extends FlutterFlowModel {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
