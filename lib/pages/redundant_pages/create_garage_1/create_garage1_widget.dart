@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_foto_video/create_garage_foto_video_widget.dart';
+import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -580,7 +580,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      CreateGarageFotoVideoWidget(
+                                      CreateGarage2FotoVideoWidget(
                                     newGarageRef: _model.newGarage!.reference,
                                   ),
                                 ),

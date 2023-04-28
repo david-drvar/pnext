@@ -1,39 +1,49 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/place.dart';
-import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_garage1_place_picker_model.dart';
-export 'create_garage1_place_picker_model.dart';
+import 'edit_garage_vehicle_type_model.dart';
+export 'edit_garage_vehicle_type_model.dart';
 
-class CreateGarage1PlacePickerWidget extends StatefulWidget {
-  const CreateGarage1PlacePickerWidget({Key? key}) : super(key: key);
+class EditGarageVehicleTypeWidget extends StatefulWidget {
+  const EditGarageVehicleTypeWidget({
+    Key? key,
+    this.garage,
+  }) : super(key: key);
+
+  final GaragesRecord? garage;
 
   @override
-  _CreateGarage1PlacePickerWidgetState createState() =>
-      _CreateGarage1PlacePickerWidgetState();
+  _EditGarageVehicleTypeWidgetState createState() =>
+      _EditGarageVehicleTypeWidgetState();
 }
 
-class _CreateGarage1PlacePickerWidgetState
-    extends State<CreateGarage1PlacePickerWidget> {
-  late CreateGarage1PlacePickerModel _model;
+class _EditGarageVehicleTypeWidgetState
+    extends State<EditGarageVehicleTypeWidget> {
+  late EditGarageVehicleTypeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateGarage1PlacePickerModel());
+    _model = createModel(context, () => EditGarageVehicleTypeModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.anyButtonSelected = true;
+        _model.vehicleType = widget.garage!.dimensions;
+      });
+    });
   }
 
   @override
@@ -68,7 +78,7 @@ class _CreateGarage1PlacePickerWidgetState
           },
         ),
         title: Text(
-          'Create Garage',
+          'Edit Garage',
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -81,119 +91,6 @@ class _CreateGarage1PlacePickerWidgetState
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                child: Text(
-                  'Registra con GPS dove si trova il tuo parcheggio',
-                  textAlign: TextAlign.justify,
-                  style: FlutterFlowTheme.of(context).bodySmall,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    FlutterFlowPlacePicker(
-                      iOSGoogleMapsApiKey:
-                          'AIzaSyCvGV_md_PqFWmLb_YDcPANgFDg0cMz9K8',
-                      androidGoogleMapsApiKey:
-                          'AIzaSyA3rS8AyljUkQWTJXmHyzgNNRCe0nxurdM',
-                      webGoogleMapsApiKey:
-                          'AIzaSyDOHGJtnAZgTaDqE_0E5wY11bNDTGhi08o',
-                      onSelect: (place) async {
-                        setState(() => _model.placePickerValue = place);
-                      },
-                      defaultText: 'Select Location',
-                      icon: Icon(
-                        Icons.place,
-                        color: Colors.white,
-                        size: 16.0,
-                      ),
-                      buttonOptions: FFButtonOptions(
-                        width: 200.0,
-                        height: 40.0,
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        _model.placePickerValue.address,
-                        'Chosen address',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        _model.placePickerValue.city,
-                        'Chosen city',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        _model.placePickerValue.zipCode,
-                        'Chosen ZIP code',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      valueOrDefault<String>(
-                        _model.placePickerValue.country,
-                        'Chosen Country',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                    ),
-                  ],
-                ),
-              ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: Row(
@@ -359,39 +256,19 @@ class _CreateGarage1PlacePickerWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          final garagesCreateData = createGaragesRecordData(
-                            userRef: currentUserReference,
-                            city: _model.placePickerValue.city,
-                            address: _model.placePickerValue.address,
-                            zip: _model.placePickerValue.zipCode,
+                          final garagesUpdateData = createGaragesRecordData(
                             dimensions: _model.vehicleType,
-                            location: _model.placePickerValue.latLng,
-                            country: _model.placePickerValue.country,
-                            isActive: true,
                           );
-                          var garagesRecordReference =
-                              GaragesRecord.collection.doc();
-                          await garagesRecordReference.set(garagesCreateData);
-                          _model.newGarage = GaragesRecord.getDocumentFromData(
-                              garagesCreateData, garagesRecordReference);
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  CreateGarage2FotoVideoWidget(
-                                newGarageRef: _model.newGarage!.reference,
-                              ),
-                            ),
-                          );
-
-                          setState(() {});
+                          await widget.garage!.reference
+                              .update(garagesUpdateData);
+                          Navigator.pop(context);
                         },
-                        text: 'NEXT',
+                        text: 'UPDATE',
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 50.0,

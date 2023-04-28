@@ -342,7 +342,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     controller: _model.emailAddressController2,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Email Address',
+                      labelText: 'Phone number',
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
                       hintText: 'Your email..',
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,

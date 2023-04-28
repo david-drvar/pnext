@@ -7,13 +7,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreateGarageFotoVideoModel extends FlutterFlowModel {
+class EditGarageMediaModel extends FlutterFlowModel {
   ///  Local state fields for this page.
 
   List<String> photoList = [];
@@ -28,9 +28,6 @@ class CreateGarageFotoVideoModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for description widget.
-  TextEditingController? descriptionController;
-  String? Function(BuildContext, String?)? descriptionControllerValidator;
   // Stores action output result for [Bottom Sheet - uploadGaragePhoto] action in Button widget.
   String? bottomSheetOutput;
   // Stores action output result for [Bottom Sheet - uploadGarageVideo] action in Button widget.
@@ -40,9 +37,7 @@ class CreateGarageFotoVideoModel extends FlutterFlowModel {
 
   void initState(BuildContext context) {}
 
-  void dispose() {
-    descriptionController?.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods are added here.
 

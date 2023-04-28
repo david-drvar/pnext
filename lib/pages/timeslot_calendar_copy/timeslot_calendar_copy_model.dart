@@ -10,6 +10,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class TimeslotCalendarCopyModel extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  DateTimeRange? startDate;
+
+  DateTimeRange? endDate;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Calendar widget.

@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/create_garage_pages/create_garage_1_place_picker/create_garage1_place_picker_widget.dart';
@@ -66,16 +67,28 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
         ),
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          iconTheme:
-              IconThemeData(color: FlutterFlowTheme.of(context).grayIcon),
-          automaticallyImplyLeading: true,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 30.0,
+            ),
+            onPressed: () async {
+              Navigator.pop(context);
+            },
+          ),
           title: Text(
             'Your garages',
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),
           actions: [],
           centerTitle: false,
-          elevation: 2.0,
+          elevation: 0.0,
         ),
         body: SafeArea(
           child: SingleChildScrollView(
@@ -87,7 +100,8 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                   child: StreamBuilder<List<GaragesRecord>>(
                     stream: queryGaragesRecord(
                       queryBuilder: (garagesRecord) => garagesRecord
-                          .where('userRef', isEqualTo: currentUserReference),
+                          .where('userRef', isEqualTo: currentUserReference)
+                          .where('isActive', isEqualTo: true),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -126,7 +140,8 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => GarageDetailsWidget(
-                                      garageRef: listViewGaragesRecord,
+                                      garageRef:
+                                          listViewGaragesRecord.reference,
                                     ),
                                   ),
                                 );

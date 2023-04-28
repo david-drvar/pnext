@@ -103,7 +103,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Find your Dream Space To Getaway',
+                          'Find your Garage Space To Getaway',
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -275,7 +275,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => GarageDetailsWidget(
-                                  garageRef: listViewGaragesRecord,
+                                  garageRef: listViewGaragesRecord.reference,
                                 ),
                               ),
                             );

@@ -761,7 +761,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               children: [
                                 Expanded(
                                   child: Text(
-                                    'My Properties',
+                                    'My Garages',
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),

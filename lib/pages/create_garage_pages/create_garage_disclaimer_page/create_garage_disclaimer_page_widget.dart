@@ -2,16 +2,16 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_price/create_garage_price_widget.dart';
+import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'disclaimer_page_model.dart';
-export 'disclaimer_page_model.dart';
+import 'create_garage_disclaimer_page_model.dart';
+export 'create_garage_disclaimer_page_model.dart';
 
-class DisclaimerPageWidget extends StatefulWidget {
-  const DisclaimerPageWidget({
+class CreateGarageDisclaimerPageWidget extends StatefulWidget {
+  const CreateGarageDisclaimerPageWidget({
     Key? key,
     this.newGarageRef,
   }) : super(key: key);
@@ -19,18 +19,20 @@ class DisclaimerPageWidget extends StatefulWidget {
   final DocumentReference? newGarageRef;
 
   @override
-  _DisclaimerPageWidgetState createState() => _DisclaimerPageWidgetState();
+  _CreateGarageDisclaimerPageWidgetState createState() =>
+      _CreateGarageDisclaimerPageWidgetState();
 }
 
-class _DisclaimerPageWidgetState extends State<DisclaimerPageWidget> {
-  late DisclaimerPageModel _model;
+class _CreateGarageDisclaimerPageWidgetState
+    extends State<CreateGarageDisclaimerPageWidget> {
+  late CreateGarageDisclaimerPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DisclaimerPageModel());
+    _model = createModel(context, () => CreateGarageDisclaimerPageModel());
   }
 
   @override
@@ -121,11 +123,11 @@ class _DisclaimerPageWidgetState extends State<DisclaimerPageWidget> {
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CreateGaragePriceWidget(),
+                          builder: (context) => CreateGarage4PriceWidget(
+                            newGarageRef: widget.newGarageRef,
+                          ),
                         ),
                       );
-                    } else {
-                      await Future.delayed(const Duration(milliseconds: 1000));
                     }
                   },
                   text: 'Confermo',

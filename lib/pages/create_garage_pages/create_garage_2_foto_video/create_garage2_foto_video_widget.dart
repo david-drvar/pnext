@@ -12,11 +12,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_garage_foto_video_model.dart';
-export 'create_garage_foto_video_model.dart';
+import 'create_garage2_foto_video_model.dart';
+export 'create_garage2_foto_video_model.dart';
 
-class CreateGarageFotoVideoWidget extends StatefulWidget {
-  const CreateGarageFotoVideoWidget({
+class CreateGarage2FotoVideoWidget extends StatefulWidget {
+  const CreateGarage2FotoVideoWidget({
     Key? key,
     this.newGarageRef,
   }) : super(key: key);
@@ -24,20 +24,20 @@ class CreateGarageFotoVideoWidget extends StatefulWidget {
   final DocumentReference? newGarageRef;
 
   @override
-  _CreateGarageFotoVideoWidgetState createState() =>
-      _CreateGarageFotoVideoWidgetState();
+  _CreateGarage2FotoVideoWidgetState createState() =>
+      _CreateGarage2FotoVideoWidgetState();
 }
 
-class _CreateGarageFotoVideoWidgetState
-    extends State<CreateGarageFotoVideoWidget> {
-  late CreateGarageFotoVideoModel _model;
+class _CreateGarage2FotoVideoWidgetState
+    extends State<CreateGarage2FotoVideoWidget> {
+  late CreateGarage2FotoVideoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateGarageFotoVideoModel());
+    _model = createModel(context, () => CreateGarage2FotoVideoModel());
 
     _model.descriptionController ??= TextEditingController();
   }
@@ -366,24 +366,9 @@ class _CreateGarageFotoVideoWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'STEP',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                              Text(
-                                '1/3',
-                                style:
-                                    FlutterFlowTheme.of(context).headlineMedium,
-                              ),
-                            ],
-                          ),
                           FFButtonWidget(
                             onPressed: () async {
                               final garagesUpdateData = {

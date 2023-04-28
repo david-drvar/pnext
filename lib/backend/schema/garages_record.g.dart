@@ -212,6 +212,20 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
+    value = object.country;
+    if (value != null) {
+      result
+        ..add('country')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.isActive;
+    if (value != null) {
+      result
+        ..add('isActive')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -349,6 +363,14 @@ class _$GaragesRecordSerializer implements StructuredSerializer<GaragesRecord> {
           result.sundayEnd = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime?;
           break;
+        case 'country':
+          result.country = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'isActive':
+          result.isActive = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -418,6 +440,10 @@ class _$GaragesRecord extends GaragesRecord {
   @override
   final DateTime? sundayEnd;
   @override
+  final String? country;
+  @override
+  final bool? isActive;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$GaragesRecord([void Function(GaragesRecordBuilder)? updates]) =>
@@ -451,6 +477,8 @@ class _$GaragesRecord extends GaragesRecord {
       this.saturdayEnd,
       this.sundayStart,
       this.sundayEnd,
+      this.country,
+      this.isActive,
       this.ffRef})
       : super._();
 
@@ -492,6 +520,8 @@ class _$GaragesRecord extends GaragesRecord {
         saturdayEnd == other.saturdayEnd &&
         sundayStart == other.sundayStart &&
         sundayEnd == other.sundayEnd &&
+        country == other.country &&
+        isActive == other.isActive &&
         ffRef == other.ffRef;
   }
 
@@ -525,6 +555,8 @@ class _$GaragesRecord extends GaragesRecord {
     _$hash = $jc(_$hash, saturdayEnd.hashCode);
     _$hash = $jc(_$hash, sundayStart.hashCode);
     _$hash = $jc(_$hash, sundayEnd.hashCode);
+    _$hash = $jc(_$hash, country.hashCode);
+    _$hash = $jc(_$hash, isActive.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -560,6 +592,8 @@ class _$GaragesRecord extends GaragesRecord {
           ..add('saturdayEnd', saturdayEnd)
           ..add('sundayStart', sundayStart)
           ..add('sundayEnd', sundayEnd)
+          ..add('country', country)
+          ..add('isActive', isActive)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -686,6 +720,14 @@ class GaragesRecordBuilder
   DateTime? get sundayEnd => _$this._sundayEnd;
   set sundayEnd(DateTime? sundayEnd) => _$this._sundayEnd = sundayEnd;
 
+  String? _country;
+  String? get country => _$this._country;
+  set country(String? country) => _$this._country = country;
+
+  bool? _isActive;
+  bool? get isActive => _$this._isActive;
+  set isActive(bool? isActive) => _$this._isActive = isActive;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -724,6 +766,8 @@ class GaragesRecordBuilder
       _saturdayEnd = $v.saturdayEnd;
       _sundayStart = $v.sundayStart;
       _sundayEnd = $v.sundayEnd;
+      _country = $v.country;
+      _isActive = $v.isActive;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -776,6 +820,8 @@ class GaragesRecordBuilder
               saturdayEnd: saturdayEnd,
               sundayStart: sundayStart,
               sundayEnd: sundayEnd,
+              country: country,
+              isActive: isActive,
               ffRef: ffRef);
     } catch (_) {
       late String _$failedField;

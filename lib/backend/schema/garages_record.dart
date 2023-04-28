@@ -78,6 +78,10 @@ abstract class GaragesRecord
   @BuiltValueField(wireName: 'sunday_end')
   DateTime? get sundayEnd;
 
+  String? get country;
+
+  bool? get isActive;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -91,7 +95,9 @@ abstract class GaragesRecord
     ..rate = 0.0
     ..isKey = false
     ..photos = ListBuilder()
-    ..videos = ListBuilder();
+    ..videos = ListBuilder()
+    ..country = ''
+    ..isActive = false;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('garages');
@@ -140,6 +146,8 @@ Map<String, dynamic> createGaragesRecordData({
   DateTime? saturdayEnd,
   DateTime? sundayStart,
   DateTime? sundayEnd,
+  String? country,
+  bool? isActive,
 }) {
   final firestoreData = serializers.toFirestore(
     GaragesRecord.serializer,
@@ -171,7 +179,9 @@ Map<String, dynamic> createGaragesRecordData({
         ..saturdayStart = saturdayStart
         ..saturdayEnd = saturdayEnd
         ..sundayStart = sundayStart
-        ..sundayEnd = sundayEnd,
+        ..sundayEnd = sundayEnd
+        ..country = country
+        ..isActive = isActive,
     ),
   );
 

@@ -4,15 +4,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_1_peppe_copy/create_garage1_peppe_copy_widget.dart';
-import '/pages/create_garage_pages/create_garage_foto_video/create_garage_foto_video_widget.dart';
+import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class CreateGarage1PeppeModel extends FlutterFlowModel {
+class CreateGarage1Model extends FlutterFlowModel {
   ///  Local state fields for this page.
 
   bool anyButtonSelected = false;

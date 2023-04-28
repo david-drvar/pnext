@@ -12,12 +12,7 @@ import 'timeslot_calendar_copy_model.dart';
 export 'timeslot_calendar_copy_model.dart';
 
 class TimeslotCalendarCopyWidget extends StatefulWidget {
-  const TimeslotCalendarCopyWidget({
-    Key? key,
-    this.cm,
-  }) : super(key: key);
-
-  final DateTime? cm;
+  const TimeslotCalendarCopyWidget({Key? key}) : super(key: key);
 
   @override
   _TimeslotCalendarCopyWidgetState createState() =>

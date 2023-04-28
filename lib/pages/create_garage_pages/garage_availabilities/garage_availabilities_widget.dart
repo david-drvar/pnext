@@ -1,5 +1,4 @@
 import '/components/availability_bottom_sheet/availability_bottom_sheet_widget.dart';
-import '/components/cancel_trip_h_o_s_t/cancel_trip_h_o_s_t_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -68,36 +67,7 @@ class _GarageAvailabilitiesWidgetState
             Navigator.pop(context);
           },
         ),
-        actions: [
-          FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.more_vert_outlined,
-              color: FlutterFlowTheme.of(context).secondaryText,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              await showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                barrierColor: Color(0xB314181B),
-                context: context,
-                builder: (bottomSheetContext) {
-                  return Padding(
-                    padding: MediaQuery.of(bottomSheetContext).viewInsets,
-                    child: Container(
-                      height: 430.0,
-                      child: CancelTripHOSTWidget(),
-                    ),
-                  );
-                },
-              ).then((value) => setState(() {}));
-            },
-          ),
-        ],
+        actions: [],
         centerTitle: false,
         elevation: 0.0,
       ),

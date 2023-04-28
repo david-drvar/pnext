@@ -9,11 +9,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_garage_price_model.dart';
-export 'create_garage_price_model.dart';
+import 'create_garage4_price_model.dart';
+export 'create_garage4_price_model.dart';
 
-class CreateGaragePriceWidget extends StatefulWidget {
-  const CreateGaragePriceWidget({
+class CreateGarage4PriceWidget extends StatefulWidget {
+  const CreateGarage4PriceWidget({
     Key? key,
     this.newGarageRef,
   }) : super(key: key);
@@ -21,19 +21,19 @@ class CreateGaragePriceWidget extends StatefulWidget {
   final DocumentReference? newGarageRef;
 
   @override
-  _CreateGaragePriceWidgetState createState() =>
-      _CreateGaragePriceWidgetState();
+  _CreateGarage4PriceWidgetState createState() =>
+      _CreateGarage4PriceWidgetState();
 }
 
-class _CreateGaragePriceWidgetState extends State<CreateGaragePriceWidget> {
-  late CreateGaragePriceModel _model;
+class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
+  late CreateGarage4PriceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateGaragePriceModel());
+    _model = createModel(context, () => CreateGarage4PriceModel());
 
     _model.pricePerNightController ??= TextEditingController();
   }
@@ -113,13 +113,6 @@ class _CreateGaragePriceWidgetState extends State<CreateGaragePriceWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: TextFormField(
                         controller: _model.pricePerNightController,
-                        onFieldSubmitted: (_) async {
-                          final garagesUpdateData = createGaragesRecordData(
-                            rate: double.tryParse(
-                                _model.pricePerNightController.text),
-                          );
-                          await widget.newGarageRef!.update(garagesUpdateData);
-                        },
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: '\$ Price',

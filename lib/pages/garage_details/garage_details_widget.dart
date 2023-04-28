@@ -8,7 +8,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -25,7 +27,7 @@ class GarageDetailsWidget extends StatefulWidget {
     this.garageRef,
   }) : super(key: key);
 
-  final GaragesRecord? garageRef;
+  final DocumentReference? garageRef;
 
   @override
   _GarageDetailsWidgetState createState() => _GarageDetailsWidgetState();
@@ -76,6 +78,44 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
         ),
       ],
     ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -95,7 +135,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
         ),
       ],
     ),
-    'textOnPageLoadAnimation3': AnimationInfo(
+    'textOnPageLoadAnimation5': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -159,8 +199,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return StreamBuilder<List<ReviewsRecord>>(
-      stream: queryReviewsRecord(),
+    return StreamBuilder<GaragesRecord>(
+      stream: GaragesRecord.getDocument(widget.garageRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -174,7 +214,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
             ),
           );
         }
-        List<ReviewsRecord> garageDetailsReviewsRecordList = snapshot.data!;
+        final garageDetailsGaragesRecord = snapshot.data!;
         return Scaffold(
           key: scaffoldKey,
           resizeToAvoidBottomInset: false,
@@ -218,44 +258,35 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                             child: FlutterFlowExpandedImageView(
                                               image: CachedNetworkImage(
                                                 imageUrl:
-                                                    valueOrDefault<String>(
-                                                  widget.garageRef!.photos!
-                                                      .toList()
-                                                      .first,
-                                                  'https://via.placeholder.com/600x400?text=Garage+photo',
-                                                ),
+                                                    garageDetailsGaragesRecord
+                                                        .photos!
+                                                        .toList()
+                                                        .first,
                                                 fit: BoxFit.contain,
                                               ),
                                               allowRotation: false,
-                                              tag: valueOrDefault<String>(
-                                                widget.garageRef!.photos!
-                                                    .toList()
-                                                    .first,
-                                                'https://via.placeholder.com/600x400?text=Garage+photo',
-                                              ),
+                                              tag: garageDetailsGaragesRecord
+                                                  .photos!
+                                                  .toList()
+                                                  .first,
                                               useHeroAnimation: true,
                                             ),
                                           ),
                                         );
                                       },
                                       child: Hero(
-                                        tag: valueOrDefault<String>(
-                                          widget.garageRef!.photos!
-                                              .toList()
-                                              .first,
-                                          'https://via.placeholder.com/600x400?text=Garage+photo',
-                                        ),
+                                        tag: garageDetailsGaragesRecord.photos!
+                                            .toList()
+                                            .first,
                                         transitionOnUserGestures: true,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(16.0),
                                           child: CachedNetworkImage(
-                                            imageUrl: valueOrDefault<String>(
-                                              widget.garageRef!.photos!
-                                                  .toList()
-                                                  .first,
-                                              'https://via.placeholder.com/600x400?text=Garage+photo',
-                                            ),
+                                            imageUrl: garageDetailsGaragesRecord
+                                                .photos!
+                                                .toList()
+                                                .first,
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.cover,
@@ -309,40 +340,103 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                                 ),
                                               ),
                                             ),
-                                            FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: 'Edit',
-                                              options: FFButtonOptions(
-                                                width: 60.0,
-                                                height: 40.0,
+                                            if (garageDetailsGaragesRecord
+                                                    .userRef ==
+                                                currentUserReference)
+                                              Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                                        100.0, 0.0, 0.0, 0.0),
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    await Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            EditGarageWidget(
+                                                          garageRef:
+                                                              widget.garageRef,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                  text: 'Edit',
+                                                  options: FFButtonOptions(
+                                                    width: 60.0,
+                                                    height: 40.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .primary,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
                                                               'Urbanist',
                                                           color: Colors.white,
                                                         ),
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
                                               ),
-                                            ),
+                                            if (garageDetailsGaragesRecord
+                                                    .userRef ==
+                                                currentUserReference)
+                                              FFButtonWidget(
+                                                onPressed: () async {
+                                                  final garagesUpdateData =
+                                                      createGaragesRecordData(
+                                                    isActive: false,
+                                                  );
+                                                  await widget.garageRef!
+                                                      .update(
+                                                          garagesUpdateData);
+                                                  Navigator.pop(context);
+                                                },
+                                                text: 'Delete',
+                                                options: FFButtonOptions(
+                                                  width: 60.0,
+                                                  height: 40.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .redApple,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Urbanist',
+                                                        color: Colors.white,
+                                                      ),
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
                                           ],
                                         ),
                                       ],
@@ -362,10 +456,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           children: [
                             Expanded(
                               child: Text(
-                                valueOrDefault<String>(
-                                  widget.garageRef!.address,
-                                  'address',
-                                ),
+                                garageDetailsGaragesRecord.address!,
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
                               ).animateOnPageLoad(
@@ -379,13 +470,11 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             24.0, 4.0, 24.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
                               child: Text(
-                                valueOrDefault<String>(
-                                  widget.garageRef!.city,
-                                  'city',
-                                ),
+                                garageDetailsGaragesRecord.city!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -397,6 +486,34 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                               ).animateOnPageLoad(
                                   animationsMap['textOnPageLoadAnimation2']!),
                             ),
+                            Expanded(
+                              child: Text(
+                                garageDetailsGaragesRecord.zip!,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF8B97A2),
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation3']!),
+                            ),
+                            Expanded(
+                              child: Text(
+                                garageDetailsGaragesRecord.country!,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF8B97A2),
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation4']!),
+                            ),
                           ],
                         ),
                       ),
@@ -407,7 +524,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'DESCRIPTION',
+                              'Description',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -433,10 +550,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 24.0),
                                 child: Text(
-                                  valueOrDefault<String>(
-                                    widget.garageRef!.description,
-                                    'description',
-                                  ),
+                                  garageDetailsGaragesRecord.description!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -446,7 +560,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation3']!),
+                                    animationsMap['textOnPageLoadAnimation5']!),
                               ),
                             ),
                           ],
@@ -498,7 +612,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   size: 30.0,
                                 ),
                                 onPressed:
-                                    widget.garageRef!.dimensions != 'truck'
+                                    garageDetailsGaragesRecord.dimensions !=
+                                            'truck'
                                         ? null
                                         : () {
                                             print('IconButton pressed ...');
@@ -521,11 +636,13 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   color: Colors.white,
                                   size: 30.0,
                                 ),
-                                onPressed: widget.garageRef!.dimensions != 'car'
-                                    ? null
-                                    : () {
-                                        print('IconButton pressed ...');
-                                      },
+                                onPressed:
+                                    garageDetailsGaragesRecord.dimensions !=
+                                            'car'
+                                        ? null
+                                        : () {
+                                            print('IconButton pressed ...');
+                                          },
                               ),
                             ),
                             Padding(
@@ -545,7 +662,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   size: 30.0,
                                 ),
                                 onPressed:
-                                    widget.garageRef!.dimensions != 'bike'
+                                    garageDetailsGaragesRecord.dimensions !=
+                                            'bike'
                                         ? null
                                         : () {
                                             print('IconButton pressed ...');
@@ -569,7 +687,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   size: 30.0,
                                 ),
                                 onPressed:
-                                    widget.garageRef!.dimensions != 'caravan'
+                                    garageDetailsGaragesRecord.dimensions !=
+                                            'caravan'
                                         ? null
                                         : () {
                                             print('IconButton pressed ...');
@@ -590,7 +709,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 size: 30.0,
                               ),
                               onPressed:
-                                  widget.garageRef!.dimensions != 'big_truck'
+                                  garageDetailsGaragesRecord.dimensions !=
+                                          'big_truck'
                                       ? null
                                       : () {
                                           print('IconButton pressed ...');
@@ -608,22 +728,22 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
+                            borderRadius: BorderRadius.circular(5.0),
                             shape: BoxShape.rectangle,
                           ),
                           child: Builder(builder: (context) {
-                            final _googleMapMarker = widget.garageRef;
+                            final _googleMapMarker = garageDetailsGaragesRecord;
                             return FlutterFlowGoogleMap(
                               controller: _model.googleMapsController,
                               onCameraIdle: (latLng) =>
                                   _model.googleMapsCenter = latLng,
                               initialLocation: _model.googleMapsCenter ??=
-                                  widget.garageRef!.location!,
+                                  garageDetailsGaragesRecord.location!,
                               markers: [
-                                if (_googleMapMarker != null)
-                                  FlutterFlowMarker(
-                                    _googleMapMarker.reference.path,
-                                    _googleMapMarker.location!,
-                                  ),
+                                FlutterFlowMarker(
+                                  _googleMapMarker.reference.path,
+                                  _googleMapMarker.location!,
+                                ),
                               ],
                               markerColor: GoogleMarkerColor.red,
                               mapType: MapType.normal,
@@ -641,89 +761,91 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           }),
                         ),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.95,
-                        height: 250.0,
-                        decoration: BoxDecoration(),
-                        child: Builder(
-                          builder: (context) {
-                            final photoListView = widget.garageRef!.photos!
-                                .toList()
-                                .map((e) => e)
-                                .toList();
-                            return GridView.builder(
-                              padding: EdgeInsets.zero,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing: 3.0,
-                                mainAxisSpacing: 3.0,
-                                childAspectRatio: 1.0,
-                              ),
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: photoListView.length,
-                              itemBuilder: (context, photoListViewIndex) {
-                                final photoListViewItem =
-                                    photoListView[photoListViewIndex];
-                                return Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.fade,
-                                              child:
-                                                  FlutterFlowExpandedImageView(
-                                                image: Image.network(
-                                                  valueOrDefault<String>(
-                                                    photoListViewItem,
-                                                    'https://via.placeholder.com/600x400',
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.95,
+                          height: 250.0,
+                          decoration: BoxDecoration(),
+                          child: Builder(
+                            builder: (context) {
+                              final photoListView =
+                                  garageDetailsGaragesRecord.photos!.toList();
+                              return GridView.builder(
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3,
+                                  crossAxisSpacing: 3.0,
+                                  mainAxisSpacing: 3.0,
+                                  childAspectRatio: 1.0,
+                                ),
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemCount: photoListView.length,
+                                itemBuilder: (context, photoListViewIndex) {
+                                  final photoListViewItem =
+                                      photoListView[photoListViewIndex];
+                                  return Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.fade,
+                                                child:
+                                                    FlutterFlowExpandedImageView(
+                                                  image: Image.network(
+                                                    valueOrDefault<String>(
+                                                      photoListViewItem,
+                                                      'https://via.placeholder.com/600x400',
+                                                    ),
+                                                    fit: BoxFit.contain,
                                                   ),
-                                                  fit: BoxFit.contain,
+                                                  allowRotation: false,
+                                                  tag: valueOrDefault<String>(
+                                                    photoListViewItem,
+                                                    'https://via.placeholder.com/600x400' +
+                                                        '$photoListViewIndex',
+                                                  ),
+                                                  useHeroAnimation: true,
                                                 ),
-                                                allowRotation: false,
-                                                tag: valueOrDefault<String>(
-                                                  photoListViewItem,
-                                                  'https://via.placeholder.com/600x400' +
-                                                      '$photoListViewIndex',
-                                                ),
-                                                useHeroAnimation: true,
                                               ),
-                                            ),
-                                          );
-                                        },
-                                        child: Hero(
-                                          tag: valueOrDefault<String>(
-                                            photoListViewItem,
-                                            'https://via.placeholder.com/600x400' +
-                                                '$photoListViewIndex',
-                                          ),
-                                          transitionOnUserGestures: true,
-                                          child: Image.network(
-                                            valueOrDefault<String>(
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: valueOrDefault<String>(
                                               photoListViewItem,
-                                              'https://via.placeholder.com/600x400',
+                                              'https://via.placeholder.com/600x400' +
+                                                  '$photoListViewIndex',
                                             ),
-                                            width: 100.0,
-                                            height: 100.0,
-                                            fit: BoxFit.cover,
+                                            transitionOnUserGestures: true,
+                                            child: Image.network(
+                                              valueOrDefault<String>(
+                                                photoListViewItem,
+                                                'https://via.placeholder.com/600x400',
+                                              ),
+                                              width: 100.0,
+                                              height: 100.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
-                          },
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ),
                       Container(
@@ -732,10 +854,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                         decoration: BoxDecoration(),
                         child: Builder(
                           builder: (context) {
-                            final videoListView = widget.garageRef!.videos!
-                                .toList()
-                                .map((e) => e)
-                                .toList();
+                            final videoListView =
+                                garageDetailsGaragesRecord.videos!.toList();
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               scrollDirection: Axis.vertical,
@@ -800,7 +920,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                widget.garageRef!.rate!.toString(),
+                                garageDetailsGaragesRecord.rate!.toString(),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -843,7 +963,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           ),
                         ],
                       ),
-                      if (widget.garageRef!.userRef != currentUserReference)
+                      if (garageDetailsGaragesRecord.userRef !=
+                          currentUserReference)
                         FFButtonWidget(
                           onPressed: () {
                             print('Button pressed ...');
