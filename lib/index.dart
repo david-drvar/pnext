@@ -96,3 +96,11 @@ export '/pages/edit_garage_pages/edit_garage_validity/edit_garage_validity_widge
     show EditGarageValidityWidget;
 export '/pages/edit_garage_pages/edit_garage_media/edit_garage_media_widget.dart'
     show EditGarageMediaWidget;
+export '/pages/edit_garage_pages/edit_garage_availability/edit_garage_availability_widget.dart'
+    show EditGarageAvailabilityWidget;
+export '/pages/edit_garage_pages/edit_garage_key/edit_garage_key_widget.dart'
+    show EditGarageKeyWidget;
+export '/pages/edit_garage_pages/edit_garage_disclaimer/edit_garage_disclaimer_widget.dart'
+    show EditGarageDisclaimerWidget;
+export '/pages/edit_garage_pages/edit_garage_price/edit_garage_price_widget.dart'
+    show EditGaragePriceWidget;

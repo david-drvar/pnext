@@ -4,16 +4,15 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'create_garage_disclaimer_page_model.dart';
-export 'create_garage_disclaimer_page_model.dart';
+import 'edit_garage_disclaimer_model.dart';
+export 'edit_garage_disclaimer_model.dart';
 
-class CreateGarageDisclaimerPageWidget extends StatefulWidget {
-  const CreateGarageDisclaimerPageWidget({
+class EditGarageDisclaimerWidget extends StatefulWidget {
+  const EditGarageDisclaimerWidget({
     Key? key,
     this.newGarageRef,
   }) : super(key: key);
@@ -21,20 +20,20 @@ class CreateGarageDisclaimerPageWidget extends StatefulWidget {
   final DocumentReference? newGarageRef;
 
   @override
-  _CreateGarageDisclaimerPageWidgetState createState() =>
-      _CreateGarageDisclaimerPageWidgetState();
+  _EditGarageDisclaimerWidgetState createState() =>
+      _EditGarageDisclaimerWidgetState();
 }
 
-class _CreateGarageDisclaimerPageWidgetState
-    extends State<CreateGarageDisclaimerPageWidget> {
-  late CreateGarageDisclaimerPageModel _model;
+class _EditGarageDisclaimerWidgetState
+    extends State<EditGarageDisclaimerWidget> {
+  late EditGarageDisclaimerModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateGarageDisclaimerPageModel());
+    _model = createModel(context, () => EditGarageDisclaimerModel());
   }
 
   @override
@@ -126,14 +125,8 @@ class _CreateGarageDisclaimerPageWidgetState
                         isKey: true,
                       );
                       await widget.newGarageRef!.update(garagesUpdateData);
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CreateGarage4PriceWidget(
-                            newGarageRef: widget.newGarageRef,
-                          ),
-                        ),
-                      );
+                      Navigator.pop(context);
+                      Navigator.pop(context);
                     }
                   },
                   text: 'Confermo',

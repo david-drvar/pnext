@@ -25,6 +25,20 @@ double ratingSummary(
   }
 }
 
+DateTime hoursAndMinutesToDate(
+  String hour,
+  String minute,
+) {
+  // convert hour and minute in format HH:mm to DateTime
+  return DateTime(
+    DateTime.now().year,
+    DateTime.now().month,
+    DateTime.now().day,
+    int.parse(hour),
+    int.parse(minute),
+  );
+}
+
 String ratingSummaryList(List<ReviewsRecord> rating) {
   if (rating.isEmpty) {
     return '-';
