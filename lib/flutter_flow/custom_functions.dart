@@ -39,6 +39,10 @@ DateTime hoursAndMinutesToDate(
   );
 }
 
+bool doesDateExist(DateTime? myVar) {
+  return myVar == null;
+}
+
 String ratingSummaryList(List<ReviewsRecord> rating) {
   if (rating.isEmpty) {
     return '-';

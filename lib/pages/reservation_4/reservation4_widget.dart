@@ -16,9 +16,11 @@ class Reservation4Widget extends StatefulWidget {
   const Reservation4Widget({
     Key? key,
     this.reservationref,
+    required this.documentGarage,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
+  final GaragesRecord? documentGarage;
 
   @override
   _Reservation4WidgetState createState() => _Reservation4WidgetState();
@@ -90,7 +92,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.7),
                   child: Image.network(
-                    'https://picsum.photos/seed/456/600',
+                    widget.documentGarage!.photos!.toList().first,
                     width: 300.0,
                     height: 300.0,
                     fit: BoxFit.cover,

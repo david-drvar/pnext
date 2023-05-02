@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -15,9 +16,11 @@ class Reservation3ChooseGarageWidget extends StatefulWidget {
   const Reservation3ChooseGarageWidget({
     Key? key,
     this.reservationref,
+    required this.reservationdoc,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
+  final ReservationRecord? reservationdoc;
 
   @override
   _Reservation3ChooseGarageWidgetState createState() =>
@@ -96,6 +99,7 @@ class _Reservation3ChooseGarageWidgetState
                         MaterialPageRoute(
                           builder: (context) => Reservation4Widget(
                             reservationref: widget.reservationref,
+                            documentGarage: null!,
                           ),
                         ),
                       );

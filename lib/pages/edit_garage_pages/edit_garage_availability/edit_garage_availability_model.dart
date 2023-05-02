@@ -1,7 +1,5 @@
 import '/backend/backend.dart';
-import '/components/availability_bottom_sheet/availability_bottom_sheet_widget.dart';
 import '/components/availability_bottom_sheet_intervals/availability_bottom_sheet_intervals_widget.dart';
-import '/components/availability_bottom_tryiouts/availability_bottom_tryiouts_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';

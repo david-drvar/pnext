@@ -10,11 +10,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'availability_bottom_sheet_intervals_model.dart';
-export 'availability_bottom_sheet_intervals_model.dart';
+import 'availability_bottom_sheet_intervals_edit_model.dart';
+export 'availability_bottom_sheet_intervals_edit_model.dart';
 
-class AvailabilityBottomSheetIntervalsWidget extends StatefulWidget {
-  const AvailabilityBottomSheetIntervalsWidget({
+class AvailabilityBottomSheetIntervalsEditWidget extends StatefulWidget {
+  const AvailabilityBottomSheetIntervalsEditWidget({
     Key? key,
     String? day,
     this.newGarageRef,
@@ -25,13 +25,13 @@ class AvailabilityBottomSheetIntervalsWidget extends StatefulWidget {
   final DocumentReference? newGarageRef;
 
   @override
-  _AvailabilityBottomSheetIntervalsWidgetState createState() =>
-      _AvailabilityBottomSheetIntervalsWidgetState();
+  _AvailabilityBottomSheetIntervalsEditWidgetState createState() =>
+      _AvailabilityBottomSheetIntervalsEditWidgetState();
 }
 
-class _AvailabilityBottomSheetIntervalsWidgetState
-    extends State<AvailabilityBottomSheetIntervalsWidget> {
-  late AvailabilityBottomSheetIntervalsModel _model;
+class _AvailabilityBottomSheetIntervalsEditWidgetState
+    extends State<AvailabilityBottomSheetIntervalsEditWidget> {
+  late AvailabilityBottomSheetIntervalsEditModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -43,7 +43,7 @@ class _AvailabilityBottomSheetIntervalsWidgetState
   void initState() {
     super.initState();
     _model =
-        createModel(context, () => AvailabilityBottomSheetIntervalsModel());
+        createModel(context, () => AvailabilityBottomSheetIntervalsEditModel());
   }
 
   @override

@@ -1,4 +1,4 @@
-import '/components/availability_bottom_sheet/availability_bottom_sheet_widget.dart';
+import '/components/availability_bottom_sheet_intervals/availability_bottom_sheet_intervals_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -114,7 +114,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'monday',
                                     newGarageRef: widget.newGarageRef,
                                   ),
@@ -146,7 +146,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'tuesday',
                                     newGarageRef: widget.newGarageRef,
                                   ),
@@ -178,7 +178,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'wednesday',
                                     newGarageRef: widget.newGarageRef,
                                   ),
@@ -210,7 +210,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'thursday',
                                     newGarageRef: widget.newGarageRef,
                                   ),
@@ -242,7 +242,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'friday',
                                     newGarageRef: widget.newGarageRef,
                                   ),
@@ -274,7 +274,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'saturday',
                                     newGarageRef: widget.newGarageRef,
                                   ),
@@ -306,7 +306,7 @@ class _GarageAvailabilitiesWidgetState
                                 return Padding(
                                   padding: MediaQuery.of(bottomSheetContext)
                                       .viewInsets,
-                                  child: AvailabilityBottomSheetWidget(
+                                  child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'sunday',
                                     newGarageRef: widget.newGarageRef,
                                   ),

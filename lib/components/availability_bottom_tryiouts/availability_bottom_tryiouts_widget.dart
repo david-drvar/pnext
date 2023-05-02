@@ -72,10 +72,13 @@ class _AvailabilityBottomTryioutsWidgetState
         width: 180.0,
         height: 50.0,
         searchHintTextStyle: FlutterFlowTheme.of(context).bodyLarge.override(
-              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+              fontFamily: 'Poppins',
               color: FlutterFlowTheme.of(context).secondaryText,
             ),
-        textStyle: FlutterFlowTheme.of(context).bodyMedium,
+        textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.normal,
+            ),
         hintText: 'Please selectaa...',
         searchHintText: 'Search for an item...',
         fillColor: FlutterFlowTheme.of(context).secondaryBackground,

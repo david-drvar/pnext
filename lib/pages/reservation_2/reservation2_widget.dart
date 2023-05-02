@@ -17,9 +17,11 @@ class Reservation2Widget extends StatefulWidget {
   const Reservation2Widget({
     Key? key,
     this.reservationref,
+    required this.documentref,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
+  final ReservationRecord? documentref;
 
   @override
   _Reservation2WidgetState createState() => _Reservation2WidgetState();
@@ -331,25 +333,30 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.4),
+                  alignment: AlignmentDirectional(0.04, 0.72),
                   child: FFButtonWidget(
                     onPressed: () async {
                       final reservationUpdateData =
                           createReservationRecordData();
                       await widget.reservationref!
                           .update(reservationUpdateData);
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Reservation3ChooseGarageWidget(
-                            reservationref: widget.reservationref,
+                      if (/* NOT RECOMMENDED */ _model.textController1.text ==
+                          'true') {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                Reservation3ChooseGarageWidget(
+                              reservationref: widget.reservationref,
+                              reservationdoc: widget.documentref!,
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      }
                     },
-                    text: 'Conferma',
+                    text: 'Cerca parcheggio',
                     options: FFButtonOptions(
-                      width: 130.0,
+                      width: 230.0,
                       height: 40.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),

@@ -154,6 +154,7 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                         MaterialPageRoute(
                           builder: (context) => Reservation2Widget(
                             reservationref: _model.newReservation!.reference,
+                            documentref: _model.newReservation!,
                           ),
                         ),
                       );
@@ -194,8 +195,8 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                             _model.datePicked2 = date;
                           });
                         },
-                        currentTime: getCurrentTimestamp,
-                        minTime: getCurrentTimestamp,
+                        currentTime: _model.datePicked1!,
+                        minTime: _model.datePicked1!,
                       );
                     },
                     text: 'Data e orario fine sosta',

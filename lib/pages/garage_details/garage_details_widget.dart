@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -760,6 +761,102 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             );
                           }),
                         ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 10.0, 10.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Monday',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).dark600,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  dateTimeFormat('Hm',
+                                      garageDetailsGaragesRecord.mondayStart),
+                                  'Not available',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            if (functions.doesDateExist(
+                                    garageDetailsGaragesRecord.mondayEnd) ==
+                                false)
+                              Text(
+                                '-',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            if (functions.doesDateExist(
+                                    garageDetailsGaragesRecord.mondayEnd) ==
+                                false)
+                              Text(
+                                valueOrDefault<String>(
+                                  dateTimeFormat('Hm',
+                                      garageDetailsGaragesRecord.mondayEnd),
+                                  'ee',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Tuesday',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: FlutterFlowTheme.of(context).dark600,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              valueOrDefault<String>(
+                                dateTimeFormat('Hm',
+                                    garageDetailsGaragesRecord.tuesdayStart),
+                                'Not available',
+                              ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ),
+                          if (functions.doesDateExist(
+                                  garageDetailsGaragesRecord.tuesdayEnd) ==
+                              false)
+                            Text(
+                              '-',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          if (functions.doesDateExist(
+                                  garageDetailsGaragesRecord.tuesdayEnd) ==
+                              false)
+                            Text(
+                              valueOrDefault<String>(
+                                dateTimeFormat('Hm',
+                                    garageDetailsGaragesRecord.tuesdayEnd),
+                                'ee',
+                              ),
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                        ],
                       ),
                       Padding(
                         padding:
