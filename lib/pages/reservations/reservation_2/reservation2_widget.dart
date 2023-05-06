@@ -4,11 +4,12 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservation_3_choose_garage/reservation3_choose_garage_widget.dart';
+import '/pages/reservations/reservation_3_map/reservation3_map_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'reservation2_model.dart';
 export 'reservation2_model.dart';
@@ -282,6 +283,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                             .update(reservationUpdateData);
                       },
                       autofocus: true,
+                      textCapitalization: TextCapitalization.none,
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: 'XX000XX',
@@ -329,6 +331,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       textAlign: TextAlign.center,
                       validator:
                           _model.textController1Validator.asValidator(context),
+                      inputFormatters: [_model.textFieldMask1],
                     ),
                   ),
                 ),
@@ -345,10 +348,9 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                         await Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                Reservation3ChooseGarageWidget(
+                            builder: (context) => Reservation3MapWidget(
                               reservationref: widget.reservationref,
-                              reservationdoc: widget.documentref!,
+                              reservationDoc: widget.documentref!,
                             ),
                           ),
                         );

@@ -1,7 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/reservations/reservation_4/reservation4_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,9 +15,11 @@ class BottomSheetGaragesWidget extends StatefulWidget {
   const BottomSheetGaragesWidget({
     Key? key,
     this.garage,
+    required this.reservationRef,
   }) : super(key: key);
 
   final GaragesRecord? garage;
+  final DocumentReference? reservationRef;
 
   @override
   _BottomSheetGaragesWidgetState createState() =>
@@ -49,12 +54,8 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
 
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 36.0),
-      child: StreamBuilder<List<UsersRecord>>(
-        stream: queryUsersRecord(
-          queryBuilder: (usersRecord) =>
-              usersRecord.where('uid', isEqualTo: widget.garage!.userRef?.id),
-          singleRecord: true,
-        ),
+      child: StreamBuilder<UsersRecord>(
+        stream: UsersRecord.getDocument(widget.garage!.userRef!),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
@@ -68,14 +69,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
               ),
             );
           }
-          List<UsersRecord> containerUsersRecordList = snapshot.data!;
-          // Return an empty Container when the item does not exist.
-          if (snapshot.data!.isEmpty) {
-            return Container();
-          }
-          final containerUsersRecord = containerUsersRecordList.isNotEmpty
-              ? containerUsersRecordList.first
-              : null;
+          final containerUsersRecord = snapshot.data!;
           return Container(
             width: double.infinity,
             height: 200.0,
@@ -131,7 +125,10 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(40.0),
                             child: Image.network(
-                              widget.garage!.photos!.toList().first,
+                              valueOrDefault<String>(
+                                containerUsersRecord.photoUrl,
+                                'https://via.placeholder.com/600x400?text=Host+picture',
+                              ),
                               width: 80.0,
                               height: 80.0,
                               fit: BoxFit.cover,
@@ -144,7 +141,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  containerUsersRecord!.name!,
+                                  containerUsersRecord.name!,
                                   style: FlutterFlowTheme.of(context)
                                       .labelLarge
                                       .override(
@@ -202,8 +199,23 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     50.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
-                                  onPressed: () {
-                                    print('Button pressed ...');
+                                  onPressed: () async {
+                                    final reservationUpdateData =
+                                        createReservationRecordData(
+                                      garageReference: widget.garage!.reference,
+                                    );
+                                    await widget.reservationRef!
+                                        .update(reservationUpdateData);
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            Reservation4Widget(
+                                          reservationref: widget.reservationRef,
+                                          documentGarage: widget.garage!,
+                                        ),
+                                      ),
+                                    );
                                   },
                                   text: 'Book Now',
                                   options: FFButtonOptions(
