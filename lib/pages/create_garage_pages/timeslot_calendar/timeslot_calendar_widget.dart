@@ -1,12 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/general_information_sheet/general_information_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/owners_garages/owners_garages_widget.dart';
+import '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -230,27 +229,14 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                           endDateValidity: _model.calendarSelectedDay2?.start,
                         );
                         await widget.newGarageRef!.update(garagesUpdateData);
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          enableDrag: false,
-                          context: context,
-                          builder: (bottomSheetContext) {
-                            return Padding(
-                              padding:
-                                  MediaQuery.of(bottomSheetContext).viewInsets,
-                              child: GeneralInformationSheetWidget(
-                                message: 'Success!',
-                              ),
-                            );
-                          },
-                        ).then((value) => setState(() {}));
-
-                        await Navigator.push(
+                        await Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => OwnersGaragesWidget(),
+                            builder: (context) => ConfirmPageWidget(
+                              newGarageRef: widget.newGarageRef,
+                            ),
                           ),
+                          (r) => false,
                         );
                       },
                       text: 'Conferma',

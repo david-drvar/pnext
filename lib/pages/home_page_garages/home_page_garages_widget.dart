@@ -268,7 +268,10 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: StreamBuilder<List<GaragesRecord>>(
-                stream: queryGaragesRecord(),
+                stream: queryGaragesRecord(
+                  queryBuilder: (garagesRecord) =>
+                      garagesRecord.where('isActive', isEqualTo: true),
+                ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -385,19 +388,40 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Expanded(
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            listViewGaragesRecord.rate
-                                                ?.toString(),
-                                            'rate',
-                                          ).maybeHandleOverflow(
-                                            maxChars: 90,
-                                            replacement: '…',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                      Text(
+                                        listViewGaragesRecord.address!
+                                            .maybeHandleOverflow(
+                                          maxChars: 90,
+                                          replacement: '…',
                                         ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 8.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        valueOrDefault<String>(
+                                          listViewGaragesRecord.rate
+                                              ?.toString(),
+                                          'rate',
+                                        ).maybeHandleOverflow(
+                                          maxChars: 90,
+                                          replacement: '…',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                      Text(
+                                        '€ + taxes/fees per hour',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
                                       ),
                                     ],
                                   ),

@@ -222,20 +222,42 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            child: Text(
-                                              valueOrDefault<String>(
-                                                listViewGaragesRecord.rate
-                                                    ?.toString(),
-                                                'rate',
-                                              ).maybeHandleOverflow(
-                                                maxChars: 90,
-                                                replacement: '…',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                          Text(
+                                            valueOrDefault<String>(
+                                              listViewGaragesRecord.address,
+                                              'address',
+                                            ).maybeHandleOverflow(
+                                              maxChars: 90,
+                                              replacement: '…',
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 16.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            valueOrDefault<String>(
+                                              listViewGaragesRecord.rate
+                                                  ?.toString(),
+                                              'rate',
+                                            ).maybeHandleOverflow(
+                                              maxChars: 90,
+                                              replacement: '…',
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          Text(
+                                            '€ + taxes/fees per hour',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                           ),
                                         ],
                                       ),

@@ -1,9 +1,10 @@
+import '/components/general_information_sheet/general_information_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/main.dart';
 import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
-import '/pages/redundant_pages/home_page_a_l_t/home_page_a_l_t_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -91,14 +92,31 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                 alignment: AlignmentDirectional(0.0, 0.15),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await Navigator.push(
+                    await showModalBottomSheet(
+                      isScrollControlled: true,
+                      backgroundColor: Colors.transparent,
+                      enableDrag: false,
+                      context: context,
+                      builder: (bottomSheetContext) {
+                        return Padding(
+                          padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                          child: GeneralInformationSheetWidget(
+                            message: 'Success!',
+                          ),
+                        );
+                      },
+                    ).then((value) => setState(() {}));
+
+                    await Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePageALTWidget(),
+                        builder: (context) =>
+                            NavBarPage(initialPage: 'homePage_Garages'),
                       ),
+                      (r) => false,
                     );
                   },
-                  text: 'Confermo e termino',
+                  text: 'Conferma',
                   options: FFButtonOptions(
                     width: 230.0,
                     height: 40.0,
@@ -135,7 +153,9 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                     await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => CreateGarage4PriceWidget(),
+                        builder: (context) => CreateGarage4PriceWidget(
+                          newGarageRef: widget.newGarageRef,
+                        ),
                       ),
                     );
                   },
