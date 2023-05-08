@@ -1,32 +1,31 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_credit_card_form.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'reservation4_model.dart';
-export 'reservation4_model.dart';
+import 'reservation5_model.dart';
+export 'reservation5_model.dart';
 
-class Reservation4Widget extends StatefulWidget {
-  const Reservation4Widget({
+class Reservation5Widget extends StatefulWidget {
+  const Reservation5Widget({
     Key? key,
     this.reservationref,
-    required this.documentGarage,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
-  final GaragesRecord? documentGarage;
 
   @override
-  _Reservation4WidgetState createState() => _Reservation4WidgetState();
+  _Reservation5WidgetState createState() => _Reservation5WidgetState();
 }
 
-class _Reservation4WidgetState extends State<Reservation4Widget> {
-  late Reservation4Model _model;
+class _Reservation5WidgetState extends State<Reservation5Widget> {
+  late Reservation5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -34,7 +33,12 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Reservation4Model());
+    _model = createModel(context, () => Reservation5Model());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      Navigator.pop(context);
+    });
   }
 
   @override
@@ -57,77 +61,76 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 30.0,
+            ),
+            onPressed: () {
+              print('IconButton pressed ...');
+            },
+          ),
           actions: [],
           centerTitle: false,
           elevation: 2.0,
         ),
         body: SafeArea(
           child: Align(
-            alignment: AlignmentDirectional(-0.15, -0.1),
+            alignment: AlignmentDirectional(0.0, -0.25),
             child: Stack(
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: AlignmentDirectional(-0.7, -0.9),
-                      child: Text(
-                        'Your reservation was successful.',
-                        textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  child: FlutterFlowCreditCardForm(
+                    formKey: _model.creditCardFormKey,
+                    creditCardModel: _model.creditCardInfo,
+                    obscureNumber: true,
+                    obscureCvv: false,
+                    spacing: 10.0,
+                    textStyle: GoogleFonts.getFont(
+                      'Roboto',
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14.0,
+                    ),
+                    inputDecoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).accent1,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).accent1,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(4.0),
                       ),
                     ),
-                  ],
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, -0.7),
-                  child: Image.network(
-                    valueOrDefault<String>(
-                      widget.documentGarage!.photos!.toList().first,
-                      'https://via.placeholder.com/600x400?text=garage+photo',
-                    ),
-                    width: 300.0,
-                    height: 300.0,
-                    fit: BoxFit.cover,
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-0.6, 0.1),
-                  child: Text(
-                    'Come accedere al posto auto',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.45),
-                  child: Image.network(
-                    'https://via.placeholder.com/600x400?text=keybox+photo',
-                    width: 150.0,
-                    height: 150.0,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.0, 0.8),
+                  alignment: AlignmentDirectional(0.0, -0.25),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      final reservationUpdateData = createReservationRecordData(
-                        totalPrice: 10.0,
-                      );
-                      await widget.reservationref!
-                          .update(reservationUpdateData);
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              NavBarPage(initialPage: 'myTrips'),
+                              NavBarPage(initialPage: 'homePage_Garages'),
                         ),
                       );
                     },
-                    text: 'Go to my reservations',
+                    text: 'Conferma pagamento',
                     options: FFButtonOptions(
-                      width: 260.0,
+                      width: 230.0,
                       height: 40.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),

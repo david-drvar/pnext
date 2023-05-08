@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservations/reservation_4/reservation4_widget.dart';
+import '/pages/garage_details/garage_details_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -203,6 +203,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                     final reservationUpdateData =
                                         createReservationRecordData(
                                       garageReference: widget.garage!.reference,
+                                      totalPrice: widget.garage!.rate! * 2,
                                     );
                                     await widget.reservationRef!
                                         .update(reservationUpdateData);
@@ -210,14 +211,14 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            Reservation4Widget(
-                                          reservationref: widget.reservationRef,
-                                          documentGarage: widget.garage!,
+                                            GarageDetailsWidget(
+                                          garageRef: widget.garage!.reference,
+                                          reservationRef: widget.reservationRef,
                                         ),
                                       ),
                                     );
                                   },
-                                  text: 'Book Now',
+                                  text: 'See Garage',
                                   options: FFButtonOptions(
                                     width: 130.0,
                                     height: 30.0,

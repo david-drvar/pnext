@@ -25,6 +25,14 @@ double ratingSummary(
   }
 }
 
+double rateConversionStripe(double myVar) {
+  return myVar * 100;
+}
+
+bool isDocReferenceNull(DocumentReference? myVar) {
+  return myVar == null;
+}
+
 DateTime hoursAndMinutesToDate(
   String hour,
   String minute,
@@ -39,7 +47,7 @@ DateTime hoursAndMinutesToDate(
   );
 }
 
-bool doesDateExist(DateTime? myVar) {
+bool isDateNull(DateTime? myVar) {
   return myVar == null;
 }
 

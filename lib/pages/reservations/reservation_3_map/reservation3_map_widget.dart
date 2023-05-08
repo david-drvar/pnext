@@ -19,11 +19,9 @@ class Reservation3MapWidget extends StatefulWidget {
   const Reservation3MapWidget({
     Key? key,
     this.reservationref,
-    required this.reservationDoc,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
-  final ReservationRecord? reservationDoc;
 
   @override
   _Reservation3MapWidgetState createState() => _Reservation3MapWidgetState();
@@ -106,8 +104,8 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                   color: FlutterFlowTheme.of(context).primaryText,
                   size: 30.0,
                 ),
-                onPressed: () {
-                  print('IconButton pressed ...');
+                onPressed: () async {
+                  Navigator.pop(context);
                 },
               ),
               actions: [],

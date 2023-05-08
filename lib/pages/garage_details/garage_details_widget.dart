@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
+import '/pages/reservations/reservation_4/reservation4_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,9 +28,11 @@ class GarageDetailsWidget extends StatefulWidget {
   const GarageDetailsWidget({
     Key? key,
     this.garageRef,
+    this.reservationRef,
   }) : super(key: key);
 
   final DocumentReference? garageRef;
+  final DocumentReference? reservationRef;
 
   @override
   _GarageDetailsWidgetState createState() => _GarageDetailsWidgetState();
@@ -805,14 +809,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.mondayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.mondayEnd) ==
                                 false)
                               Text(
@@ -855,14 +859,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.tuesdayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.tuesdayEnd) ==
                                 false)
                               Text(
@@ -907,14 +911,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.wednesdayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.wednesdayEnd) ==
                                 false)
                               Text(
@@ -954,14 +958,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.thursdayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.thursdayEnd) ==
                                 false)
                               Text(
@@ -1001,14 +1005,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.fridayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.fridayEnd) ==
                                 false)
                               Text(
@@ -1048,14 +1052,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.saturdayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.saturdayEnd) ==
                                 false)
                               Text(
@@ -1095,14 +1099,14 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.sundayEnd) ==
                                 false)
                               Text(
                                 '-',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
-                            if (functions.doesDateExist(
+                            if (functions.isDateNull(
                                     garageDetailsGaragesRecord.sundayEnd) ==
                                 false)
                               Text(
@@ -1359,6 +1363,66 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           ),
                         ],
                       ),
+                      if (functions.isDocReferenceNull(widget.reservationRef) ==
+                          false)
+                        FFButtonWidget(
+                          onPressed: () async {
+                            final paymentResponse = await processStripePayment(
+                              context,
+                              amount: functions
+                                  .rateConversionStripe(
+                                      garageDetailsGaragesRecord.rate!)
+                                  .round(),
+                              currency: 'EUR',
+                              customerEmail: currentUserEmail,
+                              allowGooglePay: false,
+                              allowApplePay: false,
+                            );
+                            if (paymentResponse.paymentId == null) {
+                              if (paymentResponse.errorMessage != null) {
+                                showSnackbar(
+                                  context,
+                                  'Error: ${paymentResponse.errorMessage}',
+                                );
+                              }
+                              return;
+                            }
+                            _model.paymentId = paymentResponse.paymentId!;
+
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Reservation4Widget(
+                                  reservationref: widget.reservationRef,
+                                  documentGarage: garageDetailsGaragesRecord,
+                                ),
+                              ),
+                            );
+
+                            setState(() {});
+                          },
+                          text: 'Book now',
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 30.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: Colors.white,
+                                ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
                     ],
                   ),
                 ),

@@ -72,6 +72,13 @@ class _$ReservationRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.dateReservation;
+    if (value != null) {
+      result
+        ..add('date_reservation')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -127,6 +134,10 @@ class _$ReservationRecordSerializer
           result.totalPrice = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
           break;
+        case 'date_reservation':
+          result.dateReservation = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -156,6 +167,8 @@ class _$ReservationRecord extends ReservationRecord {
   @override
   final double? totalPrice;
   @override
+  final DateTime? dateReservation;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$ReservationRecord(
@@ -170,6 +183,7 @@ class _$ReservationRecord extends ReservationRecord {
       this.garageReference,
       this.user,
       this.totalPrice,
+      this.dateReservation,
       this.ffRef})
       : super._();
 
@@ -192,6 +206,7 @@ class _$ReservationRecord extends ReservationRecord {
         garageReference == other.garageReference &&
         user == other.user &&
         totalPrice == other.totalPrice &&
+        dateReservation == other.dateReservation &&
         ffRef == other.ffRef;
   }
 
@@ -205,6 +220,7 @@ class _$ReservationRecord extends ReservationRecord {
     _$hash = $jc(_$hash, garageReference.hashCode);
     _$hash = $jc(_$hash, user.hashCode);
     _$hash = $jc(_$hash, totalPrice.hashCode);
+    _$hash = $jc(_$hash, dateReservation.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -220,6 +236,7 @@ class _$ReservationRecord extends ReservationRecord {
           ..add('garageReference', garageReference)
           ..add('user', user)
           ..add('totalPrice', totalPrice)
+          ..add('dateReservation', dateReservation)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -258,6 +275,11 @@ class ReservationRecordBuilder
   double? get totalPrice => _$this._totalPrice;
   set totalPrice(double? totalPrice) => _$this._totalPrice = totalPrice;
 
+  DateTime? _dateReservation;
+  DateTime? get dateReservation => _$this._dateReservation;
+  set dateReservation(DateTime? dateReservation) =>
+      _$this._dateReservation = dateReservation;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -276,6 +298,7 @@ class ReservationRecordBuilder
       _garageReference = $v.garageReference;
       _user = $v.user;
       _totalPrice = $v.totalPrice;
+      _dateReservation = $v.dateReservation;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -306,6 +329,7 @@ class ReservationRecordBuilder
             garageReference: garageReference,
             user: user,
             totalPrice: totalPrice,
+            dateReservation: dateReservation,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

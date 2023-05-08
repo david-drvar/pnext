@@ -14,6 +14,8 @@ import 'flutter_flow/internationalization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'index.dart';
 
+import 'backend/stripe/payment_manager.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initFirebase();
@@ -22,6 +24,8 @@ void main() async {
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
+
+  await initializeStripe();
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,

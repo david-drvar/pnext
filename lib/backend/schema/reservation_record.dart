@@ -30,6 +30,9 @@ abstract class ReservationRecord
   @BuiltValueField(wireName: 'total_price')
   double? get totalPrice;
 
+  @BuiltValueField(wireName: 'date_reservation')
+  DateTime? get dateReservation;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -68,6 +71,7 @@ Map<String, dynamic> createReservationRecordData({
   DocumentReference? garageReference,
   DocumentReference? user,
   double? totalPrice,
+  DateTime? dateReservation,
 }) {
   final firestoreData = serializers.toFirestore(
     ReservationRecord.serializer,
@@ -79,7 +83,8 @@ Map<String, dynamic> createReservationRecordData({
         ..dimension = dimension
         ..garageReference = garageReference
         ..user = user
-        ..totalPrice = totalPrice,
+        ..totalPrice = totalPrice
+        ..dateReservation = dateReservation,
     ),
   );
 

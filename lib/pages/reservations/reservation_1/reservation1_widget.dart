@@ -67,8 +67,8 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              Navigator.pop(context);
             },
           ),
           actions: [],
@@ -154,7 +154,6 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                         MaterialPageRoute(
                           builder: (context) => Reservation2Widget(
                             reservationref: _model.newReservation!.reference,
-                            documentref: _model.newReservation!,
                           ),
                         ),
                       );

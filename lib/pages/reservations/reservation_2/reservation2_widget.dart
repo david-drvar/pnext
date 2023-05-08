@@ -18,11 +18,9 @@ class Reservation2Widget extends StatefulWidget {
   const Reservation2Widget({
     Key? key,
     this.reservationref,
-    required this.documentref,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
-  final ReservationRecord? documentref;
 
   @override
   _Reservation2WidgetState createState() => _Reservation2WidgetState();
@@ -73,8 +71,8 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
               color: FlutterFlowTheme.of(context).primaryText,
               size: 30.0,
             ),
-            onPressed: () {
-              print('IconButton pressed ...');
+            onPressed: () async {
+              Navigator.pop(context);
             },
           ),
           actions: [],
@@ -115,7 +113,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                     ),
                     onPressed: () async {
                       final reservationUpdateData = createReservationRecordData(
-                        dimension: 'motorcycle',
+                        dimension: 'bike',
                       );
                       await widget.reservationref!
                           .update(reservationUpdateData);
@@ -343,18 +341,14 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                           createReservationRecordData();
                       await widget.reservationref!
                           .update(reservationUpdateData);
-                      if (/* NOT RECOMMENDED */ _model.textController1.text ==
-                          'true') {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Reservation3MapWidget(
-                              reservationref: widget.reservationref,
-                              reservationDoc: widget.documentref!,
-                            ),
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Reservation3MapWidget(
+                            reservationref: widget.reservationref,
                           ),
-                        );
-                      }
+                        ),
+                      );
                     },
                     text: 'Cerca parcheggio',
                     options: FFButtonOptions(

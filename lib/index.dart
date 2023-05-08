@@ -70,7 +70,7 @@ export '/pages/reservations/reservation_2/reservation2_widget.dart'
     show Reservation2Widget;
 export '/pages/reservations/reservation_4/reservation4_widget.dart'
     show Reservation4Widget;
-export '/pages/reservations/reservation_5/reservation5_widget.dart'
+export '/pages/redundant_pages/reservation_5/reservation5_widget.dart'
     show Reservation5Widget;
 export '/pages/home_page_garages/home_page_garages_widget.dart'
     show HomePageGaragesWidget;
@@ -105,3 +105,7 @@ export '/pages/edit_garage_pages/edit_garage_disclaimer/edit_garage_disclaimer_w
     show EditGarageDisclaimerWidget;
 export '/pages/edit_garage_pages/edit_garage_price/edit_garage_price_widget.dart'
     show EditGaragePriceWidget;
+export '/pages/reservations/reservation_1_copy/reservation1_copy_widget.dart'
+    show Reservation1CopyWidget;
+export '/pages/redundant_pages/reservation_4_copy/reservation4_copy_widget.dart'
+    show Reservation4CopyWidget;
