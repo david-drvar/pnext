@@ -100,6 +100,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
             elevation: 0.0,
           ),
           body: SafeArea(
+            top: true,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [

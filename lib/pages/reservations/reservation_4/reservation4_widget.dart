@@ -62,6 +62,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Align(
             alignment: AlignmentDirectional(-0.15, -0.1),
             child: Stack(
@@ -84,7 +85,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                   alignment: AlignmentDirectional(0.0, -0.7),
                   child: Image.network(
                     valueOrDefault<String>(
-                      widget.documentGarage!.photos!.toList().first,
+                      widget.documentGarage!.photos.first,
                       'https://via.placeholder.com/600x400?text=garage+photo',
                     ),
                     width: 300.0,
@@ -121,11 +122,11 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              NavBarPage(initialPage: 'myTrips'),
+                              NavBarPage(initialPage: 'myReservations'),
                         ),
                       );
                     },
-                    text: 'Go to my reservations',
+                    text: 'Go to my bookings',
                     options: FFButtonOptions(
                       width: 260.0,
                       height: 40.0,

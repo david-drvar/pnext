@@ -86,10 +86,10 @@ class _TotalWidgetState extends State<TotalWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
-                  'Your order total is a summary of all items in your order minus any fees and taxes associated with your purchase.',
+                  'Your order total is a summary of base price per hour moltiplied by number of hours plus any fees and taxes associated with your purchase.',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Urbanist',
-                        fontSize: 16.0,
+                        fontSize: 14.0,
                         fontWeight: FontWeight.w300,
                       ),
                 ),

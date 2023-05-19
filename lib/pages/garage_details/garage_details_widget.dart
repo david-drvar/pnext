@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
@@ -10,7 +9,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
-import '/pages/reservations/reservation_4/reservation4_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -28,11 +26,9 @@ class GarageDetailsWidget extends StatefulWidget {
   const GarageDetailsWidget({
     Key? key,
     this.garageRef,
-    this.reservationRef,
   }) : super(key: key);
 
   final DocumentReference? garageRef;
-  final DocumentReference? reservationRef;
 
   @override
   _GarageDetailsWidgetState createState() => _GarageDetailsWidgetState();
@@ -264,34 +260,27 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                               image: CachedNetworkImage(
                                                 imageUrl:
                                                     garageDetailsGaragesRecord
-                                                        .photos!
-                                                        .toList()
-                                                        .first,
+                                                        .photos.first,
                                                 fit: BoxFit.contain,
                                               ),
                                               allowRotation: false,
                                               tag: garageDetailsGaragesRecord
-                                                  .photos!
-                                                  .toList()
-                                                  .first,
+                                                  .photos.first,
                                               useHeroAnimation: true,
                                             ),
                                           ),
                                         );
                                       },
                                       child: Hero(
-                                        tag: garageDetailsGaragesRecord.photos!
-                                            .toList()
-                                            .first,
+                                        tag: garageDetailsGaragesRecord
+                                            .photos.first,
                                         transitionOnUserGestures: true,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(16.0),
                                           child: CachedNetworkImage(
                                             imageUrl: garageDetailsGaragesRecord
-                                                .photos!
-                                                .toList()
-                                                .first,
+                                                .photos.first,
                                             width: double.infinity,
                                             height: double.infinity,
                                             fit: BoxFit.cover,
@@ -461,7 +450,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           children: [
                             Expanded(
                               child: Text(
-                                garageDetailsGaragesRecord.address!,
+                                garageDetailsGaragesRecord.address,
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
                               ).animateOnPageLoad(
@@ -479,7 +468,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           children: [
                             Expanded(
                               child: Text(
-                                garageDetailsGaragesRecord.city!,
+                                garageDetailsGaragesRecord.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -493,7 +482,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             ),
                             Expanded(
                               child: Text(
-                                garageDetailsGaragesRecord.zip!,
+                                garageDetailsGaragesRecord.zip,
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -507,7 +496,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             ),
                             Expanded(
                               child: Text(
-                                garageDetailsGaragesRecord.country!,
+                                garageDetailsGaragesRecord.country,
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -555,7 +544,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 24.0),
                                 child: Text(
-                                  garageDetailsGaragesRecord.description!,
+                                  garageDetailsGaragesRecord.description,
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -1161,6 +1150,39 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           ],
                         ),
                       ),
+                      if (garageDetailsGaragesRecord.isKey == true)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 20.0, 0.0, 5.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Keybox password -',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color:
+                                          FlutterFlowTheme.of(context).dark600,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                              Text(
+                                garageDetailsGaragesRecord.keyboxPassword,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color:
+                                          FlutterFlowTheme.of(context).dark600,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
@@ -1171,7 +1193,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           child: Builder(
                             builder: (context) {
                               final photoListView =
-                                  garageDetailsGaragesRecord.photos!.toList();
+                                  garageDetailsGaragesRecord.photos.toList();
                               return GridView.builder(
                                 padding: EdgeInsets.zero,
                                 gridDelegate:
@@ -1255,7 +1277,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                         child: Builder(
                           builder: (context) {
                             final videoListView =
-                                garageDetailsGaragesRecord.videos!.toList();
+                                garageDetailsGaragesRecord.videos.toList();
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               scrollDirection: Axis.vertical,
@@ -1320,7 +1342,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                garageDetailsGaragesRecord.rate!.toString(),
+                                garageDetailsGaragesRecord.rate.toString(),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -1363,66 +1385,6 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           ),
                         ],
                       ),
-                      if (functions.isDocReferenceNull(widget.reservationRef) ==
-                          false)
-                        FFButtonWidget(
-                          onPressed: () async {
-                            final paymentResponse = await processStripePayment(
-                              context,
-                              amount: functions
-                                  .rateConversionStripe(
-                                      garageDetailsGaragesRecord.rate!)
-                                  .round(),
-                              currency: 'EUR',
-                              customerEmail: currentUserEmail,
-                              allowGooglePay: false,
-                              allowApplePay: false,
-                            );
-                            if (paymentResponse.paymentId == null) {
-                              if (paymentResponse.errorMessage != null) {
-                                showSnackbar(
-                                  context,
-                                  'Error: ${paymentResponse.errorMessage}',
-                                );
-                              }
-                              return;
-                            }
-                            _model.paymentId = paymentResponse.paymentId!;
-
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Reservation4Widget(
-                                  reservationref: widget.reservationRef,
-                                  documentGarage: garageDetailsGaragesRecord,
-                                ),
-                              ),
-                            );
-
-                            setState(() {});
-                          },
-                          text: 'Book now',
-                          options: FFButtonOptions(
-                            width: 130.0,
-                            height: 30.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
-                                ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
                     ],
                   ),
                 ),

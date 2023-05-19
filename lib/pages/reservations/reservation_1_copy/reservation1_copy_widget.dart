@@ -20,9 +20,11 @@ class Reservation1CopyWidget extends StatefulWidget {
   const Reservation1CopyWidget({
     Key? key,
     this.datestart,
+    this.timePickedOk,
   }) : super(key: key);
 
   final DateTime? datestart;
+  final bool? timePickedOk;
 
   @override
   _Reservation1CopyWidgetState createState() => _Reservation1CopyWidgetState();
@@ -79,6 +81,7 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Align(
             alignment: AlignmentDirectional(0.05, 0.05),
             child: Stack(
@@ -140,29 +143,65 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                         _model.dropDownOre2Value!,
                         _model.dropDownMin2Value!,
                       );
-
-                      final reservationCreateData = createReservationRecordData(
-                        dateStart: _model.startR,
-                        dateEnd: _model.endR,
-                        user: currentUserReference,
-                        dateReservation: _model.datePicked,
-                      );
-                      var reservationRecordReference =
-                          ReservationRecord.collection.doc();
-                      await reservationRecordReference
-                          .set(reservationCreateData);
-                      _model.newReservation =
-                          ReservationRecord.getDocumentFromData(
-                              reservationCreateData,
-                              reservationRecordReference);
-                      await Navigator.push(
+                      _model.reservationTimeCheck =
+                          await actions.reservationTimeOk(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => Reservation2Widget(
-                            reservationref: _model.newReservation!.reference,
-                          ),
-                        ),
+                        _model.dropDownOre1Value!,
+                        _model.dropDownMin1Value!,
+                        _model.dropDownOre2Value!,
+                        _model.dropDownMin2Value!,
                       );
+                      _model.totalTime = await actions.parkingTimeCalculation(
+                        context,
+                        _model.dropDownOre1Value!,
+                        _model.dropDownOre2Value!,
+                        _model.dropDownMin1Value!,
+                        _model.dropDownMin2Value!,
+                      );
+                      if (_model.reservationTimeCheck!) {
+                        final reservationCreateData =
+                            createReservationRecordData(
+                          dateStart: _model.startR,
+                          dateEnd: _model.endR,
+                          user: currentUserReference,
+                          dateReservation: _model.datePicked,
+                          totalTime: _model.totalTime,
+                        );
+                        var reservationRecordReference =
+                            ReservationRecord.collection.doc();
+                        await reservationRecordReference
+                            .set(reservationCreateData);
+                        _model.reservationDoc =
+                            ReservationRecord.getDocumentFromData(
+                                reservationCreateData,
+                                reservationRecordReference);
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Reservation2Widget(
+                              reservationref: _model.reservationDoc!.reference,
+                            ),
+                          ),
+                        );
+                      } else {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Reservation problem'),
+                              content: Text(
+                                  'Intervallo temporale scelto non valido'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
 
                       setState(() {});
                     },
@@ -372,6 +411,16 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                         EdgeInsetsDirectional.fromSTEB(12.0, 4.0, 12.0, 4.0),
                     hidesUnderline: true,
                     isSearchable: false,
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-0.06, -0.63),
+                  child: Text(
+                    valueOrDefault<String>(
+                      _model.datePicked?.toString(),
+                      'data scelta',
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
               ],

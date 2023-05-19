@@ -80,6 +80,7 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [

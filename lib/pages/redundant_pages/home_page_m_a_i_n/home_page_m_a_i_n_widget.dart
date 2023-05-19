@@ -334,7 +334,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          listViewPropertiesRecord.propertyName!
+                                          listViewPropertiesRecord.propertyName
                                               .maybeHandleOverflow(
                                             maxChars: 36,
                                             replacement: '…',
@@ -355,7 +355,7 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                       Expanded(
                                         child: Text(
                                           listViewPropertiesRecord
-                                              .propertyNeighborhood!
+                                              .propertyNeighborhood
                                               .maybeHandleOverflow(
                                             maxChars: 90,
                                             replacement: '…',

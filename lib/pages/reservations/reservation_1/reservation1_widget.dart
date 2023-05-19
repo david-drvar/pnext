@@ -76,6 +76,7 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Align(
             alignment: AlignmentDirectional(0.05, 0.05),
             child: Stack(

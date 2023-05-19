@@ -80,6 +80,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Align(
             alignment: AlignmentDirectional(0.0, 0.05),
             child: Stack(
@@ -99,35 +100,10 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-0.8, -0.55),
-                  child: FlutterFlowIconButton(
-                    borderColor: FlutterFlowTheme.of(context).primary,
-                    borderRadius: 30.0,
-                    borderWidth: 1.0,
-                    buttonSize: 60.0,
-                    fillColor: FlutterFlowTheme.of(context).primary,
-                    icon: Icon(
-                      Icons.pedal_bike,
-                      color: FlutterFlowTheme.of(context).lineGray,
-                      size: 30.0,
-                    ),
-                    onPressed: () async {
-                      final reservationUpdateData = createReservationRecordData(
-                        dimension: 'bike',
-                      );
-                      await widget.reservationref!
-                          .update(reservationUpdateData);
-                      setState(() {
-                        _model.textController2?.text = 'size: motorcycle';
-                      });
-                    },
-                  ),
-                ),
-                Align(
                   alignment: AlignmentDirectional(-0.4, -0.55),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
-                    borderRadius: 30.0,
+                    borderRadius: 10.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
                     fillColor: FlutterFlowTheme.of(context).primary,
@@ -152,43 +128,18 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   alignment: AlignmentDirectional(0.0, -0.55),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
-                    borderRadius: 30.0,
+                    borderRadius: 10.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
                     fillColor: FlutterFlowTheme.of(context).primary,
-                    icon: FaIcon(
-                      FontAwesomeIcons.truckPickup,
+                    icon: Icon(
+                      Icons.pedal_bike,
                       color: FlutterFlowTheme.of(context).cultured,
                       size: 30.0,
                     ),
                     onPressed: () async {
                       final reservationUpdateData = createReservationRecordData(
-                        dimension: 'big car',
-                      );
-                      await widget.reservationref!
-                          .update(reservationUpdateData);
-                      setState(() {
-                        _model.textController2?.text = 'size: big car';
-                      });
-                    },
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0.4, -0.55),
-                  child: FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 30.0,
-                    borderWidth: 1.0,
-                    buttonSize: 60.0,
-                    fillColor: FlutterFlowTheme.of(context).primary,
-                    icon: FaIcon(
-                      FontAwesomeIcons.truck,
-                      color: FlutterFlowTheme.of(context).cultured,
-                      size: 30.0,
-                    ),
-                    onPressed: () async {
-                      final reservationUpdateData = createReservationRecordData(
-                        dimension: 'truck',
+                        dimension: 'bike',
                       );
                       await widget.reservationref!
                           .update(reservationUpdateData);
@@ -199,10 +150,10 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.8, -0.55),
+                  alignment: AlignmentDirectional(0.4, -0.55),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
-                    borderRadius: 30.0,
+                    borderRadius: 10.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
                     fillColor: FlutterFlowTheme.of(context).primary,
@@ -218,6 +169,56 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       await widget.reservationref!
                           .update(reservationUpdateData);
                       setState(() {
+                        _model.textController2?.text = 'size: big_truck';
+                      });
+                    },
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(-0.8, -0.55),
+                  child: FlutterFlowIconButton(
+                    borderColor: FlutterFlowTheme.of(context).primary,
+                    borderRadius: 10.0,
+                    borderWidth: 1.0,
+                    buttonSize: 60.0,
+                    fillColor: FlutterFlowTheme.of(context).primary,
+                    icon: FaIcon(
+                      FontAwesomeIcons.truck,
+                      color: FlutterFlowTheme.of(context).lineGray,
+                      size: 30.0,
+                    ),
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'truck',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
+                        _model.textController2?.text = 'size: motorcycle';
+                      });
+                    },
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.8, -0.55),
+                  child: FlutterFlowIconButton(
+                    borderColor: Colors.transparent,
+                    borderRadius: 10.0,
+                    borderWidth: 1.0,
+                    buttonSize: 60.0,
+                    fillColor: FlutterFlowTheme.of(context).primary,
+                    icon: FaIcon(
+                      FontAwesomeIcons.truckMoving,
+                      color: FlutterFlowTheme.of(context).cultured,
+                      size: 30.0,
+                    ),
+                    onPressed: () async {
+                      final reservationUpdateData = createReservationRecordData(
+                        dimension: 'big_truck',
+                      );
+                      await widget.reservationref!
+                          .update(reservationUpdateData);
+                      setState(() {
                         _model.textController2?.text = 'size: caravan';
                       });
                     },
@@ -225,9 +226,13 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                 ),
                 Align(
                   alignment: AlignmentDirectional(-0.83, -0.39),
-                  child: Text(
-                    'motorcycle',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                    child: Text(
+                      'truck',
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    ),
                   ),
                 ),
                 Align(
@@ -240,21 +245,21 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                 Align(
                   alignment: AlignmentDirectional(-0.02, -0.39),
                   child: Text(
-                    'big car',
+                    'bike',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.37, -0.4),
                   child: Text(
-                    'truck',
+                    'caravan',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.78, -0.39),
                   child: Text(
-                    'caravan',
+                    'big truck',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -272,14 +277,6 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                         100.0, 100.0, 100.0, 100.0),
                     child: TextFormField(
                       controller: _model.textController1,
-                      onFieldSubmitted: (_) async {
-                        final reservationUpdateData =
-                            createReservationRecordData(
-                          carCode: _model.textController1.text,
-                        );
-                        await widget.reservationref!
-                            .update(reservationUpdateData);
-                      },
                       autofocus: true,
                       textCapitalization: TextCapitalization.none,
                       obscureText: false,
@@ -337,8 +334,9 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   alignment: AlignmentDirectional(0.04, 0.72),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      final reservationUpdateData =
-                          createReservationRecordData();
+                      final reservationUpdateData = createReservationRecordData(
+                        carCode: _model.textController1.text,
+                      );
                       await widget.reservationref!
                           .update(reservationUpdateData);
                       await Navigator.push(

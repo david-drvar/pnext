@@ -8,14 +8,28 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/place.dart';
 import 'dart:io';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Reservation3MapModel extends FlutterFlowModel {
+  ///  Local state fields for this page.
+
+  List<GaragesRecord> localGaragesState = [];
+  void addToLocalGaragesState(GaragesRecord item) =>
+      localGaragesState.add(item);
+  void removeFromLocalGaragesState(GaragesRecord item) =>
+      localGaragesState.remove(item);
+  void removeAtIndexFromLocalGaragesState(int index) =>
+      localGaragesState.removeAt(index);
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - availableGarages] action in reservation_3Map widget.
+  List<GaragesRecord>? filteredGarages;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();

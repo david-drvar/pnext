@@ -187,7 +187,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  columnUsersRecord.email!,
+                                  columnUsersRecord.email,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -788,7 +788,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                 ],
               ),
-              if (columnUsersRecord.isHost ?? true)
+              if (columnUsersRecord.isHost)
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,

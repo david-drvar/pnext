@@ -62,6 +62,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -402,7 +403,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                           0.0),
                                                               child: Text(
                                                                 columnPropertiesRecord
-                                                                    .propertyAddress!,
+                                                                    .propertyAddress,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodySmall
@@ -419,7 +420,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                           Text(
                                                             formatNumber(
                                                               listViewTripsRecord
-                                                                  .tripCost!,
+                                                                  .tripCost,
                                                               formatType:
                                                                   FormatType
                                                                       .decimal,
@@ -641,8 +642,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                           ),
                                                         ),
                                                         if (listViewTripsRecord
-                                                                .cancelTrip ??
-                                                            true)
+                                                            .cancelTrip)
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
@@ -776,7 +776,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                           Text(
                                                             formatNumber(
                                                               listViewTripsRecord
-                                                                  .tripCost!,
+                                                                  .tripCost,
                                                               formatType:
                                                                   FormatType
                                                                       .decimal,
@@ -790,7 +790,7 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                 .titleMedium,
                                                           ),
                                                           if (!listViewTripsRecord
-                                                              .rated!)
+                                                              .rated)
                                                             FFButtonWidget(
                                                               onPressed:
                                                                   () async {

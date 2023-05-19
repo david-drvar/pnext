@@ -382,7 +382,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        columnPropertiesRecord.propertyName!,
+                                        columnPropertiesRecord.propertyName,
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(
@@ -404,7 +404,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                     children: [
                                       Text(
                                         columnPropertiesRecord
-                                            .propertyDescription!,
+                                            .propertyDescription,
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(

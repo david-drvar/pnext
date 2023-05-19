@@ -80,6 +80,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [

@@ -173,7 +173,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       children: [
                         Expanded(
                           child: Text(
-                            widget.propertyDetails!.propertyName!
+                            widget.propertyDetails!.propertyName
                                 .maybeHandleOverflow(
                               maxChars: 70,
                               replacement: '…',
@@ -192,7 +192,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       children: [
                         Expanded(
                           child: Text(
-                            widget.propertyDetails!.propertyNeighborhood!
+                            widget.propertyDetails!.propertyNeighborhood
                                 .maybeHandleOverflow(
                               maxChars: 120,
                               replacement: '…',

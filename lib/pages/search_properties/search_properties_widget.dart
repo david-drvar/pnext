@@ -81,6 +81,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -299,7 +300,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 8.0, 0.0, 0.0),
                                     child: Text(
-                                      listViewPropertiesRecord.propertyName!
+                                      listViewPropertiesRecord.propertyName
                                           .maybeHandleOverflow(
                                         maxChars: 36,
                                         replacement: '…',
@@ -319,7 +320,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                         16.0, 4.0, 0.0, 0.0),
                                     child: Text(
                                       listViewPropertiesRecord
-                                          .propertyNeighborhood!
+                                          .propertyNeighborhood
                                           .maybeHandleOverflow(
                                         maxChars: 90,
                                         replacement: '…',

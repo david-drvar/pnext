@@ -91,6 +91,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
           elevation: 0.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -165,9 +166,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                   children: [
                                     Hero(
                                       tag: valueOrDefault<String>(
-                                        listViewGaragesRecord.photos!
-                                            .toList()
-                                            .first,
+                                        listViewGaragesRecord.photos.first,
                                         'https://via.placeholder.com/600x400?text=Garage+photo' +
                                             '$listViewIndex',
                                       ),
@@ -181,9 +180,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                         ),
                                         child: CachedNetworkImage(
                                           imageUrl: valueOrDefault<String>(
-                                            listViewGaragesRecord.photos!
-                                                .toList()
-                                                .first,
+                                            listViewGaragesRecord.photos.first,
                                             'https://via.placeholder.com/600x400?text=Garage+photo',
                                           ),
                                           width: double.infinity,
@@ -245,7 +242,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                           Text(
                                             valueOrDefault<String>(
                                               listViewGaragesRecord.rate
-                                                  ?.toString(),
+                                                  .toString(),
                                               'rate',
                                             ).maybeHandleOverflow(
                                               maxChars: 90,

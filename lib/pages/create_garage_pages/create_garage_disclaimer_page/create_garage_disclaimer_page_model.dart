@@ -13,6 +13,9 @@ import 'package:provider/provider.dart';
 class CreateGarageDisclaimerPageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for keybox_password widget.
+  TextEditingController? keyboxPasswordController;
+  String? Function(BuildContext, String?)? keyboxPasswordControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
 
@@ -20,7 +23,9 @@ class CreateGarageDisclaimerPageModel extends FlutterFlowModel {
 
   void initState(BuildContext context) {}
 
-  void dispose() {}
+  void dispose() {
+    keyboxPasswordController?.dispose();
+  }
 
   /// Additional helper methods are added here.
 

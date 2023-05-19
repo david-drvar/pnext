@@ -22,8 +22,12 @@ class Reservation1CopyModel extends FlutterFlowModel {
   DateTime? startR;
   // Stores action output result for [Custom Action - hoursAndMinutesToDateAction] action in Button widget.
   DateTime? endR;
+  // Stores action output result for [Custom Action - reservationTimeOk] action in Button widget.
+  bool? reservationTimeCheck;
+  // Stores action output result for [Custom Action - parkingTimeCalculation] action in Button widget.
+  double? totalTime;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  ReservationRecord? newReservation;
+  ReservationRecord? reservationDoc;
   // State field(s) for DropDownOre1 widget.
   String? dropDownOre1Value;
   FormFieldController<String>? dropDownOre1ValueController;

@@ -40,8 +40,8 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
-        _model.photoList = widget.newGarageRef!.photos!.toList().toList();
-        _model.videoList = widget.newGarageRef!.videos!.toList().toList();
+        _model.photoList = widget.newGarageRef!.photos.toList();
+        _model.videoList = widget.newGarageRef!.videos.toList();
       });
     });
   }
@@ -86,6 +86,7 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
           child: Column(

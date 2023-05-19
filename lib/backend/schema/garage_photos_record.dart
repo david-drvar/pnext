@@ -1,54 +1,61 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'garage_photos_record.g.dart';
+class GaragePhotosRecord extends FirestoreRecord {
+  GaragePhotosRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class GaragePhotosRecord
-    implements Built<GaragePhotosRecord, GaragePhotosRecordBuilder> {
-  static Serializer<GaragePhotosRecord> get serializer =>
-      _$garagePhotosRecordSerializer;
+  // "garageRef" field.
+  DocumentReference? _garageRef;
+  DocumentReference? get garageRef => _garageRef;
+  bool hasGarageRef() => _garageRef != null;
 
-  DocumentReference? get garageRef;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(GaragePhotosRecordBuilder builder) => builder;
+  void _initializeFields() {
+    _garageRef = snapshotData['garageRef'] as DocumentReference?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('garage_photos');
 
-  static Stream<GaragePhotosRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<GaragePhotosRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => GaragePhotosRecord.fromSnapshot(s));
 
   static Future<GaragePhotosRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => GaragePhotosRecord.fromSnapshot(s));
 
-  GaragePhotosRecord._();
-  factory GaragePhotosRecord(
-          [void Function(GaragePhotosRecordBuilder) updates]) =
-      _$GaragePhotosRecord;
+  static GaragePhotosRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      GaragePhotosRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static GaragePhotosRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      GaragePhotosRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'GaragePhotosRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createGaragePhotosRecordData({
   DocumentReference? garageRef,
 }) {
-  final firestoreData = serializers.toFirestore(
-    GaragePhotosRecord.serializer,
-    GaragePhotosRecord(
-      (g) => g..garageRef = garageRef,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'garageRef': garageRef,
+    }.withoutNulls,
   );
 
   return firestoreData;

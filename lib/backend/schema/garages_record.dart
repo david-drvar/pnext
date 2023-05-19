@@ -1,123 +1,226 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'garages_record.g.dart';
+class GaragesRecord extends FirestoreRecord {
+  GaragesRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class GaragesRecord
-    implements Built<GaragesRecord, GaragesRecordBuilder> {
-  static Serializer<GaragesRecord> get serializer => _$garagesRecordSerializer;
+  // "userRef" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
 
-  DocumentReference? get userRef;
+  // "city" field.
+  String? _city;
+  String get city => _city ?? '';
+  bool hasCity() => _city != null;
 
-  String? get city;
+  // "address" field.
+  String? _address;
+  String get address => _address ?? '';
+  bool hasAddress() => _address != null;
 
-  String? get address;
+  // "zip" field.
+  String? _zip;
+  String get zip => _zip ?? '';
+  bool hasZip() => _zip != null;
 
-  String? get zip;
+  // "dimensions" field.
+  String? _dimensions;
+  String get dimensions => _dimensions ?? '';
+  bool hasDimensions() => _dimensions != null;
 
-  String? get dimensions;
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  bool hasDescription() => _description != null;
 
-  String? get description;
+  // "rate" field.
+  double? _rate;
+  double get rate => _rate ?? 0.0;
+  bool hasRate() => _rate != null;
 
-  double? get rate;
+  // "startDateValidity" field.
+  DateTime? _startDateValidity;
+  DateTime? get startDateValidity => _startDateValidity;
+  bool hasStartDateValidity() => _startDateValidity != null;
 
-  DateTime? get startDateValidity;
+  // "endDateValidity" field.
+  DateTime? _endDateValidity;
+  DateTime? get endDateValidity => _endDateValidity;
+  bool hasEndDateValidity() => _endDateValidity != null;
 
-  DateTime? get endDateValidity;
+  // "isKey" field.
+  bool? _isKey;
+  bool get isKey => _isKey ?? false;
+  bool hasIsKey() => _isKey != null;
 
-  bool? get isKey;
+  // "monday_start" field.
+  DateTime? _mondayStart;
+  DateTime? get mondayStart => _mondayStart;
+  bool hasMondayStart() => _mondayStart != null;
 
-  @BuiltValueField(wireName: 'monday_start')
-  DateTime? get mondayStart;
+  // "monday_end" field.
+  DateTime? _mondayEnd;
+  DateTime? get mondayEnd => _mondayEnd;
+  bool hasMondayEnd() => _mondayEnd != null;
 
-  @BuiltValueField(wireName: 'monday_end')
-  DateTime? get mondayEnd;
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
 
-  LatLng? get location;
+  // "photos" field.
+  List<String>? _photos;
+  List<String> get photos => _photos ?? const [];
+  bool hasPhotos() => _photos != null;
 
-  BuiltList<String>? get photos;
+  // "videos" field.
+  List<String>? _videos;
+  List<String> get videos => _videos ?? const [];
+  bool hasVideos() => _videos != null;
 
-  BuiltList<String>? get videos;
+  // "tuesday_start" field.
+  DateTime? _tuesdayStart;
+  DateTime? get tuesdayStart => _tuesdayStart;
+  bool hasTuesdayStart() => _tuesdayStart != null;
 
-  @BuiltValueField(wireName: 'tuesday_start')
-  DateTime? get tuesdayStart;
+  // "tuesday_end" field.
+  DateTime? _tuesdayEnd;
+  DateTime? get tuesdayEnd => _tuesdayEnd;
+  bool hasTuesdayEnd() => _tuesdayEnd != null;
 
-  @BuiltValueField(wireName: 'tuesday_end')
-  DateTime? get tuesdayEnd;
+  // "wednesday_start" field.
+  DateTime? _wednesdayStart;
+  DateTime? get wednesdayStart => _wednesdayStart;
+  bool hasWednesdayStart() => _wednesdayStart != null;
 
-  @BuiltValueField(wireName: 'wednesday_start')
-  DateTime? get wednesdayStart;
+  // "wednesday_end" field.
+  DateTime? _wednesdayEnd;
+  DateTime? get wednesdayEnd => _wednesdayEnd;
+  bool hasWednesdayEnd() => _wednesdayEnd != null;
 
-  @BuiltValueField(wireName: 'wednesday_end')
-  DateTime? get wednesdayEnd;
+  // "thursday_start" field.
+  DateTime? _thursdayStart;
+  DateTime? get thursdayStart => _thursdayStart;
+  bool hasThursdayStart() => _thursdayStart != null;
 
-  @BuiltValueField(wireName: 'thursday_start')
-  DateTime? get thursdayStart;
+  // "thursday_end" field.
+  DateTime? _thursdayEnd;
+  DateTime? get thursdayEnd => _thursdayEnd;
+  bool hasThursdayEnd() => _thursdayEnd != null;
 
-  @BuiltValueField(wireName: 'thursday_end')
-  DateTime? get thursdayEnd;
+  // "friday_start" field.
+  DateTime? _fridayStart;
+  DateTime? get fridayStart => _fridayStart;
+  bool hasFridayStart() => _fridayStart != null;
 
-  @BuiltValueField(wireName: 'friday_start')
-  DateTime? get fridayStart;
+  // "friday_end" field.
+  DateTime? _fridayEnd;
+  DateTime? get fridayEnd => _fridayEnd;
+  bool hasFridayEnd() => _fridayEnd != null;
 
-  @BuiltValueField(wireName: 'friday_end')
-  DateTime? get fridayEnd;
+  // "saturday_start" field.
+  DateTime? _saturdayStart;
+  DateTime? get saturdayStart => _saturdayStart;
+  bool hasSaturdayStart() => _saturdayStart != null;
 
-  @BuiltValueField(wireName: 'saturday_start')
-  DateTime? get saturdayStart;
+  // "saturday_end" field.
+  DateTime? _saturdayEnd;
+  DateTime? get saturdayEnd => _saturdayEnd;
+  bool hasSaturdayEnd() => _saturdayEnd != null;
 
-  @BuiltValueField(wireName: 'saturday_end')
-  DateTime? get saturdayEnd;
+  // "sunday_start" field.
+  DateTime? _sundayStart;
+  DateTime? get sundayStart => _sundayStart;
+  bool hasSundayStart() => _sundayStart != null;
 
-  @BuiltValueField(wireName: 'sunday_start')
-  DateTime? get sundayStart;
+  // "sunday_end" field.
+  DateTime? _sundayEnd;
+  DateTime? get sundayEnd => _sundayEnd;
+  bool hasSundayEnd() => _sundayEnd != null;
 
-  @BuiltValueField(wireName: 'sunday_end')
-  DateTime? get sundayEnd;
+  // "country" field.
+  String? _country;
+  String get country => _country ?? '';
+  bool hasCountry() => _country != null;
 
-  String? get country;
+  // "isActive" field.
+  bool? _isActive;
+  bool get isActive => _isActive ?? false;
+  bool hasIsActive() => _isActive != null;
 
-  bool? get isActive;
+  // "keybox_password" field.
+  String? _keyboxPassword;
+  String get keyboxPassword => _keyboxPassword ?? '';
+  bool hasKeyboxPassword() => _keyboxPassword != null;
 
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(GaragesRecordBuilder builder) => builder
-    ..city = ''
-    ..address = ''
-    ..zip = ''
-    ..dimensions = ''
-    ..description = ''
-    ..rate = 0.0
-    ..isKey = false
-    ..photos = ListBuilder()
-    ..videos = ListBuilder()
-    ..country = ''
-    ..isActive = false;
+  void _initializeFields() {
+    _userRef = snapshotData['userRef'] as DocumentReference?;
+    _city = snapshotData['city'] as String?;
+    _address = snapshotData['address'] as String?;
+    _zip = snapshotData['zip'] as String?;
+    _dimensions = snapshotData['dimensions'] as String?;
+    _description = snapshotData['description'] as String?;
+    _rate = castToType<double>(snapshotData['rate']);
+    _startDateValidity = snapshotData['startDateValidity'] as DateTime?;
+    _endDateValidity = snapshotData['endDateValidity'] as DateTime?;
+    _isKey = snapshotData['isKey'] as bool?;
+    _mondayStart = snapshotData['monday_start'] as DateTime?;
+    _mondayEnd = snapshotData['monday_end'] as DateTime?;
+    _location = snapshotData['location'] as LatLng?;
+    _photos = getDataList(snapshotData['photos']);
+    _videos = getDataList(snapshotData['videos']);
+    _tuesdayStart = snapshotData['tuesday_start'] as DateTime?;
+    _tuesdayEnd = snapshotData['tuesday_end'] as DateTime?;
+    _wednesdayStart = snapshotData['wednesday_start'] as DateTime?;
+    _wednesdayEnd = snapshotData['wednesday_end'] as DateTime?;
+    _thursdayStart = snapshotData['thursday_start'] as DateTime?;
+    _thursdayEnd = snapshotData['thursday_end'] as DateTime?;
+    _fridayStart = snapshotData['friday_start'] as DateTime?;
+    _fridayEnd = snapshotData['friday_end'] as DateTime?;
+    _saturdayStart = snapshotData['saturday_start'] as DateTime?;
+    _saturdayEnd = snapshotData['saturday_end'] as DateTime?;
+    _sundayStart = snapshotData['sunday_start'] as DateTime?;
+    _sundayEnd = snapshotData['sunday_end'] as DateTime?;
+    _country = snapshotData['country'] as String?;
+    _isActive = snapshotData['isActive'] as bool?;
+    _keyboxPassword = snapshotData['keybox_password'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('garages');
 
-  static Stream<GaragesRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<GaragesRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => GaragesRecord.fromSnapshot(s));
 
-  static Future<GaragesRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<GaragesRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => GaragesRecord.fromSnapshot(s));
 
-  GaragesRecord._();
-  factory GaragesRecord([void Function(GaragesRecordBuilder) updates]) =
-      _$GaragesRecord;
+  static GaragesRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      GaragesRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static GaragesRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      GaragesRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'GaragesRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createGaragesRecordData({
@@ -148,41 +251,39 @@ Map<String, dynamic> createGaragesRecordData({
   DateTime? sundayEnd,
   String? country,
   bool? isActive,
+  String? keyboxPassword,
 }) {
-  final firestoreData = serializers.toFirestore(
-    GaragesRecord.serializer,
-    GaragesRecord(
-      (g) => g
-        ..userRef = userRef
-        ..city = city
-        ..address = address
-        ..zip = zip
-        ..dimensions = dimensions
-        ..description = description
-        ..rate = rate
-        ..startDateValidity = startDateValidity
-        ..endDateValidity = endDateValidity
-        ..isKey = isKey
-        ..mondayStart = mondayStart
-        ..mondayEnd = mondayEnd
-        ..location = location
-        ..photos = null
-        ..videos = null
-        ..tuesdayStart = tuesdayStart
-        ..tuesdayEnd = tuesdayEnd
-        ..wednesdayStart = wednesdayStart
-        ..wednesdayEnd = wednesdayEnd
-        ..thursdayStart = thursdayStart
-        ..thursdayEnd = thursdayEnd
-        ..fridayStart = fridayStart
-        ..fridayEnd = fridayEnd
-        ..saturdayStart = saturdayStart
-        ..saturdayEnd = saturdayEnd
-        ..sundayStart = sundayStart
-        ..sundayEnd = sundayEnd
-        ..country = country
-        ..isActive = isActive,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'userRef': userRef,
+      'city': city,
+      'address': address,
+      'zip': zip,
+      'dimensions': dimensions,
+      'description': description,
+      'rate': rate,
+      'startDateValidity': startDateValidity,
+      'endDateValidity': endDateValidity,
+      'isKey': isKey,
+      'monday_start': mondayStart,
+      'monday_end': mondayEnd,
+      'location': location,
+      'tuesday_start': tuesdayStart,
+      'tuesday_end': tuesdayEnd,
+      'wednesday_start': wednesdayStart,
+      'wednesday_end': wednesdayEnd,
+      'thursday_start': thursdayStart,
+      'thursday_end': thursdayEnd,
+      'friday_start': fridayStart,
+      'friday_end': fridayEnd,
+      'saturday_start': saturdayStart,
+      'saturday_end': saturdayEnd,
+      'sunday_start': sundayStart,
+      'sunday_end': sundayEnd,
+      'country': country,
+      'isActive': isActive,
+      'keybox_password': keyboxPassword,
+    }.withoutNulls,
   );
 
   return firestoreData;

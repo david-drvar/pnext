@@ -92,6 +92,7 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
             elevation: 0.0,
           ),
           body: SafeArea(
+            top: true,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -129,7 +130,7 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                             controller: _model.pricePerNightController ??=
                                 TextEditingController(
                               text:
-                                  editGaragePriceGaragesRecord.rate?.toString(),
+                                  editGaragePriceGaragesRecord.rate.toString(),
                             ),
                             obscureText: false,
                             decoration: InputDecoration(

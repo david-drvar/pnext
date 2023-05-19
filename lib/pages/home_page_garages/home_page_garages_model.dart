@@ -3,7 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/garage_details/garage_details_widget.dart';
-import '/pages/reservations/reservation_1/reservation1_widget.dart';
+import '/pages/reservations/reservation_1_copy/reservation1_copy_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -77,6 +77,7 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
           child: Column(

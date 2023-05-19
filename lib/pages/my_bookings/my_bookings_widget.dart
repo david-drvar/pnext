@@ -328,7 +328,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                                         0.0),
                                                             child: Text(
                                                               columnPropertiesRecord
-                                                                  .propertyAddress!,
+                                                                  .propertyAddress,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodySmall
@@ -345,7 +345,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                         Text(
                                                           formatNumber(
                                                             listViewTripsRecord
-                                                                .tripTotal!,
+                                                                .tripTotal,
                                                             formatType:
                                                                 FormatType
                                                                     .decimal,
@@ -641,7 +641,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                                         0.0),
                                                             child: Text(
                                                               columnPropertiesRecord
-                                                                  .propertyAddress!,
+                                                                  .propertyAddress,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodySmall
@@ -658,7 +658,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                         Text(
                                                           formatNumber(
                                                             listViewTripsRecord
-                                                                .tripTotal!,
+                                                                .tripTotal,
                                                             formatType:
                                                                 FormatType
                                                                     .decimal,

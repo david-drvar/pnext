@@ -77,6 +77,7 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Align(
             alignment: AlignmentDirectional(-0.15, -0.1),
             child: Stack(
@@ -92,7 +93,7 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.7),
                   child: Image.network(
-                    widget.documentGarage!.photos!.toList().first,
+                    widget.documentGarage!.photos.first,
                     width: 300.0,
                     height: 300.0,
                     fit: BoxFit.cover,

@@ -42,7 +42,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
       decimalType: DecimalType.automatic,
     ));
     _model.taxRateController ??=
-        TextEditingController(text: widget.propertyRef!.taxRate?.toString());
+        TextEditingController(text: widget.propertyRef!.taxRate.toString());
     _model.cleaningFeeController ??= TextEditingController(
         text: formatNumber(
       widget.propertyRef!.cleaningFee,
@@ -92,6 +92,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -247,7 +248,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                                       .headlineMedium,
                                 ),
                                 count: _model.countControllerValue ??=
-                                    widget.propertyRef!.minNights!,
+                                    widget.propertyRef!.minNights,
                                 updateCount: (count) => setState(
                                     () => _model.countControllerValue = count),
                                 stepSize: 1,
@@ -514,7 +515,7 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: SwitchListTile.adaptive(
                           value: _model.switchListTileValue ??=
-                              widget.propertyRef!.isLive!,
+                              widget.propertyRef!.isLive,
                           onChanged: (newValue) async {
                             setState(
                                 () => _model.switchListTileValue = newValue!);

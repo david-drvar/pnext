@@ -35,6 +35,8 @@ class _CreateGarageDisclaimerPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateGarageDisclaimerPageModel());
+
+    _model.keyboxPasswordController ??= TextEditingController();
   }
 
   @override
@@ -79,26 +81,66 @@ class _CreateGarageDisclaimerPageWidgetState
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Align(
           alignment: AlignmentDirectional(0.0, -0.15),
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, -0.8),
-                child: Text(
-                  'Disclaimer riguardo al fatto che bisogna avere una \ncasssetta per le chiavi in modo da renderle accessibili\nal clinte che accederà sbloccando il lucchetto con \npassword che dovrete successivamente caricare sul\nvostro profilo',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                alignment: AlignmentDirectional(0.0, -0.3),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
+                  child: TextFormField(
+                    controller: _model.keyboxPasswordController,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Keybox password',
+                      labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      hintText: 'Password',
+                      hintStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).lineGray,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Color(0x00000000),
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      contentPadding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 0.0, 24.0),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodySmall,
+                    keyboardType: TextInputType.number,
+                    validator: _model.keyboxPasswordControllerValidator
+                        .asValidator(context),
+                  ),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.55, -0.3),
-                child: Text(
-                  'Confermo di aver preso visione del disclaimer',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.75, -0.3),
+                alignment: AlignmentDirectional(0.75, -0.5),
                 child: Theme(
                   data: ThemeData(
                     checkboxTheme: CheckboxThemeData(
@@ -124,6 +166,7 @@ class _CreateGarageDisclaimerPageWidgetState
                     if (_model.checkboxValue!) {
                       final garagesUpdateData = createGaragesRecordData(
                         isKey: true,
+                        keyboxPassword: _model.keyboxPasswordController.text,
                       );
                       await widget.newGarageRef!.update(garagesUpdateData);
                       await Navigator.push(
@@ -154,6 +197,20 @@ class _CreateGarageDisclaimerPageWidgetState
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(-0.55, -0.5),
+                child: Text(
+                  'Confermo di aver preso visione del disclaimer',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(0.0, -0.8),
+                child: Text(
+                  'Disclaimer riguardo al fatto che bisogna avere una \ncasssetta per le chiavi in modo da renderle accessibili\nal clinte che accederà sbloccando il lucchetto con \npassword che dovrete successivamente caricare sul\nvostro profilo',
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
             ],

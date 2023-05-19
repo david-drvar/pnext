@@ -86,6 +86,7 @@ class _EditGarageVehicleTypeWidgetState
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
           child: Column(

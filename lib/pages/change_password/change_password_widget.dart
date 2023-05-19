@@ -92,6 +92,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             elevation: 0.0,
           ),
           body: SafeArea(
+            top: true,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [

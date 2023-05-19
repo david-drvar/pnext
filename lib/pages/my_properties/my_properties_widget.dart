@@ -240,7 +240,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                   children: [
                                                     Text(
                                                       listViewPropertiesRecord
-                                                          .propertyName!,
+                                                          .propertyName,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -281,7 +281,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                                     0.0),
                                                         child: Text(
                                                           listViewPropertiesRecord
-                                                              .propertyAddress!,
+                                                              .propertyAddress,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodySmall
@@ -298,7 +298,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                     Text(
                                                       formatNumber(
                                                         listViewPropertiesRecord
-                                                            .price!,
+                                                            .price,
                                                         formatType:
                                                             FormatType.decimal,
                                                         decimalType: DecimalType
@@ -504,7 +504,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                   children: [
                                                     Text(
                                                       listViewPropertiesRecord
-                                                          .propertyName!,
+                                                          .propertyName,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -545,7 +545,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                                     0.0),
                                                         child: Text(
                                                           listViewPropertiesRecord
-                                                              .propertyAddress!,
+                                                              .propertyAddress,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodySmall
@@ -562,7 +562,7 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                     Text(
                                                       formatNumber(
                                                         listViewPropertiesRecord
-                                                            .price!,
+                                                            .price,
                                                         formatType:
                                                             FormatType.decimal,
                                                         decimalType: DecimalType

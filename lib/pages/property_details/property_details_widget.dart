@@ -370,7 +370,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           children: [
                             Expanded(
                               child: Text(
-                                widget.propertyRef!.propertyName!,
+                                widget.propertyRef!.propertyName,
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
                               ).animateOnPageLoad(
@@ -387,7 +387,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           children: [
                             Expanded(
                               child: Text(
-                                widget.propertyRef!.propertyNeighborhood!,
+                                widget.propertyRef!.propertyNeighborhood,
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -498,7 +498,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 24.0),
                                 child: Text(
-                                  widget.propertyRef!.propertyDescription!,
+                                  widget.propertyRef!.propertyDescription,
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -575,9 +575,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  if (amenitiesRowAmenititiesRecord!
-                                          .evCharger ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.evCharger)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -599,8 +597,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.pool ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.pool)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -623,8 +620,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                       ),
                                     ),
                                   if (amenitiesRowAmenititiesRecord!
-                                          .extraOutlets ??
-                                      true)
+                                      .extraOutlets)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -646,7 +642,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.ac ?? true)
+                                  if (amenitiesRowAmenititiesRecord!.ac)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -669,8 +665,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                       ),
                                     ),
                                   if (amenitiesRowAmenititiesRecord!
-                                          .dogFriendly ??
-                                      true)
+                                      .dogFriendly)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -692,8 +687,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.washer ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.washer)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -716,8 +710,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.dryer ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.dryer)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -739,8 +732,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.workout ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.workout)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -762,9 +754,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!
-                                          .nightLife ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.nightLife)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -786,8 +776,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.hip ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.hip)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -809,8 +798,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                         ),
                                       ),
                                     ),
-                                  if (amenitiesRowAmenititiesRecord!.heater ??
-                                      true)
+                                  if (amenitiesRowAmenititiesRecord!.heater)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 8.0, 0.0),
@@ -1025,7 +1013,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                                             CrossAxisAlignment.start,
                                                                         children: [
                                                                           Text(
-                                                                            rowUsersRecord.displayName!,
+                                                                            rowUsersRecord.displayName,
                                                                             style:
                                                                                 FlutterFlowTheme.of(context).headlineSmall,
                                                                           ),
@@ -1042,7 +1030,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                                                 color: Color(0xFFFFA130),
                                                                               ),
                                                                               direction: Axis.horizontal,
-                                                                              rating: pageViewReviewsRecord.rating!,
+                                                                              rating: pageViewReviewsRecord.rating,
                                                                               unratedColor: Color(0xFF95A1AC),
                                                                               itemCount: 5,
                                                                               itemSize: 24.0,
@@ -1099,7 +1087,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                                         child:
                                                                             AutoSizeText(
                                                                           pageViewReviewsRecord
-                                                                              .ratingDescription!
+                                                                              .ratingDescription
                                                                               .maybeHandleOverflow(
                                                                             maxChars:
                                                                                 130,

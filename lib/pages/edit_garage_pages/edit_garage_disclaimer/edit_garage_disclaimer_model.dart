@@ -14,12 +14,17 @@ class EditGarageDisclaimerModel extends FlutterFlowModel {
 
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
+  // State field(s) for keybox_password widget.
+  TextEditingController? keyboxPasswordController;
+  String? Function(BuildContext, String?)? keyboxPasswordControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
-  void dispose() {}
+  void dispose() {
+    keyboxPasswordController?.dispose();
+  }
 
   /// Additional helper methods are added here.
 

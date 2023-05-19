@@ -108,6 +108,7 @@ class _MyAppState extends State<MyApp> {
           : currentUser!.loggedIn
               ? NavBarPage()
               : LoginWidget(),
+      navigatorObservers: [routeObserver],
     );
   }
 }
@@ -138,11 +139,12 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'homePage_Garages': HomePageGaragesWidget(),
-      'myTrips': MyTripsWidget(),
-      'chatMain': ChatMainWidget(),
+      'myReservations': MyReservationsWidget(),
+      'AllChatsPage': AllChatsPageWidget(),
       'profilePage': ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
       bottomNavigationBar: BottomNavigationBar(
@@ -175,7 +177,7 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.format_list_bulleted,
               size: 24.0,
             ),
-            label: 'My Trips',
+            label: 'Reservations',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -187,7 +189,7 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.chat_bubble_rounded,
               size: 24.0,
             ),
-            label: 'Chats',
+            label: '',
             tooltip: '',
           ),
           BottomNavigationBarItem(

@@ -85,6 +85,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Form(
           key: _model.formKey,
           autovalidateMode: AutovalidateMode.always,

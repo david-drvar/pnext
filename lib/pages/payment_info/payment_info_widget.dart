@@ -67,6 +67,7 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [

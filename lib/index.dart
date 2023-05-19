@@ -10,8 +10,6 @@ export '/pages/search_properties/search_properties_widget.dart'
     show SearchPropertiesWidget;
 export '/pages/my_trips/my_trips_widget.dart' show MyTripsWidget;
 export '/pages/trip_details/trip_details_widget.dart' show TripDetailsWidget;
-export '/pages/chat_main/chat_main_widget.dart' show ChatMainWidget;
-export '/pages/chat_details/chat_details_widget.dart' show ChatDetailsWidget;
 export '/pages/property_review/property_review_widget.dart'
     show PropertyReviewWidget;
 export '/pages/book_now/book_now_widget.dart' show BookNowWidget;
@@ -109,3 +107,14 @@ export '/pages/reservations/reservation_1_copy/reservation1_copy_widget.dart'
     show Reservation1CopyWidget;
 export '/pages/redundant_pages/reservation_4_copy/reservation4_copy_widget.dart'
     show Reservation4CopyWidget;
+export '/pages/reservations/garage_details_for_reservation/garage_details_for_reservation_widget.dart'
+    show GarageDetailsForReservationWidget;
+export '/pages/reservations/my_reservations/my_reservations_widget.dart'
+    show MyReservationsWidget;
+export '/pages/reservations/reservation_details/reservation_details_widget.dart'
+    show ReservationDetailsWidget;
+export '/pages/reservations/reservation_details_map/reservation_details_map_widget.dart'
+    show ReservationDetailsMapWidget;
+export '/pages/chats/chat_page/chat_page_widget.dart' show ChatPageWidget;
+export '/pages/chats/all_chats_page/all_chats_page_widget.dart'
+    show AllChatsPageWidget;

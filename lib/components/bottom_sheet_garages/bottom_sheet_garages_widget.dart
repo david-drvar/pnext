@@ -3,7 +3,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/garage_details/garage_details_widget.dart';
+import '/pages/reservations/garage_details_for_reservation/garage_details_for_reservation_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -141,7 +142,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  containerUsersRecord.name!,
+                                  containerUsersRecord.name,
                                   style: FlutterFlowTheme.of(context)
                                       .labelLarge
                                       .override(
@@ -151,7 +152,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                 ),
                               ),
                               Text(
-                                widget.garage!.city!,
+                                widget.garage!.city,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -160,7 +161,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                     ),
                               ),
                               Text(
-                                widget.garage!.address!,
+                                widget.garage!.address,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -183,7 +184,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                widget.garage!.rate!.toString(),
+                                widget.garage!.rate.toString(),
                                 style: FlutterFlowTheme.of(context)
                                     .labelLarge
                                     .override(
@@ -198,47 +199,83 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     50.0, 0.0, 0.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    final reservationUpdateData =
-                                        createReservationRecordData(
-                                      garageReference: widget.garage!.reference,
-                                      totalPrice: widget.garage!.rate! * 2,
-                                    );
-                                    await widget.reservationRef!
-                                        .update(reservationUpdateData);
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            GarageDetailsWidget(
-                                          garageRef: widget.garage!.reference,
-                                          reservationRef: widget.reservationRef,
+                                child: StreamBuilder<ReservationRecord>(
+                                  stream: ReservationRecord.getDocument(
+                                      widget.reservationRef!),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
                                         ),
+                                      );
+                                    }
+                                    final buttonReservationRecord =
+                                        snapshot.data!;
+                                    return FFButtonWidget(
+                                      onPressed: () async {
+                                        _model.totalPrice =
+                                            await actions.totalPriceCalculation(
+                                          widget.garage!.rate,
+                                          buttonReservationRecord.totalTime,
+                                        );
+
+                                        final reservationUpdateData =
+                                            createReservationRecordData(
+                                          garageReference:
+                                              widget.garage!.reference,
+                                          totalPrice: widget.garage!.rate *
+                                              buttonReservationRecord.totalTime,
+                                        );
+                                        await widget.reservationRef!
+                                            .update(reservationUpdateData);
+                                        await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                GarageDetailsForReservationWidget(
+                                              garageRef:
+                                                  widget.garage!.reference,
+                                              reservationRef:
+                                                  widget.reservationRef,
+                                            ),
+                                          ),
+                                        );
+
+                                        setState(() {});
+                                      },
+                                      text: 'See Garage',
+                                      options: FFButtonOptions(
+                                        width: 130.0,
+                                        height: 30.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Urbanist',
+                                              color: Colors.white,
+                                            ),
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     );
                                   },
-                                  text: 'See Garage',
-                                  options: FFButtonOptions(
-                                    width: 130.0,
-                                    height: 30.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Urbanist',
-                                          color: Colors.white,
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
                                 ),
                               ),
                             ],

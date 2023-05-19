@@ -132,6 +132,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
             elevation: 0.0,
           ),
           body: SafeArea(
+            top: true,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -338,7 +339,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                                     children: [
                                                       Text(
                                                         columnUsersRecord
-                                                            .displayName!,
+                                                            .displayName,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -365,7 +366,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                                               Axis.horizontal,
                                                           rating:
                                                               listViewReviewsRecord
-                                                                  .rating!,
+                                                                  .rating,
                                                           unratedColor:
                                                               Color(0xFF95A1AC),
                                                           itemCount: 5,
@@ -422,7 +423,7 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                                 Expanded(
                                                   child: Text(
                                                     listViewReviewsRecord
-                                                        .ratingDescription!,
+                                                        .ratingDescription,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium,

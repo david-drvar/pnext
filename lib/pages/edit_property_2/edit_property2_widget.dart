@@ -77,6 +77,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
         elevation: 0.0,
       ),
       body: SafeArea(
+        top: true,
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
           child: StreamBuilder<AmenititiesRecord>(
@@ -150,7 +151,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityPoolValue1 ??=
-                                        widget.propertyAmenities!.pool!,
+                                        widget.propertyAmenities!.pool,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.amenityPoolValue1 = newValue!);
@@ -198,7 +199,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityEVChargingValue ??=
-                                        widget.propertyAmenities!.evCharger!,
+                                        widget.propertyAmenities!.evCharger,
                                     onChanged: (newValue) async {
                                       setState(() => _model
                                           .amenityEVChargingValue = newValue!);
@@ -246,7 +247,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityExtraOutletsValue ??=
-                                        widget.propertyAmenities!.extraOutlets!,
+                                        widget.propertyAmenities!.extraOutlets,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.amenityExtraOutletsValue =
@@ -295,7 +296,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityACValue ??=
-                                        widget.propertyAmenities!.ac!,
+                                        widget.propertyAmenities!.ac,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.amenityACValue = newValue!);
@@ -343,7 +344,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityHeatingValue ??=
-                                        widget.propertyAmenities!.heater!,
+                                        widget.propertyAmenities!.heater,
                                     onChanged: (newValue) async {
                                       setState(() => _model
                                           .amenityHeatingValue = newValue!);
@@ -391,7 +392,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityWasherValue ??=
-                                        widget.propertyAmenities!.washer!,
+                                        widget.propertyAmenities!.washer,
                                     onChanged: (newValue) async {
                                       setState(() => _model.amenityWasherValue =
                                           newValue!);
@@ -439,7 +440,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityDryerValue ??=
-                                        widget.propertyAmenities!.dryer!,
+                                        widget.propertyAmenities!.dryer,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.amenityDryerValue = newValue!);
@@ -487,7 +488,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityPetsValue ??=
-                                        widget.propertyAmenities!.dogFriendly!,
+                                        widget.propertyAmenities!.dogFriendly,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.amenityPetsValue = newValue!);
@@ -535,7 +536,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityWorkoutValue ??=
-                                        widget.propertyAmenities!.workout!,
+                                        widget.propertyAmenities!.workout,
                                     onChanged: (newValue) async {
                                       setState(() => _model
                                           .amenityWorkoutValue = newValue!);
@@ -583,7 +584,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 Expanded(
                                   child: SwitchListTile.adaptive(
                                     value: _model.amenityPoolValue2 ??=
-                                        widget.propertyAmenities!.hip!,
+                                        widget.propertyAmenities!.hip,
                                     onChanged: (newValue) async {
                                       setState(() =>
                                           _model.amenityPoolValue2 = newValue!);
@@ -634,7 +635,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                   Expanded(
                                     child: SwitchListTile.adaptive(
                                       value: _model.amenityPoolValue3 ??=
-                                          widget.propertyAmenities!.nightLife!,
+                                          widget.propertyAmenities!.nightLife,
                                       onChanged: (newValue) async {
                                         setState(() => _model
                                             .amenityPoolValue3 = newValue!);

@@ -83,6 +83,7 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               Align(
