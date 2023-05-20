@@ -39,9 +39,7 @@ class _AllChatsPageWidgetState extends State<AllChatsPageWidget> {
     context.watch<FFAppState>();
 
     return StreamBuilder<List<ReservationRecord>>(
-      stream: queryReservationRecord(
-        singleRecord: true,
-      ),
+      stream: queryReservationRecord(),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -57,14 +55,6 @@ class _AllChatsPageWidgetState extends State<AllChatsPageWidget> {
         }
         List<ReservationRecord> allChatsPageReservationRecordList =
             snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final allChatsPageReservationRecord =
-            allChatsPageReservationRecordList.isNotEmpty
-                ? allChatsPageReservationRecordList.first
-                : null;
         return Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
@@ -88,10 +78,7 @@ class _AllChatsPageWidgetState extends State<AllChatsPageWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
               child: StreamBuilder<List<ChatsRecord>>(
-                stream: queryChatsRecord(
-                  queryBuilder: (chatsRecord) =>
-                      chatsRecord.orderBy('last_message', descending: true),
-                ),
+                stream: queryChatsRecord(),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {

@@ -138,3 +138,11 @@ bool isDateAfter(
   }
   return date2.isAfter(date1);
 }
+
+List<DocumentReference> returnUsersListForChatCreation(
+  DocumentReference user1,
+  DocumentReference user2,
+) {
+  List<DocumentReference> usersList = [user1, user2];
+  return usersList;
+}

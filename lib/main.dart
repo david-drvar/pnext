@@ -189,7 +189,7 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.chat_bubble_rounded,
               size: 24.0,
             ),
-            label: '',
+            label: 'Chats',
             tooltip: '',
           ),
           BottomNavigationBarItem(

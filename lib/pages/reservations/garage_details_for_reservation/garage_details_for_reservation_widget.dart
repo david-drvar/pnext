@@ -1470,11 +1470,19 @@ class _GarageDetailsForReservationWidgetState
 
                             if (functions.isTextNull(_model.paymentId) ==
                                 false) {
-                              final chatsCreateData = createChatsRecordData(
-                                userA: garageDetailsForReservationGaragesRecord
-                                    .userRef,
-                                userB: currentUserReference,
-                              );
+                              final chatsCreateData = {
+                                ...createChatsRecordData(
+                                  userA:
+                                      garageDetailsForReservationGaragesRecord
+                                          .userRef,
+                                  userB: currentUserReference,
+                                ),
+                                'users':
+                                    functions.returnUsersListForChatCreation(
+                                        garageDetailsForReservationGaragesRecord
+                                            .userRef!,
+                                        currentUserReference!),
+                              };
                               var chatsRecordReference =
                                   ChatsRecord.collection.doc();
                               await chatsRecordReference.set(chatsCreateData);
