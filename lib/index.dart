@@ -109,7 +109,7 @@ export '/pages/redundant_pages/reservation_4_copy/reservation4_copy_widget.dart'
     show Reservation4CopyWidget;
 export '/pages/reservations/garage_details_for_reservation/garage_details_for_reservation_widget.dart'
     show GarageDetailsForReservationWidget;
-export '/pages/reservations/my_reservations/my_reservations_widget.dart'
+export '/pages/redundant_pages/my_reservations/my_reservations_widget.dart'
     show MyReservationsWidget;
 export '/pages/reservations/reservation_details/reservation_details_widget.dart'
     show ReservationDetailsWidget;
@@ -118,3 +118,5 @@ export '/pages/reservations/reservation_details_map/reservation_details_map_widg
 export '/pages/chats/chat_page/chat_page_widget.dart' show ChatPageWidget;
 export '/pages/chats/all_chats_page/all_chats_page_widget.dart'
     show AllChatsPageWidget;
+export '/pages/reservations/my_reservations_tabbar/my_reservations_tabbar_widget.dart'
+    show MyReservationsTabbarWidget;

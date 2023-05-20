@@ -102,7 +102,8 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                     stream: queryGaragesRecord(
                       queryBuilder: (garagesRecord) => garagesRecord
                           .where('userRef', isEqualTo: currentUserReference)
-                          .where('isActive', isEqualTo: true),
+                          .where('isActive', isEqualTo: true)
+                          .where('isCreationFinished', isEqualTo: true),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.

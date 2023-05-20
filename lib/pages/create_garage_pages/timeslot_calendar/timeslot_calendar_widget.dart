@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -224,20 +225,26 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                         EdgeInsetsDirectional.fromSTEB(120.0, 10.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        final garagesUpdateData = createGaragesRecordData(
-                          startDateValidity: _model.calendarSelectedDay1?.start,
-                          endDateValidity: _model.calendarSelectedDay2?.start,
-                        );
-                        await widget.newGarageRef!.update(garagesUpdateData);
-                        await Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ConfirmPageWidget(
-                              newGarageRef: widget.newGarageRef,
+                        if (functions.isDateAfter(
+                                _model.calendarSelectedDay1?.start,
+                                _model.calendarSelectedDay2?.start) ==
+                            true) {
+                          final garagesUpdateData = createGaragesRecordData(
+                            startDateValidity:
+                                _model.calendarSelectedDay1?.start,
+                            endDateValidity: _model.calendarSelectedDay2?.start,
+                          );
+                          await widget.newGarageRef!.update(garagesUpdateData);
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ConfirmPageWidget(
+                                newGarageRef: widget.newGarageRef,
+                              ),
                             ),
-                          ),
-                          (r) => false,
-                        );
+                            (r) => false,
+                          );
+                        }
                       },
                       text: 'Conferma',
                       options: FFButtonOptions(

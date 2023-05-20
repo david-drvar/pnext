@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -270,8 +271,10 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
               child: StreamBuilder<List<GaragesRecord>>(
                 stream: queryGaragesRecord(
-                  queryBuilder: (garagesRecord) =>
-                      garagesRecord.where('isActive', isEqualTo: true),
+                  queryBuilder: (garagesRecord) => garagesRecord
+                      .where('isActive', isEqualTo: true)
+                      .where('userRef', isNotEqualTo: currentUserReference)
+                      .where('isCreationFinished', isEqualTo: true),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
@@ -386,10 +389,9 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        listViewGaragesRecord.address
-                                            .maybeHandleOverflow(
-                                          maxChars: 90,
-                                          replacement: '…',
+                                        valueOrDefault<String>(
+                                          listViewGaragesRecord.address,
+                                          'address',
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,

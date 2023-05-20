@@ -64,6 +64,16 @@ class ReservationRecord extends FirestoreRecord {
   DocumentReference? get chatReference => _chatReference;
   bool hasChatReference() => _chatReference != null;
 
+  // "garageOwner" field.
+  DocumentReference? _garageOwner;
+  DocumentReference? get garageOwner => _garageOwner;
+  bool hasGarageOwner() => _garageOwner != null;
+
+  // "isCreationFinished" field.
+  bool? _isCreationFinished;
+  bool get isCreationFinished => _isCreationFinished ?? false;
+  bool hasIsCreationFinished() => _isCreationFinished != null;
+
   void _initializeFields() {
     _carCode = snapshotData['car_code'] as String?;
     _dateStart = snapshotData['date_start'] as DateTime?;
@@ -75,6 +85,8 @@ class ReservationRecord extends FirestoreRecord {
     _dateReservation = snapshotData['date_reservation'] as DateTime?;
     _totalTime = castToType<double>(snapshotData['total_time']);
     _chatReference = snapshotData['chat_reference'] as DocumentReference?;
+    _garageOwner = snapshotData['garageOwner'] as DocumentReference?;
+    _isCreationFinished = snapshotData['isCreationFinished'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -114,6 +126,8 @@ Map<String, dynamic> createReservationRecordData({
   DateTime? dateReservation,
   double? totalTime,
   DocumentReference? chatReference,
+  DocumentReference? garageOwner,
+  bool? isCreationFinished,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +141,8 @@ Map<String, dynamic> createReservationRecordData({
       'date_reservation': dateReservation,
       'total_time': totalTime,
       'chat_reference': chatReference,
+      'garageOwner': garageOwner,
+      'isCreationFinished': isCreationFinished,
     }.withoutNulls,
   );
 

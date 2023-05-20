@@ -144,7 +144,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       await widget.reservationref!
                           .update(reservationUpdateData);
                       setState(() {
-                        _model.textController2?.text = 'size: truck';
+                        _model.textController2?.text = 'size: bike';
                       });
                     },
                   ),
@@ -169,7 +169,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       await widget.reservationref!
                           .update(reservationUpdateData);
                       setState(() {
-                        _model.textController2?.text = 'size: big_truck';
+                        _model.textController2?.text = 'size: caravan';
                       });
                     },
                   ),
@@ -194,7 +194,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       await widget.reservationref!
                           .update(reservationUpdateData);
                       setState(() {
-                        _model.textController2?.text = 'size: motorcycle';
+                        _model.textController2?.text = 'size: truck';
                       });
                     },
                   ),
@@ -219,7 +219,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       await widget.reservationref!
                           .update(reservationUpdateData);
                       setState(() {
-                        _model.textController2?.text = 'size: caravan';
+                        _model.textController2?.text = 'size: big truck';
                       });
                     },
                   ),

@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/general_information_sheet/general_information_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -111,6 +112,10 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                     alignment: AlignmentDirectional(0.0, 0.15),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        final garagesUpdateData = createGaragesRecordData(
+                          isCreationFinished: true,
+                        );
+                        await widget.newGarageRef!.update(garagesUpdateData);
                         await showModalBottomSheet(
                           isScrollControlled: true,
                           backgroundColor: Colors.transparent,

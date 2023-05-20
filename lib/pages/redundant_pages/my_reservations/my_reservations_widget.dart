@@ -69,6 +69,7 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
                     stream: queryReservationRecord(
                       queryBuilder: (reservationRecord) => reservationRecord
                           .where('user', isEqualTo: currentUserReference)
+                          .where('isCreationFinished', isEqualTo: true)
                           .orderBy('date_reservation', descending: true),
                     ),
                     builder: (context, snapshot) {
@@ -189,9 +190,10 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
                                               Expanded(
                                                 child: Text(
                                                   valueOrDefault<String>(
-                                                    listViewReservationRecord
-                                                        .dateReservation
-                                                        ?.toString(),
+                                                    dateTimeFormat(
+                                                        'd/M/y',
+                                                        listViewReservationRecord
+                                                            .dateReservation),
                                                     'Description',
                                                   ).maybeHandleOverflow(
                                                     maxChars: 36,

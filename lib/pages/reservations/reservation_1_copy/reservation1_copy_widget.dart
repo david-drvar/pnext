@@ -417,7 +417,7 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                   alignment: AlignmentDirectional(-0.06, -0.63),
                   child: Text(
                     valueOrDefault<String>(
-                      _model.datePicked?.toString(),
+                      dateTimeFormat('d/M/y', _model.datePicked),
                       'data scelta',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,

@@ -151,7 +151,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                           }
                           final textUsersRecord = snapshot.data!;
                           return Text(
-                            textUsersRecord.displayName,
+                            textUsersRecord.surname,
                             style: FlutterFlowTheme.of(context).labelLarge,
                           );
                         },

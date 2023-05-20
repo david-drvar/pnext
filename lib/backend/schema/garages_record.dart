@@ -164,6 +164,11 @@ class GaragesRecord extends FirestoreRecord {
   String get keyboxPassword => _keyboxPassword ?? '';
   bool hasKeyboxPassword() => _keyboxPassword != null;
 
+  // "isCreationFinished" field.
+  bool? _isCreationFinished;
+  bool get isCreationFinished => _isCreationFinished ?? false;
+  bool hasIsCreationFinished() => _isCreationFinished != null;
+
   void _initializeFields() {
     _userRef = snapshotData['userRef'] as DocumentReference?;
     _city = snapshotData['city'] as String?;
@@ -195,6 +200,7 @@ class GaragesRecord extends FirestoreRecord {
     _country = snapshotData['country'] as String?;
     _isActive = snapshotData['isActive'] as bool?;
     _keyboxPassword = snapshotData['keybox_password'] as String?;
+    _isCreationFinished = snapshotData['isCreationFinished'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -252,6 +258,7 @@ Map<String, dynamic> createGaragesRecordData({
   String? country,
   bool? isActive,
   String? keyboxPassword,
+  bool? isCreationFinished,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -283,6 +290,7 @@ Map<String, dynamic> createGaragesRecordData({
       'country': country,
       'isActive': isActive,
       'keybox_password': keyboxPassword,
+      'isCreationFinished': isCreationFinished,
     }.withoutNulls,
   );
 

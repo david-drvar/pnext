@@ -88,6 +88,10 @@ int calculateIncomeEstimation(GaragesRecord garagesRecord) {
   return net_income.round();
 }
 
+bool isTextNull(String? myVar) {
+  return myVar == null || myVar == "";
+}
+
 bool isDocReferenceNull(DocumentReference? myVar) {
   return myVar == null;
 }
@@ -123,4 +127,14 @@ String ratingSummaryList(List<ReviewsRecord> rating) {
 
 bool isEmpty(String? myVar) {
   return myVar == null || myVar.isEmpty;
+}
+
+bool isDateAfter(
+  DateTime? date1,
+  DateTime? date2,
+) {
+  if (date1 == null || date2 == null) {
+    return false;
+  }
+  return date2.isAfter(date1);
 }

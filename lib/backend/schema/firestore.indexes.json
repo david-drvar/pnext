@@ -109,11 +109,51 @@
       ]
     },
     {
+      "collectionGroup": "garages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "isActive",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isCreationFinished",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "userRef",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "reservation",
       "queryScope": "COLLECTION",
       "fields": [
         {
           "fieldPath": "user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isCreationFinished",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date_reservation",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "reservation",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "garageOwner",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isCreationFinished",
           "order": "ASCENDING"
         },
         {

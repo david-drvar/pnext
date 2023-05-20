@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -163,7 +164,10 @@ class _CreateGarageDisclaimerPageWidgetState
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    if (_model.checkboxValue!) {
+                    if (_model.checkboxValue! &&
+                        (functions.isTextNull(
+                                _model.keyboxPasswordController.text) ==
+                            false)) {
                       final garagesUpdateData = createGaragesRecordData(
                         isKey: true,
                         keyboxPassword: _model.keyboxPasswordController.text,

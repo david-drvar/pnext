@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -372,24 +373,29 @@ class _CreateGarage2FotoVideoWidgetState
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              final garagesUpdateData = {
-                                ...createGaragesRecordData(
-                                  description:
-                                      _model.descriptionController.text,
-                                ),
-                                'photos': _model.photoList,
-                                'videos': _model.videoList,
-                              };
-                              await widget.newGarageRef!
-                                  .update(garagesUpdateData);
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CreateGarage3Widget(
-                                    newGarageRef: widget.newGarageRef,
+                              if ((_model.photoList.length != 0) &&
+                                  (functions.isTextNull(
+                                          _model.descriptionController.text) ==
+                                      false)) {
+                                final garagesUpdateData = {
+                                  ...createGaragesRecordData(
+                                    description:
+                                        _model.descriptionController.text,
                                   ),
-                                ),
-                              );
+                                  'photos': _model.photoList,
+                                  'videos': _model.videoList,
+                                };
+                                await widget.newGarageRef!
+                                    .update(garagesUpdateData);
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CreateGarage3Widget(
+                                      newGarageRef: widget.newGarageRef,
+                                    ),
+                                  ),
+                                );
+                              }
                             },
                             text: 'NEXT',
                             options: FFButtonOptions(

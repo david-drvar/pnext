@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/place.dart';
 import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
 import 'dart:io';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -365,30 +366,37 @@ class _CreateGarage1PlacePickerWidgetState
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          final garagesCreateData = createGaragesRecordData(
-                            userRef: currentUserReference,
-                            city: _model.placePickerValue.city,
-                            address: _model.placePickerValue.address,
-                            zip: _model.placePickerValue.zipCode,
-                            dimensions: _model.vehicleType,
-                            location: _model.placePickerValue.latLng,
-                            country: _model.placePickerValue.country,
-                            isActive: true,
-                          );
-                          var garagesRecordReference =
-                              GaragesRecord.collection.doc();
-                          await garagesRecordReference.set(garagesCreateData);
-                          _model.newGarage = GaragesRecord.getDocumentFromData(
-                              garagesCreateData, garagesRecordReference);
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  CreateGarage2FotoVideoWidget(
-                                newGarageRef: _model.newGarage!.reference,
+                          if ((functions.isTextNull(_model.vehicleType) ==
+                                  false) &&
+                              (functions.isTextNull(
+                                      _model.placePickerValue.address) ==
+                                  false)) {
+                            final garagesCreateData = createGaragesRecordData(
+                              userRef: currentUserReference,
+                              city: _model.placePickerValue.city,
+                              address: _model.placePickerValue.address,
+                              zip: _model.placePickerValue.zipCode,
+                              dimensions: _model.vehicleType,
+                              location: _model.placePickerValue.latLng,
+                              country: _model.placePickerValue.country,
+                              isActive: true,
+                            );
+                            var garagesRecordReference =
+                                GaragesRecord.collection.doc();
+                            await garagesRecordReference.set(garagesCreateData);
+                            _model.newGarage =
+                                GaragesRecord.getDocumentFromData(
+                                    garagesCreateData, garagesRecordReference);
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    CreateGarage2FotoVideoWidget(
+                                  newGarageRef: _model.newGarage!.reference,
+                                ),
                               ),
-                            ),
-                          );
+                            );
+                          }
 
                           setState(() {});
                         },

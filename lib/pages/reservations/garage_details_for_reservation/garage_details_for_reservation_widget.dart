@@ -1468,33 +1468,40 @@ class _GarageDetailsForReservationWidgetState
                             }
                             _model.paymentId = paymentResponse.paymentId!;
 
-                            final chatsCreateData = createChatsRecordData(
-                              userA: garageDetailsForReservationGaragesRecord
-                                  .userRef,
-                              userB: currentUserReference,
-                            );
-                            var chatsRecordReference =
-                                ChatsRecord.collection.doc();
-                            await chatsRecordReference.set(chatsCreateData);
-                            _model.chat = ChatsRecord.getDocumentFromData(
-                                chatsCreateData, chatsRecordReference);
+                            if (functions.isTextNull(_model.paymentId) ==
+                                false) {
+                              final chatsCreateData = createChatsRecordData(
+                                userA: garageDetailsForReservationGaragesRecord
+                                    .userRef,
+                                userB: currentUserReference,
+                              );
+                              var chatsRecordReference =
+                                  ChatsRecord.collection.doc();
+                              await chatsRecordReference.set(chatsCreateData);
+                              _model.chat = ChatsRecord.getDocumentFromData(
+                                  chatsCreateData, chatsRecordReference);
 
-                            final reservationUpdateData =
-                                createReservationRecordData(
-                              chatReference: _model.chat!.reference,
-                            );
-                            await widget.reservationRef!
-                                .update(reservationUpdateData);
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Reservation4Widget(
-                                  reservationref: widget.reservationRef,
-                                  documentGarage:
-                                      garageDetailsForReservationGaragesRecord,
+                              final reservationUpdateData =
+                                  createReservationRecordData(
+                                chatReference: _model.chat!.reference,
+                                garageOwner:
+                                    garageDetailsForReservationGaragesRecord
+                                        .userRef,
+                                isCreationFinished: true,
+                              );
+                              await widget.reservationRef!
+                                  .update(reservationUpdateData);
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Reservation4Widget(
+                                    reservationref: widget.reservationRef,
+                                    documentGarage:
+                                        garageDetailsForReservationGaragesRecord,
+                                  ),
                                 ),
-                              ),
-                            );
+                              );
+                            }
 
                             setState(() {});
                           },

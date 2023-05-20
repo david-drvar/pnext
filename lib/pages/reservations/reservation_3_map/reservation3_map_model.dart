@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/bottom_sheet_garages/bottom_sheet_garages_widget.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
