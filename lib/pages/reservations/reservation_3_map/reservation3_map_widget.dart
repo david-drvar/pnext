@@ -146,7 +146,7 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                                 _model.googleMapsCenter = latLng,
                             initialLocation: _model.googleMapsCenter ??=
                                 currentUserLocationValue!,
-                            markers: reservation3MapGaragesRecordList
+                            markers: _model.localGaragesState
                                 .map(
                                   (reservation3MapGaragesRecord) =>
                                       FlutterFlowMarker(
