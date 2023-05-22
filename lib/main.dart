@@ -140,7 +140,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'homePage_Garages': HomePageGaragesWidget(),
       'myReservationsTabbar': MyReservationsTabbarWidget(),
-      'AllChatsPage': AllChatsPageWidget(),
+      'AllChatsPageTabbar': AllChatsPageTabbarWidget(),
       'profilePage': ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);

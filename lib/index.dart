@@ -116,7 +116,9 @@ export '/pages/reservations/reservation_details/reservation_details_widget.dart'
 export '/pages/reservations/reservation_details_map/reservation_details_map_widget.dart'
     show ReservationDetailsMapWidget;
 export '/pages/chats/chat_page/chat_page_widget.dart' show ChatPageWidget;
-export '/pages/chats/all_chats_page/all_chats_page_widget.dart'
+export '/pages/redundant_pages/all_chats_page/all_chats_page_widget.dart'
     show AllChatsPageWidget;
 export '/pages/reservations/my_reservations_tabbar/my_reservations_tabbar_widget.dart'
     show MyReservationsTabbarWidget;
+export '/pages/chats/all_chats_page_tabbar/all_chats_page_tabbar_widget.dart'
+    show AllChatsPageTabbarWidget;
