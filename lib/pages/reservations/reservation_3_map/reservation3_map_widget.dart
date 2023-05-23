@@ -206,7 +206,7 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                             onSelect: (place) async {
                               setState(() => _model.placePickerValue = place);
                             },
-                            defaultText: 'Select Location',
+                            defaultText: 'Seleziona Location',
                             icon: Icon(
                               Icons.place,
                               color: Colors.white,
@@ -242,7 +242,7 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                                 ),
                               );
                             },
-                            text: 'Locate on map',
+                            text: 'Individuare sulla mappa',
                             options: FFButtonOptions(
                               width: 160.0,
                               height: 40.0,

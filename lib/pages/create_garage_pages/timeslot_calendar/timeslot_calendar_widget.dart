@@ -121,45 +121,57 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                 inactiveDateStyle: TextStyle(),
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(90.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      'Start Date',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Urbanist',
-                            fontSize: 18.0,
-                          ),
+            Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(-0.15, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(90.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Data d\'inizio',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Urbanist',
+                                    fontSize: 18.0,
+                                  ),
+                        ),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      '-',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Urbanist',
-                            fontSize: 18.0,
-                          ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        '-',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Urbanist',
+                              fontSize: 18.0,
+                            ),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      'End Date',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Urbanist',
-                            fontSize: 18.0,
-                          ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Data di fine',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Urbanist',
+                                    fontSize: 18.0,
+                                  ),
+                        ),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Row(

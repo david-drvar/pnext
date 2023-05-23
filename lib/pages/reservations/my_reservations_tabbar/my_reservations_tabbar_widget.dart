@@ -48,7 +48,7 @@ class _MyReservationsTabbarWidgetState
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'My Reservations',
+          'Le mie Prenotazioni',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
@@ -80,10 +80,10 @@ class _MyReservationsTabbarWidgetState
                       indicatorWeight: 4.0,
                       tabs: [
                         Tab(
-                          text: 'As renter',
+                          text: 'Come noleggiatore',
                         ),
                         Tab(
-                          text: 'As Owner',
+                          text: 'Come proprietario',
                         ),
                       ],
                     ),

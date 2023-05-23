@@ -78,7 +78,7 @@ class _EditGarageVehicleTypeWidgetState
           },
         ),
         title: Text(
-          'Edit Garage',
+          'Modifica Garage',
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -107,7 +107,7 @@ class _EditGarageVehicleTypeWidgetState
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         child: Text(
-                          'Select the maximum size of vehicle that your parking space can accommodate',
+                          'Seleziona la taglia del veicolo che il tuo posto auto può ospitare',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
@@ -269,7 +269,7 @@ class _EditGarageVehicleTypeWidgetState
                               .update(garagesUpdateData);
                           Navigator.pop(context);
                         },
-                        text: 'UPDATE',
+                        text: 'AGGIORNA',
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 50.0,

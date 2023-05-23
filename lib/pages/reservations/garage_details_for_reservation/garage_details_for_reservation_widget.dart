@@ -363,7 +363,7 @@ class _GarageDetailsForReservationWidgetState
                                                       ),
                                                     );
                                                   },
-                                                  text: 'Edit',
+                                                  text: 'Modifica',
                                                   options: FFButtonOptions(
                                                     width: 60.0,
                                                     height: 40.0,
@@ -410,7 +410,7 @@ class _GarageDetailsForReservationWidgetState
                                                           garagesUpdateData);
                                                   Navigator.pop(context);
                                                 },
-                                                text: 'Delete',
+                                                text: 'Elimina',
                                                 options: FFButtonOptions(
                                                   width: 60.0,
                                                   height: 40.0,
@@ -529,7 +529,7 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Description',
+                              'Descrizione',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -579,7 +579,7 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Suitable for',
+                              'Adatto per',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -1428,7 +1428,7 @@ class _GarageDetailsForReservationWidgetState
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              'per hour',
+                              'all\'ora',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -1443,97 +1443,116 @@ class _GarageDetailsForReservationWidgetState
                       ),
                       if (functions.isDocReferenceNull(widget.reservationRef) ==
                           false)
-                        FFButtonWidget(
-                          onPressed: () async {
-                            final paymentResponse = await processStripePayment(
-                              context,
-                              amount: functions
-                                  .rateConversionStripe(
-                                      garageDetailsForReservationGaragesRecord
-                                          .rate)
-                                  .round(),
-                              currency: 'EUR',
-                              customerEmail: currentUserEmail,
-                              allowGooglePay: false,
-                              allowApplePay: false,
-                            );
-                            if (paymentResponse.paymentId == null) {
-                              if (paymentResponse.errorMessage != null) {
-                                showSnackbar(
-                                  context,
-                                  'Error: ${paymentResponse.errorMessage}',
-                                );
-                              }
-                              return;
-                            }
-                            _model.paymentId = paymentResponse.paymentId!;
-
-                            if (functions.isTextNull(_model.paymentId) ==
-                                false) {
-                              final chatsCreateData = {
-                                ...createChatsRecordData(
-                                  userA:
-                                      garageDetailsForReservationGaragesRecord
-                                          .userRef,
-                                  userB: currentUserReference,
-                                ),
-                                'users':
-                                    functions.returnUsersListForChatCreation(
-                                        garageDetailsForReservationGaragesRecord
-                                            .userRef!,
-                                        currentUserReference!),
-                              };
-                              var chatsRecordReference =
-                                  ChatsRecord.collection.doc();
-                              await chatsRecordReference.set(chatsCreateData);
-                              _model.chat = ChatsRecord.getDocumentFromData(
-                                  chatsCreateData, chatsRecordReference);
-
-                              final reservationUpdateData =
-                                  createReservationRecordData(
-                                chatReference: _model.chat!.reference,
-                                garageOwner:
-                                    garageDetailsForReservationGaragesRecord
-                                        .userRef,
-                                isCreationFinished: true,
-                              );
-                              await widget.reservationRef!
-                                  .update(reservationUpdateData);
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Reservation4Widget(
-                                    reservationref: widget.reservationRef,
-                                    documentGarage:
-                                        garageDetailsForReservationGaragesRecord,
+                        StreamBuilder<ReservationRecord>(
+                          stream: ReservationRecord.getDocument(
+                              widget.reservationRef!),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    color: FlutterFlowTheme.of(context).primary,
                                   ),
                                 ),
                               );
                             }
+                            final buttonReservationRecord = snapshot.data!;
+                            return FFButtonWidget(
+                              onPressed: () async {
+                                final paymentResponse =
+                                    await processStripePayment(
+                                  context,
+                                  amount:
+                                      (buttonReservationRecord.totalPrice * 100)
+                                          .round(),
+                                  currency: 'EUR',
+                                  customerEmail: currentUserEmail,
+                                  allowGooglePay: false,
+                                  allowApplePay: false,
+                                );
+                                if (paymentResponse.paymentId == null) {
+                                  if (paymentResponse.errorMessage != null) {
+                                    showSnackbar(
+                                      context,
+                                      'Error: ${paymentResponse.errorMessage}',
+                                    );
+                                  }
+                                  return;
+                                }
+                                _model.paymentId = paymentResponse.paymentId!;
 
-                            setState(() {});
-                          },
-                          text: 'Book now',
-                          options: FFButtonOptions(
-                            width: 130.0,
-                            height: 30.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
+                                if (functions.isTextNull(_model.paymentId) ==
+                                    false) {
+                                  final chatsCreateData = {
+                                    ...createChatsRecordData(
+                                      userA:
+                                          garageDetailsForReservationGaragesRecord
+                                              .userRef,
+                                      userB: currentUserReference,
+                                    ),
+                                    'users': functions
+                                        .returnUsersListForChatCreation(
+                                            garageDetailsForReservationGaragesRecord
+                                                .userRef!,
+                                            currentUserReference!),
+                                  };
+                                  var chatsRecordReference =
+                                      ChatsRecord.collection.doc();
+                                  await chatsRecordReference
+                                      .set(chatsCreateData);
+                                  _model.chat = ChatsRecord.getDocumentFromData(
+                                      chatsCreateData, chatsRecordReference);
+
+                                  final reservationUpdateData =
+                                      createReservationRecordData(
+                                    chatReference: _model.chat!.reference,
+                                    garageOwner:
+                                        garageDetailsForReservationGaragesRecord
+                                            .userRef,
+                                    isCreationFinished: true,
+                                  );
+                                  await widget.reservationRef!
+                                      .update(reservationUpdateData);
+                                  await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Reservation4Widget(
+                                        reservationref: widget.reservationRef,
+                                        documentGarage:
+                                            garageDetailsForReservationGaragesRecord,
+                                      ),
+                                    ),
+                                  );
+                                }
+
+                                setState(() {});
+                              },
+                              text: 'Prenota ora',
+                              options: FFButtonOptions(
+                                width: 130.0,
+                                height: 30.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Urbanist',
+                                      color: Colors.white,
+                                    ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
                                 ),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            );
+                          },
                         ),
                     ],
                   ),

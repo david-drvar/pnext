@@ -78,7 +78,7 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
           },
         ),
         title: Text(
-          'Edit Garage',
+          'Modifica Garage',
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -363,15 +363,17 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
                         children: [
                           FFButtonWidget(
                             onPressed: () async {
-                              final garagesUpdateData = {
-                                'photos': _model.photoList,
-                                'videos': _model.videoList,
-                              };
-                              await widget.newGarageRef!.reference
-                                  .update(garagesUpdateData);
-                              Navigator.pop(context);
+                              if (_model.photoList.length > 0) {
+                                final garagesUpdateData = {
+                                  'photos': _model.photoList,
+                                  'videos': _model.videoList,
+                                };
+                                await widget.newGarageRef!.reference
+                                    .update(garagesUpdateData);
+                                Navigator.pop(context);
+                              }
                             },
-                            text: 'SUBMIT',
+                            text: 'AGGIORNA',
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

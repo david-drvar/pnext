@@ -75,7 +75,7 @@ class _CreateGarage2FotoVideoWidgetState
           },
         ),
         title: Text(
-          'Create Garage',
+          'Crea un Garage',
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -106,10 +106,10 @@ class _CreateGarage2FotoVideoWidgetState
                               controller: _model.descriptionController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Description',
+                                labelText: 'Descrizione',
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'Description',
+                                hintText: 'Descrizione',
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -397,7 +397,7 @@ class _CreateGarage2FotoVideoWidgetState
                                 );
                               }
                             },
-                            text: 'NEXT',
+                            text: 'AVANTI',
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

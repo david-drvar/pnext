@@ -62,7 +62,7 @@ export '/pages/create_garage_pages/create_garage_disclaimer_page/create_garage_d
     show CreateGarageDisclaimerPageWidget;
 export '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart'
     show ConfirmPageWidget;
-export '/pages/reservations/reservation_1/reservation1_widget.dart'
+export '/pages/redundant_pages/reservation_1/reservation1_widget.dart'
     show Reservation1Widget;
 export '/pages/reservations/reservation_2/reservation2_widget.dart'
     show Reservation2Widget;

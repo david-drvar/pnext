@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -252,15 +253,20 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                             120.0, 10.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            final garagesUpdateData = createGaragesRecordData(
-                              startDateValidity:
-                                  _model.calendarSelectedDay1?.start,
-                              endDateValidity:
-                                  _model.calendarSelectedDay2?.start,
-                            );
-                            await widget.newGarageRef!
-                                .update(garagesUpdateData);
-                            Navigator.pop(context);
+                            if (functions.isDateAfter(
+                                    _model.calendarSelectedDay1?.start,
+                                    _model.calendarSelectedDay2?.start) ==
+                                true) {
+                              final garagesUpdateData = createGaragesRecordData(
+                                startDateValidity:
+                                    _model.calendarSelectedDay1?.start,
+                                endDateValidity:
+                                    _model.calendarSelectedDay2?.start,
+                              );
+                              await widget.newGarageRef!
+                                  .update(garagesUpdateData);
+                              Navigator.pop(context);
+                            }
                           },
                           text: 'Conferma',
                           options: FFButtonOptions(

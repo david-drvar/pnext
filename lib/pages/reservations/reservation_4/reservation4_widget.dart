@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -74,7 +73,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                     Align(
                       alignment: AlignmentDirectional(-0.7, -0.9),
                       child: Text(
-                        'Your reservation was successful.',
+                        'La tua prenotazione è avvenuta con successo',
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
@@ -113,11 +112,6 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                   alignment: AlignmentDirectional(0.0, 0.8),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      final reservationUpdateData = createReservationRecordData(
-                        totalPrice: 10.0,
-                      );
-                      await widget.reservationref!
-                          .update(reservationUpdateData);
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -126,7 +120,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                         ),
                       );
                     },
-                    text: 'Go to my bookings',
+                    text: 'Vai alle mie prenotazioni',
                     options: FFButtonOptions(
                       width: 260.0,
                       height: 40.0,

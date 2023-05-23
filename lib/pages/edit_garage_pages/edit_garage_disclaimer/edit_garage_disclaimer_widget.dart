@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -85,7 +86,7 @@ class _EditGarageDisclaimerWidgetState
             title: Align(
               alignment: AlignmentDirectional(-0.3, 0.0),
               child: Text(
-                'Create Garage',
+                'Modifica Garage',
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ),
@@ -138,7 +139,9 @@ class _EditGarageDisclaimerWidgetState
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (_model.checkboxValue!) {
+                        if (_model.checkboxValue! &&
+                            !functions.isTextNull(
+                                _model.keyboxPasswordController.text)) {
                           final garagesUpdateData = createGaragesRecordData(
                             isKey: true,
                             keyboxPassword:

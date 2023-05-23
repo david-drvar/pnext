@@ -1,33 +1,30 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservations/garage_details_for_reservation/garage_details_for_reservation_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '/pages/garage_details/garage_details_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'bottom_sheet_garages_model.dart';
-export 'bottom_sheet_garages_model.dart';
+import 'bottom_sheet_garages_just_view_model.dart';
+export 'bottom_sheet_garages_just_view_model.dart';
 
-class BottomSheetGaragesWidget extends StatefulWidget {
-  const BottomSheetGaragesWidget({
+class BottomSheetGaragesJustViewWidget extends StatefulWidget {
+  const BottomSheetGaragesJustViewWidget({
     Key? key,
     this.garage,
-    required this.reservationRef,
   }) : super(key: key);
 
   final GaragesRecord? garage;
-  final DocumentReference? reservationRef;
 
   @override
-  _BottomSheetGaragesWidgetState createState() =>
-      _BottomSheetGaragesWidgetState();
+  _BottomSheetGaragesJustViewWidgetState createState() =>
+      _BottomSheetGaragesJustViewWidgetState();
 }
 
-class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
-  late BottomSheetGaragesModel _model;
+class _BottomSheetGaragesJustViewWidgetState
+    extends State<BottomSheetGaragesJustViewWidget> {
+  late BottomSheetGaragesJustViewModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -38,7 +35,7 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BottomSheetGaragesModel());
+    _model = createModel(context, () => BottomSheetGaragesJustViewModel());
   }
 
   @override
@@ -194,75 +191,39 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     50.0, 0.0, 0.0, 0.0),
-                                child: StreamBuilder<ReservationRecord>(
-                                  stream: ReservationRecord.getDocument(
-                                      widget.reservationRef!),
-                                  builder: (context, snapshot) {
-                                    // Customize what your widget looks like when it's loading.
-                                    if (!snapshot.hasData) {
-                                      return Center(
-                                        child: SizedBox(
-                                          width: 50.0,
-                                          height: 50.0,
-                                          child: CircularProgressIndicator(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            GarageDetailsWidget(
+                                          garageRef: widget.garage!.reference,
                                         ),
-                                      );
-                                    }
-                                    final buttonReservationRecord =
-                                        snapshot.data!;
-                                    return FFButtonWidget(
-                                      onPressed: () async {
-                                        final reservationUpdateData =
-                                            createReservationRecordData(
-                                          garageReference:
-                                              widget.garage!.reference,
-                                          totalPrice: widget.garage!.rate *
-                                              buttonReservationRecord.totalTime,
-                                        );
-                                        await widget.reservationRef!
-                                            .update(reservationUpdateData);
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                GarageDetailsForReservationWidget(
-                                              garageRef:
-                                                  widget.garage!.reference,
-                                              reservationRef:
-                                                  widget.reservationRef,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      text: 'Vedi il Garage',
-                                      options: FFButtonOptions(
-                                        width: 130.0,
-                                        height: 30.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Urbanist',
-                                              color: Colors.white,
-                                            ),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
                                       ),
                                     );
                                   },
+                                  text: 'Vedi il Garage',
+                                  options: FFButtonOptions(
+                                    width: 130.0,
+                                    height: 30.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Urbanist',
+                                          color: Colors.white,
+                                        ),
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
                                 ),
                               ),
                             ],

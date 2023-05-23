@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/chats/chat_page/chat_page_widget.dart';
 import '/pages/reservations/reservation_details_map/reservation_details_map_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +91,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
               },
             ),
             title: Text(
-              'Booking Details',
+              'Dettagli della prenotazione',
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
             actions: [
@@ -223,28 +224,31 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      columnGaragesRecord.address,
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            fontFamily: 'Urbanist',
-                                            fontSize: 18.0,
-                                          ),
+                                  Container(
+                                    width: 320.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: AutoSizeText(
+                                        columnGaragesRecord.address,
+                                        style: FlutterFlowTheme.of(context)
+                                            .titleMedium
+                                            .override(
+                                              fontFamily: 'Urbanist',
+                                              fontSize: 18.0,
+                                            ),
+                                      ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        240.0, 0.0, 0.0, 0.0),
-                                    child: Icon(
-                                      Icons.chevron_right_rounded,
-                                      color:
-                                          FlutterFlowTheme.of(context).grayIcon,
-                                      size: 24.0,
-                                    ),
+                                  Icon(
+                                    Icons.chevron_right_rounded,
+                                    color:
+                                        FlutterFlowTheme.of(context).grayIcon,
+                                    size: 24.0,
                                   ),
                                 ],
                               ),
@@ -259,7 +263,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 20.0, 0.0, 0.0),
                                       child: Text(
-                                        'Date',
+                                        'Data',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -322,7 +326,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             25.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          'Dimension',
+                                          'Dimensione',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -365,7 +369,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         25.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Vehicle Plate Number',
+                                      'Targa del veicolo',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
@@ -404,7 +408,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Text(
-                                          'Price Breakdown',
+                                          'Ripartizione dei prezzi',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -428,7 +432,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Base Price per hour',
+                                          'Prezzo base all\'ora',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -438,8 +442,16 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
+                                        Expanded(
+                                          child: Text(
+                                            columnGaragesRecord.rate.toString(),
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleSmall,
+                                          ),
+                                        ),
                                         Text(
-                                          columnGaragesRecord.rate.toString(),
+                                          '€',
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall,
                                         ),
@@ -455,7 +467,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Total Time',
+                                          'Tempo totale',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -465,10 +477,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  172.0, 0.0, 0.0, 0.0),
+                                        Expanded(
                                           child: Text(
                                             reservationDetailsReservationRecord
                                                 .totalTime
@@ -490,7 +499,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Taxes',
+                                          'Tasse',
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -517,7 +526,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              'Total',
+                                              'Totale',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .headlineSmall
@@ -567,10 +576,18 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                             ),
                                           ],
                                         ),
+                                        Expanded(
+                                          child: Text(
+                                            reservationDetailsReservationRecord
+                                                .totalPrice
+                                                .toString(),
+                                            textAlign: TextAlign.end,
+                                            style: FlutterFlowTheme.of(context)
+                                                .displaySmall,
+                                          ),
+                                        ),
                                         Text(
-                                          reservationDetailsReservationRecord
-                                              .totalPrice
-                                              .toString(),
+                                          '€',
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall,
                                         ),
@@ -641,7 +658,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
-                                            'Host Info',
+                                            'Informazioni sull\'ospite',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(

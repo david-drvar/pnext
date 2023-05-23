@@ -30,10 +30,15 @@ class CreateAccountModel extends FlutterFlowModel {
   // State field(s) for phoneNumber widget.
   TextEditingController? phoneNumberController;
   String? Function(BuildContext, String?)? phoneNumberControllerValidator;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading1 = false;
+  FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  String uploadedFileUrl1 = '';
+
+  bool isDataUploading2 = false;
+  FFUploadedFile uploadedLocalFile2 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl2 = '';
 
   // State field(s) for emailAddress widget.
   TextEditingController? emailAddressController;

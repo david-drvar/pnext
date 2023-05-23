@@ -87,7 +87,7 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
             title: Align(
               alignment: AlignmentDirectional(-0.3, 0.0),
               child: Text(
-                'Create Garage',
+                'Crea un Garage',
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ),

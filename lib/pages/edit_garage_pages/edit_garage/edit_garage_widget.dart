@@ -87,7 +87,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
               },
             ),
             title: Text(
-              'Edit Garage',
+              'Modifica Garage',
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
             actions: [],
@@ -133,7 +133,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Garage details',
+                              'Dettagli del Garage',
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -196,7 +196,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Edit address',
+                                'Modifica indirizzo',
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -273,7 +273,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Edit price',
+                                'Modifica prezzo',
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -350,7 +350,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Edit vehicle type',
+                                'Modifica tipo di veicolo',
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -429,7 +429,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Edit key availability',
+                                  'Modifica disponibilità della chiave',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -510,7 +510,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Edit media',
+                                  'Modifica media',
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -592,7 +592,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    'Edit availability',
+                                    'Modifica disponibilità',
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
@@ -675,7 +675,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    'Edit validity period',
+                                    'Modifica periodo valido',
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),

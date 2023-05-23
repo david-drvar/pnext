@@ -4,18 +4,12 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/reservations/garage_details_for_reservation/garage_details_for_reservation_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class BottomSheetGaragesModel extends FlutterFlowModel {
-  ///  State fields for stateful widgets in this component.
-
-  // Stores action output result for [Custom Action - totalPriceCalculation] action in Button widget.
-  double? totalPrice;
-
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

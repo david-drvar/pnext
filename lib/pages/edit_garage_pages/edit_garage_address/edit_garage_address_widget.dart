@@ -70,7 +70,7 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
           },
         ),
         title: Text(
-          'Edit Garage',
+          'Modifica Garage',
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -108,7 +108,7 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
                       onSelect: (place) async {
                         setState(() => _model.placePickerValue = place);
                       },
-                      defaultText: 'Select Location',
+                      defaultText: 'Seleziona Location',
                       icon: Icon(
                         Icons.place,
                         color: Colors.white,
@@ -219,7 +219,7 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
                               .update(garagesUpdateData);
                           Navigator.pop(context);
                         },
-                        text: 'UPDATE',
+                        text: 'MODIFICA',
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 50.0,

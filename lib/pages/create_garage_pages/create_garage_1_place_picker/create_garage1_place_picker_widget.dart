@@ -69,7 +69,7 @@ class _CreateGarage1PlacePickerWidgetState
           },
         ),
         title: Text(
-          'Create Garage',
+          'Crea un Garage',
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -107,7 +107,7 @@ class _CreateGarage1PlacePickerWidgetState
                       onSelect: (place) async {
                         setState(() => _model.placePickerValue = place);
                       },
-                      defaultText: 'Select Location',
+                      defaultText: 'Seleziona Location',
                       icon: Icon(
                         Icons.place,
                         color: Colors.white,
@@ -211,7 +211,7 @@ class _CreateGarage1PlacePickerWidgetState
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         child: Text(
-                          'Select the maximum size of vehicle that your parking space can accommodate',
+                          'Seleziona la taglia del veicolo che il tuo posto auto può ospitare',
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
@@ -380,6 +380,7 @@ class _CreateGarage1PlacePickerWidgetState
                               location: _model.placePickerValue.latLng,
                               country: _model.placePickerValue.country,
                               isActive: true,
+                              isCreationFinished: false,
                             );
                             var garagesRecordReference =
                                 GaragesRecord.collection.doc();
@@ -400,7 +401,7 @@ class _CreateGarage1PlacePickerWidgetState
 
                           setState(() {});
                         },
-                        text: 'NEXT',
+                        text: 'AVANTI',
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 50.0,

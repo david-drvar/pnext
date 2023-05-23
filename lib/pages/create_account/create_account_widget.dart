@@ -75,18 +75,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF4B39EF),
-      body: Container(
-        width: MediaQuery.of(context).size.width * 1.0,
-        height: MediaQuery.of(context).size.height * 1.0,
-        decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).tertiary,
-          image: DecorationImage(
-            fit: BoxFit.fitWidth,
-            image: Image.asset(
-              'assets/images/createAccount_BG@3x.jpg',
-            ).image,
-          ),
-        ),
+      body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -118,7 +107,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -364,7 +353,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                               borderRadius: BorderRadius.circular(10.0),
                               child: Image.network(
                                 valueOrDefault<String>(
-                                  _model.uploadedFileUrl,
+                                  _model.uploadedFileUrl1,
                                   'https://via.placeholder.com/600x400?text=Upload+document',
                                 ),
                                 width: 100.0,
@@ -387,7 +376,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                           validateFileFormat(
                                               m.storagePath, context))) {
                                     setState(
-                                        () => _model.isDataUploading = true);
+                                        () => _model.isDataUploading1 = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
                                     var downloadUrls = <String>[];
@@ -414,16 +403,16 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                           .map((u) => u!)
                                           .toList();
                                     } finally {
-                                      _model.isDataUploading = false;
+                                      _model.isDataUploading1 = false;
                                     }
                                     if (selectedUploadedFiles.length ==
                                             selectedMedia.length &&
                                         downloadUrls.length ==
                                             selectedMedia.length) {
                                       setState(() {
-                                        _model.uploadedLocalFile =
+                                        _model.uploadedLocalFile1 =
                                             selectedUploadedFiles.first;
-                                        _model.uploadedFileUrl =
+                                        _model.uploadedFileUrl1 =
                                             downloadUrls.first;
                                       });
                                     } else {
@@ -433,6 +422,111 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                   }
                                 },
                                 text: 'Upload document',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: Colors.white,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.network(
+                                valueOrDefault<String>(
+                                  _model.uploadedFileUrl2,
+                                  'https://via.placeholder.com/600x400?text=Upload+document',
+                                ),
+                                width: 100.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  final selectedMedia =
+                                      await selectMediaWithSourceBottomSheet(
+                                    context: context,
+                                    allowPhoto: true,
+                                  );
+                                  if (selectedMedia != null &&
+                                      selectedMedia.every((m) =>
+                                          validateFileFormat(
+                                              m.storagePath, context))) {
+                                    setState(
+                                        () => _model.isDataUploading2 = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+                                    var downloadUrls = <String>[];
+                                    try {
+                                      selectedUploadedFiles = selectedMedia
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                                height: m.dimensions?.height,
+                                                width: m.dimensions?.width,
+                                                blurHash: m.blurHash,
+                                              ))
+                                          .toList();
+
+                                      downloadUrls = (await Future.wait(
+                                        selectedMedia.map(
+                                          (m) async => await uploadData(
+                                              m.storagePath, m.bytes),
+                                        ),
+                                      ))
+                                          .where((u) => u != null)
+                                          .map((u) => u!)
+                                          .toList();
+                                    } finally {
+                                      _model.isDataUploading2 = false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                            selectedMedia.length &&
+                                        downloadUrls.length ==
+                                            selectedMedia.length) {
+                                      setState(() {
+                                        _model.uploadedLocalFile2 =
+                                            selectedUploadedFiles.first;
+                                        _model.uploadedFileUrl2 =
+                                            downloadUrls.first;
+                                      });
+                                    } else {
+                                      setState(() {});
+                                      return;
+                                    }
+                                  }
+                                },
+                                text: 'Upload profile photo',
                                 options: FFButtonOptions(
                                   width: 130.0,
                                   height: 40.0,
@@ -727,7 +821,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                                 _model.repeatPasswordController
                                                     .text) &&
                                             (functions.isEmpty(
-                                                    _model.uploadedFileUrl) ==
+                                                    _model.uploadedFileUrl1) ==
                                                 false)) {
                                           if (_model.passwordController.text !=
                                               _model.repeatPasswordController
@@ -777,34 +871,22 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                                 (r) => false,
                                               );
 
-                                          final usersUpdateData =
+                                          final usersUpdateData1 =
                                               createUsersRecordData(
                                             documentPhotoUrl:
-                                                _model.uploadedFileUrl,
+                                                _model.uploadedFileUrl1,
                                           );
                                           await currentUserReference!
-                                              .update(usersUpdateData);
+                                              .update(usersUpdateData1);
+
+                                          final usersUpdateData2 =
+                                              createUsersRecordData(
+                                            photoUrl: _model.uploadedFileUrl2,
+                                          );
+                                          await currentUserReference!
+                                              .update(usersUpdateData2);
                                           await authManager
                                               .sendEmailVerification();
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.white,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (bottomSheetContext) {
-                                              return Padding(
-                                                padding: MediaQuery.of(
-                                                        bottomSheetContext)
-                                                    .viewInsets,
-                                                child:
-                                                    EmailVerificationComponentWidget(
-                                                  message:
-                                                      'We\'ve sent  verification link to your email. After verifying please proceed with login.',
-                                                ),
-                                              );
-                                            },
-                                          ).then((value) => setState(() {}));
-
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.white,

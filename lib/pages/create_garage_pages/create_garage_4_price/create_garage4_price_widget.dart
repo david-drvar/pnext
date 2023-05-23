@@ -72,7 +72,7 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
         title: Align(
           alignment: AlignmentDirectional(-0.3, 0.0),
           child: Text(
-            'Create Garage',
+            'Crea un Garage',
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
         ),
@@ -117,7 +117,7 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                         controller: _model.pricePerNightController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '\$ Price',
+                          hintText: '\$ Prezzo',
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(

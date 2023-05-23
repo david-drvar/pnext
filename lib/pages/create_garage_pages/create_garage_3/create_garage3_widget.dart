@@ -74,7 +74,7 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
           title: Align(
             alignment: AlignmentDirectional(-0.4, 0.0),
             child: Text(
-              'Create Garage',
+              'Crea un Garage',
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
           ),

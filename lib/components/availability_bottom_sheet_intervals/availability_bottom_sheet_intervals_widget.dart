@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -101,7 +102,7 @@ class _AvailabilityBottomSheetIntervalsWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Time Start',
+                    'Orario inzio',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                   FlutterFlowDropDown<String>(
@@ -191,7 +192,7 @@ class _AvailabilityBottomSheetIntervalsWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Time End',
+                    'Orario fine',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                   FlutterFlowDropDown<String>(
@@ -278,78 +279,85 @@ class _AvailabilityBottomSheetIntervalsWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  _model.startDateTime =
-                      await actions.hoursAndMinutesToDateAction(
-                    _model.dropDownStartHoursValue!,
-                    _model.dropDownStartMinutesValue!,
-                  );
-                  _model.endDateTime =
-                      await actions.hoursAndMinutesToDateAction(
-                    _model.dropDownEndHoursValue!,
-                    _model.dropDownEndMinutesValue!,
-                  );
-                  if (widget.day == 'monday') {
-                    final garagesUpdateData1 = createGaragesRecordData(
-                      mondayStart: _model.startDateTime,
-                      mondayEnd: _model.endDateTime,
+                  if (!functions.isTextNull(_model.dropDownStartHoursValue) &&
+                      !functions.isTextNull(_model.dropDownStartMinutesValue) &&
+                      !functions.isTextNull(_model.dropDownEndHoursValue) &&
+                      !functions.isTextNull(_model.dropDownEndMinutesValue)) {
+                    _model.startDateTime =
+                        await actions.hoursAndMinutesToDateAction(
+                      _model.dropDownStartHoursValue!,
+                      _model.dropDownStartMinutesValue!,
                     );
-                    await widget.newGarageRef!.update(garagesUpdateData1);
-                  } else {
-                    if (widget.day == 'tuesday') {
-                      final garagesUpdateData2 = createGaragesRecordData(
-                        tuesdayStart: _model.startDateTime,
-                        tuesdayEnd: _model.endDateTime,
+                    _model.endDateTime =
+                        await actions.hoursAndMinutesToDateAction(
+                      _model.dropDownEndHoursValue!,
+                      _model.dropDownEndMinutesValue!,
+                    );
+                    if (widget.day == 'monday') {
+                      final garagesUpdateData1 = createGaragesRecordData(
+                        mondayStart: _model.startDateTime,
+                        mondayEnd: _model.endDateTime,
                       );
-                      await widget.newGarageRef!.update(garagesUpdateData2);
+                      await widget.newGarageRef!.update(garagesUpdateData1);
                     } else {
-                      if (widget.day == 'wednesday') {
-                        final garagesUpdateData3 = createGaragesRecordData(
-                          wednesdayStart: _model.startDateTime,
-                          wednesdayEnd: _model.endDateTime,
+                      if (widget.day == 'tuesday') {
+                        final garagesUpdateData2 = createGaragesRecordData(
+                          tuesdayStart: _model.startDateTime,
+                          tuesdayEnd: _model.endDateTime,
                         );
-                        await widget.newGarageRef!.update(garagesUpdateData3);
+                        await widget.newGarageRef!.update(garagesUpdateData2);
                       } else {
-                        if (widget.day == 'thursday') {
-                          final garagesUpdateData4 = createGaragesRecordData(
-                            thursdayStart: _model.startDateTime,
-                            thursdayEnd: _model.endDateTime,
+                        if (widget.day == 'wednesday') {
+                          final garagesUpdateData3 = createGaragesRecordData(
+                            wednesdayStart: _model.startDateTime,
+                            wednesdayEnd: _model.endDateTime,
                           );
-                          await widget.newGarageRef!.update(garagesUpdateData4);
+                          await widget.newGarageRef!.update(garagesUpdateData3);
                         } else {
-                          if (widget.day == 'friday') {
-                            final garagesUpdateData5 = createGaragesRecordData(
-                              fridayStart: _model.startDateTime,
-                              fridayEnd: _model.endDateTime,
+                          if (widget.day == 'thursday') {
+                            final garagesUpdateData4 = createGaragesRecordData(
+                              thursdayStart: _model.startDateTime,
+                              thursdayEnd: _model.endDateTime,
                             );
                             await widget.newGarageRef!
-                                .update(garagesUpdateData5);
+                                .update(garagesUpdateData4);
                           } else {
-                            if (widget.day == 'saturday') {
-                              final garagesUpdateData6 =
+                            if (widget.day == 'friday') {
+                              final garagesUpdateData5 =
                                   createGaragesRecordData(
-                                saturdayStart: _model.startDateTime,
-                                saturdayEnd: _model.endDateTime,
+                                fridayStart: _model.startDateTime,
+                                fridayEnd: _model.endDateTime,
                               );
                               await widget.newGarageRef!
-                                  .update(garagesUpdateData6);
+                                  .update(garagesUpdateData5);
                             } else {
-                              if (widget.day == 'sunday') {
-                                final garagesUpdateData7 =
+                              if (widget.day == 'saturday') {
+                                final garagesUpdateData6 =
                                     createGaragesRecordData(
-                                  sundayStart: _model.startDateTime,
-                                  sundayEnd: _model.endDateTime,
+                                  saturdayStart: _model.startDateTime,
+                                  saturdayEnd: _model.endDateTime,
                                 );
                                 await widget.newGarageRef!
-                                    .update(garagesUpdateData7);
+                                    .update(garagesUpdateData6);
+                              } else {
+                                if (widget.day == 'sunday') {
+                                  final garagesUpdateData7 =
+                                      createGaragesRecordData(
+                                    sundayStart: _model.startDateTime,
+                                    sundayEnd: _model.endDateTime,
+                                  );
+                                  await widget.newGarageRef!
+                                      .update(garagesUpdateData7);
+                                }
                               }
                             }
                           }
                         }
                       }
                     }
-                  }
 
-                  Navigator.pop(context);
+                    Navigator.pop(context);
+                  }
 
                   setState(() {});
                 },

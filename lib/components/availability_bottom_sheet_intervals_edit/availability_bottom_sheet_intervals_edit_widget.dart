@@ -101,7 +101,7 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Time Start',
+                    'Orario inizio',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                   FlutterFlowDropDown<String>(
@@ -191,7 +191,7 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Time End',
+                    'Orario fine',
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                   FlutterFlowDropDown<String>(

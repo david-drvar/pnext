@@ -166,6 +166,7 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                           user: currentUserReference,
                           dateReservation: _model.datePicked,
                           totalTime: _model.totalTime,
+                          isCreationFinished: false,
                         );
                         var reservationRecordReference =
                             ReservationRecord.collection.doc();

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,7 +84,7 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
             title: Align(
               alignment: AlignmentDirectional(-0.3, 0.0),
               child: Text(
-                'Create Garage',
+                'Modifica Garage',
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ),
@@ -218,13 +219,17 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                         ),
                         FFButtonWidget(
                           onPressed: () async {
-                            final garagesUpdateData = createGaragesRecordData(
-                              rate: double.tryParse(
-                                  _model.pricePerNightController.text),
-                            );
-                            await widget.newGarageRef!
-                                .update(garagesUpdateData);
-                            Navigator.pop(context);
+                            if (functions.isTextNull(
+                                    _model.pricePerNightController.text) ==
+                                false) {
+                              final garagesUpdateData = createGaragesRecordData(
+                                rate: double.tryParse(
+                                    _model.pricePerNightController.text),
+                              );
+                              await widget.newGarageRef!
+                                  .update(garagesUpdateData);
+                              Navigator.pop(context);
+                            }
                           },
                           text: 'Conferma',
                           options: FFButtonOptions(
