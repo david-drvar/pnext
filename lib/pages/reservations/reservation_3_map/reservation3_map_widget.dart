@@ -206,7 +206,9 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                             onSelect: (place) async {
                               setState(() => _model.placePickerValue = place);
                             },
-                            defaultText: 'Seleziona Location',
+                            defaultText: FFLocalizations.of(context).getText(
+                              'rqcks3fk' /* Seleziona Location */,
+                            ),
                             icon: Icon(
                               Icons.place,
                               color: Colors.white,
@@ -242,7 +244,9 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                                 ),
                               );
                             },
-                            text: 'Individuare sulla mappa',
+                            text: FFLocalizations.of(context).getText(
+                              't01k7gor' /* Individuare sulla mappa */,
+                            ),
                             options: FFButtonOptions(
                               width: 160.0,
                               height: 40.0,

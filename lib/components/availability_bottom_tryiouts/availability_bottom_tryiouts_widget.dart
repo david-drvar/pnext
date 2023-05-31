@@ -65,9 +65,21 @@ class _AvailabilityBottomTryioutsWidgetState
       child: FlutterFlowDropDown<String>(
         controller: _model.dropDownValueController ??=
             FormFieldController<String>(
-          _model.dropDownValue ??= 'Credit card',
+          _model.dropDownValue ??= FFLocalizations.of(context).getText(
+            'z4wpkfdf' /* Credit card */,
+          ),
         ),
-        options: ['Credit card', 'Debit card', 'PayPal'],
+        options: [
+          FFLocalizations.of(context).getText(
+            '8osbwkxn' /* Credit card */,
+          ),
+          FFLocalizations.of(context).getText(
+            '5w2ri3zo' /* Debit card */,
+          ),
+          FFLocalizations.of(context).getText(
+            'yovxrsuo' /* PayPal */,
+          )
+        ],
         onChanged: (val) => setState(() => _model.dropDownValue = val),
         width: 180.0,
         height: 50.0,
@@ -79,8 +91,12 @@ class _AvailabilityBottomTryioutsWidgetState
               fontFamily: 'Poppins',
               fontWeight: FontWeight.normal,
             ),
-        hintText: 'Please selectaa...',
-        searchHintText: 'Search for an item...',
+        hintText: FFLocalizations.of(context).getText(
+          'dqkj2puj' /* Please selectaa... */,
+        ),
+        searchHintText: FFLocalizations.of(context).getText(
+          '7usthmtg' /* Search for an item... */,
+        ),
         fillColor: FlutterFlowTheme.of(context).secondaryBackground,
         elevation: 2.0,
         borderColor: Colors.transparent,

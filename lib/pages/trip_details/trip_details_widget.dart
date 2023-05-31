@@ -83,7 +83,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
           },
         ),
         title: Text(
-          'Trip Details',
+          FFLocalizations.of(context).getText(
+            'vgreht1f' /* Trip Details */,
+          ),
           style: FlutterFlowTheme.of(context).titleMedium,
         ),
         actions: [
@@ -139,7 +141,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Dates of trip',
+                          FFLocalizations.of(context).getText(
+                            'z0ymrtsi' /* Dates of trip */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -153,11 +157,16 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                       children: [
                         Text(
                           dateTimeFormat(
-                              'MMMEd', widget.tripRef!.tripBeginDate!),
+                            'MMMEd',
+                            widget.tripRef!.tripBeginDate!,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
                           style: FlutterFlowTheme.of(context).displaySmall,
                         ),
                         Text(
-                          ' - ',
+                          FFLocalizations.of(context).getText(
+                            'xqg03fe3' /*  -  */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -167,7 +176,11 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                               ),
                         ),
                         Text(
-                          dateTimeFormat('MMMEd', widget.tripRef!.tripEndDate!),
+                          dateTimeFormat(
+                            'MMMEd',
+                            widget.tripRef!.tripEndDate!,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
                           style: FlutterFlowTheme.of(context).displaySmall,
                         ),
                       ],
@@ -180,7 +193,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Destination',
+                          FFLocalizations.of(context).getText(
+                            'toqb16ge' /* Destination */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -338,7 +353,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Price Breakdown',
+                              FFLocalizations.of(context).getText(
+                                'u1uf5h6y' /* Price Breakdown */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -359,7 +376,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Base Price',
+                              FFLocalizations.of(context).getText(
+                                'n57hckr5' /* Base Price */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -389,7 +408,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Taxes',
+                              FFLocalizations.of(context).getText(
+                                'ihp3jgkg' /* Taxes */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -400,7 +421,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                                   ),
                             ),
                             Text(
-                              '\$24.20',
+                              FFLocalizations.of(context).getText(
+                                '9t90bvx6' /* $24.20 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -414,7 +437,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Cleaning Fee',
+                              FFLocalizations.of(context).getText(
+                                'eqts3tnx' /* Cleaning Fee */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -425,7 +450,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                                   ),
                             ),
                             Text(
-                              '\$40.00',
+                              FFLocalizations.of(context).getText(
+                                'izk3sl8v' /* $40.00 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -442,7 +469,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Total',
+                                  FFLocalizations.of(context).getText(
+                                    'zwn92a49' /* Total */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
@@ -504,7 +533,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Your trip has been completed!',
+                          FFLocalizations.of(context).getText(
+                            'm3gcn4yk' /* Your trip has been completed! */,
+                          ),
                           style: FlutterFlowTheme.of(context).titleMedium,
                         ),
                         if (!widget.tripRef!.rated)
@@ -535,7 +566,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
 
                                 Navigator.pop(context);
                               },
-                              text: 'Review Trip',
+                              text: FFLocalizations.of(context).getText(
+                                '5jzxfm7m' /* Review Trip */,
+                              ),
                               options: FFButtonOptions(
                                 width: 160.0,
                                 height: 50.0,
@@ -617,7 +650,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              'Host Info',
+                              FFLocalizations.of(context).getText(
+                                'sxps1j0c' /* Host Info */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -672,7 +707,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                               onPressed: () {
                                 print('chatGuest pressed ...');
                               },
-                              text: 'Chat',
+                              text: FFLocalizations.of(context).getText(
+                                'xv399wd7' /* Chat */,
+                              ),
                               icon: Icon(
                                 Icons.forum_outlined,
                                 size: 15.0,

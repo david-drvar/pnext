@@ -84,7 +84,9 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.9),
                   child: Text(
-                    'Indica quando hai bisogno del parcheggio',
+                    FFLocalizations.of(context).getText(
+                      '3o9sbu15' /* Indica quando hai bisogno del ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -102,9 +104,17 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                         },
                         currentTime: getCurrentTimestamp,
                         minTime: getCurrentTimestamp,
+                        locale: LocaleType.values.firstWhere(
+                          (l) =>
+                              l.name ==
+                              FFLocalizations.of(context).languageCode,
+                          orElse: () => LocaleType.en,
+                        ),
                       );
                     },
-                    text: 'Data e orario di arrivo',
+                    text: FFLocalizations.of(context).getText(
+                      'ha283qkp' /* Data e orario di arrivo */,
+                    ),
                     options: FFButtonOptions(
                       width: 280.0,
                       height: 40.0,
@@ -129,7 +139,9 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                 Align(
                   alignment: AlignmentDirectional(-0.1, -0.17),
                   child: Text(
-                    'Seleziona orario fine sosta',
+                    FFLocalizations.of(context).getText(
+                      'brfl8xpp' /* Seleziona orario fine sosta */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -161,7 +173,9 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
 
                       setState(() {});
                     },
-                    text: 'Conferma',
+                    text: FFLocalizations.of(context).getText(
+                      'sgd6knz9' /* Conferma */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,
@@ -197,9 +211,17 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                         },
                         currentTime: _model.datePicked1!,
                         minTime: _model.datePicked1!,
+                        locale: LocaleType.values.firstWhere(
+                          (l) =>
+                              l.name ==
+                              FFLocalizations.of(context).languageCode,
+                          orElse: () => LocaleType.en,
+                        ),
                       );
                     },
-                    text: 'Data e orario fine sosta',
+                    text: FFLocalizations.of(context).getText(
+                      'fakstugh' /* Data e orario fine sosta */,
+                    ),
                     options: FFButtonOptions(
                       width: 280.0,
                       height: 40.0,

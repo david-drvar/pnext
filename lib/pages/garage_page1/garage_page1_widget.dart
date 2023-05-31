@@ -70,7 +70,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
           },
         ),
         title: Text(
-          'Create Property',
+          FFLocalizations.of(context).getText(
+            'dgi1qmh1' /* Create Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -183,7 +185,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'PROPERTY NAME',
+                            FFLocalizations.of(context).getText(
+                              '0xdyykah' /* PROPERTY NAME */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -202,7 +206,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         controller: _model.propertyNameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Something Catchy...',
+                          hintText: FFLocalizations.of(context).getText(
+                            '0c4lpvc4' /* Something Catchy... */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
@@ -265,7 +271,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'PROPERTY ADDRESS',
+                            FFLocalizations.of(context).getText(
+                              '07iff1v6' /* PROPERTY ADDRESS */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -284,7 +292,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         controller: _model.propertyAddressController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '123 Disney way here…',
+                          hintText: FFLocalizations.of(context).getText(
+                            'gdm4rdto' /* 123 Disney way here… */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -347,7 +357,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'NEIGHBORHOOD',
+                            FFLocalizations.of(context).getText(
+                              '9jtm6gks' /* NEIGHBORHOOD */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -366,7 +378,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         controller: _model.propertyNeighborhoodController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Neighborhood or city…',
+                          hintText: FFLocalizations.of(context).getText(
+                            '6pvv38ws' /* Neighborhood or city… */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -430,7 +444,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'DESCRIPTION',
+                            FFLocalizations.of(context).getText(
+                              '8s64csmr' /* DESCRIPTION */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -449,7 +465,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                         controller: _model.propertyDescriptionController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Neighborhood or city…',
+                          hintText: FFLocalizations.of(context).getText(
+                            'kwd6c4ol' /* Neighborhood or city… */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
@@ -512,11 +530,15 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'STEP',
+                                FFLocalizations.of(context).getText(
+                                  's86she34' /* STEP */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
-                                '1/3',
+                                FFLocalizations.of(context).getText(
+                                  'u2ky8ecn' /* 1/3 */,
+                                ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
                               ),
@@ -599,7 +621,9 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
 
                               setState(() {});
                             },
-                            text: 'NEXT',
+                            text: FFLocalizations.of(context).getText(
+                              'kittw1qk' /* NEXT */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

@@ -158,7 +158,9 @@ class _UploadGaragePhotoWidgetState extends State<UploadGaragePhotoWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Upload garage photo',
+                        FFLocalizations.of(context).getText(
+                          'wqa0fqv2' /* Upload garage photo */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
@@ -244,7 +246,9 @@ class _UploadGaragePhotoWidgetState extends State<UploadGaragePhotoWidget>
                       }
                     }
                   },
-                  text: 'Upload Photo',
+                  text: FFLocalizations.of(context).getText(
+                    '7e4w25wq' /* Upload Photo */,
+                  ),
                   options: FFButtonOptions(
                     width: 150.0,
                     height: 50.0,
@@ -272,7 +276,9 @@ class _UploadGaragePhotoWidgetState extends State<UploadGaragePhotoWidget>
                   onPressed: () async {
                     Navigator.pop(context, _model.uploadedFileUrl);
                   },
-                  text: 'Save Photo',
+                  text: FFLocalizations.of(context).getText(
+                    'ekaymoln' /* Save Photo */,
+                  ),
                   options: FFButtonOptions(
                     width: 290.0,
                     height: 50.0,

@@ -59,7 +59,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
           },
         ),
         title: Text(
-          'Create Property',
+          FFLocalizations.of(context).getText(
+            'n6q3vi73' /* Create Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -87,7 +89,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'CHOOSE YOUR AMENITIES',
+                                FFLocalizations.of(context).getText(
+                                  'hifeg46w' /* CHOOSE YOUR AMENITIES */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -135,7 +139,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityPoolValue1 = newValue!);
                                 },
                                 title: Text(
-                                  'Pool',
+                                  FFLocalizations.of(context).getText(
+                                    'q0e5nhwi' /* Pool */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -186,7 +192,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       newValue!);
                                 },
                                 title: Text(
-                                  'EV Car Charging',
+                                  FFLocalizations.of(context).getText(
+                                    '7ls81tvp' /* EV Car Charging */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -238,7 +246,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       .amenityExtraOutletsValue = newValue!);
                                 },
                                 title: Text(
-                                  'Extra Outlets',
+                                  FFLocalizations.of(context).getText(
+                                    'gxy3scco' /* Extra Outlets */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -289,7 +299,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       () => _model.amenityACValue = newValue!);
                                 },
                                 title: Text(
-                                  'Air Conditioning (AC)',
+                                  FFLocalizations.of(context).getText(
+                                    'l042si12' /* Air Conditioning (AC) */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -340,7 +352,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityHeatingValue = newValue!);
                                 },
                                 title: Text(
-                                  'Heating',
+                                  FFLocalizations.of(context).getText(
+                                    'c2nrvqnl' /* Heating */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -391,7 +405,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityWasherValue = newValue!);
                                 },
                                 title: Text(
-                                  'Washer',
+                                  FFLocalizations.of(context).getText(
+                                    'tnq1b7h9' /* Washer */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -442,7 +458,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityDryerValue = newValue!);
                                 },
                                 title: Text(
-                                  'Dryer',
+                                  FFLocalizations.of(context).getText(
+                                    '6lvoio7i' /* Dryer */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -493,7 +511,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityPetsValue = newValue!);
                                 },
                                 title: Text(
-                                  'Pet Friendly',
+                                  FFLocalizations.of(context).getText(
+                                    'tu9jwjg4' /* Pet Friendly */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -544,7 +564,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityWorkoutValue = newValue!);
                                 },
                                 title: Text(
-                                  'Workout Facility',
+                                  FFLocalizations.of(context).getText(
+                                    'txyx7aak' /* Workout Facility */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -595,7 +617,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                       _model.amenityPoolValue2 = newValue!);
                                 },
                                 title: Text(
-                                  'Hip',
+                                  FFLocalizations.of(context).getText(
+                                    'f1i403v1' /* Hip */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -650,7 +674,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                                         _model.amenityPoolValue3 = newValue!);
                                   },
                                   title: Text(
-                                    'Night Life',
+                                    FFLocalizations.of(context).getText(
+                                      'och4oani' /* Night Life */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium,
                                   ),
@@ -686,11 +712,15 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'STEP',
+                          FFLocalizations.of(context).getText(
+                            't67lfhg9' /* STEP */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Text(
-                          '2/3',
+                          FFLocalizations.of(context).getText(
+                            'etrlss3o' /* 2/3 */,
+                          ),
                           style: FlutterFlowTheme.of(context).headlineMedium,
                         ),
                       ],
@@ -704,7 +734,9 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                           ),
                         );
                       },
-                      text: 'NEXT',
+                      text: FFLocalizations.of(context).getText(
+                        'qr5cigv8' /* NEXT */,
+                      ),
                       options: FFButtonOptions(
                         width: 120.0,
                         height: 50.0,

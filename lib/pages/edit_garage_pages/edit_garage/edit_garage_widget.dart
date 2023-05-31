@@ -87,7 +87,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
               },
             ),
             title: Text(
-              'Modifica Garage',
+              FFLocalizations.of(context).getText(
+                'pkzf9kqh' /* Modifica Garage */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
             actions: [],
@@ -133,7 +135,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Dettagli del Garage',
+                              FFLocalizations.of(context).getText(
+                                'no9rcbkf' /* Dettagli del Garage */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -196,7 +200,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Modifica indirizzo',
+                                FFLocalizations.of(context).getText(
+                                  'bcr1hjwz' /* Modifica indirizzo */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -273,7 +279,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Modifica prezzo',
+                                FFLocalizations.of(context).getText(
+                                  'fymvf0rk' /* Modifica prezzo */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -350,7 +358,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Modifica tipo di veicolo',
+                                FFLocalizations.of(context).getText(
+                                  'vtmw4rrn' /* Modifica tipo di veicolo */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -429,7 +439,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Modifica disponibilità della chiave',
+                                  FFLocalizations.of(context).getText(
+                                    '6pbwkdjl' /* Modifica disponibilità della c... */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -510,7 +522,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Modifica media',
+                                  FFLocalizations.of(context).getText(
+                                    'qr5wftf0' /* Modifica media */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -592,7 +606,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    'Modifica disponibilità',
+                                    FFLocalizations.of(context).getText(
+                                      '0f29g9se' /* Modifica disponibilità */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
@@ -675,7 +691,9 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                               children: [
                                 Expanded(
                                   child: Text(
-                                    'Modifica periodo valido',
+                                    FFLocalizations.of(context).getText(
+                                      'unz0q4oe' /* Modifica periodo valido */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),

@@ -76,7 +76,9 @@ class _TotalWidgetState extends State<TotalWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
-                  'Order Total',
+                  FFLocalizations.of(context).getText(
+                    'mt0oq5hd' /* Order Total */,
+                  ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Urbanist',
                         color: FlutterFlowTheme.of(context).dark600,
@@ -86,7 +88,9 @@ class _TotalWidgetState extends State<TotalWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
-                  'Your order total is a summary of base price per hour moltiplied by number of hours plus any fees and taxes associated with your purchase.',
+                  FFLocalizations.of(context).getText(
+                    'v6qew4cn' /* Your order total is a summary ... */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Urbanist',
                         fontSize: 14.0,
@@ -100,7 +104,9 @@ class _TotalWidgetState extends State<TotalWidget> {
                   onPressed: () async {
                     Navigator.pop(context);
                   },
-                  text: 'Okay',
+                  text: FFLocalizations.of(context).getText(
+                    '9ud60qgy' /* Okay */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,

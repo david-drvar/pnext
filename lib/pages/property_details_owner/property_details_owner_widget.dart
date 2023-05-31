@@ -315,7 +315,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 2.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              'Reviews',
+                              FFLocalizations.of(context).getText(
+                                'bzn5iznf' /* Reviews */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -337,7 +339,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'DESCRIPTION',
+                          FFLocalizations.of(context).getText(
+                            'sjnp8afl' /* DESCRIPTION */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -376,7 +380,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Amenities',
+                          FFLocalizations.of(context).getText(
+                            '8mhvfnad' /* Amenities */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -669,7 +675,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'What people are saying',
+                                    FFLocalizations.of(context).getText(
+                                      'zql5p8dk' /* What people are saying */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
@@ -1032,7 +1040,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            '\$156',
+                            FFLocalizations.of(context).getText(
+                              'efn2769v' /* $156 */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -1045,7 +1055,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 4.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              '+ taxes/fees',
+                              FFLocalizations.of(context).getText(
+                                'c9yrvrtg' /* + taxes/fees */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -1062,7 +1074,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Text(
-                          'per night',
+                          FFLocalizations.of(context).getText(
+                            '92uvvp7v' /* per night */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodySmall.override(
                                     fontFamily: 'Lexend Deca',
@@ -1085,7 +1099,9 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                         ),
                       );
                     },
-                    text: 'Edit Property',
+                    text: FFLocalizations.of(context).getText(
+                      'yieyn7g5' /* Edit Property */,
+                    ),
                     options: FFButtonOptions(
                       width: 150.0,
                       height: 50.0,

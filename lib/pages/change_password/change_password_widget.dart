@@ -84,7 +84,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
               },
             ),
             title: Text(
-              'Change Password',
+              FFLocalizations.of(context).getText(
+                'u67q9cs0' /* Change Password */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
             actions: [],
@@ -103,9 +105,13 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                     controller: _model.emailAddressController,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Email Address',
+                      labelText: FFLocalizations.of(context).getText(
+                        'zf67tqm5' /* Email Address */,
+                      ),
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: 'Your email..',
+                      hintText: FFLocalizations.of(context).getText(
+                        't7s9baai' /* Your email.. */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -153,7 +159,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          'We will send you an email with a link to reset your password, please enter the email associated with your account above.',
+                          FFLocalizations.of(context).getText(
+                            '2rh86q8g' /* We will send you an email with... */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ),
@@ -183,7 +191,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                         );
                         Navigator.pop(context);
                       },
-                      text: 'Send Reset Link',
+                      text: FFLocalizations.of(context).getText(
+                        '81o9esk0' /* Send Reset Link */,
+                      ),
                       options: FFButtonOptions(
                         width: 340.0,
                         height: 60.0,

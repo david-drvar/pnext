@@ -126,7 +126,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                               },
                             ),
                             Text(
-                              'PNext',
+                              FFLocalizations.of(context).getText(
+                                '9vs03p63' /* PNext */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -147,7 +149,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'Get Started Below,',
+                              FFLocalizations.of(context).getText(
+                                'l2y0clhw' /* Get Started Below, */,
+                              ),
                               style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
@@ -165,10 +169,15 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.nameController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Name',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'jfk6qxf5' /* Name */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Enter your name here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '4e536r9m' /* Enter your name here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -227,10 +236,15 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.surnameController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Surname',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'eyi8v3mw' /* Surname */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Enter your surname here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'ff53ctng' /* Enter your surname here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -289,10 +303,15 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.phoneNumberController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Phone number',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '2gephbwi' /* Phone number */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Enter your phone number here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '6j7evt3x' /* Enter your phone number here..... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -421,7 +440,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                     }
                                   }
                                 },
-                                text: 'Upload document',
+                                text: FFLocalizations.of(context).getText(
+                                  'symmn794' /* Upload document */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 130.0,
                                   height: 40.0,
@@ -526,7 +547,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                     }
                                   }
                                 },
-                                text: 'Upload profile photo',
+                                text: FFLocalizations.of(context).getText(
+                                  'xmxtv84k' /* Upload profile photo */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 130.0,
                                   height: 40.0,
@@ -564,10 +587,15 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.emailAddressController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Email address',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'p93j7753' /* Email address */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Enter your email here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'dir0xzk1' /* Enter your email here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -627,10 +655,15 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.passwordController,
                                 obscureText: !_model.passwordVisibility,
                                 decoration: InputDecoration(
-                                  labelText: 'Password',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '196fc0e7' /* Password */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Enter your password here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'vvjilxa1' /* Enter your password here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -703,10 +736,15 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 controller: _model.repeatPasswordController,
                                 obscureText: !_model.repeatPasswordVisibility,
                                 decoration: InputDecoration(
-                                  labelText: 'Repeat password',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '2u08hxez' /* Repeat password */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Repeat your password here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '09xsqhc7' /* Repeat your password here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -909,7 +947,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
 
                                         await _navigate();
                                       },
-                                text: 'Create Account',
+                                text: FFLocalizations.of(context).getText(
+                                  'jsj5ozmr' /* Create Account */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 230.0,
                                   height: 50.0,
@@ -950,7 +990,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                'Already have an account?',
+                                FFLocalizations.of(context).getText(
+                                  'j2o82rr0' /* Already have an account? */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
@@ -963,7 +1005,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                   ),
                                 );
                               },
-                              text: 'Login',
+                              text: FFLocalizations.of(context).getText(
+                                'bsnt8b4k' /* Login */,
+                              ),
                               options: FFButtonOptions(
                                 width: 90.0,
                                 height: 30.0,

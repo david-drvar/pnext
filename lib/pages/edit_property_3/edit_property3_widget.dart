@@ -84,7 +84,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
           },
         ),
         title: Text(
-          'Edit Property',
+          FFLocalizations.of(context).getText(
+            'tafowi86' /* Edit Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -110,7 +112,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'PRICE PER NIGHT',
+                              FFLocalizations.of(context).getText(
+                                '0115cfvp' /* PRICE PER NIGHT */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -129,7 +133,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           controller: _model.pricePerNightController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: '\$ Price',
+                            hintText: FFLocalizations.of(context).getText(
+                              '2n7fzbe3' /* $ Price */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(
@@ -196,7 +202,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'MINIMUM NIGHT STAY',
+                              FFLocalizations.of(context).getText(
+                                'idlwk4xf' /* MINIMUM NIGHT STAY */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -270,7 +278,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'TAX RATE',
+                              FFLocalizations.of(context).getText(
+                                '2m67qlxi' /* TAX RATE */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -289,7 +299,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           controller: _model.taxRateController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: '% Rate',
+                            hintText: FFLocalizations.of(context).getText(
+                              'i8h8484x' /* % Rate */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -353,7 +365,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'CLEANING FEE',
+                              FFLocalizations.of(context).getText(
+                                'f1ys5bu2' /* CLEANING FEE */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -372,7 +386,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           controller: _model.cleaningFeeController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: '\$ Price',
+                            hintText: FFLocalizations.of(context).getText(
+                              'zekptzq8' /* $ Price */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -440,7 +456,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Additional Notes',
+                              FFLocalizations.of(context).getText(
+                                '5key8cil' /* Additional Notes */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -459,7 +477,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                           controller: _model.notesController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Additional notes...',
+                            hintText: FFLocalizations.of(context).getText(
+                              'jpx4avd4' /* Additional notes... */,
+                            ),
                             hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -521,11 +541,15 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                                 () => _model.switchListTileValue = newValue!);
                           },
                           title: Text(
-                            'Listing is Live',
+                            FFLocalizations.of(context).getText(
+                              'ywfvur4o' /* Listing is Live */,
+                            ),
                             style: FlutterFlowTheme.of(context).headlineSmall,
                           ),
                           subtitle: Text(
-                            'Turn this on for guests to start booking your listing.',
+                            FFLocalizations.of(context).getText(
+                              'dppagptn' /* Turn this on for guests to sta... */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                           tileColor:
@@ -554,11 +578,15 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'STEP',
+                        FFLocalizations.of(context).getText(
+                          '7tecv8t8' /* STEP */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                       Text(
-                        '3/3',
+                        FFLocalizations.of(context).getText(
+                          'v1llgdrk' /* 3/3 */,
+                        ),
                         style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ],
@@ -588,7 +616,9 @@ class _EditProperty3WidgetState extends State<EditProperty3Widget> {
                         (r) => false,
                       );
                     },
-                    text: 'Save Changes',
+                    text: FFLocalizations.of(context).getText(
+                      'k0l3di21' /* Save Changes */,
+                    ),
                     options: FFButtonOptions(
                       width: 200.0,
                       height: 50.0,

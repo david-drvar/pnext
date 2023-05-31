@@ -72,7 +72,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
           },
         ),
         title: Text(
-          'Create Property',
+          FFLocalizations.of(context).getText(
+            'zjo88nu3' /* Create Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -97,7 +99,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'PRICE PER NIGHT',
+                            FFLocalizations.of(context).getText(
+                              'yqmb335b' /* PRICE PER NIGHT */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -116,7 +120,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         controller: _model.pricePerNightController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '\$ Price',
+                          hintText: FFLocalizations.of(context).getText(
+                            '1a51b7np' /* $ Price */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
@@ -178,7 +184,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'MINIMUM NIGHT STAY',
+                            FFLocalizations.of(context).getText(
+                              'mudehfys' /* MINIMUM NIGHT STAY */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -251,7 +259,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'TAX RATE',
+                            FFLocalizations.of(context).getText(
+                              'x90naf0e' /* TAX RATE */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -270,7 +280,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         controller: _model.taxRateController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '% Rate',
+                          hintText: FFLocalizations.of(context).getText(
+                            'mjif67n7' /* % Rate */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -334,7 +346,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'CLEANING FEE',
+                            FFLocalizations.of(context).getText(
+                              'wpwh21x5' /* CLEANING FEE */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -353,7 +367,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         controller: _model.cleaningFeeController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '\$ Price',
+                          hintText: FFLocalizations.of(context).getText(
+                            'n1n2o1k9' /* $ Price */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -417,7 +433,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Additional Notes',
+                            FFLocalizations.of(context).getText(
+                              'ghdujckq' /* Additional Notes */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -436,7 +454,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         controller: _model.notesController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Additional notes...',
+                          hintText: FFLocalizations.of(context).getText(
+                            'wkvjoe9q' /* Additional notes... */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
@@ -502,11 +522,15 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'STEP',
+                        FFLocalizations.of(context).getText(
+                          's15pgp01' /* STEP */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                       Text(
-                        '3/3',
+                        FFLocalizations.of(context).getText(
+                          '696nfshq' /* 3/3 */,
+                        ),
                         style: FlutterFlowTheme.of(context).headlineMedium,
                       ),
                     ],
@@ -537,7 +561,9 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                         (r) => false,
                       );
                     },
-                    text: 'PUBLISH',
+                    text: FFLocalizations.of(context).getText(
+                      'ilkk8l2g' /* PUBLISH */,
+                    ),
                     options: FFButtonOptions(
                       width: 180.0,
                       height: 50.0,

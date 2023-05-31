@@ -74,7 +74,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
           },
         ),
         title: Text(
-          'Trip Details',
+          FFLocalizations.of(context).getText(
+            '77qinnvm' /* Trip Details */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [
@@ -128,7 +130,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'Dates of trip',
+                      FFLocalizations.of(context).getText(
+                        'b4j7mbn3' /* Dates of trip */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.of(context).gray600,
@@ -145,11 +149,16 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                       children: [
                         Text(
                           dateTimeFormat(
-                              'MMMEd', widget.tripRef!.tripBeginDate!),
+                            'MMMEd',
+                            widget.tripRef!.tripBeginDate!,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
                           style: FlutterFlowTheme.of(context).displaySmall,
                         ),
                         Text(
-                          ' - ',
+                          FFLocalizations.of(context).getText(
+                            'fkncaudd' /*  -  */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -159,7 +168,11 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                               ),
                         ),
                         Text(
-                          dateTimeFormat('MMMEd', widget.tripRef!.tripEndDate!),
+                          dateTimeFormat(
+                            'MMMEd',
+                            widget.tripRef!.tripEndDate!,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
                           style: FlutterFlowTheme.of(context).displaySmall,
                         ),
                       ],
@@ -169,7 +182,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 4.0),
                     child: Text(
-                      'Destination',
+                      FFLocalizations.of(context).getText(
+                        'pt5de0e3' /* Destination */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Lexend Deca',
                             color: FlutterFlowTheme.of(context).gray600,
@@ -318,7 +333,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Price Breakdown',
+                              FFLocalizations.of(context).getText(
+                                '7n05ckso' /* Price Breakdown */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -339,7 +356,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Base Price',
+                              FFLocalizations.of(context).getText(
+                                'ammn2kcj' /* Base Price */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -369,7 +388,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Taxes',
+                              FFLocalizations.of(context).getText(
+                                'u17c9ogs' /* Taxes */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -380,7 +401,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                   ),
                             ),
                             Text(
-                              '\$24.20',
+                              FFLocalizations.of(context).getText(
+                                'th0drjcc' /* $24.20 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -394,7 +417,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Cleaning Fee',
+                              FFLocalizations.of(context).getText(
+                                '5ouk0xth' /* Cleaning Fee */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -405,7 +430,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                   ),
                             ),
                             Text(
-                              '\$40.00',
+                              FFLocalizations.of(context).getText(
+                                'qhjn2xmr' /* $40.00 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -422,7 +449,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Total',
+                                  FFLocalizations.of(context).getText(
+                                    'z1a0wjss' /* Total */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
@@ -488,7 +517,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Mark this trip as complete below.',
+                              FFLocalizations.of(context).getText(
+                                '4jy7qzua' /* Mark this trip as complete bel... */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleMedium,
                             ),
                           ],
@@ -507,7 +538,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                     .update(tripsUpdateData);
                                 Navigator.pop(context);
                               },
-                              text: 'Mark as Complete',
+                              text: FFLocalizations.of(context).getText(
+                                'ljplmaoh' /* Mark as Complete */,
+                              ),
                               options: FFButtonOptions(
                                 width: 200.0,
                                 height: 50.0,
@@ -592,7 +625,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  'Guest Info',
+                                  FFLocalizations.of(context).getText(
+                                    '0xyp41rt' /* Guest Info */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -655,7 +690,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                               onPressed: () {
                                 print('chatHost pressed ...');
                               },
-                              text: 'Chat',
+                              text: FFLocalizations.of(context).getText(
+                                'kp8ejykd' /* Chat */,
+                              ),
                               icon: Icon(
                                 Icons.forum_outlined,
                                 size: 15.0,

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/create_garage_pages/create_garage_1_place_picker/create_garage1_place_picker_widget.dart';
 import '/pages/garage_details/garage_details_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -83,7 +84,9 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
             },
           ),
           title: Text(
-            'Your garages',
+            FFLocalizations.of(context).getText(
+              'xezgzbnw' /* Your garages */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),
           actions: [],
@@ -196,15 +199,18 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            child: Text(
+                                          Container(
+                                            width: 320.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: AutoSizeText(
                                               valueOrDefault<String>(
                                                 listViewGaragesRecord
                                                     .description,
                                                 'Description',
-                                              ).maybeHandleOverflow(
-                                                maxChars: 36,
-                                                replacement: '…',
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -220,16 +226,22 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Text(
-                                            valueOrDefault<String>(
-                                              listViewGaragesRecord.address,
-                                              'address',
-                                            ).maybeHandleOverflow(
-                                              maxChars: 90,
-                                              replacement: '…',
+                                          Container(
+                                            width: 320.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                            child: AutoSizeText(
+                                              valueOrDefault<String>(
+                                                listViewGaragesRecord.address,
+                                                'address',
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -253,7 +265,9 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                                 .bodyMedium,
                                           ),
                                           Text(
-                                            '€ + taxes/fees per hour',
+                                            FFLocalizations.of(context).getText(
+                                              '3rim3epx' /* € all'ora + tasse */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium,
                                           ),

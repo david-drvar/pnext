@@ -46,7 +46,9 @@ class _AllChatsPageTabbarWidgetState extends State<AllChatsPageTabbarWidget> {
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Text(
-          'Tutte le Chats',
+          FFLocalizations.of(context).getText(
+            '39k37dc8' /* Tutte le Chats */,
+          ),
           style: FlutterFlowTheme.of(context).bodyMedium.override(
                 fontFamily: 'Urbanist',
                 color: Colors.black,
@@ -79,10 +81,14 @@ class _AllChatsPageTabbarWidgetState extends State<AllChatsPageTabbarWidget> {
                         indicatorColor: FlutterFlowTheme.of(context).primary,
                         tabs: [
                           Tab(
-                            text: 'Come noleggiatore',
+                            text: FFLocalizations.of(context).getText(
+                              '33r9r9p5' /* Come noleggiatore */,
+                            ),
                           ),
                           Tab(
-                            text: 'Come proprietario',
+                            text: FFLocalizations.of(context).getText(
+                              '6psl93mg' /* Come proprietario */,
+                            ),
                           ),
                         ],
                       ),

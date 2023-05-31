@@ -49,7 +49,7 @@ export '/pages/redundant_pages/create_garage_2/create_garage2_widget.dart'
     show CreateGarage2Widget;
 export '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart'
     show CreateGarage4PriceWidget;
-export '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart'
+export '/pages/create_garage_3/create_garage3_widget.dart'
     show CreateGarage3Widget;
 export '/pages/create_garage_pages/timeslot_calendar/timeslot_calendar_widget.dart'
     show TimeslotCalendarWidget;
@@ -122,3 +122,14 @@ export '/pages/reservations/my_reservations_tabbar/my_reservations_tabbar_widget
     show MyReservationsTabbarWidget;
 export '/pages/chats/all_chats_page_tabbar/all_chats_page_tabbar_widget.dart'
     show AllChatsPageTabbarWidget;
+export '/pages/feedback_page/feedback_page_widget.dart' show FeedbackPageWidget;
+export '/pages/payments/payment_confirmed/payment_confirmed_widget.dart'
+    show PaymentConfirmedWidget;
+export '/pages/payments/page_pay_with/page_pay_with_widget.dart'
+    show PagePayWithWidget;
+export '/pages/payments/credit_card_payment/credit_card_payment_widget.dart'
+    show CreditCardPaymentWidget;
+export '/pages/payments/paypalpayment/paypalpayment_widget.dart'
+    show PaypalpaymentWidget;
+export '/pages/payments/satispay_payment/satispay_payment_widget.dart'
+    show SatispayPaymentWidget;

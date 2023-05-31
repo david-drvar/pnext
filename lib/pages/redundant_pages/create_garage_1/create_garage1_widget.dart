@@ -68,7 +68,9 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
           },
         ),
         title: Text(
-          'Create Garage',
+          FFLocalizations.of(context).getText(
+            '7z9eteq8' /* Create Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -99,11 +101,14 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               controller: _model.addressNumberController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Address',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'h2soni65' /* Address */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText:
-                                    'Address and number, e.g. Via Montebello 2',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '301hbfan' /* Address and number, e.g. Via M... */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -161,10 +166,14 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               controller: _model.cityController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'City',
+                                labelText: FFLocalizations.of(context).getText(
+                                  '4oaetb3l' /* City */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'City, e.g. Milano',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '3yxqi08s' /* City, e.g. Milano */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -222,10 +231,14 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                               controller: _model.zipController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'ZIP',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'urq3sik5' /* ZIP */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'ZIP, e.g. 20063',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'o4270z5g' /* ZIP, e.g. 20063 */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -282,7 +295,9 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 5.0, 0.0, 0.0),
                             child: Text(
-                              'Use GPS positioning to determine your precise location',
+                              FFLocalizations.of(context).getText(
+                                'zn5hzo8j' /* Use GPS positioning to determi... */,
+                              ),
                               textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
@@ -315,7 +330,9 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                       currentUserLocationValue;
                                 });
                               },
-                              text: 'LOCATE ME',
+                              text: FFLocalizations.of(context).getText(
+                                'i5gwkzdi' /* LOCATE ME */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -386,7 +403,9 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                     .secondaryBackground,
                               ),
                               child: Text(
-                                'Select the maximum size of vehicle that your parking space can accommodate',
+                                FFLocalizations.of(context).getText(
+                                  'bix1my36' /* Select the maximum size of veh... */,
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
@@ -549,11 +568,15 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'STEP',
+                                FFLocalizations.of(context).getText(
+                                  'rn4v6wi6' /* STEP */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
-                                '1/3',
+                                FFLocalizations.of(context).getText(
+                                  '57awi7x4' /* 1/3 */,
+                                ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
                               ),
@@ -589,7 +612,9 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
 
                               setState(() {});
                             },
-                            text: 'NEXT',
+                            text: FFLocalizations.of(context).getText(
+                              'i3xserbg' /* NEXT */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

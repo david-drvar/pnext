@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart';
+import '/pages/create_garage_3/create_garage3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +75,9 @@ class _CreateGarage2FotoVideoWidgetState
           },
         ),
         title: Text(
-          'Crea un Garage',
+          FFLocalizations.of(context).getText(
+            'ykhbeid0' /* Crea un Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -106,10 +108,14 @@ class _CreateGarage2FotoVideoWidgetState
                               controller: _model.descriptionController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Descrizione',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'woisy49q' /* Descrizione */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'Descrizione',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'ckk19wvf' /* Descrizione */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -189,7 +195,9 @@ class _CreateGarage2FotoVideoWidgetState
 
                                 setState(() {});
                               },
-                              text: 'FOTO',
+                              text: FFLocalizations.of(context).getText(
+                                'a4mdbw2c' /* FOTO */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -239,7 +247,9 @@ class _CreateGarage2FotoVideoWidgetState
 
                                 setState(() {});
                               },
-                              text: 'VIDEO',
+                              text: FFLocalizations.of(context).getText(
+                                'bu6wxn80' /* VIDEO */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -397,7 +407,9 @@ class _CreateGarage2FotoVideoWidgetState
                                 );
                               }
                             },
-                            text: 'AVANTI',
+                            text: FFLocalizations.of(context).getText(
+                              'mgz6ysd6' /* AVANTI */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

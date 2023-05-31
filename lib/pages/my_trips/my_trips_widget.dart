@@ -50,7 +50,9 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).dark600,
         automaticallyImplyLeading: false,
         title: Text(
-          'My Trips',
+          FFLocalizations.of(context).getText(
+            '78l2v6cm' /* My Trips */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Urbanist',
                 color: FlutterFlowTheme.of(context).tertiary,
@@ -87,10 +89,14 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                         indicatorWeight: 4.0,
                         tabs: [
                           Tab(
-                            text: 'Upcoming',
+                            text: FFLocalizations.of(context).getText(
+                              'kn32ai48' /* Upcoming */,
+                            ),
                           ),
                           Tab(
-                            text: 'Completed',
+                            text: FFLocalizations.of(context).getText(
+                              'xrs89ynz' /* Completed */,
+                            ),
                           ),
                         ],
                       ),
@@ -322,9 +328,13 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                         children: [
                                                           Text(
                                                             dateTimeFormat(
-                                                                'MMMEd',
-                                                                listViewTripsRecord
-                                                                    .tripBeginDate!),
+                                                              'MMMEd',
+                                                              listViewTripsRecord
+                                                                  .tripBeginDate!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -340,7 +350,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                 ),
                                                           ),
                                                           Text(
-                                                            ' - ',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '8b0l78x4' /*  -  */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -357,9 +371,13 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                           ),
                                                           Text(
                                                             dateTimeFormat(
-                                                                'MMMEd',
-                                                                listViewTripsRecord
-                                                                    .tripEndDate!),
+                                                              'MMMEd',
+                                                              listViewTripsRecord
+                                                                  .tripEndDate!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -460,7 +478,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
-                                                              'Total',
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '9c7kutjd' /* Total */,
+                                                              ),
                                                               textAlign:
                                                                   TextAlign.end,
                                                               style: FlutterFlowTheme
@@ -673,7 +695,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                         0.0,
                                                                         0.0),
                                                                 child: Text(
-                                                                  'Cancelled',
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'cco5mrkp' /* Cancelled */,
+                                                                  ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -703,9 +729,13 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                         children: [
                                                           Text(
                                                             dateTimeFormat(
-                                                                'MMMEd',
-                                                                listViewTripsRecord
-                                                                    .tripBeginDate!),
+                                                              'MMMEd',
+                                                              listViewTripsRecord
+                                                                  .tripBeginDate!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -721,7 +751,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                 ),
                                                           ),
                                                           Text(
-                                                            ' - ',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '07u8darg' /*  -  */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -738,9 +772,13 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                           ),
                                                           Text(
                                                             dateTimeFormat(
-                                                                'MMMEd',
-                                                                listViewTripsRecord
-                                                                    .tripEndDate!),
+                                                              'MMMEd',
+                                                              listViewTripsRecord
+                                                                  .tripEndDate!,
+                                                              locale: FFLocalizations
+                                                                      .of(context)
+                                                                  .languageCode,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .headlineSmall
@@ -829,7 +867,11 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                     setState(
                                                                         () {}));
                                                               },
-                                                              text: 'Rate Trip',
+                                                              text: FFLocalizations
+                                                                      .of(context)
+                                                                  .getText(
+                                                                '4d4qc7uy' /* Rate Trip */,
+                                                              ),
                                                               options:
                                                                   FFButtonOptions(
                                                                 width: 130.0,

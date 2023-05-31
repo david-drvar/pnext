@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -354,7 +355,11 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                                       ),
                                                     );
                                                   },
-                                                  text: 'Edit',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'g8tlg1tz' /* Edit */,
+                                                  ),
                                                   options: FFButtonOptions(
                                                     width: 60.0,
                                                     height: 40.0,
@@ -401,7 +406,11 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                                           garagesUpdateData);
                                                   Navigator.pop(context);
                                                 },
-                                                text: 'Delete',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'vpjv1ga3' /* Delete */,
+                                                ),
                                                 options: FFButtonOptions(
                                                   width: 60.0,
                                                   height: 40.0,
@@ -449,7 +458,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: Text(
+                              child: AutoSizeText(
                                 garageDetailsGaragesRecord.address,
                                 style:
                                     FlutterFlowTheme.of(context).displaySmall,
@@ -518,7 +527,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Description',
+                              FFLocalizations.of(context).getText(
+                                '81qxirj8' /* Description */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -567,7 +578,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Suitable for',
+                              FFLocalizations.of(context).getText(
+                                'qrv0qs85' /* Suitable for */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -763,7 +776,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Garage availabilities',
+                              FFLocalizations.of(context).getText(
+                                'x6klpsip' /* Garage availabilities */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleLarge,
                             ),
                           ],
@@ -777,107 +792,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Monday',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Urbanist',
-                                    color: FlutterFlowTheme.of(context).dark600,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.mondayStart),
-                                  'Not available',
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              FFLocalizations.of(context).getText(
+                                '0imd63s1' /* Monday */,
                               ),
-                            ),
-                            if (functions.isDateNull(
-                                    garageDetailsGaragesRecord.mondayEnd) ==
-                                false)
-                              Text(
-                                '-',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            if (functions.isDateNull(
-                                    garageDetailsGaragesRecord.mondayEnd) ==
-                                false)
-                              Text(
-                                valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.mondayEnd),
-                                  'ee',
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Tuesday',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Urbanist',
-                                    color: FlutterFlowTheme.of(context).dark600,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 0.0, 0.0),
-                              child: Text(
-                                valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.tuesdayStart),
-                                  'Not available',
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                            if (functions.isDateNull(
-                                    garageDetailsGaragesRecord.tuesdayEnd) ==
-                                false)
-                              Text(
-                                '-',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            if (functions.isDateNull(
-                                    garageDetailsGaragesRecord.tuesdayEnd) ==
-                                false)
-                              Text(
-                                valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.tuesdayEnd),
-                                  'ee',
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Wednesday',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -892,9 +809,135 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsGaragesRecord
-                                          .wednesdayStart),
+                                    'Hm',
+                                    garageDetailsGaragesRecord.mondayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  'Not available',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            if (functions.isDateNull(
+                                    garageDetailsGaragesRecord.mondayEnd) ==
+                                false)
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  's4z1jg2b' /* - */,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            if (functions.isDateNull(
+                                    garageDetailsGaragesRecord.mondayEnd) ==
+                                false)
+                              Text(
+                                valueOrDefault<String>(
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.mondayEnd,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  'ee',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '9ferv121' /* Tuesday */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).dark600,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.tuesdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  'Not available',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            if (functions.isDateNull(
+                                    garageDetailsGaragesRecord.tuesdayEnd) ==
+                                false)
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '6umsbr8d' /* - */,
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            if (functions.isDateNull(
+                                    garageDetailsGaragesRecord.tuesdayEnd) ==
+                                false)
+                              Text(
+                                valueOrDefault<String>(
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.tuesdayEnd,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
+                                  'ee',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '2cevhn5u' /* Wednesday */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).dark600,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.wednesdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -904,15 +947,21 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                     garageDetailsGaragesRecord.wednesdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'tnzaizsr' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
                                     garageDetailsGaragesRecord.wednesdayEnd) ==
                                 false)
                               Text(
-                                dateTimeFormat('Hm',
-                                    garageDetailsGaragesRecord.wednesdayEnd!),
+                                dateTimeFormat(
+                                  'Hm',
+                                  garageDetailsGaragesRecord.wednesdayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -926,7 +975,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Thursday',
+                              FFLocalizations.of(context).getText(
+                                '387mv1rr' /* Thursday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -940,8 +991,12 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   20.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.thursdayStart),
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.thursdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -951,15 +1006,21 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                     garageDetailsGaragesRecord.thursdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'm5y8r5zn' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
                                     garageDetailsGaragesRecord.thursdayEnd) ==
                                 false)
                               Text(
-                                dateTimeFormat('Hm',
-                                    garageDetailsGaragesRecord.thursdayEnd!),
+                                dateTimeFormat(
+                                  'Hm',
+                                  garageDetailsGaragesRecord.thursdayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -973,7 +1034,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Friday',
+                              FFLocalizations.of(context).getText(
+                                'gwyskts6' /* Friday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -987,8 +1050,12 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   20.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.fridayStart),
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.fridayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -998,15 +1065,21 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                     garageDetailsGaragesRecord.fridayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  '9xhb2xkt' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
                                     garageDetailsGaragesRecord.fridayEnd) ==
                                 false)
                               Text(
-                                dateTimeFormat('Hm',
-                                    garageDetailsGaragesRecord.fridayEnd!),
+                                dateTimeFormat(
+                                  'Hm',
+                                  garageDetailsGaragesRecord.fridayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1020,7 +1093,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Saturday',
+                              FFLocalizations.of(context).getText(
+                                'n9pr836w' /* Saturday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1034,8 +1109,12 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   20.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.saturdayStart),
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.saturdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1045,15 +1124,21 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                     garageDetailsGaragesRecord.saturdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  '3v42akl6' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
                                     garageDetailsGaragesRecord.saturdayEnd) ==
                                 false)
                               Text(
-                                dateTimeFormat('Hm',
-                                    garageDetailsGaragesRecord.saturdayEnd!),
+                                dateTimeFormat(
+                                  'Hm',
+                                  garageDetailsGaragesRecord.saturdayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1067,7 +1152,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Sunday',
+                              FFLocalizations.of(context).getText(
+                                'tua84c2i' /* Sunday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1081,8 +1168,12 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                   20.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  dateTimeFormat('Hm',
-                                      garageDetailsGaragesRecord.sundayStart),
+                                  dateTimeFormat(
+                                    'Hm',
+                                    garageDetailsGaragesRecord.sundayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1092,15 +1183,21 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                     garageDetailsGaragesRecord.sundayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'jdm0tx0e' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
                                     garageDetailsGaragesRecord.sundayEnd) ==
                                 false)
                               Text(
-                                dateTimeFormat('Hm',
-                                    garageDetailsGaragesRecord.sundayEnd!),
+                                dateTimeFormat(
+                                  'Hm',
+                                  garageDetailsGaragesRecord.sundayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1114,7 +1211,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'Garage accessibility -',
+                              FFLocalizations.of(context).getText(
+                                '5ui2od7p' /* Garage accessibility - */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1125,7 +1224,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             ),
                             if (garageDetailsGaragesRecord.isKey == false)
                               Text(
-                                ' always accessible',
+                                FFLocalizations.of(context).getText(
+                                  'ho07foba' /*  always accessible */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1137,7 +1238,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                               ),
                             if (garageDetailsGaragesRecord.isKey == true)
                               Text(
-                                'requires key or remote control',
+                                FFLocalizations.of(context).getText(
+                                  'qvyii3ac' /* requires key or remote control */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1159,7 +1262,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                'Keybox password -',
+                                FFLocalizations.of(context).getText(
+                                  'jqlo7e0m' /* Keybox password - */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1355,7 +1460,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  '+ taxes/fees',
+                                  FFLocalizations.of(context).getText(
+                                    '2wtdrwfe' /* + taxes/fees */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -1372,7 +1479,9 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              'per hour',
+                              FFLocalizations.of(context).getText(
+                                '85l7wc85' /* per hour */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(

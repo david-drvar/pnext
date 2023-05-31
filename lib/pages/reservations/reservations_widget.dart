@@ -33,7 +33,12 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
     super.initState();
     _model = createModel(context, () => ReservationsModel());
 
-    _model.textController ??= TextEditingController(text: 'XX000XX');
+    _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController?.text = FFLocalizations.of(context).getText(
+            '4xwjka01' /* XX000XX */,
+          );
+        }));
   }
 
   @override
@@ -83,7 +88,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.02, -0.99),
                   child: Text(
-                    'Indica quando hai bisogno del parcheggio',
+                    FFLocalizations.of(context).getText(
+                      '1h1inw9d' /* Indica quando hai bisogno del ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -105,6 +112,7 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                       dateStyle: TextStyle(),
                       selectedDateStyle: TextStyle(),
                       inactiveDateStyle: TextStyle(),
+                      locale: FFLocalizations.of(context).languageCode,
                     ),
                   ),
                 ),
@@ -114,7 +122,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Orario di arrivo',
+                    text: FFLocalizations.of(context).getText(
+                      'vrdf11lo' /* Orario di arrivo */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,
@@ -139,14 +149,18 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                 Align(
                   alignment: AlignmentDirectional(-0.47, 0.28),
                   child: Text(
-                    'hm',
+                    FFLocalizations.of(context).getText(
+                      '3c95llz2' /* hm */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.78, 0.28),
                   child: Text(
-                    'Seleziona orario fine sosta',
+                    FFLocalizations.of(context).getText(
+                      'bi1huivn' /* Seleziona orario fine sosta */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -156,7 +170,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Orario fine sosta',
+                    text: FFLocalizations.of(context).getText(
+                      'p0ka2wbk' /* Orario fine sosta */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,
@@ -294,7 +310,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: Text(
-                      'Motorcycle',
+                      FFLocalizations.of(context).getText(
+                        'ktrkd13k' /* Motorcycle */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -305,7 +323,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: Text(
-                      'Car',
+                      FFLocalizations.of(context).getText(
+                        'hcwcv6we' /* Car */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -316,7 +336,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: Text(
-                      'SuV',
+                      FFLocalizations.of(context).getText(
+                        '0d3x6n1u' /* SuV */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -327,7 +349,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: Text(
-                      'Truck',
+                      FFLocalizations.of(context).getText(
+                        'jfhatu0s' /* Truck */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -338,7 +362,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: Text(
-                      'Caravan',
+                      FFLocalizations.of(context).getText(
+                        'axd0awdh' /* Caravan */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -349,7 +375,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                     onPressed: () {
                       print('Button pressed ...');
                     },
-                    text: 'Cerca sulla mappa',
+                    text: FFLocalizations.of(context).getText(
+                      'soylc591' /* Cerca sulla mappa */,
+                    ),
                     options: FFButtonOptions(
                       width: 160.0,
                       height: 30.0,
@@ -374,7 +402,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                 Align(
                   alignment: AlignmentDirectional(-0.6, 0.41),
                   child: Text(
-                    'Inserisci informazioni relative al tuo veicolo',
+                    FFLocalizations.of(context).getText(
+                      '8ulc4vgq' /* Inserisci informazioni relativ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -388,7 +418,9 @@ class _ReservationsWidgetState extends State<ReservationsWidget> {
                       autofocus: true,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: '[Some hint text...]',
+                        hintText: FFLocalizations.of(context).getText(
+                          'a9ez6122' /* [Some hint text...] */,
+                        ),
                         hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(

@@ -82,7 +82,9 @@ class _GarageAvailabilitiesWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: Text(
-                    'Indica,  per ogni giorno,  la fascia oraria disponibile',
+                    FFLocalizations.of(context).getText(
+                      't4w3wzij' /* Indica,  per ogni giorno,  la ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.of(context).gray600,
@@ -123,7 +125,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'M',
+                            FFLocalizations.of(context).getText(
+                              'ljsmfon5' /* M */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -155,7 +159,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'T',
+                            FFLocalizations.of(context).getText(
+                              'fb6ntsqu' /* T */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -187,7 +193,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'W',
+                            FFLocalizations.of(context).getText(
+                              '7pbe2mbq' /* W */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -219,7 +227,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'T',
+                            FFLocalizations.of(context).getText(
+                              'v74pldr6' /* T */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -251,7 +261,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'F',
+                            FFLocalizations.of(context).getText(
+                              'upppuqmj' /* F */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -283,7 +295,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'S',
+                            FFLocalizations.of(context).getText(
+                              '1u2q7hty' /* S */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -315,7 +329,9 @@ class _GarageAvailabilitiesWidgetState
                             ).then((value) => setState(() {}));
                           },
                           child: Text(
-                            'S',
+                            FFLocalizations.of(context).getText(
+                              '732mz6cm' /* S */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
@@ -333,7 +349,9 @@ class _GarageAvailabilitiesWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(
                               35.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'La tua disponibiilità è modificabile in qualiasi altro momento dal menù principale',
+                            FFLocalizations.of(context).getText(
+                              '0zxet7yn' /* La tua disponibiilità è modifi... */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ),
@@ -360,7 +378,9 @@ class _GarageAvailabilitiesWidgetState
                               ),
                             );
                           },
-                          text: 'Conferma',
+                          text: FFLocalizations.of(context).getText(
+                            '60f2f0z5' /* Conferma */,
+                          ),
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 40.0,

@@ -85,7 +85,9 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Welcome!',
+                          FFLocalizations.of(context).getText(
+                            'dp9hej2c' /* Welcome! */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
                               .override(
@@ -104,7 +106,9 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Find your Dream Space To Getaway',
+                          FFLocalizations.of(context).getText(
+                            'g3i22t3r' /* Find your Dream Space To Getaw... */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -138,7 +142,10 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                 controller: _model.textController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Address, city, state...',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    '21irdko8' /* Address, city, state... */,
+                                  ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -207,7 +214,9 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                   ),
                                 );
                               },
-                              text: 'Search',
+                              text: FFLocalizations.of(context).getText(
+                                's5p4frek' /* Search */,
+                              ),
                               options: FFButtonOptions(
                                 width: 100.0,
                                 height: 40.0,
@@ -459,7 +468,10 @@ class _HomePageMAINWidgetState extends State<HomePageMAINWidget> {
                                                       .fromSTEB(
                                                           2.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Rating',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'lmtr4jln' /* Rating */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium,

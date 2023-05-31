@@ -48,7 +48,9 @@ class _MyReservationsTabbarWidgetState
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          'Le mie Prenotazioni',
+          FFLocalizations.of(context).getText(
+            'zilpryox' /* Le mie Prenotazioni */,
+          ),
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
@@ -80,10 +82,14 @@ class _MyReservationsTabbarWidgetState
                       indicatorWeight: 4.0,
                       tabs: [
                         Tab(
-                          text: 'Come noleggiatore',
+                          text: FFLocalizations.of(context).getText(
+                            'n6gql0hc' /* Come noleggiatore */,
+                          ),
                         ),
                         Tab(
-                          text: 'Come proprietario',
+                          text: FFLocalizations.of(context).getText(
+                            'j5xd0ucs' /* Come proprietario */,
+                          ),
                         ),
                       ],
                     ),
@@ -261,9 +267,13 @@ class _MyReservationsTabbarWidgetState
                                                             valueOrDefault<
                                                                 String>(
                                                               dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  listViewReservationRecord
-                                                                      .dateReservation),
+                                                                'd/M/y',
+                                                                listViewReservationRecord
+                                                                    .dateReservation,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
                                                               'date',
                                                             ).maybeHandleOverflow(
                                                               maxChars: 36,
@@ -349,7 +359,11 @@ class _MyReservationsTabbarWidgetState
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    'EUR',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'y0alcete' /* EUR */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium,
@@ -366,7 +380,11 @@ class _MyReservationsTabbarWidgetState
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'Total',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'p06a3791' /* Total */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium,
@@ -560,9 +578,13 @@ class _MyReservationsTabbarWidgetState
                                                             valueOrDefault<
                                                                 String>(
                                                               dateTimeFormat(
-                                                                  'd/M/y',
-                                                                  listViewReservationRecord
-                                                                      .dateReservation),
+                                                                'd/M/y',
+                                                                listViewReservationRecord
+                                                                    .dateReservation,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              ),
                                                               'Description',
                                                             ).maybeHandleOverflow(
                                                               maxChars: 36,
@@ -648,7 +670,11 @@ class _MyReservationsTabbarWidgetState
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
-                                                                    'EUR',
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'pttg8uyv' /* EUR */,
+                                                                    ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium,
@@ -665,7 +691,11 @@ class _MyReservationsTabbarWidgetState
                                                                           0.0,
                                                                           0.0),
                                                               child: Text(
-                                                                'Total',
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '4cz2609o' /* Total */,
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium,

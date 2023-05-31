@@ -50,7 +50,9 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
-            'My Bookings',
+            FFLocalizations.of(context).getText(
+              'scw0qct4' /* My Bookings */,
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium,
           ),
           actions: [],
@@ -191,9 +193,14 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     dateTimeFormat(
-                                                        'd/M/y',
-                                                        listViewReservationRecord
-                                                            .dateReservation),
+                                                      'd/M/y',
+                                                      listViewReservationRecord
+                                                          .dateReservation,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
                                                     'Description',
                                                   ).maybeHandleOverflow(
                                                     maxChars: 36,
@@ -273,7 +280,11 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'EUR',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'rhwxgmpr' /* EUR */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium,
@@ -287,7 +298,11 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
                                                             .fromSTEB(280.0,
                                                                 0.0, 0.0, 0.0),
                                                     child: Text(
-                                                      'Total',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'ateazkqo' /* Total */,
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

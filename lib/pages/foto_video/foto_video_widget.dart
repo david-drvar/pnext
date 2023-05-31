@@ -59,7 +59,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
           },
         ),
         title: Text(
-          'Create Garage',
+          FFLocalizations.of(context).getText(
+            '7ekzzh28' /* Create Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -93,7 +95,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                                     .secondaryBackground,
                               ),
                               child: Text(
-                                'Blabla photo',
+                                FFLocalizations.of(context).getText(
+                                  'dre9y8jm' /* Blabla photo */,
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
@@ -115,7 +119,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                               onPressed: () {
                                 print('Button pressed ...');
                               },
-                              text: 'FOTO',
+                              text: FFLocalizations.of(context).getText(
+                                'nhbmy0ue' /* FOTO */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -157,7 +163,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                                     .secondaryBackground,
                               ),
                               child: Text(
-                                'Blabla video',
+                                FFLocalizations.of(context).getText(
+                                  'levd56wi' /* Blabla video */,
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
@@ -179,7 +187,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                               onPressed: () {
                                 print('Button pressed ...');
                               },
-                              text: 'VIDEO',
+                              text: FFLocalizations.of(context).getText(
+                                'yda84pat' /* VIDEO */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -222,7 +232,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                                     .secondaryBackground,
                               ),
                               child: Text(
-                                'Blabla preview',
+                                FFLocalizations.of(context).getText(
+                                  'insdoxy1' /* Blabla preview */,
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
@@ -244,11 +256,15 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'STEP',
+                                FFLocalizations.of(context).getText(
+                                  'bgzc0q02' /* STEP */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
-                                '1/3',
+                                FFLocalizations.of(context).getText(
+                                  '3hf2imim' /* 1/3 */,
+                                ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
                               ),
@@ -264,7 +280,9 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                                 ),
                               );
                             },
-                            text: 'SUBMIT',
+                            text: FFLocalizations.of(context).getText(
+                              '686pwv58' /* SUBMIT */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

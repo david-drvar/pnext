@@ -61,7 +61,9 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
           },
         ),
         title: Text(
-          'My Bookings',
+          FFLocalizations.of(context).getText(
+            '5llvxjs1' /* My Bookings */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -92,10 +94,14 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                       indicatorWeight: 4.0,
                       tabs: [
                         Tab(
-                          text: 'Upcoming ',
+                          text: FFLocalizations.of(context).getText(
+                            'nz0mlbw0' /* Upcoming  */,
+                          ),
                         ),
                         Tab(
-                          text: 'Completed',
+                          text: FFLocalizations.of(context).getText(
+                            'p98lzxy8' /* Completed */,
+                          ),
                         ),
                       ],
                     ),
@@ -250,9 +256,13 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                       children: [
                                                         Text(
                                                           dateTimeFormat(
-                                                              'MMMEd',
-                                                              listViewTripsRecord
-                                                                  .tripBeginDate!),
+                                                            'MMMEd',
+                                                            listViewTripsRecord
+                                                                .tripBeginDate!,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -268,7 +278,11 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          ' - ',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'j9hl8get' /*  -  */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -285,9 +299,13 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                         ),
                                                         Text(
                                                           dateTimeFormat(
-                                                              'MMMEd',
-                                                              listViewTripsRecord
-                                                                  .tripEndDate!),
+                                                            'MMMEd',
+                                                            listViewTripsRecord
+                                                                .tripEndDate!,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -381,7 +399,11 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'Total',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'aj73ld71' /* Total */,
+                                                            ),
                                                             textAlign:
                                                                 TextAlign.end,
                                                             style: FlutterFlowTheme
@@ -563,9 +585,13 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                       children: [
                                                         Text(
                                                           dateTimeFormat(
-                                                              'MMMEd',
-                                                              listViewTripsRecord
-                                                                  .tripBeginDate!),
+                                                            'MMMEd',
+                                                            listViewTripsRecord
+                                                                .tripBeginDate!,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -581,7 +607,11 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          ' - ',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'nhwy1zhj' /*  -  */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -598,9 +628,13 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                         ),
                                                         Text(
                                                           dateTimeFormat(
-                                                              'MMMEd',
-                                                              listViewTripsRecord
-                                                                  .tripEndDate!),
+                                                            'MMMEd',
+                                                            listViewTripsRecord
+                                                                .tripEndDate!,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .headlineSmall
@@ -694,7 +728,11 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'Total',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'bb5wzzeh' /* Total */,
+                                                            ),
                                                             textAlign:
                                                                 TextAlign.end,
                                                             style: FlutterFlowTheme

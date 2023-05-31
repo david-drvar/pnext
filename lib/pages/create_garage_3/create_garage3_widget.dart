@@ -74,7 +74,9 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
           title: Align(
             alignment: AlignmentDirectional(-0.4, 0.0),
             child: Text(
-              'Crea un Garage',
+              FFLocalizations.of(context).getText(
+                'k5mec075' /* Crea un Garage */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
           ),
@@ -93,7 +95,11 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, -0.7),
                       child: Text(
-                        'Inserisci le informazioni\nper l\'accesso al tuo posto auto',
+                        FFLocalizations.of(context).getText(
+                          'nn1i2s0y' /* Inserisci le informazioni
+per ... */
+                          ,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -117,7 +123,9 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
                       ),
                     );
                   },
-                  text: 'Posto auto sempre accessibile',
+                  text: FFLocalizations.of(context).getText(
+                    'eat1v6kw' /* Posto auto sempre accessibile */,
+                  ),
                   options: FFButtonOptions(
                     width: 260.0,
                     height: 100.0,
@@ -151,7 +159,9 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
                       ),
                     );
                   },
-                  text: 'Servono chiavi o telecomando per accedere',
+                  text: FFLocalizations.of(context).getText(
+                    'bv2c6oz2' /* Servono chiavi o telecomando p... */,
+                  ),
                   options: FFButtonOptions(
                     width: 260.0,
                     height: 100.0,

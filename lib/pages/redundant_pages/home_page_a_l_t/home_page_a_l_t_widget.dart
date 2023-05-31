@@ -110,7 +110,9 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Welcome!',
+                                    FFLocalizations.of(context).getText(
+                                      'dygmlgm3' /* Welcome! */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .displaySmall
                                         .override(
@@ -131,7 +133,9 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Find your Dream Space',
+                                    FFLocalizations.of(context).getText(
+                                      'qokrdyeb' /* Find your Dream Space */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
@@ -167,7 +171,10 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText:
-                                                'Address, city, state...',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'dwyea2t8' /* Address, city, state... */,
+                                            ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -235,7 +242,10 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: 'Search',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '95hywctt' /* Search */,
+                                        ),
                                         options: FFButtonOptions(
                                           width: 100.0,
                                           height: 40.0,
@@ -427,7 +437,9 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          '4/5 reviews',
+                                          FFLocalizations.of(context).getText(
+                                            '4norddzl' /* 4/5 reviews */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

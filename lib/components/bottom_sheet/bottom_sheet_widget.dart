@@ -75,7 +75,9 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
-                  'Session Booked!',
+                  FFLocalizations.of(context).getText(
+                    'txj68s11' /* Session Booked! */,
+                  ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Urbanist',
                         color: FlutterFlowTheme.of(context).dark600,
@@ -85,14 +87,18 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
-                  'You have successfully booked a session on:',
+                  FFLocalizations.of(context).getText(
+                    '0e1dkrbm' /* You have successfully booked a... */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                 child: Text(
-                  'Mon, Dec 11 - 2021',
+                  FFLocalizations.of(context).getText(
+                    'deg60cuc' /* Mon, Dec 11 - 2021 */,
+                  ),
                   style: FlutterFlowTheme.of(context).displaySmall.override(
                         fontFamily: 'Urbanist',
                         color: FlutterFlowTheme.of(context).secondary,

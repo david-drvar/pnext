@@ -7,8 +7,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/change_password/change_password_widget.dart';
 import '/pages/edit_profile/edit_profile_widget.dart';
+import '/pages/feedback_page/feedback_page_widget.dart';
 import '/pages/login/login_widget.dart';
-import '/pages/my_bookings/my_bookings_widget.dart';
 import '/pages/owners_garages/owners_garages_widget.dart';
 import '/pages/payment_info/payment_info_widget.dart';
 import 'package:flutter/material.dart';
@@ -249,7 +249,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Switch to Dark Mode',
+                                FFLocalizations.of(context).getText(
+                                  'n0pocfap' /* Switch to Dark Mode */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -354,7 +356,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Switch to Light Mode',
+                                FFLocalizations.of(context).getText(
+                                  'naapo2l2' /* Switch to Light Mode */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -460,7 +464,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Account Details',
+                              FFLocalizations.of(context).getText(
+                                'jluc8s4q' /* Account Details */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -523,7 +529,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Edit Profile',
+                                FFLocalizations.of(context).getText(
+                                  'ws7rfmov' /* Edit Profile */,
+                                ),
                                 style: FlutterFlowTheme.of(context).titleSmall,
                               ),
                               FlutterFlowIconButton(
@@ -600,7 +608,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Payment Information',
+                                  FFLocalizations.of(context).getText(
+                                    '8s7k7b79' /* Payment Information */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -681,7 +691,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Change Password',
+                                  FFLocalizations.of(context).getText(
+                                    'h8b9p6pj' /* Change Password */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleSmall,
                                 ),
@@ -761,7 +773,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                               children: [
                                 Expanded(
                                   child: Text(
-                                    'My Garages',
+                                    FFLocalizations.of(context).getText(
+                                      '1z1hertq' /* My Garages */,
+                                    ),
                                     style:
                                         FlutterFlowTheme.of(context).titleSmall,
                                   ),
@@ -788,90 +802,89 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                   ),
                 ],
               ),
-              if (columnUsersRecord.isHost)
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MyBookingsWidget(),
-                            ),
-                          );
-                        },
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 0.0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FeedbackPageWidget(),
                           ),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 1.0,
-                            height: 50.0,
-                            decoration: BoxDecoration(
+                        );
+                      },
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 0.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(0.0),
+                        ),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 1.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 0.0,
+                                color: FlutterFlowTheme.of(context).lineGray,
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(0.0),
+                            border: Border.all(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 0.0,
-                                  color: FlutterFlowTheme.of(context).lineGray,
-                                  offset: Offset(0.0, 2.0),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(0.0),
-                              border: Border.all(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                width: 0.0,
-                              ),
+                              width: 0.0,
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 4.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      'My Bookings',
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleSmall,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 4.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'kaazbdyf' /* Submit Feedback */,
                                     ),
+                                    style:
+                                        FlutterFlowTheme.of(context).titleSmall,
                                   ),
-                                  FlutterFlowIconButton(
-                                    borderColor: Colors.transparent,
-                                    borderRadius: 30.0,
-                                    buttonSize: 46.0,
-                                    icon: Icon(
-                                      Icons.chevron_right_rounded,
-                                      color: Color(0xFF95A1AC),
-                                      size: 20.0,
-                                    ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
-                                    },
+                                ),
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30.0,
+                                  buttonSize: 46.0,
+                                  icon: Icon(
+                                    Icons.chevron_right_rounded,
+                                    color: Color(0xFF95A1AC),
+                                    size: 20.0,
                                   ),
-                                ],
-                              ),
+                                  onPressed: () {
+                                    print('IconButton pressed ...');
+                                  },
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 20.0),
                 child: FFButtonWidget(
@@ -885,7 +898,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                       (r) => false,
                     );
                   },
-                  text: 'Log Out',
+                  text: FFLocalizations.of(context).getText(
+                    'a0vq98x5' /* Log Out */,
+                  ),
                   options: FFButtonOptions(
                     width: 110.0,
                     height: 50.0,

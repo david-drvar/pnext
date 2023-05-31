@@ -69,7 +69,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
           },
         ),
         title: Text(
-          'Create Garage',
+          FFLocalizations.of(context).getText(
+            'zou2b66a' /* Create Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -92,7 +94,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                       child: Text(
-                        'Registra con GPS dove si trova il tuo parcheggio',
+                        FFLocalizations.of(context).getText(
+                          'txc8sb9i' /* Registra con GPS dove si trova... */,
+                        ),
                         textAlign: TextAlign.justify,
                         style: FlutterFlowTheme.of(context).bodySmall,
                       ),
@@ -116,8 +120,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                                   ),
                                 );
                               },
-                              text:
-                                  'Premi qui quando sei di fronte al posto auto ',
+                              text: FFLocalizations.of(context).getText(
+                                'qsgubxiw' /* Premi qui quando sei di fronte... */,
+                              ),
                               options: FFButtonOptions(
                                 width: 300.0,
                                 height: 40.0,
@@ -150,7 +155,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                       child: Text(
-                        'OPPURE',
+                        FFLocalizations.of(context).getText(
+                          'ylfcbkrh' /* OPPURE */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -161,7 +168,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Inserisci l\'indirizzo esatto',
+                            FFLocalizations.of(context).getText(
+                              'nufdleb8' /* Inserisci l'indirizzo esatto */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ],
@@ -179,11 +188,14 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                               controller: _model.addressNumberController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Address',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'sk2pdndp' /* Address */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText:
-                                    'Address and number, e.g. Via Montebello 2',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'xubpv1ur' /* Address and number, e.g. Via M... */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -241,10 +253,14 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                               controller: _model.cityController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'City',
+                                labelText: FFLocalizations.of(context).getText(
+                                  '21cozqd8' /* City */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'City, e.g. Milano',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'iadsrane' /* City, e.g. Milano */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -302,10 +318,14 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                               controller: _model.zipController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'ZIP',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'yxug6zf7' /* ZIP */,
+                                ),
                                 labelStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
-                                hintText: 'ZIP, e.g. 20063',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'ffyyvba3' /* ZIP, e.g. 20063 */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: OutlineInputBorder(
@@ -368,7 +388,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                                     .secondaryBackground,
                               ),
                               child: Text(
-                                'Select the maximum size of vehicle that your parking space can accommodate',
+                                FFLocalizations.of(context).getText(
+                                  'g3pvwemx' /* Select the maximum size of veh... */,
+                                ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
@@ -531,11 +553,15 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'STEP',
+                                FFLocalizations.of(context).getText(
+                                  'av98txlr' /* STEP */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
-                                '1/3',
+                                FFLocalizations.of(context).getText(
+                                  '3sata8vo' /* 1/3 */,
+                                ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
                               ),
@@ -571,7 +597,9 @@ class _CreateGarage1PeppeWidgetState extends State<CreateGarage1PeppeWidget> {
 
                               setState(() {});
                             },
-                            text: 'NEXT',
+                            text: FFLocalizations.of(context).getText(
+                              'a3y4wc6s' /* NEXT */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

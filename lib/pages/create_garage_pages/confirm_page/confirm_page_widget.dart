@@ -87,7 +87,9 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
             title: Align(
               alignment: AlignmentDirectional(-0.3, 0.0),
               child: Text(
-                'Crea un Garage',
+                FFLocalizations.of(context).getText(
+                  'dlblcqy3' /* Crea un Garage */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ),
@@ -104,7 +106,9 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                   Align(
                     alignment: AlignmentDirectional(0.0, -0.8),
                     child: Text(
-                      'Se per metà del tempo messo a disposizione il tuo \nbox verrà affittato allora potrai guadagnare fino a ',
+                      FFLocalizations.of(context).getText(
+                        '2r6m22b6' /* Se per metà del tempo messo a ... */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -141,7 +145,9 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                           (r) => false,
                         );
                       },
-                      text: 'Conferma',
+                      text: FFLocalizations.of(context).getText(
+                        '152d2qgu' /* Conferma */,
+                      ),
                       options: FFButtonOptions(
                         width: 230.0,
                         height: 40.0,
@@ -193,7 +199,9 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                           ),
                         );
                       },
-                      text: 'Voglio modificare la tariffa oraria',
+                      text: FFLocalizations.of(context).getText(
+                        'aetorj2c' /* Voglio modificare la tariffa o... */,
+                      ),
                       options: FFButtonOptions(
                         width: 230.0,
                         height: 40.0,

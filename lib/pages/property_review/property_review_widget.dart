@@ -124,7 +124,9 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
               },
             ),
             title: Text(
-              'Reviews',
+              FFLocalizations.of(context).getText(
+                'uz7g8lxk' /* Reviews */,
+              ),
               style: FlutterFlowTheme.of(context).headlineSmall,
             ),
             actions: [],
@@ -181,7 +183,9 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                 ),
                               ),
                               Text(
-                                '# of Ratings',
+                                FFLocalizations.of(context).getText(
+                                  '58obyqde' /* # of Ratings */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -230,7 +234,9 @@ class _PropertyReviewWidgetState extends State<PropertyReviewWidget>
                                 ],
                               ),
                               Text(
-                                'Avg. Rating',
+                                FFLocalizations.of(context).getText(
+                                  't7g5r74d' /* Avg. Rating */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(

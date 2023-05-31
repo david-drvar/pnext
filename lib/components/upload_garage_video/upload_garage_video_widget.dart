@@ -164,7 +164,9 @@ class _UploadGarageVideoWidgetState extends State<UploadGarageVideoWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Upload garage video',
+                        FFLocalizations.of(context).getText(
+                          'haxbgjfl' /* Upload garage video */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
@@ -248,7 +250,9 @@ class _UploadGarageVideoWidgetState extends State<UploadGarageVideoWidget>
                       }
                     }
                   },
-                  text: 'Upload Video',
+                  text: FFLocalizations.of(context).getText(
+                    '5tbr8gan' /* Upload Video */,
+                  ),
                   options: FFButtonOptions(
                     width: 150.0,
                     height: 50.0,
@@ -276,7 +280,9 @@ class _UploadGarageVideoWidgetState extends State<UploadGarageVideoWidget>
                   onPressed: () async {
                     Navigator.pop(context, _model.uploadedFileUrl);
                   },
-                  text: 'Save Video',
+                  text: FFLocalizations.of(context).getText(
+                    'wu83w1v4' /* Save Video */,
+                  ),
                   options: FFButtonOptions(
                     width: 290.0,
                     height: 50.0,

@@ -69,7 +69,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
           },
         ),
         title: Text(
-          'Create Property',
+          FFLocalizations.of(context).getText(
+            '3grlob0t' /* Create Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -97,7 +99,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'CHOOSE YOUR AMENITIES',
+                                FFLocalizations.of(context).getText(
+                                  '3pwoc3su' /* CHOOSE YOUR AMENITIES */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -145,7 +149,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityPoolValue1 = newValue!);
                                 },
                                 title: Text(
-                                  'Pool',
+                                  FFLocalizations.of(context).getText(
+                                    '3ai2omsb' /* Pool */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -196,7 +202,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       newValue!);
                                 },
                                 title: Text(
-                                  'EV Car Charging',
+                                  FFLocalizations.of(context).getText(
+                                    'lg93dg0t' /* EV Car Charging */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -248,7 +256,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       .amenityExtraOutletsValue = newValue!);
                                 },
                                 title: Text(
-                                  'Extra Outlets',
+                                  FFLocalizations.of(context).getText(
+                                    '407pkpiu' /* Extra Outlets */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -299,7 +309,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       () => _model.amenityACValue = newValue!);
                                 },
                                 title: Text(
-                                  'Air Conditioning (AC)',
+                                  FFLocalizations.of(context).getText(
+                                    '16dwyk4f' /* Air Conditioning (AC) */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -350,7 +362,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityHeatingValue = newValue!);
                                 },
                                 title: Text(
-                                  'Heating',
+                                  FFLocalizations.of(context).getText(
+                                    'e2lr65di' /* Heating */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -401,7 +415,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityWasherValue = newValue!);
                                 },
                                 title: Text(
-                                  'Washer',
+                                  FFLocalizations.of(context).getText(
+                                    'zp9ksitr' /* Washer */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -452,7 +468,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityDryerValue = newValue!);
                                 },
                                 title: Text(
-                                  'Dryer',
+                                  FFLocalizations.of(context).getText(
+                                    'bpwojc21' /* Dryer */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -503,7 +521,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityPetsValue = newValue!);
                                 },
                                 title: Text(
-                                  'Pet Friendly',
+                                  FFLocalizations.of(context).getText(
+                                    'sj41kf1m' /* Pet Friendly */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -554,7 +574,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityWorkoutValue = newValue!);
                                 },
                                 title: Text(
-                                  'Workout Facility',
+                                  FFLocalizations.of(context).getText(
+                                    'qzsz0g48' /* Workout Facility */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -605,7 +627,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                       _model.amenityPoolValue2 = newValue!);
                                 },
                                 title: Text(
-                                  'Hip',
+                                  FFLocalizations.of(context).getText(
+                                    'pvymdpw1' /* Hip */,
+                                  ),
                                   style:
                                       FlutterFlowTheme.of(context).titleMedium,
                                 ),
@@ -660,7 +684,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                                         _model.amenityPoolValue3 = newValue!);
                                   },
                                   title: Text(
-                                    'Night Life',
+                                    FFLocalizations.of(context).getText(
+                                      '6nm7slft' /* Night Life */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium,
                                   ),
@@ -696,11 +722,15 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'STEP',
+                          FFLocalizations.of(context).getText(
+                            'paljp9vj' /* STEP */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                         Text(
-                          '2/3',
+                          FFLocalizations.of(context).getText(
+                            'n0i41d7j' /* 2/3 */,
+                          ),
                           style: FlutterFlowTheme.of(context).headlineMedium,
                         ),
                       ],
@@ -732,7 +762,9 @@ class _CreateProperty2WidgetState extends State<CreateProperty2Widget> {
                           ),
                         );
                       },
-                      text: 'NEXT',
+                      text: FFLocalizations.of(context).getText(
+                        'us3vitvs' /* NEXT */,
+                      ),
                       options: FFButtonOptions(
                         width: 120.0,
                         height: 50.0,

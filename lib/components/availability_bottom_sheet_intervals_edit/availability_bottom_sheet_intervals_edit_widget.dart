@@ -85,7 +85,9 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 4.0),
               child: Text(
-                'Seleziona l\'orario di disponibilità del tuo posto auto per il giorno della settimana scelto ',
+                FFLocalizations.of(context).getText(
+                  'f6tdlrqn' /* Seleziona l'orario di disponib... */,
+                ),
                 style: FlutterFlowTheme.of(context).bodySmall.override(
                       fontFamily: 'Roboto',
                       color: FlutterFlowTheme.of(context).gray600,
@@ -101,37 +103,87 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Orario inizio',
+                    FFLocalizations.of(context).getText(
+                      'pnbek13x' /* Orario inizio */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                   FlutterFlowDropDown<String>(
                     controller: _model.dropDownStartHoursValueController ??=
                         FormFieldController<String>(null),
                     options: [
-                      '09',
-                      '10',
-                      '11',
-                      '12',
-                      '13',
-                      '14',
-                      '15',
-                      '16',
-                      '17',
-                      '18',
-                      '19',
-                      '20',
-                      '21',
-                      '22',
-                      '23',
-                      '00',
-                      '01',
-                      '02',
-                      '03',
-                      '04',
-                      '05',
-                      '06',
-                      '07',
-                      '08'
+                      FFLocalizations.of(context).getText(
+                        'byih226c' /* 09 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'sbsy7o19' /* 10 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'c3o9d2z0' /* 11 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'gz865g22' /* 12 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'z4h1n6k9' /* 13 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'nayei21p' /* 14 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'p0bc7ujh' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'lmg01fho' /* 16 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'uqorl5vz' /* 17 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'cghkmhhb' /* 18 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        't86jr65a' /* 19 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '6vz75axt' /* 20 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'zjfwjgxm' /* 21 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'x314ooh2' /* 22 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '0udnsg7k' /* 23 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'c68ojfqw' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '7b9y8i5c' /* 01 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'fm2y8zjn' /* 02 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'a3t1dc61' /* 03 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'g8z8jzd2' /* 04 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'me6v2n6r' /* 05 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '079we4xq' /* 06 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'zsi4hx1l' /* 07 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '0bldtznf' /* 08 */,
+                      )
                     ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownStartHoursValue = val),
@@ -143,8 +195,12 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Hours',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'pwz4k96g' /* Hours */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      '00ufaw8r' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -158,7 +214,20 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                   FlutterFlowDropDown<String>(
                     controller: _model.dropDownStartMinutesValueController ??=
                         FormFieldController<String>(null),
-                    options: ['00', '15', '30', '45'],
+                    options: [
+                      FFLocalizations.of(context).getText(
+                        'kcyzjnwb' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '5fxw8o49' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'os7dz59j' /* 30 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'ls7kaif5' /* 45 */,
+                      )
+                    ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownStartMinutesValue = val),
                     width: 100.0,
@@ -169,8 +238,12 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Minutes',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'zdo0y14y' /* Minutes */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      'wenjys2v' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -191,37 +264,87 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Orario fine',
+                    FFLocalizations.of(context).getText(
+                      'n1u9fia7' /* Orario fine */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                   FlutterFlowDropDown<String>(
                     controller: _model.dropDownEndHoursValueController ??=
                         FormFieldController<String>(null),
                     options: [
-                      '09',
-                      '10',
-                      '11',
-                      '12',
-                      '13',
-                      '14',
-                      '15',
-                      '16',
-                      '17',
-                      '18',
-                      '19',
-                      '20',
-                      '21',
-                      '22',
-                      '23',
-                      '00',
-                      '01',
-                      '02',
-                      '03',
-                      '04',
-                      '05',
-                      '06',
-                      '07',
-                      '08'
+                      FFLocalizations.of(context).getText(
+                        '3sntaeeo' /* 09 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'a8yvszw6' /* 10 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '8isvlzku' /* 11 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'xkvrbfu1' /* 12 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'pj27d74x' /* 13 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '85iqsqip' /* 14 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '9yazogcl' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '0m6jd7lm' /* 16 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'hfizchij' /* 17 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'd5lbogbb' /* 18 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'jqi0ijn2' /* 19 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '5rnl98xw' /* 20 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'kcvz2dwr' /* 21 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'hweea7lg' /* 22 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'umm0ti3h' /* 23 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'sd772s7q' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'fxy29vxt' /* 01 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'l2l14zjd' /* 02 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'a4xzwpui' /* 03 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'y91mk122' /* 04 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '782g5ted' /* 05 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'kmqiz7iz' /* 06 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'yzwvvedh' /* 07 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '4sd8fe7p' /* 08 */,
+                      )
                     ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownEndHoursValue = val),
@@ -233,8 +356,12 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Hours',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'd9pfk0kk' /* Hours */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      'c1a6xezt' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -248,7 +375,20 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                   FlutterFlowDropDown<String>(
                     controller: _model.dropDownEndMinutesValueController ??=
                         FormFieldController<String>(null),
-                    options: ['00', '15', '30', '45'],
+                    options: [
+                      FFLocalizations.of(context).getText(
+                        'tf0ixpgp' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'gjuuyfzt' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '9n8ugv6t' /* 30 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '0m7gpqgj' /* 45 */,
+                      )
+                    ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownEndMinutesValue = val),
                     width: 100.0,
@@ -259,8 +399,12 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Minutes',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      '7qlgmv31' /* Minutes */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      'ldnnswcg' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -353,7 +497,9 @@ class _AvailabilityBottomSheetIntervalsEditWidgetState
 
                   setState(() {});
                 },
-                text: 'OK',
+                text: FFLocalizations.of(context).getText(
+                  '31g0kbqh' /* OK */,
+                ),
                 options: FFButtonOptions(
                   width: 100.0,
                   height: 40.0,

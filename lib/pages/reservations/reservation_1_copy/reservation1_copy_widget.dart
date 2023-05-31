@@ -89,7 +89,9 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.9),
                   child: Text(
-                    'Indica quando hai bisogno del parcheggio',
+                    FFLocalizations.of(context).getText(
+                      'qev9wse8' /* Indica quando hai bisogno del ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -107,9 +109,17 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                         },
                         currentTime: getCurrentTimestamp,
                         minTime: getCurrentTimestamp,
+                        locale: LocaleType.values.firstWhere(
+                          (l) =>
+                              l.name ==
+                              FFLocalizations.of(context).languageCode,
+                          orElse: () => LocaleType.en,
+                        ),
                       );
                     },
-                    text: 'Data ',
+                    text: FFLocalizations.of(context).getText(
+                      'y8oijhcv' /* Data  */,
+                    ),
                     options: FFButtonOptions(
                       width: 120.0,
                       height: 40.0,
@@ -150,6 +160,7 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                         _model.dropDownMin1Value!,
                         _model.dropDownOre2Value!,
                         _model.dropDownMin2Value!,
+                        _model.datePicked!,
                       );
                       _model.totalTime = await actions.parkingTimeCalculation(
                         context,
@@ -206,7 +217,9 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
 
                       setState(() {});
                     },
-                    text: 'Conferma',
+                    text: FFLocalizations.of(context).getText(
+                      '1e2c3g5l' /* Conferma */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,
@@ -234,30 +247,78 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                     controller: _model.dropDownOre1ValueController ??=
                         FormFieldController<String>(null),
                     options: [
-                      '00',
-                      '01',
-                      '02',
-                      '03',
-                      '04',
-                      '05',
-                      '06',
-                      '07',
-                      '08',
-                      '09',
-                      '10',
-                      '11',
-                      '12',
-                      '13',
-                      '14',
-                      '15',
-                      '16',
-                      '17',
-                      '18',
-                      '19',
-                      '20',
-                      '21',
-                      '22',
-                      '23'
+                      FFLocalizations.of(context).getText(
+                        'tect6yof' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'dods9zmq' /* 01 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'hkotrce7' /* 02 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '9d8o0hy9' /* 03 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '3ra09bmx' /* 04 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'oa89cbfy' /* 05 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'irbqoq35' /* 06 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '6jt7lkwn' /* 07 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'x4r3tcdg' /* 08 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'xkswuovf' /* 09 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'xfmek6oh' /* 10 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'nzutxlh8' /* 11 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'l93ps4xa' /* 12 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '0r72xf15' /* 13 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'tczyp18z' /* 14 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '0c6kct9n' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'dyt09eu6' /* 16 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '3kkl25r1' /* 17 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '2rrlxlgx' /* 18 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'sscoswg9' /* 19 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'r70lacl9' /* 20 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'b4ac514r' /* 21 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '5c6gz1if' /* 22 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'hqalsm8x' /* 23 */,
+                      )
                     ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownOre1Value = val),
@@ -269,8 +330,12 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'hour',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      '6ytr6fd3' /* hour */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      'xhczyhri' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -287,7 +352,20 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                   child: FlutterFlowDropDown<String>(
                     controller: _model.dropDownMin1ValueController ??=
                         FormFieldController<String>(null),
-                    options: ['00', '15', '30', '45'],
+                    options: [
+                      FFLocalizations.of(context).getText(
+                        'xf14ddln' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'jkm54u49' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'k7sgeg8l' /* 30 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '11db0rho' /* 45 */,
+                      )
+                    ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownMin1Value = val),
                     width: 84.0,
@@ -301,8 +379,12 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                           fontFamily: 'Urbanist',
                           fontSize: 14.0,
                         ),
-                    hintText: 'min',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'ytki0x5a' /* min */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      '7t16ozlw' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -317,14 +399,22 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                 Align(
                   alignment: AlignmentDirectional(-0.55, -0.3),
                   child: Text(
-                    'Seleziona orario \nfine sosta',
+                    FFLocalizations.of(context).getText(
+                      'x7spn7w0' /* Seleziona orario 
+fine sosta */
+                      ,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(-0.55, -0.5),
                   child: Text(
-                    'Seleziona orario \ninizio sosta',
+                    FFLocalizations.of(context).getText(
+                      'y19r66c8' /* Seleziona orario 
+inizio sosta */
+                      ,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -334,30 +424,78 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                     controller: _model.dropDownOre2ValueController ??=
                         FormFieldController<String>(null),
                     options: [
-                      '00',
-                      '01',
-                      '02',
-                      '03',
-                      '04',
-                      '05',
-                      '06',
-                      '07',
-                      '08',
-                      '09',
-                      '10',
-                      '11',
-                      '12',
-                      '13',
-                      '14',
-                      '15',
-                      '16',
-                      '17',
-                      '18',
-                      '19',
-                      '20',
-                      '21',
-                      '22',
-                      '23'
+                      FFLocalizations.of(context).getText(
+                        '1xyosewk' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '22idsmsh' /* 01 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'xb32kxwx' /* 02 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'gbbfevdu' /* 03 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'a9jqzde2' /* 04 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '75jfhtva' /* 05 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '18ioae87' /* 06 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '5y3vcf6h' /* 07 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'ai2n6i51' /* 08 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'wlpgsv5w' /* 09 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        's6pdnsm8' /* 10 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '4ez0ylk2' /* 11 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '8aug2vhp' /* 12 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'dggm5xpw' /* 13 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '3yq1b6im' /* 14 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'e65bbjr2' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'a1u70vr1' /* 16 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'zwbbw83f' /* 17 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '8p0qk2kd' /* 18 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        '5ma0jjiu' /* 19 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'ffr8lnqr' /* 20 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'zhrk4hq1' /* 21 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'fbwhjh66' /* 22 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'rw9i5r90' /* 23 */,
+                      )
                     ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownOre2Value = val),
@@ -369,8 +507,12 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                               color: FlutterFlowTheme.of(context).secondaryText,
                             ),
                     textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'hour',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'm64y46w7' /* hour */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      '60tzl4xa' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -387,7 +529,20 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                   child: FlutterFlowDropDown<String>(
                     controller: _model.dropDownMin2ValueController ??=
                         FormFieldController<String>(null),
-                    options: ['00', '15', '30', '45'],
+                    options: [
+                      FFLocalizations.of(context).getText(
+                        'pk58mw1s' /* 00 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'vq1sjk77' /* 15 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'c9t66g4x' /* 30 */,
+                      ),
+                      FFLocalizations.of(context).getText(
+                        'dvjgovs9' /* 45 */,
+                      )
+                    ],
                     onChanged: (val) =>
                         setState(() => _model.dropDownMin2Value = val),
                     width: 84.0,
@@ -401,8 +556,12 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                           fontFamily: 'Urbanist',
                           fontSize: 14.0,
                         ),
-                    hintText: 'min',
-                    searchHintText: 'Search for an item...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'mqrzxr0a' /* min */,
+                    ),
+                    searchHintText: FFLocalizations.of(context).getText(
+                      '3vrtnq00' /* Search for an item... */,
+                    ),
                     fillColor: FlutterFlowTheme.of(context).secondaryBackground,
                     elevation: 2.0,
                     borderColor: Colors.transparent,
@@ -418,7 +577,11 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                   alignment: AlignmentDirectional(-0.06, -0.63),
                   child: Text(
                     valueOrDefault<String>(
-                      dateTimeFormat('d/M/y', _model.datePicked),
+                      dateTimeFormat(
+                        'd/M/y',
+                        _model.datePicked,
+                        locale: FFLocalizations.of(context).languageCode,
+                      ),
                       'data scelta',
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,

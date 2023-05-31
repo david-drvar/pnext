@@ -77,7 +77,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
           },
         ),
         title: Text(
-          'Edit Property',
+          FFLocalizations.of(context).getText(
+            '002z5uix' /* Edit Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -152,7 +154,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'PROPERTY NAME',
+                                  FFLocalizations.of(context).getText(
+                                    'w5ndto32' /* PROPERTY NAME */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -172,7 +176,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               controller: _model.propertyNameController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Something Catchy...',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '3mu51lw3' /* Something Catchy... */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
@@ -237,7 +243,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'PROPERTY ADDRESS',
+                                  FFLocalizations.of(context).getText(
+                                    '3t1n23l9' /* PROPERTY ADDRESS */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -257,7 +265,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               controller: _model.propertyAddressController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: '123 Disney way here…',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'q0or1s0b' /* 123 Disney way here… */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -324,7 +334,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'NEIGHBORHOOD',
+                                  FFLocalizations.of(context).getText(
+                                    'cqxxn7lz' /* NEIGHBORHOOD */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -344,7 +356,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               controller: _model.propertyNeighborhoodController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Neighborhood or city…',
+                                hintText: FFLocalizations.of(context).getText(
+                                  '2b7uqfnd' /* Neighborhood or city… */,
+                                ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -409,7 +423,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'DESCRIPTION',
+                                  FFLocalizations.of(context).getText(
+                                    'bmquvkoa' /* DESCRIPTION */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -429,7 +445,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               controller: _model.propertyDescriptionController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                hintText: 'Neighborhood or city…',
+                                hintText: FFLocalizations.of(context).getText(
+                                  'f5do13k2' /* Neighborhood or city… */,
+                                ),
                                 hintStyle:
                                     FlutterFlowTheme.of(context).bodyMedium,
                                 enabledBorder: UnderlineInputBorder(
@@ -530,11 +548,15 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'STEP',
+                                FFLocalizations.of(context).getText(
+                                  'uxxnf1ti' /* STEP */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
-                                '1/3',
+                                FFLocalizations.of(context).getText(
+                                  'dr1pktvj' /* 1/3 */,
+                                ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
                               ),
@@ -565,7 +587,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 ),
                               );
                             },
-                            text: 'NEXT',
+                            text: FFLocalizations.of(context).getText(
+                              'g2ljli9l' /* NEXT */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

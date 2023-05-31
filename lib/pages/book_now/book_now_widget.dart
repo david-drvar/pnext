@@ -136,7 +136,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'Book Now',
+                            FFLocalizations.of(context).getText(
+                              'utmz08hx' /* Book Now */,
+                            ),
                             style: FlutterFlowTheme.of(context).headlineMedium,
                           ),
                         ),
@@ -223,7 +225,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Choose Dates',
+                          FFLocalizations.of(context).getText(
+                            'ld6037l7' /* Choose Dates */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -255,6 +259,12 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                 },
                                 currentTime: getCurrentTimestamp,
                                 minTime: getCurrentTimestamp,
+                                locale: LocaleType.values.firstWhere(
+                                  (l) =>
+                                      l.name ==
+                                      FFLocalizations.of(context).languageCode,
+                                  orElse: () => LocaleType.en,
+                                ),
                               );
                             },
                             child: Container(
@@ -280,7 +290,11 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                     Text(
                                       valueOrDefault<String>(
                                         dateTimeFormat(
-                                            'MMMEd', _model.datePicked1),
+                                          'MMMEd',
+                                          _model.datePicked1,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
                                         'Choose Date',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -314,6 +328,12 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               },
                               currentTime: _model.datePicked1!,
                               minTime: _model.datePicked1!,
+                              locale: LocaleType.values.firstWhere(
+                                (l) =>
+                                    l.name ==
+                                    FFLocalizations.of(context).languageCode,
+                                orElse: () => LocaleType.en,
+                              ),
                             );
                           },
                           child: Container(
@@ -339,7 +359,11 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                   Text(
                                     valueOrDefault<String>(
                                       dateTimeFormat(
-                                          'MMMEd', _model.datePicked2),
+                                        'MMMEd',
+                                        _model.datePicked2,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      ),
                                       'Choose Date',
                                     ),
                                     style:
@@ -366,7 +390,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Number of Guests',
+                          FFLocalizations.of(context).getText(
+                            'oisvynpc' /* Number of Guests */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -433,7 +459,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Choose an Option',
+                          FFLocalizations.of(context).getText(
+                            'uadv4lju' /* Choose an Option */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -448,10 +476,18 @@ class _BookNowWidgetState extends State<BookNowWidget>
                         Expanded(
                           child: FlutterFlowChoiceChips(
                             options: [
-                              ChipData('Breakfast'),
-                              ChipData('No Breakfast'),
-                              ChipData('Hot Tub Access'),
-                              ChipData('No Access')
+                              ChipData(FFLocalizations.of(context).getText(
+                                'u1d0hfsk' /* Breakfast */,
+                              )),
+                              ChipData(FFLocalizations.of(context).getText(
+                                'gg4h3w2q' /* No Breakfast */,
+                              )),
+                              ChipData(FFLocalizations.of(context).getText(
+                                'it2p72ot' /* Hot Tub Access */,
+                              )),
+                              ChipData(FFLocalizations.of(context).getText(
+                                'idu78f83' /* No Access */,
+                              ))
                             ],
                             onChanged: (val) => setState(
                                 () => _model.breakfastValue = val?.first),
@@ -510,7 +546,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          'Payment Information',
+                          FFLocalizations.of(context).getText(
+                            'nzz97fmt' /* Payment Information */,
+                          ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
                       ],
@@ -558,7 +596,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Base Price',
+                              FFLocalizations.of(context).getText(
+                                'fnk0gxgm' /* Base Price */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -569,7 +609,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                   ),
                             ),
                             Text(
-                              '\$156.00',
+                              FFLocalizations.of(context).getText(
+                                'vd9wei26' /* $156.00 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -583,7 +625,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Taxes',
+                              FFLocalizations.of(context).getText(
+                                'jogdyu1r' /* Taxes */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -594,7 +638,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                   ),
                             ),
                             Text(
-                              '\$24.20',
+                              FFLocalizations.of(context).getText(
+                                'wkz28tuf' /* $24.20 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -608,7 +654,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Cleaning Fee',
+                              FFLocalizations.of(context).getText(
+                                'nfe7djuj' /* Cleaning Fee */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -619,7 +667,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                   ),
                             ),
                             Text(
-                              '\$40.00',
+                              FFLocalizations.of(context).getText(
+                                'o1plnnzu' /* $40.00 */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleSmall,
                             ),
                           ],
@@ -636,7 +686,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  'Total',
+                                  FFLocalizations.of(context).getText(
+                                    'kl8hnva2' /* Total */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
@@ -680,7 +732,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               ],
                             ),
                             Text(
-                              '\$230.20',
+                              FFLocalizations.of(context).getText(
+                                'yjwhlbug' /* $230.20 */,
+                              ),
                               style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
@@ -776,7 +830,9 @@ class _BookNowWidgetState extends State<BookNowWidget>
 
                       setState(() {});
                     },
-                    text: 'Book Now',
+                    text: FFLocalizations.of(context).getText(
+                      'kfould5i' /* Book Now */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 60.0,

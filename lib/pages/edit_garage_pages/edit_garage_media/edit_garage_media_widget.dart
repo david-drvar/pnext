@@ -78,7 +78,9 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
           },
         ),
         title: Text(
-          'Modifica Garage',
+          FFLocalizations.of(context).getText(
+            'qtq92hhc' /* Modifica Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -130,7 +132,9 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
 
                                 setState(() {});
                               },
-                              text: 'FOTO',
+                              text: FFLocalizations.of(context).getText(
+                                'yyx26sy3' /* FOTO */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -180,7 +184,9 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
 
                                 setState(() {});
                               },
-                              text: 'VIDEO',
+                              text: FFLocalizations.of(context).getText(
+                                'uef16a89' /* VIDEO */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 40.0,
@@ -373,7 +379,9 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
                                 Navigator.pop(context);
                               }
                             },
-                            text: 'AGGIORNA',
+                            text: FFLocalizations.of(context).getText(
+                              'rjk5xcsu' /* AGGIORNA */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

@@ -66,19 +66,24 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
             alignment: AlignmentDirectional(-0.15, -0.1),
             child: Stack(
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: AlignmentDirectional(-0.7, -0.9),
-                      child: Text(
-                        'La tua prenotazione è avvenuta con successo',
-                        textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Align(
+                        alignment: AlignmentDirectional(-0.7, -0.9),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'hw2r0fyk' /* La tua prenotazione è avvenuta... */,
+                          ),
+                          textAlign: TextAlign.start,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.7),
@@ -95,7 +100,9 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                 Align(
                   alignment: AlignmentDirectional(-0.6, 0.1),
                   child: Text(
-                    'Come accedere al posto auto',
+                    FFLocalizations.of(context).getText(
+                      'kglxpo56' /* Come accedere al posto auto */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -120,7 +127,9 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                         ),
                       );
                     },
-                    text: 'Vai alle mie prenotazioni',
+                    text: FFLocalizations.of(context).getText(
+                      '1a7f43jx' /* Vai alle mie prenotazioni */,
+                    ),
                     options: FFButtonOptions(
                       width: 260.0,
                       height: 40.0,
@@ -134,6 +143,43 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                                 fontFamily: 'Urbanist',
                                 color: Colors.white,
                               ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.01, 0.95),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              NavBarPage(initialPage: 'homePage_Garages'),
+                        ),
+                      );
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'q0n6l99g' /* Torna alla Homepage */,
+                    ),
+                    options: FFButtonOptions(
+                      width: 260.0,
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Urbanist',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
                       borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,

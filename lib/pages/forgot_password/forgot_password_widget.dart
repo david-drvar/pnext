@@ -119,7 +119,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                               },
                             ),
                             Text(
-                              'PNext',
+                              FFLocalizations.of(context).getText(
+                                'pz7loutv' /* PNext */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .displaySmall
                                   .override(
@@ -140,7 +142,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'Welcome Back,',
+                              FFLocalizations.of(context).getText(
+                                'pskxqbob' /* Welcome Back, */,
+                              ),
                               style: FlutterFlowTheme.of(context).displaySmall,
                             ),
                           ],
@@ -158,10 +162,15 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 controller: _model.emailAddressController,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Email Address',
+                                  labelText:
+                                      FFLocalizations.of(context).getText(
+                                    'g9cy97xu' /* Email Address */,
+                                  ),
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
-                                  hintText: 'Enter your email here...',
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'qsyk8xcw' /* Enter your email here... */,
+                                  ),
                                   hintStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   enabledBorder: OutlineInputBorder(
@@ -237,7 +246,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                     context: context,
                                   );
                                 },
-                                text: 'Send link',
+                                text: FFLocalizations.of(context).getText(
+                                  'pq97wf9w' /* Send link */,
+                                ),
                                 options: FFButtonOptions(
                                   width: 130.0,
                                   height: 50.0,
@@ -278,7 +289,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'We will send you an email with a link to reset your password, please enter the email associated with your account below.',
+                                  FFLocalizations.of(context).getText(
+                                    'ogihnoeo' /* We will send you an email with... */,
+                                  ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

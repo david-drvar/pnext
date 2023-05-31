@@ -90,7 +90,9 @@ class _EmailVerificationComponentWidgetState
                   ),
                 );
               },
-              text: 'OK',
+              text: FFLocalizations.of(context).getText(
+                'va3a8t7u' /* OK */,
+              ),
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 60.0,

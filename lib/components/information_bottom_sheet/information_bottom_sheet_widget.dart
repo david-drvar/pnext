@@ -87,7 +87,9 @@ class _InformationBottomSheetWidgetState
               onPressed: () async {
                 Navigator.pop(context);
               },
-              text: 'OK',
+              text: FFLocalizations.of(context).getText(
+                '10vq816u' /* OK */,
+              ),
               options: FFButtonOptions(
                 width: double.infinity,
                 height: 60.0,

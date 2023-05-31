@@ -21,6 +21,7 @@ void main() async {
   await initFirebase();
 
   await FlutterFlowTheme.initialize();
+  await FFLocalizations.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
@@ -43,7 +44,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
+  Locale? _locale = FFLocalizations.getStoredLocale();
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late Stream<BaseAuthUser> userStream;
@@ -73,6 +74,7 @@ class _MyAppState extends State<MyApp> {
 
   void setLocale(String language) {
     setState(() => _locale = createLocale(language));
+    FFLocalizations.storeLocale(language);
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {
@@ -91,7 +93,10 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
-      supportedLocales: const [Locale('en', '')],
+      supportedLocales: const [
+        Locale('it'),
+        Locale('en'),
+      ],
       theme: ThemeData(brightness: Brightness.light),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
@@ -169,7 +174,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home_rounded,
               size: 24.0,
             ),
-            label: 'Home',
+            label: FFLocalizations.of(context).getText(
+              '7f459v7r' /* Home */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -177,7 +184,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.format_list_bulleted,
               size: 24.0,
             ),
-            label: 'Reservations',
+            label: FFLocalizations.of(context).getText(
+              'u0sxl95z' /* Reservations */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -189,7 +198,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.chat_bubble_rounded,
               size: 24.0,
             ),
-            label: 'Chats',
+            label: FFLocalizations.of(context).getText(
+              'd8yo138t' /* Chats */,
+            ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -201,7 +212,9 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.account_circle,
               size: 24.0,
             ),
-            label: 'Profile',
+            label: FFLocalizations.of(context).getText(
+              'ualpfaf1' /* Profile */,
+            ),
             tooltip: '',
           )
         ],

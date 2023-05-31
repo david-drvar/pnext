@@ -129,7 +129,9 @@ class _Reservation5WidgetState extends State<Reservation5Widget> {
                         ),
                       );
                     },
-                    text: 'Conferma pagamento',
+                    text: FFLocalizations.of(context).getText(
+                      '7rjj2cph' /* Conferma pagamento */,
+                    ),
                     options: FFButtonOptions(
                       width: 230.0,
                       height: 40.0,

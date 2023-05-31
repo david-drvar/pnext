@@ -59,7 +59,9 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
           },
         ),
         title: Text(
-          'Payment Information',
+          FFLocalizations.of(context).getText(
+            'xyjhllaz' /* Payment Information */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -128,7 +130,9 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
                         onPressed: () async {
                           Navigator.pop(context);
                         },
-                        text: 'Save Changes',
+                        text: FFLocalizations.of(context).getText(
+                          'sroy7v9j' /* Save Changes */,
+                        ),
                         options: FFButtonOptions(
                           width: 200.0,
                           height: 50.0,

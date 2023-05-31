@@ -82,7 +82,9 @@ class _AvailabilityBottomSheetWidgetState
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 10.0, 24.0, 4.0),
               child: Text(
-                'Seleziona l\'orario di disponibilità del tuo posto auto per il giorno della settimana scelto ',
+                FFLocalizations.of(context).getText(
+                  'iugcupk5' /* Seleziona l'orario di disponib... */,
+                ),
                 style: FlutterFlowTheme.of(context).bodySmall.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.of(context).gray600,
@@ -108,9 +110,17 @@ class _AvailabilityBottomSheetWidgetState
                           });
                         },
                         currentTime: getCurrentTimestamp,
+                        locale: LocaleType.values.firstWhere(
+                          (l) =>
+                              l.name ==
+                              FFLocalizations.of(context).languageCode,
+                          orElse: () => LocaleType.en,
+                        ),
                       );
                     },
-                    text: 'Fascia Oraria',
+                    text: FFLocalizations.of(context).getText(
+                      'xl8u1zg0' /* Fascia Oraria */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,
@@ -137,7 +147,11 @@ class _AvailabilityBottomSheetWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
-                      dateTimeFormat('Hm', _model.datePicked1),
+                      dateTimeFormat(
+                        'Hm',
+                        _model.datePicked1,
+                        locale: FFLocalizations.of(context).languageCode,
+                      ),
                       'Time',
                     ),
                     style: FlutterFlowTheme.of(context).bodySmall,
@@ -162,9 +176,17 @@ class _AvailabilityBottomSheetWidgetState
                           });
                         },
                         currentTime: getCurrentTimestamp,
+                        locale: LocaleType.values.firstWhere(
+                          (l) =>
+                              l.name ==
+                              FFLocalizations.of(context).languageCode,
+                          orElse: () => LocaleType.en,
+                        ),
                       );
                     },
-                    text: 'Fascia Oraria',
+                    text: FFLocalizations.of(context).getText(
+                      '5blhqpx9' /* Fascia Oraria */,
+                    ),
                     options: FFButtonOptions(
                       width: 130.0,
                       height: 40.0,
@@ -191,7 +213,11 @@ class _AvailabilityBottomSheetWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(80.0, 0.0, 0.0, 0.0),
                   child: Text(
                     valueOrDefault<String>(
-                      dateTimeFormat('Hm', _model.datePicked2),
+                      dateTimeFormat(
+                        'Hm',
+                        _model.datePicked2,
+                        locale: FFLocalizations.of(context).languageCode,
+                      ),
                       'Time',
                     ),
                     style: FlutterFlowTheme.of(context).bodySmall,
@@ -266,7 +292,9 @@ class _AvailabilityBottomSheetWidgetState
 
                   Navigator.pop(context);
                 },
-                text: 'OK',
+                text: FFLocalizations.of(context).getText(
+                  'j860in6z' /* OK */,
+                ),
                 options: FFButtonOptions(
                   width: 100.0,
                   height: 40.0,

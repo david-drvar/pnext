@@ -68,7 +68,9 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
           },
         ),
         title: Text(
-          'Search',
+          FFLocalizations.of(context).getText(
+            'hdpi2jug' /* Search */,
+          ),
           style: FlutterFlowTheme.of(context).titleMedium.override(
                 fontFamily: 'Lexend Deca',
                 color: FlutterFlowTheme.of(context).tertiary,
@@ -118,7 +120,9 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                               controller: _model.textController,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Address, city, state...',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'gp3c49vh' /* Address, city, state... */,
+                                ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -178,7 +182,9 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                             onPressed: () {
                               print('Button pressed ...');
                             },
-                            text: 'Search',
+                            text: FFLocalizations.of(context).getText(
+                              '8wlp9fhs' /* Search */,
+                            ),
                             options: FFButtonOptions(
                               width: 100.0,
                               height: 40.0,
@@ -443,7 +449,11 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                                                             .fromSTEB(2.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'Rating',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '33fwmn9a' /* Rating */,
+                                                      ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

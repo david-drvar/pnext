@@ -449,7 +449,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     2.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  'Reviews',
+                                  FFLocalizations.of(context).getText(
+                                    'pmo8f62h' /* Reviews */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -472,7 +474,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'DESCRIPTION',
+                              FFLocalizations.of(context).getText(
+                                'bhwo41a4' /* DESCRIPTION */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -521,7 +525,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Amenities',
+                              FFLocalizations.of(context).getText(
+                                'xkf2izy1' /* Amenities */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -850,7 +856,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        'What people are saying',
+                                        FFLocalizations.of(context).getText(
+                                          'x2duv1y8' /* What people are saying */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                       ),
@@ -1219,7 +1227,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                '\$156',
+                                FFLocalizations.of(context).getText(
+                                  '3w4hiuia' /* $156 */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -1232,7 +1242,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  '+ taxes/fees',
+                                  FFLocalizations.of(context).getText(
+                                    '55p7rrs0' /* + taxes/fees */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -1249,7 +1261,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
-                              'per night',
+                              FFLocalizations.of(context).getText(
+                                'rqvcxbna' /* per night */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -1274,7 +1288,9 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                               ),
                             );
                           },
-                          text: 'Book Now',
+                          text: FFLocalizations.of(context).getText(
+                            'td482g11' /* Book Now */,
+                          ),
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 50.0,

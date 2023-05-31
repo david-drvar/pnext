@@ -85,7 +85,9 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
                 Align(
                   alignment: AlignmentDirectional(-0.7, -0.9),
                   child: Text(
-                    'Immagine posto auto',
+                    FFLocalizations.of(context).getText(
+                      'bvnvse95' /* Immagine posto auto */,
+                    ),
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
@@ -102,7 +104,9 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
                 Align(
                   alignment: AlignmentDirectional(-0.6, 0.1),
                   child: Text(
-                    'Come accedere al posto auto',
+                    FFLocalizations.of(context).getText(
+                      'mr3kpj18' /* Come accedere al posto auto */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -133,7 +137,9 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
                         ),
                       );
                     },
-                    text: 'Procedi con il pagamento',
+                    text: FFLocalizations.of(context).getText(
+                      'cur276f1' /* Procedi con il pagamento */,
+                    ),
                     options: FFButtonOptions(
                       width: 260.0,
                       height: 40.0,

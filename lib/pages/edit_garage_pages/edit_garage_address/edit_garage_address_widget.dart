@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/place.dart';
 import 'dart:io';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -70,7 +71,9 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
           },
         ),
         title: Text(
-          'Modifica Garage',
+          FFLocalizations.of(context).getText(
+            '9zsbjsj8' /* Modifica Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -87,7 +90,9 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Text(
-                  'Registra con GPS dove si trova il tuo parcheggio',
+                  FFLocalizations.of(context).getText(
+                    '6neym105' /* Registra con GPS dove si trova... */,
+                  ),
                   textAlign: TextAlign.justify,
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),
@@ -108,7 +113,9 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
                       onSelect: (place) async {
                         setState(() => _model.placePickerValue = place);
                       },
-                      defaultText: 'Seleziona Location',
+                      defaultText: FFLocalizations.of(context).getText(
+                        'j4e5ifx4' /* Seleziona Location */,
+                      ),
                       icon: Icon(
                         Icons.place,
                         color: Colors.white,
@@ -139,7 +146,7 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    AutoSizeText(
                       valueOrDefault<String>(
                         _model.placePickerValue.address,
                         'Chosen address',
@@ -219,7 +226,9 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
                               .update(garagesUpdateData);
                           Navigator.pop(context);
                         },
-                        text: 'MODIFICA',
+                        text: FFLocalizations.of(context).getText(
+                          'luhxjwd9' /* MODIFICA */,
+                        ),
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 50.0,

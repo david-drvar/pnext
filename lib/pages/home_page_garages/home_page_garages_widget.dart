@@ -115,7 +115,9 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Welcome!',
+                          FFLocalizations.of(context).getText(
+                            'l4ckmd0s' /* Welcome! */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .displaySmall
                               .override(
@@ -134,7 +136,9 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Find your Garage Space To Getaway',
+                          FFLocalizations.of(context).getText(
+                            'eeono631' /* Find your Garage Space To Geta... */,
+                          ),
                           style: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -174,7 +178,9 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                   ),
                                 );
                               },
-                              text: 'Book now',
+                              text: FFLocalizations.of(context).getText(
+                                '8qnbzgkz' /* Book now */,
+                              ),
                               options: FFButtonOptions(
                                 width: 100.0,
                                 height: 40.0,
@@ -228,10 +234,14 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                         indicatorWeight: 4.0,
                         tabs: [
                           Tab(
-                            text: 'List',
+                            text: FFLocalizations.of(context).getText(
+                              'xmfxedpx' /* List */,
+                            ),
                           ),
                           Tab(
-                            text: 'Map',
+                            text: FFLocalizations.of(context).getText(
+                              'e8rcxj1k' /* Map */,
+                            ),
                           ),
                         ],
                       ),
@@ -368,7 +378,14 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Expanded(
+                                                      Container(
+                                                        width: 320.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
@@ -442,7 +459,11 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                                                 .bodyMedium,
                                                       ),
                                                       Text(
-                                                        '€ + taxes/fees per hour',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'hvyb6a97' /* € all'ora + tasse */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -570,7 +591,11 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                             setState(() => _model
                                                 .placePickerValue = place);
                                           },
-                                          defaultText: 'Seleziona Location',
+                                          defaultText:
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                            '5poyecr3' /* Seleziona Location */,
+                                          ),
                                           icon: Icon(
                                             Icons.place,
                                             color: Colors.white,
@@ -612,7 +637,10 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                               ),
                                             );
                                           },
-                                          text: 'Individuare sulla mappa',
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            '698462ir' /* Individuare sulla mappa */,
+                                          ),
                                           options: FFButtonOptions(
                                             width: 160.0,
                                             height: 40.0,

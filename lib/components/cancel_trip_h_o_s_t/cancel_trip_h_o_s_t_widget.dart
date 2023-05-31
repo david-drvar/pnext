@@ -84,14 +84,18 @@ class _CancelTripHOSTWidgetState extends State<CancelTripHOSTWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Text(
-                  'Cancel Trip',
+                  FFLocalizations.of(context).getText(
+                    'rpsrzat6' /* Cancel Trip */,
+                  ),
                   style: FlutterFlowTheme.of(context).headlineMedium,
                 ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                 child: Text(
-                  'If you want to cancel your tripl please leave a note below to send to the host.',
+                  FFLocalizations.of(context).getText(
+                    'hbm3i4sr' /* If you want to cancel your tri... */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
@@ -102,7 +106,9 @@ class _CancelTripHOSTWidgetState extends State<CancelTripHOSTWidget> {
                   obscureText: false,
                   decoration: InputDecoration(
                     labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Your reason for cancelling...',
+                    hintText: FFLocalizations.of(context).getText(
+                      'rfp6wokt' /* Your reason for cancelling... */,
+                    ),
                     hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
@@ -177,7 +183,9 @@ class _CancelTripHOSTWidgetState extends State<CancelTripHOSTWidget> {
                       ),
                     );
                   },
-                  text: 'Yes, Cancel Trip',
+                  text: FFLocalizations.of(context).getText(
+                    '24ez2xyk' /* Yes, Cancel Trip */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,
@@ -210,7 +218,9 @@ class _CancelTripHOSTWidgetState extends State<CancelTripHOSTWidget> {
                       onPressed: () async {
                         Navigator.pop(context);
                       },
-                      text: 'Never Mind',
+                      text: FFLocalizations.of(context).getText(
+                        '32l96en4' /* Never Mind */,
+                      ),
                       options: FFButtonOptions(
                         width: 170.0,
                         height: 50.0,

@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/stripe/payment_manager.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
@@ -10,8 +9,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
-import '/pages/reservations/reservation_4/reservation4_widget.dart';
+import '/pages/payments/page_pay_with/page_pay_with_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -363,7 +363,11 @@ class _GarageDetailsForReservationWidgetState
                                                       ),
                                                     );
                                                   },
-                                                  text: 'Modifica',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'dyuh1elk' /* Modifica */,
+                                                  ),
                                                   options: FFButtonOptions(
                                                     width: 60.0,
                                                     height: 40.0,
@@ -410,7 +414,11 @@ class _GarageDetailsForReservationWidgetState
                                                           garagesUpdateData);
                                                   Navigator.pop(context);
                                                 },
-                                                text: 'Elimina',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'flbw0vl4' /* Elimina */,
+                                                ),
                                                 options: FFButtonOptions(
                                                   width: 60.0,
                                                   height: 40.0,
@@ -458,7 +466,7 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: Text(
+                              child: AutoSizeText(
                                 garageDetailsForReservationGaragesRecord
                                     .address,
                                 style:
@@ -529,7 +537,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Descrizione',
+                              FFLocalizations.of(context).getText(
+                                'up1q2qaw' /* Descrizione */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -579,7 +589,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'Adatto per',
+                              FFLocalizations.of(context).getText(
+                                'bnmbekio' /* Adatto per */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
@@ -782,7 +794,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Garage availabilities',
+                              FFLocalizations.of(context).getText(
+                                'gugjd4oe' /* Garage availabilities */,
+                              ),
                               style: FlutterFlowTheme.of(context).titleLarge,
                             ),
                           ],
@@ -796,7 +810,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Monday',
+                              FFLocalizations.of(context).getText(
+                                'a3s82wks' /* Monday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -811,9 +827,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .mondayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .mondayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -824,7 +843,9 @@ class _GarageDetailsForReservationWidgetState
                                         .mondayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  '3m5zeuzv' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -834,9 +855,12 @@ class _GarageDetailsForReservationWidgetState
                               Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .mondayEnd),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .mondayEnd,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'ee',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -852,7 +876,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Tuesday',
+                              FFLocalizations.of(context).getText(
+                                '7s7fl7r1' /* Tuesday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -867,9 +893,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .tuesdayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .tuesdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -880,7 +909,9 @@ class _GarageDetailsForReservationWidgetState
                                         .tuesdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'dxjdqjco' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -890,9 +921,12 @@ class _GarageDetailsForReservationWidgetState
                               Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .tuesdayEnd),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .tuesdayEnd,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'ee',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -908,7 +942,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Wednesday',
+                              FFLocalizations.of(context).getText(
+                                'qqjtrevj' /* Wednesday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -923,9 +959,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .wednesdayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .wednesdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -936,7 +975,9 @@ class _GarageDetailsForReservationWidgetState
                                         .wednesdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'cjfqs198' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -945,9 +986,12 @@ class _GarageDetailsForReservationWidgetState
                                 false)
                               Text(
                                 dateTimeFormat(
-                                    'Hm',
-                                    garageDetailsForReservationGaragesRecord
-                                        .wednesdayEnd!),
+                                  'Hm',
+                                  garageDetailsForReservationGaragesRecord
+                                      .wednesdayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -961,7 +1005,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Thursday',
+                              FFLocalizations.of(context).getText(
+                                'ys36pm6v' /* Thursday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -976,9 +1022,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .thursdayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .thursdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -989,7 +1038,9 @@ class _GarageDetailsForReservationWidgetState
                                         .thursdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  '0qjxnsqy' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -998,9 +1049,12 @@ class _GarageDetailsForReservationWidgetState
                                 false)
                               Text(
                                 dateTimeFormat(
-                                    'Hm',
-                                    garageDetailsForReservationGaragesRecord
-                                        .thursdayEnd!),
+                                  'Hm',
+                                  garageDetailsForReservationGaragesRecord
+                                      .thursdayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1014,7 +1068,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Friday',
+                              FFLocalizations.of(context).getText(
+                                's1xrrh1l' /* Friday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1029,9 +1085,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .fridayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .fridayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1042,7 +1101,9 @@ class _GarageDetailsForReservationWidgetState
                                         .fridayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'lb1nyuh9' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -1051,9 +1112,12 @@ class _GarageDetailsForReservationWidgetState
                                 false)
                               Text(
                                 dateTimeFormat(
-                                    'Hm',
-                                    garageDetailsForReservationGaragesRecord
-                                        .fridayEnd!),
+                                  'Hm',
+                                  garageDetailsForReservationGaragesRecord
+                                      .fridayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1067,7 +1131,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Saturday',
+                              FFLocalizations.of(context).getText(
+                                '0uxoz8z6' /* Saturday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1082,9 +1148,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .saturdayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .saturdayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1095,7 +1164,9 @@ class _GarageDetailsForReservationWidgetState
                                         .saturdayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'wk27tsxa' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -1104,9 +1175,12 @@ class _GarageDetailsForReservationWidgetState
                                 false)
                               Text(
                                 dateTimeFormat(
-                                    'Hm',
-                                    garageDetailsForReservationGaragesRecord
-                                        .saturdayEnd!),
+                                  'Hm',
+                                  garageDetailsForReservationGaragesRecord
+                                      .saturdayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1120,7 +1194,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Sunday',
+                              FFLocalizations.of(context).getText(
+                                'b5jh4kbr' /* Sunday */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1135,9 +1211,12 @@ class _GarageDetailsForReservationWidgetState
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                      'Hm',
-                                      garageDetailsForReservationGaragesRecord
-                                          .sundayStart),
+                                    'Hm',
+                                    garageDetailsForReservationGaragesRecord
+                                        .sundayStart,
+                                    locale: FFLocalizations.of(context)
+                                        .languageCode,
+                                  ),
                                   'Not available',
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
@@ -1148,7 +1227,9 @@ class _GarageDetailsForReservationWidgetState
                                         .sundayEnd) ==
                                 false)
                               Text(
-                                '-',
+                                FFLocalizations.of(context).getText(
+                                  'm8zxa14l' /* - */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             if (functions.isDateNull(
@@ -1157,9 +1238,12 @@ class _GarageDetailsForReservationWidgetState
                                 false)
                               Text(
                                 dateTimeFormat(
-                                    'Hm',
-                                    garageDetailsForReservationGaragesRecord
-                                        .sundayEnd!),
+                                  'Hm',
+                                  garageDetailsForReservationGaragesRecord
+                                      .sundayEnd!,
+                                  locale:
+                                      FFLocalizations.of(context).languageCode,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                           ],
@@ -1173,7 +1257,9 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              'Garage accessibility -',
+                              FFLocalizations.of(context).getText(
+                                '3s2uj8o9' /* Garage accessibility - */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1186,7 +1272,9 @@ class _GarageDetailsForReservationWidgetState
                                     .isKey ==
                                 false)
                               Text(
-                                ' always accessible',
+                                FFLocalizations.of(context).getText(
+                                  'rr3ujbnk' /*  always accessible */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1200,7 +1288,9 @@ class _GarageDetailsForReservationWidgetState
                                     .isKey ==
                                 true)
                               Text(
-                                'requires key or remote control',
+                                FFLocalizations.of(context).getText(
+                                  'fj9on2b0' /* requires key or remote control */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1409,9 +1499,11 @@ class _GarageDetailsForReservationWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    4.0, 0.0, 0.0, 0.0),
+                                    0.0, 4.0, 0.0, 0.0),
                                 child: Text(
-                                  '€ + taxes/fees',
+                                  FFLocalizations.of(context).getText(
+                                    'ck73nae5' /* € all'ora */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -1424,20 +1516,11 @@ class _GarageDetailsForReservationWidgetState
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 4.0, 0.0, 0.0),
-                            child: Text(
-                              'all\'ora',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF8B97A2),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              '3rhe24y0' /* + tasse */,
                             ),
+                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
                       ),
@@ -1462,75 +1545,27 @@ class _GarageDetailsForReservationWidgetState
                             final buttonReservationRecord = snapshot.data!;
                             return FFButtonWidget(
                               onPressed: () async {
-                                final paymentResponse =
-                                    await processStripePayment(
-                                  context,
-                                  amount:
-                                      (buttonReservationRecord.totalPrice * 100)
-                                          .round(),
-                                  currency: 'EUR',
-                                  customerEmail: currentUserEmail,
-                                  allowGooglePay: false,
-                                  allowApplePay: false,
+                                final reservationUpdateData =
+                                    createReservationRecordData(
+                                  garageOwner:
+                                      garageDetailsForReservationGaragesRecord
+                                          .userRef,
                                 );
-                                if (paymentResponse.paymentId == null) {
-                                  if (paymentResponse.errorMessage != null) {
-                                    showSnackbar(
-                                      context,
-                                      'Error: ${paymentResponse.errorMessage}',
-                                    );
-                                  }
-                                  return;
-                                }
-                                _model.paymentId = paymentResponse.paymentId!;
-
-                                if (functions.isTextNull(_model.paymentId) ==
-                                    false) {
-                                  final chatsCreateData = {
-                                    ...createChatsRecordData(
-                                      userA:
-                                          garageDetailsForReservationGaragesRecord
-                                              .userRef,
-                                      userB: currentUserReference,
+                                await widget.reservationRef!
+                                    .update(reservationUpdateData);
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PagePayWithWidget(
+                                      reservationRef: widget.reservationRef!,
+                                      garageRef: widget.garageRef!,
                                     ),
-                                    'users': functions
-                                        .returnUsersListForChatCreation(
-                                            garageDetailsForReservationGaragesRecord
-                                                .userRef!,
-                                            currentUserReference!),
-                                  };
-                                  var chatsRecordReference =
-                                      ChatsRecord.collection.doc();
-                                  await chatsRecordReference
-                                      .set(chatsCreateData);
-                                  _model.chat = ChatsRecord.getDocumentFromData(
-                                      chatsCreateData, chatsRecordReference);
-
-                                  final reservationUpdateData =
-                                      createReservationRecordData(
-                                    chatReference: _model.chat!.reference,
-                                    garageOwner:
-                                        garageDetailsForReservationGaragesRecord
-                                            .userRef,
-                                    isCreationFinished: true,
-                                  );
-                                  await widget.reservationRef!
-                                      .update(reservationUpdateData);
-                                  await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Reservation4Widget(
-                                        reservationref: widget.reservationRef,
-                                        documentGarage:
-                                            garageDetailsForReservationGaragesRecord,
-                                      ),
-                                    ),
-                                  );
-                                }
-
-                                setState(() {});
+                                  ),
+                                );
                               },
-                              text: 'Prenota ora',
+                              text: FFLocalizations.of(context).getText(
+                                'thnj4338' /* Prenota ora */,
+                              ),
                               options: FFButtonOptions(
                                 width: 130.0,
                                 height: 30.0,

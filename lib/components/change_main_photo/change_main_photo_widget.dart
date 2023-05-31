@@ -165,7 +165,9 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Change Main Photo',
+                        FFLocalizations.of(context).getText(
+                          'gmqcfhh3' /* Change Main Photo */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
@@ -251,7 +253,9 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                       }
                     }
                   },
-                  text: 'Upload Photo',
+                  text: FFLocalizations.of(context).getText(
+                    'uhls75ju' /* Upload Photo */,
+                  ),
                   options: FFButtonOptions(
                     width: 150.0,
                     height: 50.0,
@@ -283,7 +287,9 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                     await widget.propertyRef!.reference
                         .update(propertiesUpdateData);
                   },
-                  text: 'Save Photo',
+                  text: FFLocalizations.of(context).getText(
+                    '7fb6wukx' /* Save Photo */,
+                  ),
                   options: FFButtonOptions(
                     width: 290.0,
                     height: 50.0,

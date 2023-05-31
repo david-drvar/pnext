@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/garage_details/garage_details_widget.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -107,7 +108,9 @@ class _BottomSheetGaragesJustViewWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Informazioni dell\'ospite',
+                            FFLocalizations.of(context).getText(
+                              'p4hlf9a7' /* Informazioni sull'Host */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ],
@@ -131,37 +134,71 @@ class _BottomSheetGaragesJustViewWidgetState
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                containerUsersRecord.name,
-                                style: FlutterFlowTheme.of(context)
-                                    .labelLarge
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 16.0,
-                                    ),
-                              ),
-                              Text(
-                                widget.garage!.city,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      fontSize: 12.0,
-                                    ),
-                              ),
-                              Text(
-                                widget.garage!.address,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      fontSize: 12.0,
-                                    ),
-                              ),
-                            ],
+                          Container(
+                            width: 240.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      AutoSizeText(
+                                        containerUsersRecord.name,
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 16.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      AutoSizeText(
+                                        widget.garage!.city,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Urbanist',
+                                              fontSize: 12.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 0.0, 0.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      AutoSizeText(
+                                        widget.garage!.address,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Urbanist',
+                                              fontSize: 12.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -184,9 +221,27 @@ class _BottomSheetGaragesJustViewWidgetState
                                       fontSize: 16.0,
                                     ),
                               ),
-                              Text(
-                                '+tasse',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '75y128wm' /* € all'ora */,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'oqe21lgh' /* + tasse */,
+                                  ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -203,7 +258,9 @@ class _BottomSheetGaragesJustViewWidgetState
                                       ),
                                     );
                                   },
-                                  text: 'Vedi il Garage',
+                                  text: FFLocalizations.of(context).getText(
+                                    'ltb18zja' /* Vedi il Garage */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: 130.0,
                                     height: 30.0,
@@ -225,15 +282,6 @@ class _BottomSheetGaragesJustViewWidgetState
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'all\'ora',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ],
                           ),

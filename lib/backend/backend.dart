@@ -17,6 +17,7 @@ import 'schema/bookings_record.dart';
 import 'schema/garages_record.dart';
 import 'schema/garage_photos_record.dart';
 import 'schema/reservation_record.dart';
+import 'schema/payment_methods_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -36,6 +37,7 @@ export 'schema/bookings_record.dart';
 export 'schema/garages_record.dart';
 export 'schema/garage_photos_record.dart';
 export 'schema/reservation_record.dart';
+export 'schema/payment_methods_record.dart';
 
 /// Functions to query PropertiesRecords (as a Stream and as a Future).
 Future<int> queryPropertiesRecordCount({
@@ -655,6 +657,58 @@ Future<FFFirestorePage<ReservationRecord>> queryReservationRecordPage({
     queryCollectionPage(
       ReservationRecord.collection,
       ReservationRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query PaymentMethodsRecords (as a Stream and as a Future).
+Future<int> queryPaymentMethodsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PaymentMethodsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PaymentMethodsRecord>> queryPaymentMethodsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PaymentMethodsRecord.collection,
+      PaymentMethodsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PaymentMethodsRecord>> queryPaymentMethodsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PaymentMethodsRecord.collection,
+      PaymentMethodsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<PaymentMethodsRecord>> queryPaymentMethodsRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      PaymentMethodsRecord.collection,
+      PaymentMethodsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

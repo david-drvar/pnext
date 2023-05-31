@@ -21,7 +21,9 @@ class EditProperty1Model extends FlutterFlowModel {
   String? Function(BuildContext, String?)? propertyNameControllerValidator;
   String? _propertyNameControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
-      return 'We need to know the name of the place...';
+      return FFLocalizations.of(context).getText(
+        'uz7phf22' /* We need to know the name of th... */,
+      );
     }
 
     return null;

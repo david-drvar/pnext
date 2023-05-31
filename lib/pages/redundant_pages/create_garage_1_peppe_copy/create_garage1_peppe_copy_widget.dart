@@ -79,7 +79,9 @@ class _CreateGarage1PeppeCopyWidgetState
           },
         ),
         title: Text(
-          'Posizione attuale',
+          FFLocalizations.of(context).getText(
+            'mpzqor2u' /* Posizione attuale */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],

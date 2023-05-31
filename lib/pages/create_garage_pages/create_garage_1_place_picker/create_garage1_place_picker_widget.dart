@@ -69,7 +69,9 @@ class _CreateGarage1PlacePickerWidgetState
           },
         ),
         title: Text(
-          'Crea un Garage',
+          FFLocalizations.of(context).getText(
+            '4dzu8c5k' /* Crea un Garage */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -86,7 +88,9 @@ class _CreateGarage1PlacePickerWidgetState
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: Text(
-                  'Registra con GPS dove si trova il tuo parcheggio',
+                  FFLocalizations.of(context).getText(
+                    '29jzb9d0' /* Registra con GPS dove si trova... */,
+                  ),
                   textAlign: TextAlign.justify,
                   style: FlutterFlowTheme.of(context).bodySmall,
                 ),
@@ -107,7 +111,9 @@ class _CreateGarage1PlacePickerWidgetState
                       onSelect: (place) async {
                         setState(() => _model.placePickerValue = place);
                       },
-                      defaultText: 'Seleziona Location',
+                      defaultText: FFLocalizations.of(context).getText(
+                        'gdvm5m69' /* Seleziona Location */,
+                      ),
                       icon: Icon(
                         Icons.place,
                         color: Colors.white,
@@ -211,7 +217,9 @@ class _CreateGarage1PlacePickerWidgetState
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         child: Text(
-                          'Seleziona la taglia del veicolo che il tuo posto auto può ospitare',
+                          FFLocalizations.of(context).getText(
+                            '7gqqeapa' /* Seleziona la taglia del veicol... */,
+                          ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
@@ -401,7 +409,9 @@ class _CreateGarage1PlacePickerWidgetState
 
                           setState(() {});
                         },
-                        text: 'AVANTI',
+                        text: FFLocalizations.of(context).getText(
+                          'z0v276a6' /* AVANTI */,
+                        ),
                         options: FFButtonOptions(
                           width: 120.0,
                           height: 50.0,

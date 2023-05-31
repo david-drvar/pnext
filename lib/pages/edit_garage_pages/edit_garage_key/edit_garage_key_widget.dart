@@ -73,7 +73,9 @@ class _EditGarageKeyWidgetState extends State<EditGarageKeyWidget> {
           title: Align(
             alignment: AlignmentDirectional(-0.4, 0.0),
             child: Text(
-              'Modifica Garage',
+              FFLocalizations.of(context).getText(
+                'r1kgni7y' /* Modifica Garage */,
+              ),
               style: FlutterFlowTheme.of(context).headlineMedium,
             ),
           ),
@@ -92,7 +94,11 @@ class _EditGarageKeyWidgetState extends State<EditGarageKeyWidget> {
                     Align(
                       alignment: AlignmentDirectional(0.0, -0.7),
                       child: Text(
-                        'Inserisci le informazioni\nper l\'accesso al tuo posto auto',
+                        FFLocalizations.of(context).getText(
+                          '56thneew' /* Inserisci le informazioni
+per ... */
+                          ,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -109,7 +115,9 @@ class _EditGarageKeyWidgetState extends State<EditGarageKeyWidget> {
                     await widget.newGarageRef!.update(garagesUpdateData);
                     Navigator.pop(context);
                   },
-                  text: 'Posto auto sempre accessibile',
+                  text: FFLocalizations.of(context).getText(
+                    'puj627an' /* Posto auto sempre accessibile */,
+                  ),
                   options: FFButtonOptions(
                     width: 260.0,
                     height: 100.0,
@@ -143,7 +151,9 @@ class _EditGarageKeyWidgetState extends State<EditGarageKeyWidget> {
                       ),
                     );
                   },
-                  text: 'Servono chiavi o telecomando per accedere',
+                  text: FFLocalizations.of(context).getText(
+                    's9vu5rhz' /* Servono chiavi o telecomando p... */,
+                  ),
                   options: FFButtonOptions(
                     width: 260.0,
                     height: 100.0,

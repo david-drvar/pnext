@@ -61,7 +61,9 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
           },
         ),
         title: Text(
-          'My Properties',
+          FFLocalizations.of(context).getText(
+            'ayoo2frd' /* My Properties */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -92,10 +94,14 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                       indicatorWeight: 4.0,
                       tabs: [
                         Tab(
-                          text: 'Published',
+                          text: FFLocalizations.of(context).getText(
+                            'w8i2qb61' /* Published */,
+                          ),
                         ),
                         Tab(
-                          text: 'Drafts',
+                          text: FFLocalizations.of(context).getText(
+                            'kv9usgi8' /* Drafts */,
+                          ),
                         ),
                       ],
                     ),
@@ -325,7 +331,15 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      'Last Updated: ${dateTimeFormat('relative', listViewPropertiesRecord.lastUpdated)}',
+                                                      'Last Updated: ${dateTimeFormat(
+                                                        'relative',
+                                                        listViewPropertiesRecord
+                                                            .lastUpdated,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      )}',
                                                       textAlign: TextAlign.end,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -349,7 +363,11 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Price Per Night',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'v493gzow' /* Price Per Night */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.end,
                                                         style:
@@ -589,7 +607,15 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                           .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      'Last Updated: ${dateTimeFormat('relative', listViewPropertiesRecord.lastUpdated)}',
+                                                      'Last Updated: ${dateTimeFormat(
+                                                        'relative',
+                                                        listViewPropertiesRecord
+                                                            .lastUpdated,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      )}',
                                                       textAlign: TextAlign.end,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -613,7 +639,11 @@ class _MyPropertiesWidgetState extends State<MyPropertiesWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        'Price Per Night',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'vr9wu14u' /* Price Per Night */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.end,
                                                         style:

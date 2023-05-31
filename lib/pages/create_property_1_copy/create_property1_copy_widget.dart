@@ -68,7 +68,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
           },
         ),
         title: Text(
-          'Create Property',
+          FFLocalizations.of(context).getText(
+            'hkmnqsem' /* Create Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
@@ -94,7 +96,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'PROPERTY NAME',
+                            FFLocalizations.of(context).getText(
+                              'g9yfo53t' /* PROPERTY NAME */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -113,7 +117,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         controller: _model.propertyNameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Something Catchy...',
+                          hintText: FFLocalizations.of(context).getText(
+                            'g1az3bp1' /* Something Catchy... */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
@@ -176,7 +182,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'PROPERTY ADDRESS',
+                            FFLocalizations.of(context).getText(
+                              'n5lrygx9' /* PROPERTY ADDRESS */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -195,7 +203,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         controller: _model.propertyAddressController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '123 Disney way here…',
+                          hintText: FFLocalizations.of(context).getText(
+                            'dmx2ukki' /* 123 Disney way here… */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -258,7 +268,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'NEIGHBORHOOD',
+                            FFLocalizations.of(context).getText(
+                              'o4jc9gq5' /* NEIGHBORHOOD */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -277,7 +289,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         controller: _model.propertyNeighborhoodController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Neighborhood or city…',
+                          hintText: FFLocalizations.of(context).getText(
+                            '9n1407nz' /* Neighborhood or city… */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
@@ -341,7 +355,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'DESCRIPTION',
+                            FFLocalizations.of(context).getText(
+                              'm64yxd4l' /* DESCRIPTION */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -360,7 +376,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                         controller: _model.propertyDescriptionController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Neighborhood or city…',
+                          hintText: FFLocalizations.of(context).getText(
+                            'a3jqus9f' /* Neighborhood or city… */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
@@ -423,11 +441,15 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'STEP',
+                                FFLocalizations.of(context).getText(
+                                  'g2b3vwk6' /* STEP */,
+                                ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Text(
-                                '1/3',
+                                FFLocalizations.of(context).getText(
+                                  '0j9xpu2t' /* 1/3 */,
+                                ),
                                 style:
                                     FlutterFlowTheme.of(context).headlineMedium,
                               ),
@@ -509,7 +531,9 @@ class _CreateProperty1CopyWidgetState extends State<CreateProperty1CopyWidget> {
 
                               setState(() {});
                             },
-                            text: 'NEXT',
+                            text: FFLocalizations.of(context).getText(
+                              '605i15t3' /* NEXT */,
+                            ),
                             options: FFButtonOptions(
                               width: 120.0,
                               height: 50.0,

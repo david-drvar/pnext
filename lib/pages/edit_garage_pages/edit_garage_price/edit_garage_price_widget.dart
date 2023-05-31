@@ -84,7 +84,9 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
             title: Align(
               alignment: AlignmentDirectional(-0.3, 0.0),
               child: Text(
-                'Modifica Garage',
+                FFLocalizations.of(context).getText(
+                  'ovwimqpl' /* Modifica Garage */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ),
@@ -111,7 +113,9 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Inserisci la tua tariffa oraria',
+                                FFLocalizations.of(context).getText(
+                                  'e08tlus0' /* Inserisci la tua tariffa orari... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -135,7 +139,9 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                             ),
                             obscureText: false,
                             decoration: InputDecoration(
-                              hintText: '\$ Price',
+                              hintText: FFLocalizations.of(context).getText(
+                                'jcoi5dab' /* $ Price */,
+                              ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .headlineMedium
                                   .override(
@@ -204,7 +210,9 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Istruzioni su come inserire una tariffa che abbia senso\n\nIstruzioni su cosa rimane in tasca all\'utente al netto \ndelle fee\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n',
+                                FFLocalizations.of(context).getText(
+                                  'qnnm5hcp' /* Istruzioni su come inserire un... */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
@@ -231,7 +239,9 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                               Navigator.pop(context);
                             }
                           },
-                          text: 'Conferma',
+                          text: FFLocalizations.of(context).getText(
+                            'am7gq0d2' /* Conferma */,
+                          ),
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 40.0,

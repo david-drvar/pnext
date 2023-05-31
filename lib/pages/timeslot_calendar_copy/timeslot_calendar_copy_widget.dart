@@ -106,7 +106,9 @@ class _TimeslotCalendarCopyWidgetState
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: Text(
-                    'Seleziona il periodo di validità della disponibilità del tuo parcheggio',
+                    FFLocalizations.of(context).getText(
+                      '7ghcxr66' /* Seleziona il periodo di validi... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.of(context).gray600,
@@ -131,6 +133,7 @@ class _TimeslotCalendarCopyWidgetState
                     dateStyle: TextStyle(),
                     selectedDateStyle: TextStyle(),
                     inactiveDateStyle: TextStyle(),
+                    locale: FFLocalizations.of(context).languageCode,
                   ),
                 ),
                 Padding(
@@ -142,7 +145,9 @@ class _TimeslotCalendarCopyWidgetState
                         padding:
                             EdgeInsetsDirectional.fromSTEB(90.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Start Date',
+                          FFLocalizations.of(context).getText(
+                            'uu3cxh3p' /* Start Date */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -154,7 +159,9 @@ class _TimeslotCalendarCopyWidgetState
                         padding:
                             EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          '-',
+                          FFLocalizations.of(context).getText(
+                            'xdfq6023' /* - */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -166,7 +173,9 @@ class _TimeslotCalendarCopyWidgetState
                         padding:
                             EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'End Date',
+                          FFLocalizations.of(context).getText(
+                            'n8l7irln' /* End Date */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -186,7 +195,10 @@ class _TimeslotCalendarCopyWidgetState
                       child: Text(
                         valueOrDefault<String>(
                           dateTimeFormat(
-                              'MMMMEEEEd', _model.calendarSelectedDay?.start),
+                            'MMMMEEEEd',
+                            _model.calendarSelectedDay?.start,
+                            locale: FFLocalizations.of(context).languageCode,
+                          ),
                           'Date',
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -199,7 +211,9 @@ class _TimeslotCalendarCopyWidgetState
                       padding:
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Text(
-                        '-',
+                        FFLocalizations.of(context).getText(
+                          'l0xscx08' /* - */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Urbanist',
                               fontSize: 18.0,
@@ -209,7 +223,10 @@ class _TimeslotCalendarCopyWidgetState
                     Text(
                       valueOrDefault<String>(
                         dateTimeFormat(
-                            'MMMMEEEEd', _model.calendarSelectedDay?.end),
+                          'MMMMEEEEd',
+                          _model.calendarSelectedDay?.end,
+                          locale: FFLocalizations.of(context).languageCode,
+                        ),
                         'Date',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -229,7 +246,9 @@ class _TimeslotCalendarCopyWidgetState
                           padding: EdgeInsetsDirectional.fromSTEB(
                               35.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'La tua disponibiilità è modificabile in qualiasi altro momento dal menù principale',
+                            FFLocalizations.of(context).getText(
+                              '76vleqxt' /* La tua disponibiilità è modifi... */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ),
@@ -254,7 +273,9 @@ class _TimeslotCalendarCopyWidgetState
                               ),
                             );
                           },
-                          text: 'Conferma',
+                          text: FFLocalizations.of(context).getText(
+                            'i7x03ob1' /* Conferma */,
+                          ),
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 40.0,

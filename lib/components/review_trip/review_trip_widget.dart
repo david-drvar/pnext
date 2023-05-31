@@ -136,7 +136,9 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                   children: [
                     Expanded(
                       child: Text(
-                        'Rate Your Trip',
+                        FFLocalizations.of(context).getText(
+                          'k23g5bf4' /* Rate Your Trip */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
@@ -151,7 +153,9 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                         child: Text(
-                          'Let us know what you thought of the place below!',
+                          FFLocalizations.of(context).getText(
+                            'mg1qljbg' /* Let us know what you thought o... */,
+                          ),
                           textAlign: TextAlign.start,
                           style: FlutterFlowTheme.of(context).bodyMedium,
                         ),
@@ -169,7 +173,9 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
-                            'How would you rate it?',
+                            FFLocalizations.of(context).getText(
+                              'pta11vjr' /* How would you rate it? */,
+                            ),
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
@@ -201,7 +207,9 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                     controller: _model.textController,
                     obscureText: false,
                     decoration: InputDecoration(
-                      hintText: 'Please leave a description of the place...',
+                      hintText: FFLocalizations.of(context).getText(
+                        'h5015shg' /* Please leave a description of ... */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -290,7 +298,9 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                         ),
                       );
                     },
-                    text: 'Submit Review',
+                    text: FFLocalizations.of(context).getText(
+                      'tikjz0ly' /* Submit Review */,
+                    ),
                     options: FFButtonOptions(
                       width: 300.0,
                       height: 60.0,

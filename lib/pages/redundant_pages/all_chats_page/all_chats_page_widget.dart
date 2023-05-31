@@ -61,7 +61,9 @@ class _AllChatsPageWidgetState extends State<AllChatsPageWidget> {
             backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
             title: Text(
-              'All Chats',
+              FFLocalizations.of(context).getText(
+                '9ow59cjf' /* All Chats */,
+              ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Urbanist',
                     color: Colors.black,

@@ -80,7 +80,9 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
               child: Text(
-                'Seleziona il periodo di validità della disponibilità del tuo parcheggio',
+                FFLocalizations.of(context).getText(
+                  'fgpazrv5' /* Seleziona il periodo di validi... */,
+                ),
                 style: FlutterFlowTheme.of(context).bodySmall.override(
                       fontFamily: 'Lexend Deca',
                       color: FlutterFlowTheme.of(context).gray600,
@@ -103,6 +105,7 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                 dateStyle: TextStyle(),
                 selectedDateStyle: TextStyle(),
                 inactiveDateStyle: TextStyle(),
+                locale: FFLocalizations.of(context).languageCode,
               ),
             ),
             Padding(
@@ -119,6 +122,7 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                 dateStyle: TextStyle(),
                 selectedDateStyle: TextStyle(),
                 inactiveDateStyle: TextStyle(),
+                locale: FFLocalizations.of(context).languageCode,
               ),
             ),
             Align(
@@ -135,7 +139,9 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(90.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Data d\'inizio',
+                          FFLocalizations.of(context).getText(
+                            'fpyrvtp6' /* Data d'inizio */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -148,7 +154,9 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        '-',
+                        FFLocalizations.of(context).getText(
+                          'kf2xmaak' /* - */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Urbanist',
                               fontSize: 18.0,
@@ -161,7 +169,9 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Data di fine',
+                          FFLocalizations.of(context).getText(
+                            'ua3q8gos' /* Data di fine */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -181,7 +191,10 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                 Text(
                   valueOrDefault<String>(
                     dateTimeFormat(
-                        'MMMMEEEEd', _model.calendarSelectedDay1?.start),
+                      'MMMMEEEEd',
+                      _model.calendarSelectedDay1?.start,
+                      locale: FFLocalizations.of(context).languageCode,
+                    ),
                     'Date',
                   ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -192,7 +205,9 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                   child: Text(
-                    '-',
+                    FFLocalizations.of(context).getText(
+                      's537pauw' /* - */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Urbanist',
                           fontSize: 18.0,
@@ -201,7 +216,10 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                 ),
                 Text(
                   dateTimeFormat(
-                      'MMMMEEEEd', _model.calendarSelectedDay2!.start),
+                    'MMMMEEEEd',
+                    _model.calendarSelectedDay2!.start,
+                    locale: FFLocalizations.of(context).languageCode,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Urbanist',
                         fontSize: 20.0,
@@ -219,8 +237,14 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(35.0, 0.0, 24.0, 0.0),
                       child: Text(
-                        'La tua disponibiilità è modificabile in qualiasi altro momento dal menù principale',
-                        style: FlutterFlowTheme.of(context).bodySmall,
+                        FFLocalizations.of(context).getText(
+                          '57039w04' /* La tua disponibiilità è modifi... */,
+                        ),
+                        style: FlutterFlowTheme.of(context).bodySmall.override(
+                              fontFamily: 'Urbanist',
+                              color: FlutterFlowTheme.of(context).gray600,
+                              fontSize: 14.0,
+                            ),
                       ),
                     ),
                   ),
@@ -228,13 +252,13 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(120.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(120.0, 0.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (functions.isDateAfter(
@@ -258,10 +282,12 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                           );
                         }
                       },
-                      text: 'Conferma',
+                      text: FFLocalizations.of(context).getText(
+                        'igha3iim' /* Conferma */,
+                      ),
                       options: FFButtonOptions(
                         width: 130.0,
-                        height: 40.0,
+                        height: 30.0,
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:

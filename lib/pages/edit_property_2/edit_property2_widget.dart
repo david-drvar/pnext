@@ -69,7 +69,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
           },
         ),
         title: Text(
-          'Edit Property',
+          FFLocalizations.of(context).getText(
+            'uav5dqtv' /* Edit Property */,
+          ),
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -115,7 +117,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'CHOOSE YOUR AMENITIES',
+                                    FFLocalizations.of(context).getText(
+                                      'yij2ykk0' /* CHOOSE YOUR AMENITIES */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -157,7 +161,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           _model.amenityPoolValue1 = newValue!);
                                     },
                                     title: Text(
-                                      'Pool',
+                                      FFLocalizations.of(context).getText(
+                                        'umuwfyai' /* Pool */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -205,7 +211,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           .amenityEVChargingValue = newValue!);
                                     },
                                     title: Text(
-                                      'EV Car Charging',
+                                      FFLocalizations.of(context).getText(
+                                        'vgwgq692' /* EV Car Charging */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -254,7 +262,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                               newValue!);
                                     },
                                     title: Text(
-                                      'Extra Outlets',
+                                      FFLocalizations.of(context).getText(
+                                        '8pr5b3jc' /* Extra Outlets */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -302,7 +312,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           _model.amenityACValue = newValue!);
                                     },
                                     title: Text(
-                                      'Air Conditioning (AC)',
+                                      FFLocalizations.of(context).getText(
+                                        'h00peps2' /* Air Conditioning (AC) */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -350,7 +362,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           .amenityHeatingValue = newValue!);
                                     },
                                     title: Text(
-                                      'Heating',
+                                      FFLocalizations.of(context).getText(
+                                        'z8wi5kdu' /* Heating */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -398,7 +412,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           newValue!);
                                     },
                                     title: Text(
-                                      'Washer',
+                                      FFLocalizations.of(context).getText(
+                                        'mmateffh' /* Washer */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -446,7 +462,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           _model.amenityDryerValue = newValue!);
                                     },
                                     title: Text(
-                                      'Dryer',
+                                      FFLocalizations.of(context).getText(
+                                        'g9iu68da' /* Dryer */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -494,7 +512,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           _model.amenityPetsValue = newValue!);
                                     },
                                     title: Text(
-                                      'Pet Friendly',
+                                      FFLocalizations.of(context).getText(
+                                        '7xqvgg9p' /* Pet Friendly */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -542,7 +562,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           .amenityWorkoutValue = newValue!);
                                     },
                                     title: Text(
-                                      'Workout Facility',
+                                      FFLocalizations.of(context).getText(
+                                        'yg1hjz08' /* Workout Facility */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -590,7 +612,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                           _model.amenityPoolValue2 = newValue!);
                                     },
                                     title: Text(
-                                      'Hip',
+                                      FFLocalizations.of(context).getText(
+                                        'a7tiwfkq' /* Hip */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium,
                                     ),
@@ -641,7 +665,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                                             .amenityPoolValue3 = newValue!);
                                       },
                                       title: Text(
-                                        'Night Life',
+                                        FFLocalizations.of(context).getText(
+                                          'ggrj35a0' /* Night Life */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium,
                                       ),
@@ -678,11 +704,15 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'STEP',
+                              FFLocalizations.of(context).getText(
+                                'ruozwg6t' /* STEP */,
+                              ),
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             Text(
-                              '2/3',
+                              FFLocalizations.of(context).getText(
+                                '1l3vskyr' /* 2/3 */,
+                              ),
                               style:
                                   FlutterFlowTheme.of(context).headlineMedium,
                             ),
@@ -715,7 +745,9 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                               ),
                             );
                           },
-                          text: 'NEXT',
+                          text: FFLocalizations.of(context).getText(
+                            '50p2w27c' /* NEXT */,
+                          ),
                           options: FFButtonOptions(
                             width: 120.0,
                             height: 50.0,

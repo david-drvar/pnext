@@ -73,7 +73,9 @@ class _CreateGarageDisclaimerPageWidgetState
         title: Align(
           alignment: AlignmentDirectional(-0.3, 0.0),
           child: Text(
-            'Crea un Garage',
+            FFLocalizations.of(context).getText(
+              '2n3t0sma' /* Crea un Garage */,
+            ),
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
         ),
@@ -95,9 +97,13 @@ class _CreateGarageDisclaimerPageWidgetState
                     controller: _model.keyboxPasswordController,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Keybox password',
+                      labelText: FFLocalizations.of(context).getText(
+                        'rygpw1p8' /* Keybox password */,
+                      ),
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: 'Password',
+                      hintText: FFLocalizations.of(context).getText(
+                        'naw0tsyy' /* Password */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -183,7 +189,9 @@ class _CreateGarageDisclaimerPageWidgetState
                       );
                     }
                   },
-                  text: 'Confermo',
+                  text: FFLocalizations.of(context).getText(
+                    'rnztlife' /* Confermo */,
+                  ),
                   options: FFButtonOptions(
                     width: 130.0,
                     height: 40.0,
@@ -206,14 +214,18 @@ class _CreateGarageDisclaimerPageWidgetState
               Align(
                 alignment: AlignmentDirectional(-0.55, -0.5),
                 child: Text(
-                  'Confermo di aver preso visione del disclaimer',
+                  FFLocalizations.of(context).getText(
+                    'd7gbb2fe' /* Confermo di aver preso visione... */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),
               Align(
                 alignment: AlignmentDirectional(0.0, -0.8),
                 child: Text(
-                  'Disclaimer riguardo al fatto che bisogna avere una \ncasssetta per le chiavi in modo da renderle accessibili\nal clinte che accederà sbloccando il lucchetto con \npassword che dovrete successivamente caricare sul\nvostro profilo',
+                  FFLocalizations.of(context).getText(
+                    '0ty3cktg' /* Disclaimer riguardo al fatto c... */,
+                  ),
                   style: FlutterFlowTheme.of(context).bodyMedium,
                 ),
               ),

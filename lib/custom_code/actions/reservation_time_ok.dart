@@ -14,19 +14,31 @@ Future<bool> reservationTimeOk(
   String min1,
   String hour2,
   String min2,
+  DateTime date,
 ) async {
   final int hourInt1 = int.parse(hour1);
   final int minuteInt1 = int.parse(min1);
   final int hourInt2 = int.parse(hour2);
   final int minuteInt2 = int.parse(min2);
 
-  DateTime now = DateTime.now();
-  int currentHour = now.hour;
-  int currentMinute = now.minute;
+  //DateTime now = DateTime.now();
+  int currentYear = DateTime.now().year;
+  int currentMonth = DateTime.now().month;
+  int currentDay = DateTime.now().day;
+  int currentHour = DateTime.now().hour;
+  int currentMinute = DateTime.now().minute;
 
-  bool output = (hourInt2 > hourInt1) ||
-      (hourInt2 == hourInt1 && minuteInt2 > minuteInt1) ||
-      (hourInt1 >= currentHour && minuteInt1 >= currentMinute);
+  int year = date.year;
+  int month = date.month;
+  int day = date.day;
+
+  bool output = ((hourInt2 > hourInt1) ||
+          (hourInt2 == hourInt1 && minuteInt2 > minuteInt1)) &&
+      (year > currentYear ||
+          month > currentMonth ||
+          day > currentDay ||
+          hourInt1 > currentHour ||
+          (hourInt1 == currentHour && minuteInt1 >= currentMinute));
 
   return output;
   // Add your function code here!

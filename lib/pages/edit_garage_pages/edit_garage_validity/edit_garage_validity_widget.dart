@@ -96,7 +96,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: Text(
-                    'Seleziona il periodo di validità della disponibilità del tuo parcheggio',
+                    FFLocalizations.of(context).getText(
+                      '9wh57ik6' /* Seleziona il periodo di validi... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Lexend Deca',
                           color: FlutterFlowTheme.of(context).gray600,
@@ -123,6 +125,7 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                     dateStyle: TextStyle(),
                     selectedDateStyle: TextStyle(),
                     inactiveDateStyle: TextStyle(),
+                    locale: FFLocalizations.of(context).languageCode,
                   ),
                 ),
                 Padding(
@@ -143,6 +146,7 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                     dateStyle: TextStyle(),
                     selectedDateStyle: TextStyle(),
                     inactiveDateStyle: TextStyle(),
+                    locale: FFLocalizations.of(context).languageCode,
                   ),
                 ),
                 Padding(
@@ -154,7 +158,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(90.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'Start Date',
+                          FFLocalizations.of(context).getText(
+                            '5al7pag5' /* Start Date */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -166,7 +172,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          '-',
+                          FFLocalizations.of(context).getText(
+                            'mln59au5' /* - */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -178,7 +186,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: Text(
-                          'End Date',
+                          FFLocalizations.of(context).getText(
+                            '1buljtvy' /* End Date */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Urbanist',
@@ -196,7 +206,10 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                     Text(
                       valueOrDefault<String>(
                         dateTimeFormat(
-                            'MMMMEEEEd', _model.calendarSelectedDay1?.start),
+                          'MMMMEEEEd',
+                          _model.calendarSelectedDay1?.start,
+                          locale: FFLocalizations.of(context).languageCode,
+                        ),
                         'Date',
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -208,7 +221,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Text(
-                        '-',
+                        FFLocalizations.of(context).getText(
+                          'f8rekfcy' /* - */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Urbanist',
                               fontSize: 18.0,
@@ -217,7 +232,10 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                     ),
                     Text(
                       dateTimeFormat(
-                          'MMMMEEEEd', _model.calendarSelectedDay2!.start),
+                        'MMMMEEEEd',
+                        _model.calendarSelectedDay2!.start,
+                        locale: FFLocalizations.of(context).languageCode,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Urbanist',
                             fontSize: 20.0,
@@ -226,7 +244,7 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -235,7 +253,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               35.0, 0.0, 24.0, 0.0),
                           child: Text(
-                            'La tua disponibiilità è modificabile in qualiasi altro momento dal menù principale',
+                            FFLocalizations.of(context).getText(
+                              '2o5c4o3p' /* La tua disponibiilità è modifi... */,
+                            ),
                             style: FlutterFlowTheme.of(context).bodySmall,
                           ),
                         ),
@@ -250,7 +270,7 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            120.0, 10.0, 0.0, 0.0),
+                            120.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (functions.isDateAfter(
@@ -268,7 +288,9 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                               Navigator.pop(context);
                             }
                           },
-                          text: 'Conferma',
+                          text: FFLocalizations.of(context).getText(
+                            'isduofwz' /* Conferma */,
+                          ),
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 40.0,

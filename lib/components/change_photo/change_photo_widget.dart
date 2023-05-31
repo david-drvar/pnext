@@ -160,7 +160,9 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        'Change Profile Photo',
+                        FFLocalizations.of(context).getText(
+                          'c8jracy7' /* Change Profile Photo */,
+                        ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).headlineSmall,
                       ),
@@ -246,7 +248,9 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                       }
                     }
                   },
-                  text: 'Upload Photo',
+                  text: FFLocalizations.of(context).getText(
+                    'pskd7our' /* Upload Photo */,
+                  ),
                   options: FFButtonOptions(
                     width: 150.0,
                     height: 50.0,
@@ -278,7 +282,9 @@ class _ChangePhotoWidgetState extends State<ChangePhotoWidget>
                     await currentUserReference!.update(usersUpdateData);
                     Navigator.pop(context);
                   },
-                  text: 'Save Photo',
+                  text: FFLocalizations.of(context).getText(
+                    'etme6a0x' /* Save Photo */,
+                  ),
                   options: FFButtonOptions(
                     width: 290.0,
                     height: 50.0,

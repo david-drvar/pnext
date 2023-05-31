@@ -91,25 +91,16 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
               },
             ),
             title: Text(
-              'Dettagli della prenotazione',
-              style: FlutterFlowTheme.of(context).headlineMedium,
-            ),
-            actions: [
-              FlutterFlowIconButton(
-                borderColor: Colors.transparent,
-                borderRadius: 30.0,
-                borderWidth: 1.0,
-                buttonSize: 60.0,
-                icon: Icon(
-                  Icons.more_vert_outlined,
-                  color: FlutterFlowTheme.of(context).secondaryText,
-                  size: 30.0,
-                ),
-                onPressed: () {
-                  print('IconButton pressed ...');
-                },
+              FFLocalizations.of(context).getText(
+                'chbb0ihy' /* Dettagli della prenotazione */,
               ),
-            ],
+              style: FlutterFlowTheme.of(context).titleMedium.override(
+                    fontFamily: 'Urbanist',
+                    color: FlutterFlowTheme.of(context).dark600,
+                    fontSize: 20.0,
+                  ),
+            ),
+            actions: [],
             centerTitle: false,
             elevation: 0.0,
           ),
@@ -263,7 +254,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 20.0, 0.0, 0.0),
                                       child: Text(
-                                        'Data',
+                                        FFLocalizations.of(context).getText(
+                                          'v5d856l6' /* Data */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -278,9 +271,12 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                     children: [
                                       Text(
                                         dateTimeFormat(
-                                            'd/M/y',
-                                            reservationDetailsReservationRecord
-                                                .dateReservation!),
+                                          'd/M/y',
+                                          reservationDetailsReservationRecord
+                                              .dateReservation!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -293,23 +289,31 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                             30.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           dateTimeFormat(
-                                              'Hm',
-                                              reservationDetailsReservationRecord
-                                                  .dateStart!),
+                                            'Hm',
+                                            reservationDetailsReservationRecord
+                                                .dateStart!,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .labelSmall,
                                         ),
                                       ),
                                       Text(
-                                        ' - ',
+                                        FFLocalizations.of(context).getText(
+                                          '5hsc9y9v' /*  -  */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall,
                                       ),
                                       Text(
                                         dateTimeFormat(
-                                            'Hm',
-                                            reservationDetailsReservationRecord
-                                                .dateEnd!),
+                                          'Hm',
+                                          reservationDetailsReservationRecord
+                                              .dateEnd!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .labelSmall,
                                       ),
@@ -326,7 +330,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             25.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          'Dimensione',
+                                          FFLocalizations.of(context).getText(
+                                            'hws87e1y' /* Dimensione */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -369,7 +375,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         25.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      'Targa del veicolo',
+                                      FFLocalizations.of(context).getText(
+                                        '7ldogs4t' /* Targa del veicolo */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
@@ -408,7 +416,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Text(
-                                          'Ripartizione dei prezzi',
+                                          FFLocalizations.of(context).getText(
+                                            'frydmlmy' /* Ripartizione dei prezzi */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -432,7 +442,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Prezzo base all\'ora',
+                                          FFLocalizations.of(context).getText(
+                                            'qybc95ed' /* Prezzo base all'ora */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -451,7 +463,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           ),
                                         ),
                                         Text(
-                                          '€',
+                                          FFLocalizations.of(context).getText(
+                                            '2s4gcmlj' /* € */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall,
                                         ),
@@ -467,7 +481,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Tempo totale',
+                                          FFLocalizations.of(context).getText(
+                                            '4g1o8ngm' /* Tempo totale */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -499,7 +515,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Tasse',
+                                          FFLocalizations.of(context).getText(
+                                            'vjrojboj' /* Tasse */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
                                               .override(
@@ -526,7 +544,10 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              'Totale',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'pra4glu1' /* Totale */,
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .headlineSmall
@@ -587,7 +608,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                           ),
                                         ),
                                         Text(
-                                          '€',
+                                          FFLocalizations.of(context).getText(
+                                            'd5btonz2' /* € */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall,
                                         ),
@@ -658,7 +681,9 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
-                                            'Informazioni sull\'ospite',
+                                            FFLocalizations.of(context).getText(
+                                              '7br0wtd6' /* Informazioni sull'ospite */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -765,7 +790,10 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                             ),
                                           );
                                         },
-                                        text: 'Chat',
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          '1wkewljl' /* Chat */,
+                                        ),
                                         icon: Icon(
                                           Icons.forum_outlined,
                                           size: 15.0,

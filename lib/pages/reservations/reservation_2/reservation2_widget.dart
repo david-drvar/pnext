@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/reservations/reservation_3_map/reservation3_map_widget.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,9 +19,13 @@ class Reservation2Widget extends StatefulWidget {
   const Reservation2Widget({
     Key? key,
     this.reservationref,
+    this.carCode,
+    this.size,
   }) : super(key: key);
 
   final DocumentReference? reservationref;
+  final String? carCode;
+  final String? size;
 
   @override
   _Reservation2WidgetState createState() => _Reservation2WidgetState();
@@ -88,14 +93,18 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.9),
                   child: Text(
-                    'Inserisci informazioni relative al tuo veicolo',
+                    FFLocalizations.of(context).getText(
+                      'kr4gm58a' /* Inserisci informazioni relativ... */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, -0.7),
                   child: Text(
-                    'Seleziona grandezza veicolo',
+                    FFLocalizations.of(context).getText(
+                      'v0z5evac' /* Seleziona grandezza veicolo */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -230,7 +239,9 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      'truck',
+                      FFLocalizations.of(context).getText(
+                        'kt7cpjsv' /* truck */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -238,35 +249,45 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                 Align(
                   alignment: AlignmentDirectional(-0.37, -0.39),
                   child: Text(
-                    'car',
+                    FFLocalizations.of(context).getText(
+                      '8a1gi4tn' /* car */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(-0.02, -0.39),
                   child: Text(
-                    'bike',
+                    FFLocalizations.of(context).getText(
+                      'vtq8h5ti' /* bike */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.37, -0.4),
                   child: Text(
-                    'caravan',
+                    FFLocalizations.of(context).getText(
+                      'e01o9ktr' /* caravan */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.78, -0.39),
                   child: Text(
-                    'big truck',
+                    FFLocalizations.of(context).getText(
+                      '6s5swrqt' /* big truck */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.01),
                   child: Text(
-                    'inserisci targa',
+                    FFLocalizations.of(context).getText(
+                      'jexc8uni' /* inserisci targa */,
+                    ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
@@ -281,7 +302,9 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                       textCapitalization: TextCapitalization.none,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'XX000XX',
+                        hintText: FFLocalizations.of(context).getText(
+                          '4h7i8occ' /* XX000XX */,
+                        ),
                         hintStyle: FlutterFlowTheme.of(context)
                             .bodySmall
                             .override(
@@ -334,21 +357,29 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                   alignment: AlignmentDirectional(0.04, 0.72),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      final reservationUpdateData = createReservationRecordData(
-                        carCode: _model.textController1.text,
-                      );
-                      await widget.reservationref!
-                          .update(reservationUpdateData);
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Reservation3MapWidget(
-                            reservationref: widget.reservationref,
+                      if ((functions.isTextNull(_model.textController1.text) ==
+                              false) &&
+                          (functions.isTextNull(_model.textController2.text) ==
+                              false)) {
+                        final reservationUpdateData =
+                            createReservationRecordData(
+                          carCode: _model.textController1.text,
+                        );
+                        await widget.reservationref!
+                            .update(reservationUpdateData);
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Reservation3MapWidget(
+                              reservationref: widget.reservationref,
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      }
                     },
-                    text: 'Cerca parcheggio',
+                    text: FFLocalizations.of(context).getText(
+                      '0druetur' /* Cerca parcheggio */,
+                    ),
                     options: FFButtonOptions(
                       width: 230.0,
                       height: 40.0,
@@ -378,7 +409,9 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                     readOnly: true,
                     obscureText: false,
                     decoration: InputDecoration(
-                      hintText: 'size',
+                      hintText: FFLocalizations.of(context).getText(
+                        'duy9t98d' /* size */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodySmall,
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(

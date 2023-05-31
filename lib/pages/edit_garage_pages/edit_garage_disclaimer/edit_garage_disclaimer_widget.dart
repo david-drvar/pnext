@@ -86,7 +86,9 @@ class _EditGarageDisclaimerWidgetState
             title: Align(
               alignment: AlignmentDirectional(-0.3, 0.0),
               child: Text(
-                'Modifica Garage',
+                FFLocalizations.of(context).getText(
+                  'fsyln4u1' /* Modifica Garage */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ),
@@ -103,14 +105,18 @@ class _EditGarageDisclaimerWidgetState
                   Align(
                     alignment: AlignmentDirectional(0.0, -0.8),
                     child: Text(
-                      'Disclaimer riguardo al fatto che bisogna avere una \ncasssetta per le chiavi in modo da renderle accessibili\nal clinte che accederà sbloccando il lucchetto con \npassword che dovrete successivamente caricare sul\nvostro profilo',
+                      FFLocalizations.of(context).getText(
+                        'bb5onpfw' /* Disclaimer riguardo al fatto c... */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
                   Align(
                     alignment: AlignmentDirectional(-0.55, -0.5),
                     child: Text(
-                      'Confermo di aver preso visione del disclaimer',
+                      FFLocalizations.of(context).getText(
+                        'h9qheb8m' /* Confermo di aver preso visione... */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
@@ -152,7 +158,9 @@ class _EditGarageDisclaimerWidgetState
                           Navigator.pop(context);
                         }
                       },
-                      text: 'Confermo',
+                      text: FFLocalizations.of(context).getText(
+                        '93n2xcsa' /* Confermo */,
+                      ),
                       options: FFButtonOptions(
                         width: 130.0,
                         height: 40.0,
@@ -187,9 +195,13 @@ class _EditGarageDisclaimerWidgetState
                         ),
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Keybox password',
+                          labelText: FFLocalizations.of(context).getText(
+                            'te5whdqx' /* Keybox password */,
+                          ),
                           labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          hintText: 'Password',
+                          hintText: FFLocalizations.of(context).getText(
+                            '5aatt3mf' /* Password */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(

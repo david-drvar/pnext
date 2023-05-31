@@ -92,7 +92,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
               ),
             ),
             title: Text(
-              'Edit Profile',
+              FFLocalizations.of(context).getText(
+                'uo0zx2e1' /* Edit Profile */,
+              ),
               style: FlutterFlowTheme.of(context).titleSmall,
             ),
             actions: [],
@@ -159,7 +161,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             },
                           ).then((value) => setState(() {}));
                         },
-                        text: 'Change Photo',
+                        text: FFLocalizations.of(context).getText(
+                          'z4hqee5d' /* Change Photo */,
+                        ),
                         options: FFButtonOptions(
                           width: 130.0,
                           height: 40.0,
@@ -193,9 +197,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     controller: _model.textController1,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Full Name',
+                      labelText: FFLocalizations.of(context).getText(
+                        'evkpzu5c' /* Full Name */,
+                      ),
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: 'Your full name...',
+                      hintText: FFLocalizations.of(context).getText(
+                        '3eb3rmv1' /* Your full name... */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -243,9 +251,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     controller: _model.textController2,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Full Name',
+                      labelText: FFLocalizations.of(context).getText(
+                        '5u1h3o1b' /* Full Name */,
+                      ),
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: 'Your full name...',
+                      hintText: FFLocalizations.of(context).getText(
+                        'miq4vu0k' /* Your full name... */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -293,9 +305,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     controller: _model.emailAddressController1,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Email Address',
+                      labelText: FFLocalizations.of(context).getText(
+                        'ds2e0pl5' /* Email Address */,
+                      ),
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: 'Your email..',
+                      hintText: FFLocalizations.of(context).getText(
+                        'lfbfeyov' /* Your email.. */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -343,9 +359,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     controller: _model.emailAddressController2,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Phone number',
+                      labelText: FFLocalizations.of(context).getText(
+                        'olzfnu2z' /* Phone number */,
+                      ),
                       labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: 'Your email..',
+                      hintText: FFLocalizations.of(context).getText(
+                        'pfiwn8cl' /* Your email.. */,
+                      ),
                       hintStyle: FlutterFlowTheme.of(context).bodyMedium,
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -423,7 +443,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               },
                             ).then((value) => setState(() {}));
                           },
-                          text: 'Change document',
+                          text: FFLocalizations.of(context).getText(
+                            'z0srfpww' /* Change document */,
+                          ),
                           options: FFButtonOptions(
                             width: 130.0,
                             height: 40.0,
@@ -466,7 +488,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             .update(usersUpdateData);
                         Navigator.pop(context);
                       },
-                      text: 'Save Changes',
+                      text: FFLocalizations.of(context).getText(
+                        'r3z5gw3c' /* Save Changes */,
+                      ),
                       options: FFButtonOptions(
                         width: 340.0,
                         height: 60.0,

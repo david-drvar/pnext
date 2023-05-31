@@ -72,7 +72,9 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
         title: Align(
           alignment: AlignmentDirectional(-0.3, 0.0),
           child: Text(
-            'Crea un Garage',
+            FFLocalizations.of(context).getText(
+              'xyzigo7c' /* Crea un Garage */,
+            ),
             style: FlutterFlowTheme.of(context).headlineSmall,
           ),
         ),
@@ -98,7 +100,9 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Inserisci la tua tariffa oraria',
+                            FFLocalizations.of(context).getText(
+                              'ac9272j3' /* Inserisci la tua tariffa orari... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -117,7 +121,9 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                         controller: _model.pricePerNightController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: '\$ Prezzo',
+                          hintText: FFLocalizations.of(context).getText(
+                            'kqfrxfjx' /* $ Prezzo */,
+                          ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
@@ -185,7 +191,9 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Istruzioni su come inserire una tariffa che abbia senso\n\nIstruzioni su cosa rimane in tasca all\'utente al netto \ndelle fee\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n',
+                            FFLocalizations.of(context).getText(
+                              '47r2fxvi' /* Istruzioni su come inserire un... */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodySmall
                                 .override(
@@ -217,7 +225,9 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                           );
                         }
                       },
-                      text: 'Conferma',
+                      text: FFLocalizations.of(context).getText(
+                        '1wkkegs1' /* Conferma */,
+                      ),
                       options: FFButtonOptions(
                         width: 130.0,
                         height: 40.0,
