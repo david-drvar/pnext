@@ -6,7 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,6 +19,8 @@ class TimeslotCalendarModel extends FlutterFlowModel {
   DateTimeRange? calendarSelectedDay1;
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay2;
+  // Stores action output result for [Custom Action - isDateOk] action in Button widget.
+  bool? isDateOk;
 
   /// Initialization and disposal methods.
 

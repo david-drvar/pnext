@@ -69,13 +69,16 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
             Navigator.pop(context);
           },
         ),
-        title: Align(
-          alignment: AlignmentDirectional(-0.3, 0.0),
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'xyzigo7c' /* Crea un Garage */,
+              'tue3tzn4' /* Crea un Garage */,
             ),
-            style: FlutterFlowTheme.of(context).headlineSmall,
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w600,
+                ),
           ),
         ),
         actions: [],
@@ -122,7 +125,7 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: FFLocalizations.of(context).getText(
-                            'kqfrxfjx' /* $ Prezzo */,
+                            'kqfrxfjx' /* 0,00 € */,
                           ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
@@ -190,63 +193,76 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              '47r2fxvi' /* Istruzioni su come inserire un... */,
+                          Container(
+                            width: 340.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodySmall
-                                .override(
-                                  fontFamily: 'Urbanist',
-                                  color: FlutterFlowTheme.of(context).gray600,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '4ktnb6q5' /* Scegli la tariffa oraria per i... */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        if (functions.isTextNull(
-                                _model.pricePerNightController.text) ==
-                            false) {
-                          final garagesUpdateData = createGaragesRecordData(
-                            rate: double.tryParse(
-                                _model.pricePerNightController.text),
-                          );
-                          await widget.newGarageRef!.update(garagesUpdateData);
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => GarageAvailabilitiesWidget(
-                                newGarageRef: widget.newGarageRef,
-                              ),
-                            ),
-                          );
-                        }
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '1wkkegs1' /* Conferma */,
-                      ),
-                      options: FFButtonOptions(
-                        width: 130.0,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 400.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          if (functions.isTextNull(
+                                  _model.pricePerNightController.text) ==
+                              false) {
+                            final garagesUpdateData = createGaragesRecordData(
+                              rate: double.tryParse(
+                                  _model.pricePerNightController.text),
+                            );
+                            await widget.newGarageRef!
+                                .update(garagesUpdateData);
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    GarageAvailabilitiesWidget(
+                                  newGarageRef: widget.newGarageRef,
                                 ),
-                        elevation: 2.0,
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                              ),
+                            );
+                          }
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          '1wkkegs1' /* Conferma */,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        options: FFButtonOptions(
+                          width: 130.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Urbanist',
+                                    color: Colors.white,
+                                  ),
+                          elevation: 2.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
                   ],

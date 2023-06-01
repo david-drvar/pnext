@@ -147,6 +147,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                                     builder: (context) => GarageDetailsWidget(
                                       garageRef:
                                           listViewGaragesRecord.reference,
+                                      isKeyboxVisible: true,
                                     ),
                                   ),
                                 );

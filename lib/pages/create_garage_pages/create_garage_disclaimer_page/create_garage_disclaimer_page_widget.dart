@@ -70,13 +70,16 @@ class _CreateGarageDisclaimerPageWidgetState
             Navigator.pop(context);
           },
         ),
-        title: Align(
-          alignment: AlignmentDirectional(-0.3, 0.0),
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              '2n3t0sma' /* Crea un Garage */,
+              'rf6nlx76' /* Crea un Garage */,
             ),
-            style: FlutterFlowTheme.of(context).headlineSmall,
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w600,
+                ),
           ),
         ),
         actions: [],
@@ -147,7 +150,7 @@ class _CreateGarageDisclaimerPageWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.75, -0.5),
+                alignment: AlignmentDirectional(0.77, -0.51),
                 child: Theme(
                   data: ThemeData(
                     checkboxTheme: CheckboxThemeData(
@@ -167,7 +170,7 @@ class _CreateGarageDisclaimerPageWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.02, 0.84),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (_model.checkboxValue! &&
@@ -190,7 +193,7 @@ class _CreateGarageDisclaimerPageWidgetState
                     }
                   },
                   text: FFLocalizations.of(context).getText(
-                    'rnztlife' /* Confermo */,
+                    'rnztlife' /* Conferma */,
                   ),
                   options: FFButtonOptions(
                     width: 130.0,
@@ -217,7 +220,10 @@ class _CreateGarageDisclaimerPageWidgetState
                   FFLocalizations.of(context).getText(
                     'd7gbb2fe' /* Confermo di aver preso visione... */,
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Urbanist',
+                        color: FlutterFlowTheme.of(context).gray600,
+                      ),
                 ),
               ),
               Align(
@@ -226,7 +232,10 @@ class _CreateGarageDisclaimerPageWidgetState
                   FFLocalizations.of(context).getText(
                     '0ty3cktg' /* Disclaimer riguardo al fatto c... */,
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Urbanist',
+                        color: FlutterFlowTheme.of(context).gray600,
+                      ),
                 ),
               ),
             ],

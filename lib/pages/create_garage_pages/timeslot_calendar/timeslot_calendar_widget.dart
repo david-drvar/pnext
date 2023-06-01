@@ -6,7 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,6 +68,18 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
             Navigator.pop(context);
           },
         ),
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'o0g15k4q' /* Crea un Garage */,
+            ),
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+        ),
         actions: [],
         centerTitle: false,
         elevation: 0.0,
@@ -78,15 +90,15 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'fgpazrv5' /* Seleziona il periodo di validi... */,
                 ),
                 style: FlutterFlowTheme.of(context).bodySmall.override(
-                      fontFamily: 'Lexend Deca',
+                      fontFamily: 'Urbanist',
                       color: FlutterFlowTheme.of(context).gray600,
-                      fontSize: 12.0,
+                      fontSize: 14.0,
                       fontWeight: FontWeight.w500,
                     ),
               ),
@@ -261,10 +273,11 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                         EdgeInsetsDirectional.fromSTEB(120.0, 0.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (functions.isDateAfter(
-                                _model.calendarSelectedDay1?.start,
-                                _model.calendarSelectedDay2?.start) ==
-                            true) {
+                        _model.isDateOk = await actions.isDateOk(
+                          _model.calendarSelectedDay1!.start,
+                          _model.calendarSelectedDay2!.start,
+                        );
+                        if (_model.isDateOk!) {
                           final garagesUpdateData = createGaragesRecordData(
                             startDateValidity:
                                 _model.calendarSelectedDay1?.start,
@@ -280,7 +293,27 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                             ),
                             (r) => false,
                           );
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Errore '),
+                                content: Text(
+                                    'Date scelte non valide, prova a ricontrollare le date'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         }
+
+                        setState(() {});
                       },
                       text: FFLocalizations.of(context).getText(
                         'igha3iim' /* Conferma */,

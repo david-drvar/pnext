@@ -7,7 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_3/create_garage3_widget.dart';
+import '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -74,11 +74,17 @@ class _CreateGarage2FotoVideoWidgetState
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          FFLocalizations.of(context).getText(
-            'ykhbeid0' /* Crea un Garage */,
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'ykhbeid0' /* Crea un Garage */,
+            ),
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w600,
+                ),
           ),
-          style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
         centerTitle: false,
@@ -375,9 +381,9 @@ class _CreateGarage2FotoVideoWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 12.0),
                       child: Row(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -408,11 +414,11 @@ class _CreateGarage2FotoVideoWidgetState
                               }
                             },
                             text: FFLocalizations.of(context).getText(
-                              'mgz6ysd6' /* AVANTI */,
+                              'mgz6ysd6' /* Conferma */,
                             ),
                             options: FFButtonOptions(
-                              width: 120.0,
-                              height: 50.0,
+                              width: 130.0,
+                              height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -429,7 +435,7 @@ class _CreateGarage2FotoVideoWidgetState
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(60.0),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],

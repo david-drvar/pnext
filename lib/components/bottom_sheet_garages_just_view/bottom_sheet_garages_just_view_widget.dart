@@ -254,6 +254,7 @@ class _BottomSheetGaragesJustViewWidgetState
                                         builder: (context) =>
                                             GarageDetailsWidget(
                                           garageRef: widget.garage!.reference,
+                                          isKeyboxVisible: false,
                                         ),
                                       ),
                                     );

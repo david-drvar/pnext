@@ -313,6 +313,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                                   garageRef:
                                                       listViewGaragesRecord
                                                           .reference,
+                                                  isKeyboxVisible: false,
                                                 ),
                                               ),
                                             );
@@ -510,6 +511,10 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                               return Container(
                                 width: 100.0,
                                 height: 100.0,
+                                constraints: BoxConstraints(
+                                  maxWidth: 100.0,
+                                  maxHeight: 50.0,
+                                ),
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,

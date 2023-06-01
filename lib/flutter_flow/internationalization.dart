@@ -1438,8 +1438,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // garage_availabilities
   {
+    'rnkqcp11': {
+      'it': 'Crea un Garage',
+      'en': '',
+    },
     't4w3wzij': {
-      'it': 'Indica,  per ogni giorno,  la fascia oraria disponibile',
+      'it':
+          'Seleziona il primo giorno della settimana in cui il tuo box è disponibile. Ti chiederemo poi le fasce orarie in cui vuoi noleggiare il tuo posto auto. Replica l’operazione per ogni giorno della settimana in cui il garage è disponibile.',
       'en': 'Indicates, for each day, the available time slot',
     },
     'ljsmfon5': {
@@ -1558,21 +1563,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // create_garage_4_price
   {
-    'xyzigo7c': {
+    'tue3tzn4': {
       'it': 'Crea un Garage',
-      'en': 'Create a Garage',
+      'en': '',
     },
     'ac9272j3': {
       'it': 'Inserisci la tua tariffa oraria',
       'en': 'Enter your hourly rate',
     },
     'kqfrxfjx': {
-      'it': '\$ Prezzo',
+      'it': '0,00 €',
       'en': '\$ Price',
     },
-    '47r2fxvi': {
+    '4ktnb6q5': {
       'it':
-          'Istruzioni su come inserire una tariffa che abbia senso\n\nIstruzioni su cosa rimane in tasca all\'utente al netto \ndelle fee\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n',
+          'Scegli la tariffa oraria per il tuo posto auto da affittare, ma ricordati di essere concorrenziale rispetto alla tua zona della città. \nSe prosegui, otterrai una stima del tuo potenziale guadagno nel periodo di disponibilità del posto auto che hai scelto.',
       'en':
           'Instructions on how to enter a rate that makes sense\n\nInstructions on what remains in the net user\'s pocket\nof fees',
     },
@@ -1610,6 +1615,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TimeslotCalendar
   {
+    'o0g15k4q': {
+      'it': 'Crea un Garage',
+      'en': '',
+    },
     'fgpazrv5': {
       'it':
           'Seleziona il periodo di validità della disponibilità del tuo parcheggio',
@@ -1665,7 +1674,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'VIDEO',
     },
     'mgz6ysd6': {
-      'it': 'AVANTI',
+      'it': 'Conferma',
       'en': 'AFTER YOU',
     },
     'ykhbeid0': {
@@ -1760,9 +1769,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // create_garage_disclaimer_page
   {
-    '2n3t0sma': {
+    'rf6nlx76': {
       'it': 'Crea un Garage',
-      'en': 'Create a Garage',
+      'en': '',
     },
     'rygpw1p8': {
       'it': 'Keybox password',
@@ -1773,7 +1782,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Password',
     },
     'rnztlife': {
-      'it': 'Confermo',
+      'it': 'Conferma',
       'en': 'I confirm',
     },
     'd7gbb2fe': {
@@ -1793,9 +1802,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Confirm_Page
   {
-    'dlblcqy3': {
+    '7rm4my2u': {
       'it': 'Crea un Garage',
-      'en': 'Create a Garage',
+      'en': '',
     },
     '2r6m22b6': {
       'it':
@@ -2061,6 +2070,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Keybox password -',
       'en': 'Password Keybox -',
     },
+    'ngpip78c': {
+      'it': 'XXXX',
+      'en': 'XXXX',
+    },
     '2wtdrwfe': {
       'it': '+ taxes/fees',
       'en': '+ taxes/fees',
@@ -2267,7 +2280,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Select the size of vehicle your parking space can accommodate',
     },
     'z0v276a6': {
-      'it': 'AVANTI',
+      'it': 'Conferma',
       'en': 'AFTER YOU',
     },
     'ucvrk0xl': {

@@ -200,9 +200,9 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                           context: context,
                           builder: (alertDialogContext) {
                             return AlertDialog(
-                              title: Text('Reservation problem'),
+                              title: Text('Errore prenotazione'),
                               content: Text(
-                                  'Intervallo temporale scelto non valido'),
+                                  'Orari scelti non validi, prova a ricontrollare gli orari'),
                               actions: [
                                 TextButton(
                                   onPressed: () =>

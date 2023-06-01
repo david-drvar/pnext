@@ -27,9 +27,12 @@ class GarageDetailsWidget extends StatefulWidget {
   const GarageDetailsWidget({
     Key? key,
     this.garageRef,
-  }) : super(key: key);
+    bool? isKeyboxVisible,
+  })  : this.isKeyboxVisible = isKeyboxVisible ?? false,
+        super(key: key);
 
   final DocumentReference? garageRef;
+  final bool isKeyboxVisible;
 
   @override
   _GarageDetailsWidgetState createState() => _GarageDetailsWidgetState();
@@ -1274,17 +1277,32 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
-                              Text(
-                                garageDetailsGaragesRecord.keyboxPassword,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color:
-                                          FlutterFlowTheme.of(context).dark600,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
+                              if (widget.isKeyboxVisible == true)
+                                Text(
+                                  garageDetailsGaragesRecord.keyboxPassword,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .dark600,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              if (widget.isKeyboxVisible == false)
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'ngpip78c' /* XXXX */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Urbanist',
+                                        color: FlutterFlowTheme.of(context)
+                                            .dark600,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
                             ],
                           ),
                         ),

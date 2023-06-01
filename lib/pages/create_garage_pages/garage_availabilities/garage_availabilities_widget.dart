@@ -67,6 +67,18 @@ class _GarageAvailabilitiesWidgetState
             Navigator.pop(context);
           },
         ),
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              'rnkqcp11' /* Crea un Garage */,
+            ),
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+        ),
         actions: [],
         centerTitle: false,
         elevation: 0.0,
@@ -80,21 +92,21 @@ class _GarageAvailabilitiesWidgetState
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      't4w3wzij' /* Indica,  per ogni giorno,  la ... */,
+                      't4w3wzij' /* Seleziona il primo giorno dell... */,
                     ),
                     style: FlutterFlowTheme.of(context).bodySmall.override(
-                          fontFamily: 'Lexend Deca',
+                          fontFamily: 'Urbanist',
                           color: FlutterFlowTheme.of(context).gray600,
-                          fontSize: 12.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 24.0, 8.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 24.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -134,7 +146,7 @@ class _GarageAvailabilitiesWidgetState
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -168,7 +180,7 @@ class _GarageAvailabilitiesWidgetState
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -202,7 +214,7 @@ class _GarageAvailabilitiesWidgetState
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -236,7 +248,7 @@ class _GarageAvailabilitiesWidgetState
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -270,7 +282,7 @@ class _GarageAvailabilitiesWidgetState
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -304,7 +316,7 @@ class _GarageAvailabilitiesWidgetState
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -347,12 +359,17 @@ class _GarageAvailabilitiesWidgetState
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              35.0, 0.0, 24.0, 0.0),
+                              24.0, 0.0, 24.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '0zxet7yn' /* La tua disponibiilità è modifi... */,
                             ),
-                            style: FlutterFlowTheme.of(context).bodySmall,
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: FlutterFlowTheme.of(context).gray600,
+                                ),
                           ),
                         ),
                       ),
@@ -366,7 +383,7 @@ class _GarageAvailabilitiesWidgetState
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            120.0, 10.0, 0.0, 0.0),
+                            125.0, 440.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             await Navigator.push(

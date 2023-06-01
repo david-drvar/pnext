@@ -9,3 +9,4 @@ export 'reservation_time_ok.dart' show reservationTimeOk;
 export 'total_price_calculation.dart' show totalPriceCalculation;
 export 'available_garages.dart' show availableGarages;
 export 'new_custom_action.dart' show newCustomAction;
+export 'is_date_ok.dart' show isDateOk;

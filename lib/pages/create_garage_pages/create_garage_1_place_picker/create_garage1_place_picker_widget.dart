@@ -68,11 +68,17 @@ class _CreateGarage1PlacePickerWidgetState
             Navigator.pop(context);
           },
         ),
-        title: Text(
-          FFLocalizations.of(context).getText(
-            '4dzu8c5k' /* Crea un Garage */,
+        title: Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
+          child: Text(
+            FFLocalizations.of(context).getText(
+              '4dzu8c5k' /* Crea un Garage */,
+            ),
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Urbanist',
+                  fontWeight: FontWeight.w600,
+                ),
           ),
-          style: FlutterFlowTheme.of(context).headlineMedium,
         ),
         actions: [],
         centerTitle: false,
@@ -92,7 +98,10 @@ class _CreateGarage1PlacePickerWidgetState
                     '29jzb9d0' /* Registra con GPS dove si trova... */,
                   ),
                   textAlign: TextAlign.justify,
-                  style: FlutterFlowTheme.of(context).bodySmall,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Urbanist',
+                        color: FlutterFlowTheme.of(context).gray600,
+                      ),
                 ),
               ),
               Padding(
@@ -221,7 +230,11 @@ class _CreateGarage1PlacePickerWidgetState
                             '7gqqeapa' /* Seleziona la taglia del veicol... */,
                           ),
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Urbanist',
+                                    color: FlutterFlowTheme.of(context).gray600,
+                                  ),
                         ),
                       ),
                     ),
@@ -368,69 +381,76 @@ class _CreateGarage1PlacePickerWidgetState
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 12.0),
                   child: Row(
-                    mainAxisSize: MainAxisSize.max,
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      FFButtonWidget(
-                        onPressed: () async {
-                          if ((functions.isTextNull(_model.vehicleType) ==
-                                  false) &&
-                              (functions.isTextNull(
-                                      _model.placePickerValue.address) ==
-                                  false)) {
-                            final garagesCreateData = createGaragesRecordData(
-                              userRef: currentUserReference,
-                              city: _model.placePickerValue.city,
-                              address: _model.placePickerValue.address,
-                              zip: _model.placePickerValue.zipCode,
-                              dimensions: _model.vehicleType,
-                              location: _model.placePickerValue.latLng,
-                              country: _model.placePickerValue.country,
-                              isActive: true,
-                              isCreationFinished: false,
-                            );
-                            var garagesRecordReference =
-                                GaragesRecord.collection.doc();
-                            await garagesRecordReference.set(garagesCreateData);
-                            _model.newGarage =
-                                GaragesRecord.getDocumentFromData(
-                                    garagesCreateData, garagesRecordReference);
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    CreateGarage2FotoVideoWidget(
-                                  newGarageRef: _model.newGarage!.reference,
-                                ),
-                              ),
-                            );
-                          }
-
-                          setState(() {});
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'z0v276a6' /* AVANTI */,
-                        ),
-                        options: FFButtonOptions(
-                          width: 120.0,
-                          height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Urbanist',
-                                    color: Colors.white,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 250.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            if ((functions.isTextNull(_model.vehicleType) ==
+                                    false) &&
+                                (functions.isTextNull(
+                                        _model.placePickerValue.address) ==
+                                    false)) {
+                              final garagesCreateData = createGaragesRecordData(
+                                userRef: currentUserReference,
+                                city: _model.placePickerValue.city,
+                                address: _model.placePickerValue.address,
+                                zip: _model.placePickerValue.zipCode,
+                                dimensions: _model.vehicleType,
+                                location: _model.placePickerValue.latLng,
+                                country: _model.placePickerValue.country,
+                                isActive: true,
+                                isCreationFinished: false,
+                              );
+                              var garagesRecordReference =
+                                  GaragesRecord.collection.doc();
+                              await garagesRecordReference
+                                  .set(garagesCreateData);
+                              _model.newGarage =
+                                  GaragesRecord.getDocumentFromData(
+                                      garagesCreateData,
+                                      garagesRecordReference);
+                              await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      CreateGarage2FotoVideoWidget(
+                                    newGarageRef: _model.newGarage!.reference,
                                   ),
-                          elevation: 2.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
+                                ),
+                              );
+                            }
+
+                            setState(() {});
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'z0v276a6' /* Conferma */,
                           ),
-                          borderRadius: BorderRadius.circular(60.0),
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Urbanist',
+                                  color: Colors.white,
+                                ),
+                            elevation: 2.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
                         ),
                       ),
                     ],

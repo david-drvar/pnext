@@ -32,8 +32,6 @@ double rateConversionStripe(double myVar) {
 int calculateIncomeEstimation(GaragesRecord garagesRecord) {
   double rate = garagesRecord.rate!;
 
-  int number_of_weeks = 4;
-
   int total_hours = 0;
   int monday_hours = 0;
   int tuesday_hours = 0;
@@ -43,34 +41,35 @@ int calculateIncomeEstimation(GaragesRecord garagesRecord) {
   int saturday_hours = 0;
   int sunday_hours = 0;
 
-  if (garagesRecord.mondayStart != null) {
-    monday_hours =
-        garagesRecord.mondayEnd!.hour - garagesRecord.mondayStart!.hour;
+  for (DateTime date = garagesRecord.startDateValidity!;
+      date.isBefore(garagesRecord.endDateValidity!) ||
+          date.isAtSameMomentAs(garagesRecord.endDateValidity!);
+      date = date.add(Duration(days: 1))) {
+    var weekday = date.weekday;
+
+    if (weekday == 1 && garagesRecord.mondayStart != null)
+      monday_hours +=
+          garagesRecord.mondayEnd!.hour - garagesRecord.mondayStart!.hour;
+    else if (weekday == 2 && garagesRecord.tuesdayStart != null)
+      tuesday_hours +=
+          garagesRecord.tuesdayEnd!.hour - garagesRecord.tuesdayStart!.hour;
+    else if (weekday == 3 && garagesRecord.wednesdayStart != null)
+      wednesday_hours +=
+          garagesRecord.wednesdayEnd!.hour - garagesRecord.wednesdayStart!.hour;
+    else if (weekday == 4 && garagesRecord.thursdayStart != null)
+      thursday_hours +=
+          garagesRecord.thursdayEnd!.hour - garagesRecord.thursdayStart!.hour;
+    else if (weekday == 5 && garagesRecord.fridayStart != null)
+      friday_hours +=
+          garagesRecord.fridayEnd!.hour - garagesRecord.fridayStart!.hour;
+    else if (weekday == 6 && garagesRecord.saturdayStart != null)
+      saturday_hours +=
+          garagesRecord.saturdayEnd!.hour - garagesRecord.saturdayStart!.hour;
+    else if (weekday == 7 && garagesRecord.sundayStart != null)
+      sunday_hours +=
+          garagesRecord.sundayEnd!.hour - garagesRecord.sundayStart!.hour;
   }
-  if (garagesRecord.tuesdayStart != null) {
-    tuesday_hours =
-        garagesRecord.tuesdayEnd!.hour - garagesRecord.tuesdayStart!.hour;
-  }
-  if (garagesRecord.wednesdayStart != null) {
-    wednesday_hours =
-        garagesRecord.wednesdayEnd!.hour - garagesRecord.wednesdayStart!.hour;
-  }
-  if (garagesRecord.thursdayStart != null) {
-    thursday_hours =
-        garagesRecord.thursdayEnd!.hour - garagesRecord.thursdayStart!.hour;
-  }
-  if (garagesRecord.fridayStart != null) {
-    friday_hours =
-        garagesRecord.fridayEnd!.hour - garagesRecord.fridayStart!.hour;
-  }
-  if (garagesRecord.saturdayStart != null) {
-    saturday_hours =
-        garagesRecord.saturdayEnd!.hour - garagesRecord.saturdayStart!.hour;
-  }
-  if (garagesRecord.sundayStart != null) {
-    sunday_hours =
-        garagesRecord.sundayEnd!.hour - garagesRecord.sundayStart!.hour;
-  }
+
   total_hours = monday_hours +
       tuesday_hours +
       wednesday_hours +
@@ -79,7 +78,7 @@ int calculateIncomeEstimation(GaragesRecord garagesRecord) {
       saturday_hours +
       sunday_hours;
 
-  double estimated_earning_100_month = total_hours * rate * number_of_weeks;
+  double estimated_earning_100_month = total_hours * rate;
 
   double estimated_earning_60_month = 0.6 * estimated_earning_100_month;
 

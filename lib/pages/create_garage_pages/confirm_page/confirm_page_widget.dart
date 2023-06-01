@@ -84,13 +84,16 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                 Navigator.pop(context);
               },
             ),
-            title: Align(
-              alignment: AlignmentDirectional(-0.3, 0.0),
+            title: Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
-                  'dlblcqy3' /* Crea un Garage */,
+                  '7rm4my2u' /* Crea un Garage */,
                 ),
-                style: FlutterFlowTheme.of(context).headlineSmall,
+                style: FlutterFlowTheme.of(context).headlineSmall.override(
+                      fontFamily: 'Urbanist',
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
             ),
             actions: [],
@@ -109,63 +112,70 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                       FFLocalizations.of(context).getText(
                         '2r6m22b6' /* Se per metà del tempo messo a ... */,
                       ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Urbanist',
+                            color: FlutterFlowTheme.of(context).gray600,
+                          ),
                     ),
                   ),
                   Align(
                     alignment: AlignmentDirectional(0.0, 0.15),
-                    child: FFButtonWidget(
-                      onPressed: () async {
-                        final garagesUpdateData = createGaragesRecordData(
-                          isCreationFinished: true,
-                        );
-                        await widget.newGarageRef!.update(garagesUpdateData);
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          enableDrag: false,
-                          context: context,
-                          builder: (bottomSheetContext) {
-                            return Padding(
-                              padding:
-                                  MediaQuery.of(bottomSheetContext).viewInsets,
-                              child: GeneralInformationSheetWidget(
-                                message: 'Success!',
-                              ),
-                            );
-                          },
-                        ).then((value) => setState(() {}));
-
-                        await Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                NavBarPage(initialPage: 'homePage_Garages'),
-                          ),
-                          (r) => false,
-                        );
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '152d2qgu' /* Conferma */,
-                      ),
-                      options: FFButtonOptions(
-                        width: 230.0,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).primary,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'Urbanist',
-                                  color: Colors.white,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 450.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          final garagesUpdateData = createGaragesRecordData(
+                            isCreationFinished: true,
+                          );
+                          await widget.newGarageRef!.update(garagesUpdateData);
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            enableDrag: false,
+                            context: context,
+                            builder: (bottomSheetContext) {
+                              return Padding(
+                                padding: MediaQuery.of(bottomSheetContext)
+                                    .viewInsets,
+                                child: GeneralInformationSheetWidget(
+                                  message: 'Success!',
                                 ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                              );
+                            },
+                          ).then((value) => setState(() {}));
+
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  NavBarPage(initialPage: 'homePage_Garages'),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          '152d2qgu' /* Conferma */,
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        options: FFButtonOptions(
+                          width: 230.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Urbanist',
+                                    color: Colors.white,
+                                  ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
                       ),
                     ),
                   ),

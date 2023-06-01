@@ -5,7 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -273,10 +273,11 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                             120.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            if (functions.isDateAfter(
-                                    _model.calendarSelectedDay1?.start,
-                                    _model.calendarSelectedDay2?.start) ==
-                                true) {
+                            _model.isDateOk = await actions.isDateOk(
+                              _model.calendarSelectedDay1!.start,
+                              _model.calendarSelectedDay2!.start,
+                            );
+                            if (_model.isDateOk!) {
                               final garagesUpdateData = createGaragesRecordData(
                                 startDateValidity:
                                     _model.calendarSelectedDay1?.start,
@@ -286,7 +287,27 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                               await widget.newGarageRef!
                                   .update(garagesUpdateData);
                               Navigator.pop(context);
+                            } else {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    title: Text('Errore '),
+                                    content: Text(
+                                        'Date scelte non valide, prova a ricontrollare le date'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
                             }
+
+                            setState(() {});
                           },
                           text: FFLocalizations.of(context).getText(
                             'isduofwz' /* Conferma */,
