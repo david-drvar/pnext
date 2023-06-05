@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/trip_details/trip_details_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,6 +29,8 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyTripsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -208,17 +209,25 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          TripDetailsWidget(
-                                                        propertyRef:
-                                                            columnPropertiesRecord,
-                                                        tripRef:
-                                                            listViewTripsRecord,
+                                                  context.pushNamed(
+                                                    'tripDetails',
+                                                    queryParameters: {
+                                                      'propertyRef':
+                                                          serializeParam(
+                                                        columnPropertiesRecord,
+                                                        ParamType.Document,
                                                       ),
-                                                    ),
+                                                      'tripRef': serializeParam(
+                                                        listViewTripsRecord,
+                                                        ParamType.Document,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      'propertyRef':
+                                                          columnPropertiesRecord,
+                                                      'tripRef':
+                                                          listViewTripsRecord,
+                                                    },
                                                   );
                                                 },
                                                 child: Column(
@@ -615,17 +624,25 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await Navigator.push(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          TripDetailsWidget(
-                                                        propertyRef:
-                                                            columnPropertiesRecord,
-                                                        tripRef:
-                                                            listViewTripsRecord,
+                                                  context.pushNamed(
+                                                    'tripDetails',
+                                                    queryParameters: {
+                                                      'propertyRef':
+                                                          serializeParam(
+                                                        columnPropertiesRecord,
+                                                        ParamType.Document,
                                                       ),
-                                                    ),
+                                                      'tripRef': serializeParam(
+                                                        listViewTripsRecord,
+                                                        ParamType.Document,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      'propertyRef':
+                                                          columnPropertiesRecord,
+                                                      'tripRef':
+                                                          listViewTripsRecord,
+                                                    },
                                                   );
                                                 },
                                                 child: Column(
@@ -844,10 +861,10 @@ class _MyTripsWidgetState extends State<MyTripsWidget> {
                                                                   context:
                                                                       context,
                                                                   builder:
-                                                                      (bottomSheetContext) {
+                                                                      (context) {
                                                                     return Padding(
                                                                       padding: MediaQuery.of(
-                                                                              bottomSheetContext)
+                                                                              context)
                                                                           .viewInsets,
                                                                       child:
                                                                           Container(

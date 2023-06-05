@@ -37,6 +37,8 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGarageAddressModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -67,7 +69,7 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -224,7 +226,7 @@ class _EditGarageAddressWidgetState extends State<EditGarageAddressWidget> {
                           );
                           await widget.garage!.reference
                               .update(garagesUpdateData);
-                          Navigator.pop(context);
+                          context.safePop();
                         },
                         text: FFLocalizations.of(context).getText(
                           'luhxjwd9' /* MODIFICA */,

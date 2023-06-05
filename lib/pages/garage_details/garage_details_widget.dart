@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -191,6 +190,8 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -209,12 +210,15 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -239,217 +243,253 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              height: 320.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFDBE2E7),
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Stack(
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            child: FlutterFlowExpandedImageView(
-                                              image: CachedNetworkImage(
-                                                imageUrl:
-                                                    garageDetailsGaragesRecord
-                                                        .photos.first,
-                                                fit: BoxFit.contain,
-                                              ),
-                                              allowRotation: false,
-                                              tag: garageDetailsGaragesRecord
-                                                  .photos.first,
-                                              useHeroAnimation: true,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      child: Hero(
-                                        tag: garageDetailsGaragesRecord
-                                            .photos.first,
-                                        transitionOnUserGestures: true,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          child: CachedNetworkImage(
-                                            imageUrl: garageDetailsGaragesRecord
-                                                .photos.first,
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.cover,
-                                          ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 5.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pop();
+                                    },
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: Color(0x3A000000),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30.0,
+                                        buttonSize: 46.0,
+                                        icon: Icon(
+                                          Icons.arrow_back_rounded,
+                                          color: Colors.white,
+                                          size: 24.0,
                                         ),
+                                        onPressed: () async {
+                                          context.safePop();
+                                        },
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 16.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Card(
-                                                clipBehavior:
-                                                    Clip.antiAliasWithSaveLayer,
-                                                color: Color(0x3A000000),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  buttonSize: 46.0,
-                                                  icon: Icon(
-                                                    Icons.arrow_back_rounded,
-                                                    color: Colors.white,
-                                                    size: 24.0,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  height: 320.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFDBE2E7),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.fade,
+                                                child:
+                                                    FlutterFlowExpandedImageView(
+                                                  image: CachedNetworkImage(
+                                                    imageUrl:
+                                                        garageDetailsGaragesRecord
+                                                            .photos.first,
+                                                    fit: BoxFit.contain,
                                                   ),
-                                                  onPressed: () async {
-                                                    Navigator.pop(context);
-                                                  },
+                                                  allowRotation: false,
+                                                  tag:
+                                                      garageDetailsGaragesRecord
+                                                          .photos.first,
+                                                  useHeroAnimation: true,
                                                 ),
+                                              ),
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: garageDetailsGaragesRecord
+                                                .photos.first,
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              child: CachedNetworkImage(
+                                                imageUrl:
+                                                    garageDetailsGaragesRecord
+                                                        .photos.first,
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
-                                            if (garageDetailsGaragesRecord
-                                                    .userRef ==
-                                                currentUserReference)
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        100.0, 0.0, 0.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    await Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            EditGarageWidget(
-                                                          garageRef:
-                                                              widget.garageRef,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  text: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'g8tlg1tz' /* Edit */,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: 60.0,
-                                                    height: 40.0,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 16.0, 16.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                if (garageDetailsGaragesRecord
+                                                        .userRef ==
+                                                    currentUserReference)
+                                                  Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Urbanist',
-                                                          color: Colors.white,
-                                                        ),
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                ),
-                                              ),
-                                            if (garageDetailsGaragesRecord
-                                                    .userRef ==
-                                                currentUserReference)
-                                              FFButtonWidget(
-                                                onPressed: () async {
-                                                  final garagesUpdateData =
-                                                      createGaragesRecordData(
-                                                    isActive: false,
-                                                  );
-                                                  await widget.garageRef!
-                                                      .update(
-                                                          garagesUpdateData);
-                                                  Navigator.pop(context);
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'vpjv1ga3' /* Delete */,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 60.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .redApple,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Urbanist',
-                                                        color: Colors.white,
+                                                            .fromSTEB(100.0,
+                                                                0.0, 0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        context.pushNamed(
+                                                          'edit_garage',
+                                                          queryParameters: {
+                                                            'garageRef':
+                                                                serializeParam(
+                                                              widget.garageRef,
+                                                              ParamType
+                                                                  .DocumentReference,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'g8tlg1tz' /* Edit */,
                                                       ),
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
+                                                      options: FFButtonOptions(
+                                                        width: 60.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Urbanist',
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                              ),
+                                                if (garageDetailsGaragesRecord
+                                                        .userRef ==
+                                                    currentUserReference)
+                                                  FFButtonWidget(
+                                                    onPressed: () async {
+                                                      final garagesUpdateData =
+                                                          createGaragesRecordData(
+                                                        isActive: false,
+                                                      );
+                                                      await widget.garageRef!
+                                                          .update(
+                                                              garagesUpdateData);
+                                                      context.safePop();
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'vpjv1ga3' /* Delete */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: 60.0,
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .redApple,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Urbanist',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
                                           ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -1479,7 +1519,7 @@ class _GarageDetailsWidgetState extends State<GarageDetailsWidget>
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '2wtdrwfe' /* + taxes/fees */,
+                                    '2wtdrwfe' /* € + taxes/fees */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall

@@ -10,9 +10,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/pages/trip_details/trip_details_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -81,6 +81,8 @@ class _BookNowWidgetState extends State<BookNowWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -128,7 +130,7 @@ class _BookNowWidgetState extends State<BookNowWidget>
                               size: 24.0,
                             ),
                             onPressed: () async {
-                              Navigator.pop(context);
+                              context.pop();
                             },
                           ),
                         ),
@@ -249,23 +251,43 @@ class _BookNowWidgetState extends State<BookNowWidget>
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await DatePicker.showDatePicker(
-                                context,
-                                showTitleActions: true,
-                                onConfirm: (date) {
+                              if (kIsWeb) {
+                                final _datePicked1Date = await showDatePicker(
+                                  context: context,
+                                  initialDate: getCurrentTimestamp,
+                                  firstDate: getCurrentTimestamp,
+                                  lastDate: DateTime(2050),
+                                );
+
+                                if (_datePicked1Date != null) {
                                   setState(() {
-                                    _model.datePicked1 = date;
+                                    _model.datePicked1 = DateTime(
+                                      _datePicked1Date.year,
+                                      _datePicked1Date.month,
+                                      _datePicked1Date.day,
+                                    );
                                   });
-                                },
-                                currentTime: getCurrentTimestamp,
-                                minTime: getCurrentTimestamp,
-                                locale: LocaleType.values.firstWhere(
-                                  (l) =>
-                                      l.name ==
-                                      FFLocalizations.of(context).languageCode,
-                                  orElse: () => LocaleType.en,
-                                ),
-                              );
+                                }
+                              } else {
+                                await DatePicker.showDatePicker(
+                                  context,
+                                  showTitleActions: true,
+                                  onConfirm: (date) {
+                                    setState(() {
+                                      _model.datePicked1 = date;
+                                    });
+                                  },
+                                  currentTime: getCurrentTimestamp,
+                                  minTime: getCurrentTimestamp,
+                                  locale: LocaleType.values.firstWhere(
+                                    (l) =>
+                                        l.name ==
+                                        FFLocalizations.of(context)
+                                            .languageCode,
+                                    orElse: () => LocaleType.en,
+                                  ),
+                                );
+                              }
                             },
                             child: Container(
                               width: MediaQuery.of(context).size.width * 0.44,
@@ -318,23 +340,42 @@ class _BookNowWidgetState extends State<BookNowWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            await DatePicker.showDatePicker(
-                              context,
-                              showTitleActions: true,
-                              onConfirm: (date) {
+                            if (kIsWeb) {
+                              final _datePicked2Date = await showDatePicker(
+                                context: context,
+                                initialDate: _model.datePicked1!,
+                                firstDate: _model.datePicked1!,
+                                lastDate: DateTime(2050),
+                              );
+
+                              if (_datePicked2Date != null) {
                                 setState(() {
-                                  _model.datePicked2 = date;
+                                  _model.datePicked2 = DateTime(
+                                    _datePicked2Date.year,
+                                    _datePicked2Date.month,
+                                    _datePicked2Date.day,
+                                  );
                                 });
-                              },
-                              currentTime: _model.datePicked1!,
-                              minTime: _model.datePicked1!,
-                              locale: LocaleType.values.firstWhere(
-                                (l) =>
-                                    l.name ==
-                                    FFLocalizations.of(context).languageCode,
-                                orElse: () => LocaleType.en,
-                              ),
-                            );
+                              }
+                            } else {
+                              await DatePicker.showDatePicker(
+                                context,
+                                showTitleActions: true,
+                                onConfirm: (date) {
+                                  setState(() {
+                                    _model.datePicked2 = date;
+                                  });
+                                },
+                                currentTime: _model.datePicked1!,
+                                minTime: _model.datePicked1!,
+                                locale: LocaleType.values.firstWhere(
+                                  (l) =>
+                                      l.name ==
+                                      FFLocalizations.of(context).languageCode,
+                                  orElse: () => LocaleType.en,
+                                ),
+                              );
+                            }
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.44,
@@ -474,65 +515,69 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
-                          child: FlutterFlowChoiceChips(
-                            options: [
-                              ChipData(FFLocalizations.of(context).getText(
-                                'u1d0hfsk' /* Breakfast */,
-                              )),
-                              ChipData(FFLocalizations.of(context).getText(
-                                'gg4h3w2q' /* No Breakfast */,
-                              )),
-                              ChipData(FFLocalizations.of(context).getText(
-                                'it2p72ot' /* Hot Tub Access */,
-                              )),
-                              ChipData(FFLocalizations.of(context).getText(
-                                'idu78f83' /* No Access */,
-                              ))
-                            ],
-                            onChanged: (val) => setState(
-                                () => _model.breakfastValue = val?.first),
-                            selectedChipStyle: ChipStyle(
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Colors.white,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              iconColor: Colors.white,
-                              iconSize: 18.0,
-                              labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 4.0, 8.0, 4.0),
-                              elevation: 4.0,
-                            ),
-                            unselectedChipStyle: ChipStyle(
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF95A1AC),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              iconColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              iconSize: 18.0,
-                              labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 4.0, 8.0, 4.0),
-                              elevation: 2.0,
-                            ),
-                            chipSpacing: 12.0,
-                            rowSpacing: 8.0,
-                            multiselect: false,
-                            alignment: WrapAlignment.start,
-                            controller: _model.breakfastValueController ??=
-                                FormFieldController<List<String>>(
-                              [],
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 8.0),
+                            child: FlutterFlowChoiceChips(
+                              options: [
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'u1d0hfsk' /* Breakfast */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'gg4h3w2q' /* No Breakfast */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'it2p72ot' /* Hot Tub Access */,
+                                )),
+                                ChipData(FFLocalizations.of(context).getText(
+                                  'idu78f83' /* No Access */,
+                                ))
+                              ],
+                              onChanged: (val) => setState(
+                                  () => _model.breakfastValue = val?.first),
+                              selectedChipStyle: ChipStyle(
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Colors.white,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                iconColor: Colors.white,
+                                iconSize: 18.0,
+                                labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 4.0, 8.0, 4.0),
+                                elevation: 4.0,
+                              ),
+                              unselectedChipStyle: ChipStyle(
+                                backgroundColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF95A1AC),
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                iconColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                iconSize: 18.0,
+                                labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                    8.0, 4.0, 8.0, 4.0),
+                                elevation: 2.0,
+                              ),
+                              chipSpacing: 12.0,
+                              rowSpacing: 20.0,
+                              multiselect: false,
+                              alignment: WrapAlignment.start,
+                              controller: _model.breakfastValueController ??=
+                                  FormFieldController<List<String>>(
+                                [],
+                              ),
                             ),
                           ),
                         ),
@@ -715,11 +760,10 @@ class _BookNowWidgetState extends State<BookNowWidget>
                                       backgroundColor: Colors.transparent,
                                       barrierColor: Color(0xB3000000),
                                       context: context,
-                                      builder: (bottomSheetContext) {
+                                      builder: (context) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(bottomSheetContext)
-                                                  .viewInsets,
+                                              MediaQuery.of(context).viewInsets,
                                           child: Container(
                                             height: 270.0,
                                             child: TotalWidget(),
@@ -801,16 +845,25 @@ class _BookNowWidgetState extends State<BookNowWidget>
                       await tripsRecordReference.set(tripsCreateData);
                       _model.newTrip = TripsRecord.getDocumentFromData(
                           tripsCreateData, tripsRecordReference);
-                      await Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TripDetailsWidget(
-                            propertyRef: widget.propertyDetails,
-                            tripRef: _model.newTrip,
+
+                      context.goNamed(
+                        'tripDetails',
+                        queryParameters: {
+                          'propertyRef': serializeParam(
+                            widget.propertyDetails,
+                            ParamType.Document,
                           ),
-                        ),
-                        (r) => false,
+                          'tripRef': serializeParam(
+                            _model.newTrip,
+                            ParamType.Document,
+                          ),
+                        }.withoutNulls,
+                        extra: <String, dynamic>{
+                          'propertyRef': widget.propertyDetails,
+                          'tripRef': _model.newTrip,
+                        },
                       );
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(

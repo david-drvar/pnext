@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -34,6 +33,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
     _model.addressNumberController ??= TextEditingController();
     _model.cityController ??= TextEditingController();
     _model.zipController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -64,7 +64,7 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -600,14 +600,15 @@ class _CreateGarage1WidgetState extends State<CreateGarage1Widget> {
                                   GaragesRecord.getDocumentFromData(
                                       garagesCreateData,
                                       garagesRecordReference);
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      CreateGarage2FotoVideoWidget(
-                                    newGarageRef: _model.newGarage!.reference,
+
+                              context.pushNamed(
+                                'create_garage_2_foto_video',
+                                queryParameters: {
+                                  'newGarageRef': serializeParam(
+                                    _model.newGarage!.reference,
+                                    ParamType.DocumentReference,
                                   ),
-                                ),
+                                }.withoutNulls,
                               );
 
                               setState(() {});

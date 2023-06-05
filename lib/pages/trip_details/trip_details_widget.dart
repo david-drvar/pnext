@@ -8,8 +8,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/my_trips/my_trips_widget.dart';
-import '/pages/property_details/property_details_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,6 +39,8 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TripDetailsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -71,14 +71,15 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            await Navigator.push(
-              context,
-              PageTransition(
-                type: PageTransitionType.leftToRight,
-                duration: Duration(milliseconds: 250),
-                reverseDuration: Duration(milliseconds: 250),
-                child: MyTripsWidget(),
-              ),
+            context.pushNamed(
+              'myTrips',
+              extra: <String, dynamic>{
+                kTransitionInfoKey: TransitionInfo(
+                  hasTransition: true,
+                  transitionType: PageTransitionType.leftToRight,
+                  duration: Duration(milliseconds: 250),
+                ),
+              },
             );
           },
         ),
@@ -107,9 +108,9 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                   backgroundColor: Colors.transparent,
                   barrierColor: Color(0xB314181B),
                   context: context,
-                  builder: (bottomSheetContext) {
+                  builder: (context) {
                     return Padding(
-                      padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                      padding: MediaQuery.of(context).viewInsets,
                       child: Container(
                         height: 430.0,
                         child: CancelTripWidget(
@@ -311,13 +312,17 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PropertyDetailsWidget(
-                              propertyRef: widget.propertyRef,
+                        context.pushNamed(
+                          'propertyDetails',
+                          queryParameters: {
+                            'propertyRef': serializeParam(
+                              widget.propertyRef,
+                              ParamType.Document,
                             ),
-                          ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            'propertyRef': widget.propertyRef,
+                          },
                         );
                       },
                       child: Row(
@@ -498,11 +503,10 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                                       backgroundColor: Colors.transparent,
                                       barrierColor: Color(0xB3000000),
                                       context: context,
-                                      builder: (bottomSheetContext) {
+                                      builder: (context) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(bottomSheetContext)
-                                                  .viewInsets,
+                                              MediaQuery.of(context).viewInsets,
                                           child: Container(
                                             height: 270.0,
                                             child: TotalWidget(),
@@ -549,10 +553,10 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                                   backgroundColor: Colors.transparent,
                                   barrierColor: Color(0xB21D2429),
                                   context: context,
-                                  builder: (bottomSheetContext) {
+                                  builder: (context) {
                                     return Padding(
-                                      padding: MediaQuery.of(bottomSheetContext)
-                                          .viewInsets,
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
                                       child: Container(
                                         height: 450.0,
                                         child: ReviewTripWidget(
@@ -564,7 +568,7 @@ class _TripDetailsWidgetState extends State<TripDetailsWidget> {
                                   },
                                 ).then((value) => setState(() {}));
 
-                                Navigator.pop(context);
+                                context.pop();
                               },
                               text: FFLocalizations.of(context).getText(
                                 '5jzxfm7m' /* Review Trip */,

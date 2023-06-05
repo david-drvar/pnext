@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/property_details/property_details_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +39,8 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TripDetailsHOSTModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -70,7 +71,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -98,9 +99,9 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                   backgroundColor: Colors.transparent,
                   barrierColor: Color(0xB314181B),
                   context: context,
-                  builder: (bottomSheetContext) {
+                  builder: (context) {
                     return Padding(
-                      padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                      padding: MediaQuery.of(context).viewInsets,
                       child: Container(
                         height: 430.0,
                         child: CancelTripHOSTWidget(
@@ -291,13 +292,17 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PropertyDetailsWidget(
-                              propertyRef: widget.propertyRef,
+                        context.pushNamed(
+                          'propertyDetails',
+                          queryParameters: {
+                            'propertyRef': serializeParam(
+                              widget.propertyRef,
+                              ParamType.Document,
                             ),
-                          ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            'propertyRef': widget.propertyRef,
+                          },
                         );
                       },
                       child: Row(
@@ -478,11 +483,10 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                       backgroundColor: Colors.transparent,
                                       barrierColor: Color(0xB3000000),
                                       context: context,
-                                      builder: (bottomSheetContext) {
+                                      builder: (context) {
                                         return Padding(
                                           padding:
-                                              MediaQuery.of(bottomSheetContext)
-                                                  .viewInsets,
+                                              MediaQuery.of(context).viewInsets,
                                           child: Container(
                                             height: 270.0,
                                             child: TotalWidget(),
@@ -536,7 +540,7 @@ class _TripDetailsHOSTWidgetState extends State<TripDetailsHOSTWidget> {
                                 );
                                 await widget.tripRef!.reference
                                     .update(tripsUpdateData);
-                                Navigator.pop(context);
+                                context.pop();
                               },
                               text: FFLocalizations.of(context).getText(
                                 'ljplmaoh' /* Mark as Complete */,

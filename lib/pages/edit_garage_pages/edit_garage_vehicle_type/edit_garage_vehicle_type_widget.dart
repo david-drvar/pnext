@@ -44,6 +44,8 @@ class _EditGarageVehicleTypeWidgetState
         _model.vehicleType = widget.garage!.dimensions;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -74,7 +76,7 @@ class _EditGarageVehicleTypeWidgetState
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -271,7 +273,7 @@ class _EditGarageVehicleTypeWidgetState
                           );
                           await widget.garage!.reference
                               .update(garagesUpdateData);
-                          Navigator.pop(context);
+                          context.safePop();
                         },
                         text: FFLocalizations.of(context).getText(
                           'gfe6r34q' /* AGGIORNA */,

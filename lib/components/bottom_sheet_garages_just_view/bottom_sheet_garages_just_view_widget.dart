@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/garage_details/garage_details_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,6 +36,8 @@ class _BottomSheetGaragesJustViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomSheetGaragesJustViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -248,15 +249,18 @@ class _BottomSheetGaragesJustViewWidgetState
                                     50.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            GarageDetailsWidget(
-                                          garageRef: widget.garage!.reference,
-                                          isKeyboxVisible: false,
+                                    context.pushNamed(
+                                      'garageDetails',
+                                      queryParameters: {
+                                        'garageRef': serializeParam(
+                                          widget.garage!.reference,
+                                          ParamType.DocumentReference,
                                         ),
-                                      ),
+                                        'isKeyboxVisible': serializeParam(
+                                          false,
+                                          ParamType.bool,
+                                        ),
+                                      }.withoutNulls,
                                     );
                                   },
                                   text: FFLocalizations.of(context).getText(

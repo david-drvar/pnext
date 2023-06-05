@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,6 +33,8 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Reservation4Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -119,13 +120,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                   alignment: AlignmentDirectional(0.0, 0.8),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'myReservationsTabbar'),
-                        ),
-                      );
+                      context.pushNamed('myReservationsTabbar');
                     },
                     text: FFLocalizations.of(context).getText(
                       '1a7f43jx' /* Vai alle mie prenotazioni */,
@@ -155,13 +150,7 @@ class _Reservation4WidgetState extends State<Reservation4Widget> {
                   alignment: AlignmentDirectional(0.01, 0.95),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'homePage_Garages'),
-                        ),
-                      );
+                      context.pushNamed('homePage_Garages');
                     },
                     text: FFLocalizations.of(context).getText(
                       'q0n6l99g' /* Torna alla Homepage */,

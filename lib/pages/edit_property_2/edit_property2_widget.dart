@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/edit_property_3/edit_property3_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,6 +35,8 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditProperty2Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -65,7 +66,7 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -736,13 +737,18 @@ class _EditProperty2WidgetState extends State<EditProperty2Widget> {
                             );
                             await widget.propertyAmenities!.reference
                                 .update(amenititiesUpdateData);
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => EditProperty3Widget(
-                                  propertyRef: widget.propertyRef,
+
+                            context.pushNamed(
+                              'editProperty_3',
+                              queryParameters: {
+                                'propertyRef': serializeParam(
+                                  widget.propertyRef,
+                                  ParamType.Document,
                                 ),
-                              ),
+                              }.withoutNulls,
+                              extra: <String, dynamic>{
+                                'propertyRef': widget.propertyRef,
+                              },
                             );
                           },
                           text: FFLocalizations.of(context).getText(

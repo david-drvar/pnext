@@ -30,6 +30,8 @@ class _AvailabilityBottomTryioutsWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AvailabilityBottomTryioutsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

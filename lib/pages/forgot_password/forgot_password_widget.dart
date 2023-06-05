@@ -46,6 +46,8 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
     _model = createModel(context, () => ForgotPasswordModel());
 
     _model.emailAddressController ??= TextEditingController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -115,7 +117,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget>
                                 size: 30.0,
                               ),
                               onPressed: () async {
-                                Navigator.pop(context);
+                                context.safePop();
                               },
                             ),
                             Text(

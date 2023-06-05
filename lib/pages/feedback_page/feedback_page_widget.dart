@@ -52,6 +52,8 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget>
     _model.recomemndationController ??= TextEditingController();
     _model.functionalitiesController ??= TextEditingController();
     _model.commentController ??= TextEditingController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -116,7 +118,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget>
                                 size: 30.0,
                               ),
                               onPressed: () async {
-                                Navigator.pop(context);
+                                context.safePop();
                               },
                             ),
                             Text(
@@ -681,7 +683,7 @@ class _FeedbackPageWidgetState extends State<FeedbackPageWidget>
                                   await FeedbackRecord.collection
                                       .doc()
                                       .set(feedbackCreateData);
-                                  Navigator.pop(context);
+                                  context.safePop();
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'pzzvv8jj' /* Submit feedback */,

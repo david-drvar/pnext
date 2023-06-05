@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservations/reservation_4/reservation4_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +34,8 @@ class _PaymentConfirmedWidgetState extends State<PaymentConfirmedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PaymentConfirmedModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -53,12 +54,15 @@ class _PaymentConfirmedWidgetState extends State<PaymentConfirmedWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: Colors.white,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -175,14 +179,22 @@ class _PaymentConfirmedWidgetState extends State<PaymentConfirmedWidget> {
                           );
                           await widget.reservationRef!
                               .update(reservationUpdateData);
-                          await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Reservation4Widget(
-                                reservationref: widget.reservationRef,
-                                documentGarage: columnGaragesRecord,
+
+                          context.pushNamed(
+                            'reservation_4',
+                            queryParameters: {
+                              'reservationref': serializeParam(
+                                widget.reservationRef,
+                                ParamType.DocumentReference,
                               ),
-                            ),
+                              'documentGarage': serializeParam(
+                                columnGaragesRecord,
+                                ParamType.Document,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              'documentGarage': columnGaragesRecord,
+                            },
                           );
 
                           setState(() {});

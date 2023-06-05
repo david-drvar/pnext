@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/my_trips/my_trips_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -38,6 +37,7 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
     _model = createModel(context, () => CancelTripModel());
 
     _model.emailAddressController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -173,14 +173,16 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                         backgroundColor: FlutterFlowTheme.of(context).redApple,
                       ),
                     );
-                    await Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.leftToRight,
-                        duration: Duration(milliseconds: 250),
-                        reverseDuration: Duration(milliseconds: 250),
-                        child: MyTripsWidget(),
-                      ),
+
+                    context.pushNamed(
+                      'myTrips',
+                      extra: <String, dynamic>{
+                        kTransitionInfoKey: TransitionInfo(
+                          hasTransition: true,
+                          transitionType: PageTransitionType.leftToRight,
+                          duration: Duration(milliseconds: 250),
+                        ),
+                      },
                     );
                   },
                   text: FFLocalizations.of(context).getText(
@@ -216,7 +218,7 @@ class _CancelTripWidgetState extends State<CancelTripWidget> {
                         EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        Navigator.pop(context);
+                        context.pop();
                       },
                       text: FFLocalizations.of(context).getText(
                         'grvhydus' /* Never Mind */,

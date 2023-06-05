@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/edit_property_2/edit_property2_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +43,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
         TextEditingController(text: widget.propertyRef!.propertyNeighborhood);
     _model.propertyDescriptionController ??=
         TextEditingController(text: widget.propertyRef!.propertyDescription);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -73,7 +73,7 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -115,10 +115,9 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                                 backgroundColor: Colors.transparent,
                                 barrierColor: Color(0xB316202A),
                                 context: context,
-                                builder: (bottomSheetContext) {
+                                builder: (context) {
                                   return Padding(
-                                    padding: MediaQuery.of(bottomSheetContext)
-                                        .viewInsets,
+                                    padding: MediaQuery.of(context).viewInsets,
                                     child: ChangeMainPhotoWidget(
                                       propertyRef: widget.propertyRef,
                                     ),
@@ -577,14 +576,23 @@ class _EditProperty1WidgetState extends State<EditProperty1Widget> {
                               );
                               await widget.propertyRef!.reference
                                   .update(propertiesUpdateData);
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => EditProperty2Widget(
-                                    propertyRef: widget.propertyRef,
-                                    propertyAmenities: rowAmenititiesRecord,
+
+                              context.pushNamed(
+                                'editProperty_2',
+                                queryParameters: {
+                                  'propertyRef': serializeParam(
+                                    widget.propertyRef,
+                                    ParamType.Document,
                                   ),
-                                ),
+                                  'propertyAmenities': serializeParam(
+                                    rowAmenititiesRecord,
+                                    ParamType.Document,
+                                  ),
+                                }.withoutNulls,
+                                extra: <String, dynamic>{
+                                  'propertyRef': widget.propertyRef,
+                                  'propertyAmenities': rowAmenititiesRecord,
+                                },
                               );
                             },
                             text: FFLocalizations.of(context).getText(

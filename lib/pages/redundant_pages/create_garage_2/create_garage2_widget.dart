@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_property_3/create_property3_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +25,8 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateGarage2Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -55,7 +56,7 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -727,12 +728,7 @@ class _CreateGarage2WidgetState extends State<CreateGarage2Widget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CreateProperty3Widget(),
-                          ),
-                        );
+                        context.pushNamed('createProperty_3');
                       },
                       text: FFLocalizations.of(context).getText(
                         'qr5cigv8' /* NEXT */,

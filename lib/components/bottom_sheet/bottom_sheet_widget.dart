@@ -26,6 +26,8 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomSheetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

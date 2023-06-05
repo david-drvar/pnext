@@ -54,6 +54,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
         setState(() => _chatInfo = info);
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -74,12 +76,14 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -109,7 +113,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget> {
                 size: 24.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.safePop();
               },
             ),
             title: StreamBuilder<GaragesRecord>(

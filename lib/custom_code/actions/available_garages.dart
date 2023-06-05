@@ -28,7 +28,8 @@ Future<List<GaragesRecord>> availableGarages(
   // //1. filter garage dimensions
   var garagesWithSuitableDimension = List<GaragesRecord>.empty(growable: true);
   for (GaragesRecord garagesRecord in garages) {
-    if (garagesRecord.dimensions == reservationRecord.dimension &&
+    if (dimensionsCheck(
+            reservationRecord.dimension, garagesRecord.dimensions) &&
         reservationRecord.dateReservation!
             .isAfter(garagesRecord.startDateValidity!) &&
         reservationRecord.dateReservation!
@@ -127,4 +128,30 @@ bool compareDatesOnly(DateTime firstDate, DateTime secondDate) {
       DateTime(secondDate.year, secondDate.month, secondDate.day);
 
   return firstDateOnly.isAtSameMomentAs(secondDateOnly);
+}
+
+bool dimensionsCheck(String wantedDimension, String garageDimension) {
+  //truck, car, bike, caravan, big_truck
+  switch (garageDimension) {
+    case "truck":
+      if (wantedDimension == "truck" ||
+          wantedDimension == "car" ||
+          wantedDimension == "bike") return true;
+      break;
+    case "car":
+      if (wantedDimension == "car" || wantedDimension == "bike") return true;
+      break;
+    case "bike":
+      if (wantedDimension == "bike") return true;
+      break;
+    case "caravan":
+      if (wantedDimension == "caravan" ||
+          wantedDimension == "car" ||
+          wantedDimension == "bike") return true;
+      break;
+    case "big_truck":
+      return true;
+  }
+
+  return false;
 }

@@ -44,6 +44,8 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
         _model.videoList = widget.newGarageRef!.videos.toList();
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -74,7 +76,7 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -115,10 +117,10 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
                                   backgroundColor: Colors.transparent,
                                   enableDrag: false,
                                   context: context,
-                                  builder: (bottomSheetContext) {
+                                  builder: (context) {
                                     return Padding(
-                                      padding: MediaQuery.of(bottomSheetContext)
-                                          .viewInsets,
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
                                       child: UploadGaragePhotoWidget(),
                                     );
                                   },
@@ -167,10 +169,10 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
                                   backgroundColor: Colors.transparent,
                                   enableDrag: false,
                                   context: context,
-                                  builder: (bottomSheetContext) {
+                                  builder: (context) {
                                     return Padding(
-                                      padding: MediaQuery.of(bottomSheetContext)
-                                          .viewInsets,
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
                                       child: UploadGarageVideoWidget(),
                                     );
                                   },
@@ -376,7 +378,7 @@ class _EditGarageMediaWidgetState extends State<EditGarageMediaWidget> {
                                 };
                                 await widget.newGarageRef!.reference
                                     .update(garagesUpdateData);
-                                Navigator.pop(context);
+                                context.safePop();
                               }
                             },
                             text: FFLocalizations.of(context).getText(

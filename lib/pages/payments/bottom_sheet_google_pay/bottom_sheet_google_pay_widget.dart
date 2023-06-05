@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/payments/payment_confirmed/payment_confirmed_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -39,6 +38,8 @@ class _BottomSheetGooglePayWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomSheetGooglePayModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -216,14 +217,18 @@ class _BottomSheetGooglePayWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PaymentConfirmedWidget(
-                          garageRef: widget.garageRef!,
-                          reservationRef: widget.reservationRef!,
+                    context.pushNamed(
+                      'paymentConfirmed',
+                      queryParameters: {
+                        'garageRef': serializeParam(
+                          widget.garageRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                        'reservationRef': serializeParam(
+                          widget.reservationRef,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
                     );
                   },
                   text: FFLocalizations.of(context).getText(

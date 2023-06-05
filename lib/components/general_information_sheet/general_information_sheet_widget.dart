@@ -34,6 +34,8 @@ class _GeneralInformationSheetWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => GeneralInformationSheetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

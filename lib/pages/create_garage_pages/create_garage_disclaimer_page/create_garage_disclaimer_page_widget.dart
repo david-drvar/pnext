@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +37,7 @@ class _CreateGarageDisclaimerPageWidgetState
     _model = createModel(context, () => CreateGarageDisclaimerPageModel());
 
     _model.keyboxPasswordController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -67,14 +67,14 @@ class _CreateGarageDisclaimerPageWidgetState
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'rf6nlx76' /* Crea un Garage */,
+              'awl3lx92' /* Crea un Garage */,
             ),
             style: FlutterFlowTheme.of(context).headlineSmall.override(
                   fontFamily: 'Urbanist',
@@ -93,7 +93,7 @@ class _CreateGarageDisclaimerPageWidgetState
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, -0.3),
+                alignment: AlignmentDirectional(0.0, -0.11),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 25.0, 0.0),
                   child: TextFormField(
@@ -150,7 +150,7 @@ class _CreateGarageDisclaimerPageWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.77, -0.51),
+                alignment: AlignmentDirectional(0.78, -0.24),
                 child: Theme(
                   data: ThemeData(
                     checkboxTheme: CheckboxThemeData(
@@ -182,13 +182,15 @@ class _CreateGarageDisclaimerPageWidgetState
                         keyboxPassword: _model.keyboxPasswordController.text,
                       );
                       await widget.newGarageRef!.update(garagesUpdateData);
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CreateGarage4PriceWidget(
-                            newGarageRef: widget.newGarageRef,
+
+                      context.pushNamed(
+                        'create_garage_4_price',
+                        queryParameters: {
+                          'newGarageRef': serializeParam(
+                            widget.newGarageRef,
+                            ParamType.DocumentReference,
                           ),
-                        ),
+                        }.withoutNulls,
                       );
                     }
                   },
@@ -215,7 +217,7 @@ class _CreateGarageDisclaimerPageWidgetState
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.55, -0.5),
+                alignment: AlignmentDirectional(-0.43, -0.24),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'd7gbb2fe' /* Confermo di aver preso visione... */,
@@ -228,14 +230,17 @@ class _CreateGarageDisclaimerPageWidgetState
               ),
               Align(
                 alignment: AlignmentDirectional(0.0, -0.8),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    '0ty3cktg' /* Disclaimer riguardo al fatto c... */,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      '0ty3cktg' /* Attenzione! Se per raggiungere... */,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Urbanist',
+                          color: FlutterFlowTheme.of(context).gray600,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Urbanist',
-                        color: FlutterFlowTheme.of(context).gray600,
-                      ),
                 ),
               ),
             ],

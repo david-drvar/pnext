@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/place.dart';
-import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
 import 'dart:io';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -35,6 +34,8 @@ class _CreateGarage1PlacePickerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateGarage1PlacePickerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -65,7 +66,7 @@ class _CreateGarage1PlacePickerWidgetState
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Padding(
@@ -414,14 +415,15 @@ class _CreateGarage1PlacePickerWidgetState
                                   GaragesRecord.getDocumentFromData(
                                       garagesCreateData,
                                       garagesRecordReference);
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      CreateGarage2FotoVideoWidget(
-                                    newGarageRef: _model.newGarage!.reference,
+
+                              context.pushNamed(
+                                'create_garage_2_foto_video',
+                                queryParameters: {
+                                  'newGarageRef': serializeParam(
+                                    _model.newGarage!.reference,
+                                    ParamType.DocumentReference,
                                   ),
-                                ),
+                                }.withoutNulls,
                               );
                             }
 

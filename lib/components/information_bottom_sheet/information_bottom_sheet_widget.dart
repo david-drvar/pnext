@@ -37,6 +37,8 @@ class _InformationBottomSheetWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => InformationBottomSheetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

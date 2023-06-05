@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +34,8 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TimeslotCalendarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -65,14 +66,14 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'o0g15k4q' /* Crea un Garage */,
+              'sgfpkc7z' /* Crea un Garage */,
             ),
             style: FlutterFlowTheme.of(context).headlineSmall.override(
                   fontFamily: 'Urbanist',
@@ -284,14 +285,15 @@ class _TimeslotCalendarWidgetState extends State<TimeslotCalendarWidget> {
                             endDateValidity: _model.calendarSelectedDay2?.start,
                           );
                           await widget.newGarageRef!.update(garagesUpdateData);
-                          await Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ConfirmPageWidget(
-                                newGarageRef: widget.newGarageRef,
+
+                          context.goNamed(
+                            'Create_Garage_3',
+                            queryParameters: {
+                              'newGarageRef': serializeParam(
+                                widget.newGarageRef,
+                                ParamType.DocumentReference,
                               ),
-                            ),
-                            (r) => false,
+                            }.withoutNulls,
                           );
                         } else {
                           await showDialog(

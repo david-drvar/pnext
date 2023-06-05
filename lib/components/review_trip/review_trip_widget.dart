@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/my_trips/my_trips_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -80,6 +79,8 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -272,15 +273,18 @@ class _ReviewTripWidgetState extends State<ReviewTripWidget>
                       );
                       await widget.tripDetails!.reference
                           .update(tripsUpdateData);
-                      await Navigator.push(
-                        context,
-                        PageTransition(
-                          type: PageTransitionType.leftToRight,
-                          duration: Duration(milliseconds: 240),
-                          reverseDuration: Duration(milliseconds: 240),
-                          child: MyTripsWidget(),
-                        ),
+
+                      context.pushNamed(
+                        'myTrips',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.leftToRight,
+                            duration: Duration(milliseconds: 240),
+                          ),
+                        },
                       );
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(

@@ -35,6 +35,8 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGarageValidityModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -53,12 +55,15 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -81,7 +86,7 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             actions: [],
@@ -286,7 +291,7 @@ class _EditGarageValidityWidgetState extends State<EditGarageValidityWidget> {
                               );
                               await widget.newGarageRef!
                                   .update(garagesUpdateData);
-                              Navigator.pop(context);
+                              context.safePop();
                             } else {
                               await showDialog(
                                 context: context,

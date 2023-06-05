@@ -35,6 +35,8 @@ class _EditGarageDisclaimerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGarageDisclaimerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -53,12 +55,15 @@ class _EditGarageDisclaimerWidgetState
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -80,7 +85,7 @@ class _EditGarageDisclaimerWidgetState
                 size: 24.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             title: Align(
@@ -154,8 +159,8 @@ class _EditGarageDisclaimerWidgetState
                                 _model.keyboxPasswordController.text,
                           );
                           await widget.newGarageRef!.update(garagesUpdateData);
-                          Navigator.pop(context);
-                          Navigator.pop(context);
+                          context.safePop();
+                          context.safePop();
                         }
                       },
                       text: FFLocalizations.of(context).getText(

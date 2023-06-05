@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/edit_garage_pages/edit_garage_disclaimer/edit_garage_disclaimer_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,6 +33,8 @@ class _EditGarageKeyWidgetState extends State<EditGarageKeyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGarageKeyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -67,7 +68,7 @@ class _EditGarageKeyWidgetState extends State<EditGarageKeyWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
           title: Align(
@@ -113,7 +114,7 @@ per ... */
                       isKey: false,
                     );
                     await widget.newGarageRef!.update(garagesUpdateData);
-                    Navigator.pop(context);
+                    context.safePop();
                   },
                   text: FFLocalizations.of(context).getText(
                     'puj627an' /* Posto auto sempre accessibile */,
@@ -142,13 +143,14 @@ per ... */
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => EditGarageDisclaimerWidget(
-                          newGarageRef: widget.newGarageRef,
+                    context.pushNamed(
+                      'edit_garage_disclaimer',
+                      queryParameters: {
+                        'newGarageRef': serializeParam(
+                          widget.newGarageRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                      }.withoutNulls,
                     );
                   },
                   text: FFLocalizations.of(context).getText(

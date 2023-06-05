@@ -99,6 +99,8 @@ class _ChangeDocPhotoWidgetState extends State<ChangeDocPhotoWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -152,7 +154,7 @@ class _ChangeDocPhotoWidgetState extends State<ChangeDocPhotoWidget>
                       size: 24.0,
                     ),
                     onPressed: () async {
-                      Navigator.pop(context);
+                      context.pop();
                     },
                   ),
                   Expanded(

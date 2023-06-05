@@ -27,6 +27,8 @@ class _TotalWidgetState extends State<TotalWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TotalModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -102,7 +104,7 @@ class _TotalWidgetState extends State<TotalWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    Navigator.pop(context);
+                    context.pop();
                   },
                   text: FFLocalizations.of(context).getText(
                     '9ud60qgy' /* Okay */,

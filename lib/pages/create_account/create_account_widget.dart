@@ -8,8 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/main.dart';
-import '/pages/login/login_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -59,6 +57,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
     _model.repeatPasswordController ??= TextEditingController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -122,7 +122,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                 size: 30.0,
                               ),
                               onPressed: () async {
-                                Navigator.pop(context);
+                                context.safePop();
                               },
                             ),
                             Text(
@@ -834,8 +834,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                                 .repeatPasswordController.text)
                                     ? null
                                     : () async {
-                                        Future Function() _navigate =
-                                            () async {};
+                                        Function() _navigate = () {};
                                         if ((functions.isEmpty(_model
                                                     .emailAddressController
                                                     .text) ==
@@ -861,6 +860,8 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                             (functions.isEmpty(
                                                     _model.uploadedFileUrl1) ==
                                                 false)) {
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent();
                                           if (_model.passwordController.text !=
                                               _model.repeatPasswordController
                                                   .text) {
@@ -897,17 +898,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                               .doc(user.uid)
                                               .update(usersCreateData);
 
-                                          _navigate = () =>
-                                              Navigator.pushAndRemoveUntil(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      NavBarPage(
-                                                          initialPage:
-                                                              'homePage_Garages'),
-                                                ),
-                                                (r) => false,
-                                              );
+                                          _navigate = () => context.goNamedAuth(
+                                              'homePage_Garages',
+                                              context.mounted);
 
                                           final usersUpdateData1 =
                                               createUsersRecordData(
@@ -930,10 +923,9 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                             backgroundColor: Colors.white,
                                             enableDrag: false,
                                             context: context,
-                                            builder: (bottomSheetContext) {
+                                            builder: (context) {
                                               return Padding(
-                                                padding: MediaQuery.of(
-                                                        bottomSheetContext)
+                                                padding: MediaQuery.of(context)
                                                     .viewInsets,
                                                 child:
                                                     EmailVerificationComponentWidget(
@@ -945,7 +937,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                                           ).then((value) => setState(() {}));
                                         }
 
-                                        await _navigate();
+                                        _navigate();
                                       },
                                 text: FFLocalizations.of(context).getText(
                                   'jsj5ozmr' /* Create Account */,
@@ -998,12 +990,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget>
                             ),
                             FFButtonWidget(
                               onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginWidget(),
-                                  ),
-                                );
+                                context.pushNamed('login');
                               },
                               text: FFLocalizations.of(context).getText(
                                 'bsnt8b4k' /* Login */,

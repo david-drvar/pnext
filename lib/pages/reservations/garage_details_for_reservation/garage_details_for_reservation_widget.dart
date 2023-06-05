@@ -8,8 +8,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/edit_garage_pages/edit_garage/edit_garage_widget.dart';
-import '/pages/payments/page_pay_with/page_pay_with_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -193,6 +191,8 @@ class _GarageDetailsForReservationWidgetState
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -211,12 +211,15 @@ class _GarageDetailsForReservationWidgetState
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -241,220 +244,254 @@ class _GarageDetailsForReservationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.9,
-                              height: 320.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFDBE2E7),
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Stack(
-                                children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          PageTransition(
-                                            type: PageTransitionType.fade,
-                                            child: FlutterFlowExpandedImageView(
-                                              image: CachedNetworkImage(
-                                                imageUrl:
-                                                    garageDetailsForReservationGaragesRecord
-                                                        .photos.first,
-                                                fit: BoxFit.contain,
-                                              ),
-                                              allowRotation: false,
-                                              tag:
-                                                  garageDetailsForReservationGaragesRecord
-                                                      .photos.first,
-                                              useHeroAnimation: true,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                      child: Hero(
-                                        tag:
-                                            garageDetailsForReservationGaragesRecord
-                                                .photos.first,
-                                        transitionOnUserGestures: true,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(16.0),
-                                          child: CachedNetworkImage(
-                                            imageUrl:
-                                                garageDetailsForReservationGaragesRecord
-                                                    .photos.first,
-                                            width: double.infinity,
-                                            height: double.infinity,
-                                            fit: BoxFit.cover,
-                                          ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 5.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pop();
+                                    },
+                                    child: Card(
+                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                      color: Color(0x3A000000),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30.0,
+                                        buttonSize: 46.0,
+                                        icon: Icon(
+                                          Icons.arrow_back_rounded,
+                                          color: Colors.white,
+                                          size: 24.0,
                                         ),
+                                        onPressed: () async {
+                                          context.safePop();
+                                        },
                                       ),
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 16.0, 16.0, 16.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                Navigator.pop(context);
-                                              },
-                                              child: Card(
-                                                clipBehavior:
-                                                    Clip.antiAliasWithSaveLayer,
-                                                color: Color(0x3A000000),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  buttonSize: 46.0,
-                                                  icon: Icon(
-                                                    Icons.arrow_back_rounded,
-                                                    color: Colors.white,
-                                                    size: 24.0,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  height: 320.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFDBE2E7),
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType.fade,
+                                                child:
+                                                    FlutterFlowExpandedImageView(
+                                                  image: CachedNetworkImage(
+                                                    imageUrl:
+                                                        garageDetailsForReservationGaragesRecord
+                                                            .photos.first,
+                                                    fit: BoxFit.contain,
                                                   ),
-                                                  onPressed: () async {
-                                                    Navigator.pop(context);
-                                                  },
+                                                  allowRotation: false,
+                                                  tag:
+                                                      garageDetailsForReservationGaragesRecord
+                                                          .photos.first,
+                                                  useHeroAnimation: true,
                                                 ),
+                                              ),
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag:
+                                                garageDetailsForReservationGaragesRecord
+                                                    .photos.first,
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(16.0),
+                                              child: CachedNetworkImage(
+                                                imageUrl:
+                                                    garageDetailsForReservationGaragesRecord
+                                                        .photos.first,
+                                                width: double.infinity,
+                                                height: double.infinity,
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
-                                            if (garageDetailsForReservationGaragesRecord
-                                                    .userRef ==
-                                                currentUserReference)
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        100.0, 0.0, 0.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    await Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            EditGarageWidget(
-                                                          garageRef:
-                                                              widget.garageRef,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                  text: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'dyuh1elk' /* Modifica */,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: 60.0,
-                                                    height: 40.0,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 16.0, 16.0, 16.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                if (garageDetailsForReservationGaragesRecord
+                                                        .userRef ==
+                                                    currentUserReference)
+                                                  Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'Urbanist',
-                                                          color: Colors.white,
-                                                        ),
-                                                    borderSide: BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                ),
-                                              ),
-                                            if (garageDetailsForReservationGaragesRecord
-                                                    .userRef ==
-                                                currentUserReference)
-                                              FFButtonWidget(
-                                                onPressed: () async {
-                                                  final garagesUpdateData =
-                                                      createGaragesRecordData(
-                                                    isActive: false,
-                                                  );
-                                                  await widget.garageRef!
-                                                      .update(
-                                                          garagesUpdateData);
-                                                  Navigator.pop(context);
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'flbw0vl4' /* Elimina */,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 60.0,
-                                                  height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .redApple,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily: 'Urbanist',
-                                                        color: Colors.white,
+                                                            .fromSTEB(100.0,
+                                                                0.0, 0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        context.pushNamed(
+                                                          'edit_garage',
+                                                          queryParameters: {
+                                                            'garageRef':
+                                                                serializeParam(
+                                                              widget.garageRef,
+                                                              ParamType
+                                                                  .DocumentReference,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'dyuh1elk' /* Modifica */,
                                                       ),
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
+                                                      options: FFButtonOptions(
+                                                        width: 60.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Urbanist',
+                                                                  color: Colors
+                                                                      .white,
+                                                                ),
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                    ),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                              ),
+                                                if (garageDetailsForReservationGaragesRecord
+                                                        .userRef ==
+                                                    currentUserReference)
+                                                  FFButtonWidget(
+                                                    onPressed: () async {
+                                                      final garagesUpdateData =
+                                                          createGaragesRecordData(
+                                                        isActive: false,
+                                                      );
+                                                      await widget.garageRef!
+                                                          .update(
+                                                              garagesUpdateData);
+                                                      context.safePop();
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'flbw0vl4' /* Elimina */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: 60.0,
+                                                      height: 40.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .redApple,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Urbanist',
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
                                           ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -1553,14 +1590,19 @@ class _GarageDetailsForReservationWidgetState
                                 );
                                 await widget.reservationRef!
                                     .update(reservationUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PagePayWithWidget(
-                                      reservationRef: widget.reservationRef!,
-                                      garageRef: widget.garageRef!,
+
+                                context.pushNamed(
+                                  'PagePayWith',
+                                  queryParameters: {
+                                    'reservationRef': serializeParam(
+                                      widget.reservationRef,
+                                      ParamType.DocumentReference,
                                     ),
-                                  ),
+                                    'garageRef': serializeParam(
+                                      widget.garageRef,
+                                      ParamType.DocumentReference,
+                                    ),
+                                  }.withoutNulls,
                                 );
                               },
                               text: FFLocalizations.of(context).getText(

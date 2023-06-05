@@ -104,6 +104,8 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -157,7 +159,7 @@ class _ChangeMainPhotoWidgetState extends State<ChangeMainPhotoWidget>
                       size: 24.0,
                     ),
                     onPressed: () async {
-                      Navigator.pop(context);
+                      context.pop();
                     },
                   ),
                   Expanded(

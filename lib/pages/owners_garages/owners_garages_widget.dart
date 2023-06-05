@@ -3,8 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/create_garage_pages/create_garage_1_place_picker/create_garage1_place_picker_widget.dart';
-import '/pages/garage_details/garage_details_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +28,8 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OwnersGaragesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -51,12 +51,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => CreateGarage1PlacePickerWidget(),
-              ),
-            );
+            context.pushNamed('create_garage_1PlacePicker');
           },
           backgroundColor: FlutterFlowTheme.of(context).primary,
           elevation: 8.0,
@@ -80,7 +75,7 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
           title: Text(
@@ -141,15 +136,18 @@ class _OwnersGaragesWidgetState extends State<OwnersGaragesWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => GarageDetailsWidget(
-                                      garageRef:
-                                          listViewGaragesRecord.reference,
-                                      isKeyboxVisible: true,
+                                context.pushNamed(
+                                  'garageDetails',
+                                  queryParameters: {
+                                    'garageRef': serializeParam(
+                                      listViewGaragesRecord.reference,
+                                      ParamType.DocumentReference,
                                     ),
-                                  ),
+                                    'isKeyboxVisible': serializeParam(
+                                      true,
+                                      ParamType.bool,
+                                    ),
+                                  }.withoutNulls,
                                 );
                               },
                               child: Container(

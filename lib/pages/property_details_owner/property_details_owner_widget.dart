@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/edit_property_1/edit_property1_widget.dart';
-import '/pages/property_review/property_review_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -78,6 +76,8 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -186,7 +186,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            Navigator.pop(context);
+                                            context.pop();
                                           },
                                           child: Card(
                                             clipBehavior:
@@ -206,7 +206,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                                                 size: 24.0,
                                               ),
                                               onPressed: () async {
-                                                Navigator.pop(context);
+                                                context.pop();
                                               },
                                             ),
                                           ),
@@ -267,12 +267,7 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => PropertyReviewWidget(),
-                          ),
-                        );
+                        context.pushNamed('propertyReview');
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -1090,13 +1085,17 @@ class _PropertyDetailsOwnerWidgetState extends State<PropertyDetailsOwnerWidget>
                   ),
                   FFButtonWidget(
                     onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditProperty1Widget(
-                            propertyRef: widget.propertyRef,
+                      context.pushNamed(
+                        'editProperty_1',
+                        queryParameters: {
+                          'propertyRef': serializeParam(
+                            widget.propertyRef,
+                            ParamType.Document,
                           ),
-                        ),
+                        }.withoutNulls,
+                        extra: <String, dynamic>{
+                          'propertyRef': widget.propertyRef,
+                        },
                       );
                     },
                     text: FFLocalizations.of(context).getText(

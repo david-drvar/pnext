@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/chats/chat_page/chat_page_widget.dart';
-import '/pages/reservations/reservation_details_map/reservation_details_map_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -41,6 +39,8 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ReservationDetailsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -59,12 +59,15 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -87,7 +90,7 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             title: Text(
@@ -202,14 +205,14 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        ReservationDetailsMapWidget(
-                                      reservationRef: widget.reservationRef!,
+                                context.pushNamed(
+                                  'reservationDetailsMap',
+                                  queryParameters: {
+                                    'reservationRef': serializeParam(
+                                      widget.reservationRef,
+                                      ParamType.DocumentReference,
                                     ),
-                                  ),
+                                  }.withoutNulls,
                                 );
                               },
                               child: Row(
@@ -579,12 +582,11 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                                   barrierColor:
                                                       Color(0xB3000000),
                                                   context: context,
-                                                  builder:
-                                                      (bottomSheetContext) {
+                                                  builder: (context) {
                                                     return Padding(
-                                                      padding: MediaQuery.of(
-                                                              bottomSheetContext)
-                                                          .viewInsets,
+                                                      padding:
+                                                          MediaQuery.of(context)
+                                                              .viewInsets,
                                                       child: Container(
                                                         height: 270.0,
                                                         child: TotalWidget(),
@@ -776,18 +778,23 @@ class _ReservationDetailsWidgetState extends State<ReservationDetailsWidget> {
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          await Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ChatPageWidget(
-                                                chatUser:
-                                                    bottomButtonAreaUsersRecord,
-                                                chatRef:
-                                                    reservationDetailsReservationRecord
-                                                        .chatReference,
+                                          context.pushNamed(
+                                            'ChatPage',
+                                            queryParameters: {
+                                              'chatUser': serializeParam(
+                                                bottomButtonAreaUsersRecord,
+                                                ParamType.Document,
                                               ),
-                                            ),
+                                              'chatRef': serializeParam(
+                                                reservationDetailsReservationRecord
+                                                    .chatReference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'chatUser':
+                                                  bottomButtonAreaUsersRecord,
+                                            },
                                           );
                                         },
                                         text:

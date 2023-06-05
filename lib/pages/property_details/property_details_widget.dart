@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/book_now/book_now_widget.dart';
-import '/pages/property_review/property_review_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -194,6 +192,8 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -215,12 +215,15 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -324,7 +327,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                Navigator.pop(context);
+                                                context.pop();
                                               },
                                               child: Card(
                                                 clipBehavior:
@@ -346,7 +349,7 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                                                     size: 24.0,
                                                   ),
                                                   onPressed: () async {
-                                                    Navigator.pop(context);
+                                                    context.pop();
                                                   },
                                                 ),
                                               ),
@@ -411,13 +414,17 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PropertyReviewWidget(
-                                  propertyRef: widget.propertyRef,
+                            context.pushNamed(
+                              'propertyReview',
+                              queryParameters: {
+                                'propertyRef': serializeParam(
+                                  widget.propertyRef,
+                                  ParamType.Document,
                                 ),
-                              ),
+                              }.withoutNulls,
+                              extra: <String, dynamic>{
+                                'propertyRef': widget.propertyRef,
+                              },
                             );
                           },
                           child: Row(
@@ -1279,13 +1286,17 @@ class _PropertyDetailsWidgetState extends State<PropertyDetailsWidget>
                       if (widget.propertyRef!.userRef != currentUserReference)
                         FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BookNowWidget(
-                                  propertyDetails: widget.propertyRef,
+                            context.pushNamed(
+                              'bookNow',
+                              queryParameters: {
+                                'propertyDetails': serializeParam(
+                                  widget.propertyRef,
+                                  ParamType.Document,
                                 ),
-                              ),
+                              }.withoutNulls,
+                              extra: <String, dynamic>{
+                                'propertyDetails': widget.propertyRef,
+                              },
                             );
                           },
                           text: FFLocalizations.of(context).getText(

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/redundant_pages/reservation_5/reservation5_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -36,6 +35,8 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Reservation4CopyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -69,7 +70,7 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
           actions: [],
@@ -128,13 +129,15 @@ class _Reservation4CopyWidgetState extends State<Reservation4CopyWidget> {
                       );
                       await widget.reservationref!
                           .update(reservationUpdateData);
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Reservation5Widget(
-                            reservationref: widget.reservationref,
+
+                      context.pushNamed(
+                        'reservation_5',
+                        queryParameters: {
+                          'reservationref': serializeParam(
+                            widget.reservationref,
+                            ParamType.DocumentReference,
                           ),
-                        ),
+                        }.withoutNulls,
                       );
                     },
                     text: FFLocalizations.of(context).getText(

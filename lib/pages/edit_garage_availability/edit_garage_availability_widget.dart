@@ -33,6 +33,8 @@ class _EditGarageAvailabilityWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGarageAvailabilityModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -63,7 +65,7 @@ class _EditGarageAvailabilityWidgetState
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         actions: [],
@@ -111,10 +113,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'monday',
                                     newGarageRef:
@@ -146,10 +147,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'tuesday',
                                     newGarageRef:
@@ -181,10 +181,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'wednesday',
                                     newGarageRef:
@@ -216,10 +215,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'thursday',
                                     newGarageRef:
@@ -251,10 +249,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'friday',
                                     newGarageRef:
@@ -286,10 +283,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'saturday',
                                     newGarageRef:
@@ -321,10 +317,9 @@ class _EditGarageAvailabilityWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'sunday',
                                     newGarageRef:
@@ -375,7 +370,7 @@ class _EditGarageAvailabilityWidgetState
                             120.0, 10.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            Navigator.pop(context);
+                            context.safePop();
                           },
                           text: FFLocalizations.of(context).getText(
                             'yk2g7931' /* Conferma */,

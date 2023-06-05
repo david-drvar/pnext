@@ -2,13 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/edit_garage_availability/edit_garage_availability_widget.dart';
-import '/pages/edit_garage_pages/edit_garage_address/edit_garage_address_widget.dart';
-import '/pages/edit_garage_pages/edit_garage_key/edit_garage_key_widget.dart';
-import '/pages/edit_garage_pages/edit_garage_media/edit_garage_media_widget.dart';
-import '/pages/edit_garage_pages/edit_garage_price/edit_garage_price_widget.dart';
-import '/pages/edit_garage_pages/edit_garage_validity/edit_garage_validity_widget.dart';
-import '/pages/edit_garage_pages/edit_garage_vehicle_type/edit_garage_vehicle_type_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,6 +30,8 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGarageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -55,12 +50,15 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -83,7 +81,7 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.safePop();
               },
             ),
             title: Text(
@@ -157,13 +155,17 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditGarageAddressWidget(
-                            garage: editGarageGaragesRecord,
+                      context.pushNamed(
+                        'edit_garage_address',
+                        queryParameters: {
+                          'garage': serializeParam(
+                            editGarageGaragesRecord,
+                            ParamType.Document,
                           ),
-                        ),
+                        }.withoutNulls,
+                        extra: <String, dynamic>{
+                          'garage': editGarageGaragesRecord,
+                        },
                       );
                     },
                     child: Material(
@@ -236,13 +238,14 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditGaragePriceWidget(
-                            newGarageRef: widget.garageRef,
+                      context.pushNamed(
+                        'edit_garage_price',
+                        queryParameters: {
+                          'newGarageRef': serializeParam(
+                            widget.garageRef,
+                            ParamType.DocumentReference,
                           ),
-                        ),
+                        }.withoutNulls,
                       );
                     },
                     child: Material(
@@ -315,13 +318,17 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EditGarageVehicleTypeWidget(
-                            garage: editGarageGaragesRecord,
+                      context.pushNamed(
+                        'edit_garage_vehicle_type',
+                        queryParameters: {
+                          'garage': serializeParam(
+                            editGarageGaragesRecord,
+                            ParamType.Document,
                           ),
-                        ),
+                        }.withoutNulls,
+                        extra: <String, dynamic>{
+                          'garage': editGarageGaragesRecord,
+                        },
                       );
                     },
                     child: Material(
@@ -396,13 +403,14 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditGarageKeyWidget(
-                              newGarageRef: widget.garageRef,
+                        context.pushNamed(
+                          'edit_garage_key',
+                          queryParameters: {
+                            'newGarageRef': serializeParam(
+                              widget.garageRef,
+                              ParamType.DocumentReference,
                             ),
-                          ),
+                          }.withoutNulls,
                         );
                       },
                       child: Material(
@@ -479,13 +487,17 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditGarageMediaWidget(
-                              newGarageRef: editGarageGaragesRecord,
+                        context.pushNamed(
+                          'edit_garage_media',
+                          queryParameters: {
+                            'newGarageRef': serializeParam(
+                              editGarageGaragesRecord,
+                              ParamType.Document,
                             ),
-                          ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            'newGarageRef': editGarageGaragesRecord,
+                          },
                         );
                       },
                       child: Material(
@@ -562,13 +574,17 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditGarageAvailabilityWidget(
-                              newGarageRef: editGarageGaragesRecord,
+                        context.pushNamed(
+                          'edit_garage_availability',
+                          queryParameters: {
+                            'newGarageRef': serializeParam(
+                              editGarageGaragesRecord,
+                              ParamType.Document,
                             ),
-                          ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            'newGarageRef': editGarageGaragesRecord,
+                          },
                         );
                       },
                       child: Material(
@@ -647,13 +663,14 @@ class _EditGarageWidgetState extends State<EditGarageWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditGarageValidityWidget(
-                              newGarageRef: widget.garageRef,
+                        context.pushNamed(
+                          'edit_garage_validity',
+                          queryParameters: {
+                            'newGarageRef': serializeParam(
+                              widget.garageRef,
+                              ParamType.DocumentReference,
                             ),
-                          ),
+                          }.withoutNulls,
                         );
                       },
                       child: Material(

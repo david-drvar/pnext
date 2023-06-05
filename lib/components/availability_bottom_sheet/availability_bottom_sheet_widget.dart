@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,6 +42,8 @@ class _AvailabilityBottomSheetWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AvailabilityBottomSheetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -101,22 +104,41 @@ class _AvailabilityBottomSheetWidgetState
                       EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 0.0, 10.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await DatePicker.showTimePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
+                      if (kIsWeb) {
+                        final _datePicked1Time = await showTimePicker(
+                          context: context,
+                          initialTime:
+                              TimeOfDay.fromDateTime(getCurrentTimestamp),
+                        );
+                        if (_datePicked1Time != null) {
                           setState(() {
-                            _model.datePicked1 = date;
+                            _model.datePicked1 = DateTime(
+                              getCurrentTimestamp.year,
+                              getCurrentTimestamp.month,
+                              getCurrentTimestamp.day,
+                              _datePicked1Time.hour,
+                              _datePicked1Time.minute,
+                            );
                           });
-                        },
-                        currentTime: getCurrentTimestamp,
-                        locale: LocaleType.values.firstWhere(
-                          (l) =>
-                              l.name ==
-                              FFLocalizations.of(context).languageCode,
-                          orElse: () => LocaleType.en,
-                        ),
-                      );
+                        }
+                      } else {
+                        await DatePicker.showTimePicker(
+                          context,
+                          showTitleActions: true,
+                          onConfirm: (date) {
+                            setState(() {
+                              _model.datePicked1 = date;
+                            });
+                          },
+                          currentTime: getCurrentTimestamp,
+                          locale: LocaleType.values.firstWhere(
+                            (l) =>
+                                l.name ==
+                                FFLocalizations.of(context).languageCode,
+                            orElse: () => LocaleType.en,
+                          ),
+                        );
+                      }
                     },
                     text: FFLocalizations.of(context).getText(
                       'xl8u1zg0' /* Fascia Oraria */,
@@ -167,22 +189,41 @@ class _AvailabilityBottomSheetWidgetState
                       EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 0.0, 10.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await DatePicker.showTimePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
+                      if (kIsWeb) {
+                        final _datePicked2Time = await showTimePicker(
+                          context: context,
+                          initialTime:
+                              TimeOfDay.fromDateTime(getCurrentTimestamp),
+                        );
+                        if (_datePicked2Time != null) {
                           setState(() {
-                            _model.datePicked2 = date;
+                            _model.datePicked2 = DateTime(
+                              getCurrentTimestamp.year,
+                              getCurrentTimestamp.month,
+                              getCurrentTimestamp.day,
+                              _datePicked2Time.hour,
+                              _datePicked2Time.minute,
+                            );
                           });
-                        },
-                        currentTime: getCurrentTimestamp,
-                        locale: LocaleType.values.firstWhere(
-                          (l) =>
-                              l.name ==
-                              FFLocalizations.of(context).languageCode,
-                          orElse: () => LocaleType.en,
-                        ),
-                      );
+                        }
+                      } else {
+                        await DatePicker.showTimePicker(
+                          context,
+                          showTitleActions: true,
+                          onConfirm: (date) {
+                            setState(() {
+                              _model.datePicked2 = date;
+                            });
+                          },
+                          currentTime: getCurrentTimestamp,
+                          locale: LocaleType.values.firstWhere(
+                            (l) =>
+                                l.name ==
+                                FFLocalizations.of(context).languageCode,
+                            orElse: () => LocaleType.en,
+                          ),
+                        );
+                      }
                     },
                     text: FFLocalizations.of(context).getText(
                       '5blhqpx9' /* Fascia Oraria */,

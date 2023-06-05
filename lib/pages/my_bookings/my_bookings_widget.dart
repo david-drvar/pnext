@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/trip_details_h_o_s_t/trip_details_h_o_s_t_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,6 +26,8 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyBookingsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -57,7 +58,7 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -206,17 +207,25 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                await Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TripDetailsHOSTWidget(
-                                                      propertyRef:
-                                                          columnPropertiesRecord,
-                                                      tripRef:
-                                                          listViewTripsRecord,
+                                                context.pushNamed(
+                                                  'tripDetailsHOST',
+                                                  queryParameters: {
+                                                    'propertyRef':
+                                                        serializeParam(
+                                                      columnPropertiesRecord,
+                                                      ParamType.Document,
                                                     ),
-                                                  ),
+                                                    'tripRef': serializeParam(
+                                                      listViewTripsRecord,
+                                                      ParamType.Document,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'propertyRef':
+                                                        columnPropertiesRecord,
+                                                    'tripRef':
+                                                        listViewTripsRecord,
+                                                  },
                                                 );
                                               },
                                               child: Column(
@@ -531,17 +540,25 @@ class _MyBookingsWidgetState extends State<MyBookingsWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                await Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TripDetailsHOSTWidget(
-                                                      propertyRef:
-                                                          columnPropertiesRecord,
-                                                      tripRef:
-                                                          listViewTripsRecord,
+                                                context.pushNamed(
+                                                  'tripDetailsHOST',
+                                                  queryParameters: {
+                                                    'propertyRef':
+                                                        serializeParam(
+                                                      columnPropertiesRecord,
+                                                      ParamType.Document,
                                                     ),
-                                                  ),
+                                                    'tripRef': serializeParam(
+                                                      listViewTripsRecord,
+                                                      ParamType.Document,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'propertyRef':
+                                                        columnPropertiesRecord,
+                                                    'tripRef':
+                                                        listViewTripsRecord,
+                                                  },
                                                 );
                                               },
                                               child: Column(

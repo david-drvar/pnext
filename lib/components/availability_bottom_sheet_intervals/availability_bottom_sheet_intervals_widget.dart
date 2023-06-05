@@ -45,6 +45,8 @@ class _AvailabilityBottomSheetIntervalsWidgetState
     super.initState();
     _model =
         createModel(context, () => AvailabilityBottomSheetIntervalsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

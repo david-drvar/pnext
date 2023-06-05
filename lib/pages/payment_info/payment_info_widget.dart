@@ -25,6 +25,8 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PaymentInfoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -55,7 +57,7 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -128,7 +130,7 @@ class _PaymentInfoWidgetState extends State<PaymentInfoWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 24.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          Navigator.pop(context);
+                          context.pop();
                         },
                         text: FFLocalizations.of(context).getText(
                           'sroy7v9j' /* Save Changes */,

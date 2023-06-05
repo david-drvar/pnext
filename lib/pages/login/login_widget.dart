@@ -1,14 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/email_verification_component/email_verification_component_widget.dart';
 import '/components/socials_sign_in/socials_sign_in_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/main.dart';
-import '/pages/create_account/create_account_widget.dart';
-import '/pages/forgot_password/forgot_password_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -52,6 +47,8 @@ class _LoginWidgetState extends State<LoginWidget>
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -300,13 +297,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           children: [
                             FFButtonWidget(
                               onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        ForgotPasswordWidget(),
-                                  ),
-                                );
+                                context.pushNamed('forgotPassword');
                               },
                               text: FFLocalizations.of(context).getText(
                                 '5t0ihrel' /* Password dimenticata? */,
@@ -334,61 +325,29 @@ class _LoginWidgetState extends State<LoginWidget>
                                   0.0, 0.0, 4.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  _model.returnAuth =
-                                      await actions.authFlutterFire(
+                                  GoRouter.of(context).prepareAuthEvent();
+
+                                  final user =
+                                      await authManager.signInWithEmail(
+                                    context,
                                     _model.emailAddressController.text,
                                     _model.passwordController.text,
                                   );
-                                  if (_model.returnAuth == 'valid') {
-                                    if (currentUserEmailVerified) {
-                                      await Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => NavBarPage(
-                                              initialPage: 'homePage_Garages'),
-                                        ),
-                                      );
-                                    } else {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.white,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (bottomSheetContext) {
-                                          return Padding(
-                                            padding: MediaQuery.of(
-                                                    bottomSheetContext)
-                                                .viewInsets,
-                                            child:
-                                                EmailVerificationComponentWidget(
-                                              message:
-                                                  'We\'ve sent  verification link to your email. After verifying please proceed with login.',
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => setState(() {}));
-                                    }
-                                  } else {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.white,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (bottomSheetContext) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.of(bottomSheetContext)
-                                                  .viewInsets,
-                                          child:
-                                              EmailVerificationComponentWidget(
-                                            message: _model.returnAuth,
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => setState(() {}));
+                                  if (user == null) {
+                                    return;
                                   }
 
-                                  setState(() {});
+                                  if (currentUserEmailVerified) {
+                                    context.pushNamedAuth(
+                                        'homePage_Garages', context.mounted);
+                                  } else {
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 1000));
+                                    if (currentUserEmailVerified) {
+                                      context.pushNamedAuth(
+                                          'homePage_Garages', context.mounted);
+                                    }
+                                  }
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   '7e0jfy8f' /* Login */,
@@ -448,14 +407,15 @@ class _LoginWidgetState extends State<LoginWidget>
                             ),
                             FFButtonWidget(
                               onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: CreateAccountWidget(),
-                                  ),
+                                context.pushNamed(
+                                  'createAccount',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
                                 );
                               },
                               text: FFLocalizations.of(context).getText(
@@ -510,29 +470,31 @@ class _LoginWidgetState extends State<LoginWidget>
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 450.0,
-              decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).secondaryBackground,
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/orig.png',
-                  ).image,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 7.0,
-                    color: Color(0x4D090F13),
-                    offset: Offset(0.0, 3.0),
-                  )
-                ],
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(16.0),
-                  bottomRight: Radius.circular(16.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                height: 450.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.asset(
+                      'assets/images/orig.png',
+                    ).image,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 7.0,
+                      color: Color(0x4D090F13),
+                      offset: Offset(0.0, 3.0),
+                    )
+                  ],
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(16.0),
+                    bottomRight: Radius.circular(16.0),
+                    topLeft: Radius.circular(0.0),
+                    topRight: Radius.circular(0.0),
+                  ),
                 ),
               ),
             ),

@@ -1438,7 +1438,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // garage_availabilities
   {
-    'rnkqcp11': {
+    'k8skpntz': {
       'it': 'Crea un Garage',
       'en': '',
     },
@@ -1563,7 +1563,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // create_garage_4_price
   {
-    'tue3tzn4': {
+    '1kkbbo0i': {
       'it': 'Crea un Garage',
       'en': '',
     },
@@ -1572,7 +1572,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Enter your hourly rate',
     },
     'kqfrxfjx': {
-      'it': '0,00 €',
+      'it': '0.00 €',
       'en': '\$ Price',
     },
     '4ktnb6q5': {
@@ -1592,9 +1592,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Create_Garage_3
   {
-    'k5mec075': {
+    '6lt9w9wp': {
       'it': 'Crea un Garage',
-      'en': 'Create a Garage',
+      'en': '',
     },
     'nn1i2s0y': {
       'it': 'Inserisci le informazioni\nper l\'accesso al tuo posto auto',
@@ -1615,7 +1615,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // TimeslotCalendar
   {
-    'o0g15k4q': {
+    'sgfpkc7z': {
       'it': 'Crea un Garage',
       'en': '',
     },
@@ -1769,7 +1769,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // create_garage_disclaimer_page
   {
-    'rf6nlx76': {
+    'awl3lx92': {
       'it': 'Crea un Garage',
       'en': '',
     },
@@ -1791,7 +1791,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0ty3cktg': {
       'it':
-          'Disclaimer riguardo al fatto che bisogna avere una \ncasssetta per le chiavi in modo da renderle accessibili\nal clinte che accederà sbloccando il lucchetto con \npassword che dovrete successivamente caricare sul\nvostro profilo',
+          'Attenzione! Se per raggiungere il posto auto che vuoi condividere sono necessarie chiavi o telecomandi, accertati di avere già installato una cassetta portachiavi di sicurezza ben visibile e raggiungibile dall\'esterno. Tieni a portata di mano il codice di apertura della cassetta portachiavi, ti chiederemo di inserirlo durante la registrazione. Noi condivideremo il codice di apertura solo con chi ha deciso di utilizzare il tuo posto auto. Periodicamente ti consigliamo di cambiare il codice di apertura della cassetta portachiavi.',
       'en':
           'Disclaimer that you must have one\nkey box to make them accessible\nto the customer who will access by unlocking the padlock with\npassword that you will later have to upload to the\nyour profile',
     },
@@ -1802,7 +1802,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Confirm_Page
   {
-    '7rm4my2u': {
+    'qwaqepcr': {
       'it': 'Crea un Garage',
       'en': '',
     },
@@ -1939,6 +1939,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // homePage_Garages
   {
+    '95yukop1': {
+      'it': 'Book now',
+      'en': 'Book now',
+    },
     'l4ckmd0s': {
       'it': 'Welcome!',
       'en': 'Welcome!',
@@ -1947,13 +1951,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Find your Garage Space To Getaway',
       'en': 'Find your garage space to get away',
     },
-    '8qnbzgkz': {
-      'it': 'Book now',
-      'en': 'Book now',
-    },
     'xmfxedpx': {
       'it': 'List',
-      'en': 'list',
+      'en': 'List',
     },
     'hvyb6a97': {
       'it': '€ all\'ora + tasse',
@@ -2075,8 +2075,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'XXXX',
     },
     '2wtdrwfe': {
-      'it': '+ taxes/fees',
-      'en': '+ taxes/fees',
+      'it': '€ + taxes/fees',
+      'en': '€ + taxes/fees',
     },
     '85l7wc85': {
       'it': 'per hour',
@@ -3104,9 +3104,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'it': 'Total',
       'en': 'Total',
     },
-    'zilpryox': {
-      'it': 'Le mie Prenotazioni',
-      'en': 'My Reservations',
+    'il9t2r3y': {
+      'it': 'Tutte le Prenotazioni',
+      'en': 'All Reservations',
     },
     'u0sxl95z': {
       'it': 'Reservations',

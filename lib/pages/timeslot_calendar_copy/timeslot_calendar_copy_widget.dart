@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/confirm_page/confirm_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +28,8 @@ class _TimeslotCalendarCopyWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => TimeslotCalendarCopyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -59,7 +60,7 @@ class _TimeslotCalendarCopyWidgetState
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         actions: [
@@ -79,9 +80,9 @@ class _TimeslotCalendarCopyWidgetState
                 backgroundColor: Colors.transparent,
                 barrierColor: Color(0xB314181B),
                 context: context,
-                builder: (bottomSheetContext) {
+                builder: (context) {
                   return Padding(
-                    padding: MediaQuery.of(bottomSheetContext).viewInsets,
+                    padding: MediaQuery.of(context).viewInsets,
                     child: Container(
                       height: 430.0,
                       child: CancelTripHOSTWidget(),
@@ -266,12 +267,7 @@ class _TimeslotCalendarCopyWidgetState
                             120.0, 10.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ConfirmPageWidget(),
-                              ),
-                            );
+                            context.pushNamed('Confirm_Page');
                           },
                           text: FFLocalizations.of(context).getText(
                             'i7x03ob1' /* Conferma */,

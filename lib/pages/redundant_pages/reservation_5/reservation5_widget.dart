@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -37,8 +36,10 @@ class _Reservation5WidgetState extends State<Reservation5Widget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      Navigator.pop(context);
+      context.safePop();
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -121,13 +122,7 @@ class _Reservation5WidgetState extends State<Reservation5Widget> {
                   alignment: AlignmentDirectional(0.0, -0.25),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              NavBarPage(initialPage: 'homePage_Garages'),
-                        ),
-                      );
+                      context.pushNamed('homePage_Garages');
                     },
                     text: FFLocalizations.of(context).getText(
                       '7rjj2cph' /* Conferma pagamento */,

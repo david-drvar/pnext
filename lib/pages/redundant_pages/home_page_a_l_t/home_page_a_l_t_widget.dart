@@ -2,7 +2,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/property_details/property_details_widget.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,6 +27,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
     _model = createModel(context, () => HomePageALTModel());
 
     _model.textController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -333,12 +333,7 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PropertyDetailsWidget(),
-                                ),
-                              );
+                              context.pushNamed('propertyDetails');
                             },
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -349,14 +344,17 @@ class _HomePageALTWidgetState extends State<HomePageALTWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            PropertyDetailsWidget(
-                                          propertyRef: columnPropertiesRecord,
+                                    context.pushNamed(
+                                      'propertyDetails',
+                                      queryParameters: {
+                                        'propertyRef': serializeParam(
+                                          columnPropertiesRecord,
+                                          ParamType.Document,
                                         ),
-                                      ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'propertyRef': columnPropertiesRecord,
+                                      },
                                     );
                                   },
                                   child: Hero(

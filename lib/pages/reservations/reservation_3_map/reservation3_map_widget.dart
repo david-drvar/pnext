@@ -54,6 +54,7 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -92,12 +93,15 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -123,7 +127,7 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                   size: 30.0,
                 ),
                 onPressed: () async {
-                  Navigator.pop(context);
+                  context.safePop();
                 },
               ),
               actions: [],
@@ -158,13 +162,12 @@ class _Reservation3MapWidgetState extends State<Reservation3MapWidget> {
                                         backgroundColor: Colors.transparent,
                                         enableDrag: false,
                                         context: context,
-                                        builder: (bottomSheetContext) {
+                                        builder: (context) {
                                           return GestureDetector(
                                             onTap: () => FocusScope.of(context)
                                                 .requestFocus(_unfocusNode),
                                             child: Padding(
-                                              padding: MediaQuery.of(
-                                                      bottomSheetContext)
+                                              padding: MediaQuery.of(context)
                                                   .viewInsets,
                                               child: BottomSheetGaragesWidget(
                                                 garage:

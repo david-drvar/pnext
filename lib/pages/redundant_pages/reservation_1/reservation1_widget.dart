@@ -4,8 +4,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservations/reservation_2/reservation2_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,6 +35,8 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Reservation1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -68,7 +70,7 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
           actions: [],
@@ -94,23 +96,54 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                   alignment: AlignmentDirectional(0.03, -0.77),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await DatePicker.showDateTimePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
+                      if (kIsWeb) {
+                        final _datePicked1Date = await showDatePicker(
+                          context: context,
+                          initialDate: getCurrentTimestamp,
+                          firstDate: getCurrentTimestamp,
+                          lastDate: DateTime(2050),
+                        );
+
+                        TimeOfDay? _datePicked1Time;
+                        if (_datePicked1Date != null) {
+                          _datePicked1Time = await showTimePicker(
+                            context: context,
+                            initialTime:
+                                TimeOfDay.fromDateTime(getCurrentTimestamp),
+                          );
+                        }
+
+                        if (_datePicked1Date != null &&
+                            _datePicked1Time != null) {
                           setState(() {
-                            _model.datePicked1 = date;
+                            _model.datePicked1 = DateTime(
+                              _datePicked1Date.year,
+                              _datePicked1Date.month,
+                              _datePicked1Date.day,
+                              _datePicked1Time!.hour,
+                              _datePicked1Time.minute,
+                            );
                           });
-                        },
-                        currentTime: getCurrentTimestamp,
-                        minTime: getCurrentTimestamp,
-                        locale: LocaleType.values.firstWhere(
-                          (l) =>
-                              l.name ==
-                              FFLocalizations.of(context).languageCode,
-                          orElse: () => LocaleType.en,
-                        ),
-                      );
+                        }
+                      } else {
+                        await DatePicker.showDateTimePicker(
+                          context,
+                          showTitleActions: true,
+                          onConfirm: (date) {
+                            setState(() {
+                              _model.datePicked1 = date;
+                            });
+                          },
+                          currentTime: getCurrentTimestamp,
+                          minTime: getCurrentTimestamp,
+                          locale: LocaleType.values.firstWhere(
+                            (l) =>
+                                l.name ==
+                                FFLocalizations.of(context).languageCode,
+                            orElse: () => LocaleType.en,
+                          ),
+                        );
+                      }
                     },
                     text: FFLocalizations.of(context).getText(
                       'ha283qkp' /* Data e orario di arrivo */,
@@ -162,13 +195,15 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                           ReservationRecord.getDocumentFromData(
                               reservationCreateData,
                               reservationRecordReference);
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Reservation2Widget(
-                            reservationref: _model.newReservation!.reference,
+
+                      context.pushNamed(
+                        'reservation_2',
+                        queryParameters: {
+                          'reservationref': serializeParam(
+                            _model.newReservation!.reference,
+                            ParamType.DocumentReference,
                           ),
-                        ),
+                        }.withoutNulls,
                       );
 
                       setState(() {});
@@ -201,23 +236,54 @@ class _Reservation1WidgetState extends State<Reservation1Widget> {
                   alignment: AlignmentDirectional(-0.04, -0.01),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await DatePicker.showDateTimePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
+                      if (kIsWeb) {
+                        final _datePicked2Date = await showDatePicker(
+                          context: context,
+                          initialDate: _model.datePicked1!,
+                          firstDate: _model.datePicked1!,
+                          lastDate: DateTime(2050),
+                        );
+
+                        TimeOfDay? _datePicked2Time;
+                        if (_datePicked2Date != null) {
+                          _datePicked2Time = await showTimePicker(
+                            context: context,
+                            initialTime:
+                                TimeOfDay.fromDateTime(_model.datePicked1!),
+                          );
+                        }
+
+                        if (_datePicked2Date != null &&
+                            _datePicked2Time != null) {
                           setState(() {
-                            _model.datePicked2 = date;
+                            _model.datePicked2 = DateTime(
+                              _datePicked2Date.year,
+                              _datePicked2Date.month,
+                              _datePicked2Date.day,
+                              _datePicked2Time!.hour,
+                              _datePicked2Time.minute,
+                            );
                           });
-                        },
-                        currentTime: _model.datePicked1!,
-                        minTime: _model.datePicked1!,
-                        locale: LocaleType.values.firstWhere(
-                          (l) =>
-                              l.name ==
-                              FFLocalizations.of(context).languageCode,
-                          orElse: () => LocaleType.en,
-                        ),
-                      );
+                        }
+                      } else {
+                        await DatePicker.showDateTimePicker(
+                          context,
+                          showTitleActions: true,
+                          onConfirm: (date) {
+                            setState(() {
+                              _model.datePicked2 = date;
+                            });
+                          },
+                          currentTime: _model.datePicked1!,
+                          minTime: _model.datePicked1!,
+                          locale: LocaleType.values.firstWhere(
+                            (l) =>
+                                l.name ==
+                                FFLocalizations.of(context).languageCode,
+                            orElse: () => LocaleType.en,
+                          ),
+                        );
+                      }
                     },
                     text: FFLocalizations.of(context).getText(
                       'fakstugh' /* Data e orario fine sosta */,

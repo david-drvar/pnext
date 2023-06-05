@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/payments/payment_confirmed/payment_confirmed_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,6 +33,8 @@ class _SatispayPaymentWidgetState extends State<SatispayPaymentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SatispayPaymentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -71,7 +72,7 @@ class _SatispayPaymentWidgetState extends State<SatispayPaymentWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
-                      Navigator.pop(context);
+                      context.pop();
                     },
                   ),
                 ],
@@ -96,14 +97,18 @@ class _SatispayPaymentWidgetState extends State<SatispayPaymentWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 110.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PaymentConfirmedWidget(
-                          garageRef: widget.garageRef!,
-                          reservationRef: widget.reservationRef!,
+                    context.pushNamed(
+                      'paymentConfirmed',
+                      queryParameters: {
+                        'garageRef': serializeParam(
+                          widget.garageRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                        'reservationRef': serializeParam(
+                          widget.reservationRef,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
                     );
                   },
                   text: FFLocalizations.of(context).getText(

@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/chat/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/chats/chat_page/chat_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +26,8 @@ class _AllChatsPageTabbarWidgetState extends State<AllChatsPageTabbarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AllChatsPageTabbarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -136,21 +137,29 @@ class _AllChatsPageTabbarWidgetState extends State<AllChatsPageTabbarWidget> {
                                         final chatInfo = snapshot.data ??
                                             FFChatInfo(listViewChatsRecord);
                                         return FFChatPreview(
-                                          onTap: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ChatPageWidget(
-                                                chatUser: chatInfo.otherUsers
-                                                            .length ==
-                                                        1
+                                          onTap: () => context.pushNamed(
+                                            'ChatPage',
+                                            queryParameters: {
+                                              'chatUser': serializeParam(
+                                                chatInfo.otherUsers.length == 1
                                                     ? chatInfo
                                                         .otherUsersList.first
                                                     : null,
-                                                chatRef: chatInfo
-                                                    .chatRecord.reference,
+                                                ParamType.Document,
                                               ),
-                                            ),
+                                              'chatRef': serializeParam(
+                                                chatInfo.chatRecord.reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'chatUser':
+                                                  chatInfo.otherUsers.length ==
+                                                          1
+                                                      ? chatInfo
+                                                          .otherUsersList.first
+                                                      : null,
+                                            },
                                           ),
                                           lastChatText:
                                               chatInfo.chatPreviewMessage(),
@@ -235,21 +244,29 @@ class _AllChatsPageTabbarWidgetState extends State<AllChatsPageTabbarWidget> {
                                         final chatInfo = snapshot.data ??
                                             FFChatInfo(listViewChatsRecord);
                                         return FFChatPreview(
-                                          onTap: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ChatPageWidget(
-                                                chatUser: chatInfo.otherUsers
-                                                            .length ==
-                                                        1
+                                          onTap: () => context.pushNamed(
+                                            'ChatPage',
+                                            queryParameters: {
+                                              'chatUser': serializeParam(
+                                                chatInfo.otherUsers.length == 1
                                                     ? chatInfo
                                                         .otherUsersList.first
                                                     : null,
-                                                chatRef: chatInfo
-                                                    .chatRecord.reference,
+                                                ParamType.Document,
                                               ),
-                                            ),
+                                              'chatRef': serializeParam(
+                                                chatInfo.chatRecord.reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'chatUser':
+                                                  chatInfo.otherUsers.length ==
+                                                          1
+                                                      ? chatInfo
+                                                          .otherUsersList.first
+                                                      : null,
+                                            },
                                           ),
                                           lastChatText:
                                               chatInfo.chatPreviewMessage(),

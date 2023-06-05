@@ -3,9 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/payments/bottom_sheet_apple_pay/bottom_sheet_apple_pay_widget.dart';
 import '/pages/payments/bottom_sheet_google_pay/bottom_sheet_google_pay_widget.dart';
-import '/pages/payments/credit_card_payment/credit_card_payment_widget.dart';
-import '/pages/payments/paypalpayment/paypalpayment_widget.dart';
-import '/pages/payments/satispay_payment/satispay_payment_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,6 +34,8 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PagePayWithModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -73,7 +72,7 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
                       size: 30.0,
                     ),
                     onPressed: () async {
-                      Navigator.pop(context);
+                      context.pop();
                     },
                   ),
                 ],
@@ -136,14 +135,18 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CreditCardPaymentWidget(
-                          garageRef: widget.garageRef!,
-                          reservationRef: widget.reservationRef!,
+                    context.pushNamed(
+                      'CreditCardPayment',
+                      queryParameters: {
+                        'garageRef': serializeParam(
+                          widget.garageRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                        'reservationRef': serializeParam(
+                          widget.reservationRef,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
                     );
                   },
                   child: Row(
@@ -202,14 +205,18 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => PaypalpaymentWidget(
-                          reservationRef: widget.reservationRef!,
-                          garageRef: widget.garageRef!,
+                    context.pushNamed(
+                      'Paypalpayment',
+                      queryParameters: {
+                        'reservationRef': serializeParam(
+                          widget.reservationRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                        'garageRef': serializeParam(
+                          widget.garageRef,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
                     );
                   },
                   child: Row(
@@ -268,14 +275,18 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SatispayPaymentWidget(
-                          reservationRef: widget.reservationRef!,
-                          garageRef: widget.garageRef!,
+                    context.pushNamed(
+                      'SatispayPayment',
+                      queryParameters: {
+                        'reservationRef': serializeParam(
+                          widget.reservationRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                        'garageRef': serializeParam(
+                          widget.garageRef,
+                          ParamType.DocumentReference,
+                        ),
+                      }.withoutNulls,
                     );
                   },
                   child: Row(
@@ -339,13 +350,12 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
                       backgroundColor: Colors.transparent,
                       enableDrag: false,
                       context: context,
-                      builder: (bottomSheetContext) {
+                      builder: (context) {
                         return GestureDetector(
                           onTap: () =>
                               FocusScope.of(context).requestFocus(_unfocusNode),
                           child: Padding(
-                            padding:
-                                MediaQuery.of(bottomSheetContext).viewInsets,
+                            padding: MediaQuery.of(context).viewInsets,
                             child: BottomSheetApplePayWidget(
                               reservationRef: widget.reservationRef!,
                               garageRef: widget.garageRef!,
@@ -416,13 +426,12 @@ class _PagePayWithWidgetState extends State<PagePayWithWidget> {
                       backgroundColor: Colors.transparent,
                       enableDrag: false,
                       context: context,
-                      builder: (bottomSheetContext) {
+                      builder: (context) {
                         return GestureDetector(
                           onTap: () =>
                               FocusScope.of(context).requestFocus(_unfocusNode),
                           child: Padding(
-                            padding:
-                                MediaQuery.of(bottomSheetContext).viewInsets,
+                            padding: MediaQuery.of(context).viewInsets,
                             child: BottomSheetGooglePayWidget(
                               reservationRef: widget.reservationRef!,
                               garageRef: widget.garageRef!,

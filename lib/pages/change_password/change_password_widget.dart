@@ -34,6 +34,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
 
     _model.emailAddressController ??=
         TextEditingController(text: widget.userProfile!.email);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -52,12 +53,15 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -80,7 +84,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             title: Text(
@@ -189,7 +193,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                           email: _model.emailAddressController.text,
                           context: context,
                         );
-                        Navigator.pop(context);
+                        context.pop();
                       },
                       text: FFLocalizations.of(context).getText(
                         '81o9esk0' /* Send Reset Link */,

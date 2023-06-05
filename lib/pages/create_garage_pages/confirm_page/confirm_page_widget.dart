@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/main.dart';
-import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +34,8 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ConfirmPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -54,12 +54,15 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -81,14 +84,14 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                 size: 24.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             title: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
-                  '7rm4my2u' /* Crea un Garage */,
+                  'qwaqepcr' /* Crea un Garage */,
                 ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Urbanist',
@@ -134,10 +137,9 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                             backgroundColor: Colors.transparent,
                             enableDrag: false,
                             context: context,
-                            builder: (bottomSheetContext) {
+                            builder: (context) {
                               return Padding(
-                                padding: MediaQuery.of(bottomSheetContext)
-                                    .viewInsets,
+                                padding: MediaQuery.of(context).viewInsets,
                                 child: GeneralInformationSheetWidget(
                                   message: 'Success!',
                                 ),
@@ -145,14 +147,7 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                             },
                           ).then((value) => setState(() {}));
 
-                          await Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  NavBarPage(initialPage: 'homePage_Garages'),
-                            ),
-                            (r) => false,
-                          );
+                          context.goNamed('homePage_Garages');
                         },
                         text: FFLocalizations.of(context).getText(
                           '152d2qgu' /* Conferma */,
@@ -200,13 +195,14 @@ class _ConfirmPageWidgetState extends State<ConfirmPageWidget> {
                     alignment: AlignmentDirectional(0.0, -0.15),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => CreateGarage4PriceWidget(
-                              newGarageRef: widget.newGarageRef,
+                        context.pushNamed(
+                          'create_garage_4_price',
+                          queryParameters: {
+                            'newGarageRef': serializeParam(
+                              widget.newGarageRef,
+                              ParamType.DocumentReference,
                             ),
-                          ),
+                          }.withoutNulls,
                         );
                       },
                       text: FFLocalizations.of(context).getText(

@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservations/garage_details_for_reservation/garage_details_for_reservation_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +39,8 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BottomSheetGaragesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -296,17 +297,19 @@ class _BottomSheetGaragesWidgetState extends State<BottomSheetGaragesWidget> {
                                         );
                                         await widget.reservationRef!
                                             .update(reservationUpdateData);
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                GarageDetailsForReservationWidget(
-                                              garageRef:
-                                                  widget.garage!.reference,
-                                              reservationRef:
-                                                  widget.reservationRef,
+
+                                        context.pushNamed(
+                                          'garageDetailsForReservation',
+                                          queryParameters: {
+                                            'garageRef': serializeParam(
+                                              widget.garage!.reference,
+                                              ParamType.DocumentReference,
                                             ),
-                                          ),
+                                            'reservationRef': serializeParam(
+                                              widget.reservationRef,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(

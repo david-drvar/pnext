@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_2_foto_video/create_garage2_foto_video_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +24,8 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FotoVideoModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -55,7 +56,7 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -272,13 +273,7 @@ class _FotoVideoWidgetState extends State<FotoVideoWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      CreateGarage2FotoVideoWidget(),
-                                ),
-                              );
+                              context.pushNamed('create_garage_2_foto_video');
                             },
                             text: FFLocalizations.of(context).getText(
                               '686pwv58' /* SUBMIT */,

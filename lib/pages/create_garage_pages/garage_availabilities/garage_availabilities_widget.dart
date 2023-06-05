@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/timeslot_calendar/timeslot_calendar_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,6 +33,8 @@ class _GarageAvailabilitiesWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => GarageAvailabilitiesModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -64,14 +65,14 @@ class _GarageAvailabilitiesWidgetState
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'rnkqcp11' /* Crea un Garage */,
+              'k8skpntz' /* Crea un Garage */,
             ),
             style: FlutterFlowTheme.of(context).headlineSmall.override(
                   fontFamily: 'Urbanist',
@@ -124,10 +125,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'monday',
                                     newGarageRef: widget.newGarageRef,
@@ -158,10 +158,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'tuesday',
                                     newGarageRef: widget.newGarageRef,
@@ -192,10 +191,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'wednesday',
                                     newGarageRef: widget.newGarageRef,
@@ -226,10 +224,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'thursday',
                                     newGarageRef: widget.newGarageRef,
@@ -260,10 +257,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'friday',
                                     newGarageRef: widget.newGarageRef,
@@ -294,10 +290,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'saturday',
                                     newGarageRef: widget.newGarageRef,
@@ -328,10 +323,9 @@ class _GarageAvailabilitiesWidgetState
                               backgroundColor: Colors.transparent,
                               enableDrag: false,
                               context: context,
-                              builder: (bottomSheetContext) {
+                              builder: (context) {
                                 return Padding(
-                                  padding: MediaQuery.of(bottomSheetContext)
-                                      .viewInsets,
+                                  padding: MediaQuery.of(context).viewInsets,
                                   child: AvailabilityBottomSheetIntervalsWidget(
                                     day: 'sunday',
                                     newGarageRef: widget.newGarageRef,
@@ -386,13 +380,14 @@ class _GarageAvailabilitiesWidgetState
                             125.0, 440.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => TimeslotCalendarWidget(
-                                  newGarageRef: widget.newGarageRef,
+                            context.pushNamed(
+                              'TimeslotCalendar',
+                              queryParameters: {
+                                'newGarageRef': serializeParam(
+                                  widget.newGarageRef,
+                                  ParamType.DocumentReference,
                                 ),
-                              ),
+                              }.withoutNulls,
                             );
                           },
                           text: FFLocalizations.of(context).getText(

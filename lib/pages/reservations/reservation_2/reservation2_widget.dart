@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/reservations/reservation_3_map/reservation3_map_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -44,6 +43,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -77,7 +77,7 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
           actions: [],
@@ -367,13 +367,15 @@ class _Reservation2WidgetState extends State<Reservation2Widget> {
                         );
                         await widget.reservationref!
                             .update(reservationUpdateData);
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Reservation3MapWidget(
-                              reservationref: widget.reservationref,
+
+                        context.pushNamed(
+                          'reservation_3Map',
+                          queryParameters: {
+                            'reservationref': serializeParam(
+                              widget.reservationref,
+                              ParamType.DocumentReference,
                             ),
-                          ),
+                          }.withoutNulls,
                         );
                       }
                     },

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/property_details/property_details_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +34,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
     _model = createModel(context, () => SearchPropertiesModel());
 
     _model.textController ??= TextEditingController(text: widget.searchTerm);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -64,7 +64,7 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -264,13 +264,17 @@ class _SearchPropertiesWidgetState extends State<SearchPropertiesWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PropertyDetailsWidget(
-                                      propertyRef: listViewPropertiesRecord,
+                                context.pushNamed(
+                                  'propertyDetails',
+                                  queryParameters: {
+                                    'propertyRef': serializeParam(
+                                      listViewPropertiesRecord,
+                                      ParamType.Document,
                                     ),
-                                  ),
+                                  }.withoutNulls,
+                                  extra: <String, dynamic>{
+                                    'propertyRef': listViewPropertiesRecord,
+                                  },
                                 );
                               },
                               child: Column(

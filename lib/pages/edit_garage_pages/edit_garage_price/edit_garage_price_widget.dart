@@ -33,6 +33,8 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EditGaragePriceModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -51,12 +53,15 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: CircularProgressIndicator(
-                color: FlutterFlowTheme.of(context).primary,
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            body: Center(
+              child: SizedBox(
+                width: 50.0,
+                height: 50.0,
+                child: CircularProgressIndicator(
+                  color: FlutterFlowTheme.of(context).primary,
+                ),
               ),
             ),
           );
@@ -78,7 +83,7 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                 size: 24.0,
               ),
               onPressed: () async {
-                Navigator.pop(context);
+                context.pop();
               },
             ),
             title: Align(
@@ -236,7 +241,7 @@ class _EditGaragePriceWidgetState extends State<EditGaragePriceWidget> {
                               );
                               await widget.newGarageRef!
                                   .update(garagesUpdateData);
-                              Navigator.pop(context);
+                              context.safePop();
                             }
                           },
                           text: FFLocalizations.of(context).getText(

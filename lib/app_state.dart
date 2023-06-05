@@ -14,10 +14,18 @@ class FFAppState extends ChangeNotifier {
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
-    _cardNumber = prefs.getString('ff_cardNumber') ?? _cardNumber;
-    _cardHolderName = prefs.getString('ff_cardHolderName') ?? _cardHolderName;
-    _cardName = prefs.getString('ff_cardName') ?? _cardName;
-    _zipCode = prefs.getString('ff_zipCode') ?? _zipCode;
+    _safeInit(() {
+      _cardNumber = prefs.getString('ff_cardNumber') ?? _cardNumber;
+    });
+    _safeInit(() {
+      _cardHolderName = prefs.getString('ff_cardHolderName') ?? _cardHolderName;
+    });
+    _safeInit(() {
+      _cardName = prefs.getString('ff_cardName') ?? _cardName;
+    });
+    _safeInit(() {
+      _zipCode = prefs.getString('ff_zipCode') ?? _zipCode;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -64,4 +72,16 @@ LatLng? _latLngFromString(String? val) {
   final lat = double.parse(split.first);
   final lng = double.parse(split.last);
   return LatLng(lat, lng);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

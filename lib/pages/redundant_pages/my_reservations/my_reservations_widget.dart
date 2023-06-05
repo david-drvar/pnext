@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/reservations/reservation_details/reservation_details_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,6 +26,8 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MyReservationsModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -107,17 +108,18 @@ class _MyReservationsWidgetState extends State<MyReservationsWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        ReservationDetailsWidget(
-                                      reservationRef:
-                                          listViewReservationRecord.reference,
-                                      garageRef: listViewReservationRecord
-                                          .garageReference!,
+                                context.pushNamed(
+                                  'reservationDetails',
+                                  queryParameters: {
+                                    'reservationRef': serializeParam(
+                                      listViewReservationRecord.reference,
+                                      ParamType.DocumentReference,
                                     ),
-                                  ),
+                                    'garageRef': serializeParam(
+                                      listViewReservationRecord.garageReference,
+                                      ParamType.DocumentReference,
+                                    ),
+                                  }.withoutNulls,
                                 );
                               },
                               child: Container(

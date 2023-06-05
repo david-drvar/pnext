@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_3/create_garage3_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +40,7 @@ class _CreateGarage2FotoVideoWidgetState
     _model = createModel(context, () => CreateGarage2FotoVideoModel());
 
     _model.descriptionController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -71,7 +71,7 @@ class _CreateGarage2FotoVideoWidgetState
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Padding(
@@ -184,10 +184,10 @@ class _CreateGarage2FotoVideoWidgetState
                                   backgroundColor: Colors.transparent,
                                   enableDrag: false,
                                   context: context,
-                                  builder: (bottomSheetContext) {
+                                  builder: (context) {
                                     return Padding(
-                                      padding: MediaQuery.of(bottomSheetContext)
-                                          .viewInsets,
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
                                       child: UploadGaragePhotoWidget(),
                                     );
                                   },
@@ -236,10 +236,10 @@ class _CreateGarage2FotoVideoWidgetState
                                   backgroundColor: Colors.transparent,
                                   enableDrag: false,
                                   context: context,
-                                  builder: (bottomSheetContext) {
+                                  builder: (context) {
                                     return Padding(
-                                      padding: MediaQuery.of(bottomSheetContext)
-                                          .viewInsets,
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
                                       child: UploadGarageVideoWidget(),
                                     );
                                   },
@@ -403,13 +403,15 @@ class _CreateGarage2FotoVideoWidgetState
                                 };
                                 await widget.newGarageRef!
                                     .update(garagesUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CreateGarage3Widget(
-                                      newGarageRef: widget.newGarageRef,
+
+                                context.pushNamed(
+                                  'garage_availabilities',
+                                  queryParameters: {
+                                    'newGarageRef': serializeParam(
+                                      widget.newGarageRef,
+                                      ParamType.DocumentReference,
                                     ),
-                                  ),
+                                  }.withoutNulls,
                                 );
                               }
                             },

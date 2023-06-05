@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/pages/create_property_2/create_property2_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +35,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
     _model.propertyAddressController ??= TextEditingController();
     _model.propertyNeighborhoodController ??= TextEditingController();
     _model.propertyDescriptionController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -66,7 +66,7 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
             size: 30.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -609,14 +609,23 @@ class _GaragePage1WidgetState extends State<GaragePage1Widget> {
                               };
                               await currentUserReference!
                                   .update(usersUpdateData);
-                              await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CreateProperty2Widget(
-                                    propertyRef: _model.newProperty,
-                                    propertyAmenities: _model.amenitiesRecord,
+
+                              context.pushNamed(
+                                'createProperty_2',
+                                queryParameters: {
+                                  'propertyRef': serializeParam(
+                                    _model.newProperty,
+                                    ParamType.Document,
                                   ),
-                                ),
+                                  'propertyAmenities': serializeParam(
+                                    _model.amenitiesRecord,
+                                    ParamType.Document,
+                                  ),
+                                }.withoutNulls,
+                                extra: <String, dynamic>{
+                                  'propertyRef': _model.newProperty,
+                                  'propertyAmenities': _model.amenitiesRecord,
+                                },
                               );
 
                               setState(() {});

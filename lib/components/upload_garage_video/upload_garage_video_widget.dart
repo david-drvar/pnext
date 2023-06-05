@@ -103,6 +103,8 @@ class _UploadGarageVideoWidgetState extends State<UploadGarageVideoWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -156,7 +158,7 @@ class _UploadGarageVideoWidgetState extends State<UploadGarageVideoWidget>
                       size: 24.0,
                     ),
                     onPressed: () async {
-                      Navigator.pop(context);
+                      context.pop();
                     },
                   ),
                   Expanded(

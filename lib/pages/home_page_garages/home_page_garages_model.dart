@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/place.dart';
-import '/pages/garage_details/garage_details_widget.dart';
-import '/pages/reservations/reservation_1_copy/reservation1_copy_widget.dart';
 import 'dart:io';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:auto_size_text/auto_size_text.dart';

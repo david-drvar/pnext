@@ -7,8 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/place.dart';
-import '/pages/garage_details/garage_details_widget.dart';
-import '/pages/reservations/reservation_1_copy/reservation1_copy_widget.dart';
 import 'dart:io';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -45,6 +43,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -82,7 +81,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
           children: [
             Container(
               width: double.infinity,
-              height: 250.0,
+              height: 200.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).dark600,
                 boxShadow: [
@@ -97,15 +96,57 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 40.0, 0.0, 0.0),
-                    child: Image.asset(
-                      'assets/images/logoUpHome@3x.png',
-                      width: 160.0,
-                      height: 50.0,
-                      fit: BoxFit.fitWidth,
-                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                        child: Image.asset(
+                          'assets/images/pnext_urbanist_logo-modified.png',
+                          width: 160.0,
+                          height: 50.0,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 35.0, 25.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('reservation_1Copy');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              '95yukop1' /* Book now */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 100.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF7409F8),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Urbanist',
+                                    color: Colors.white,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(50.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding:
@@ -150,64 +191,6 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                    child: Container(
-                      width: double.infinity,
-                      height: 60.0,
-                      decoration: BoxDecoration(
-                        color: Color(0x00F1F4F8),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                120.0, 0.0, 8.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        Reservation1CopyWidget(),
-                                  ),
-                                );
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                '8qnbzgkz' /* Book now */,
-                              ),
-                              options: FFButtonOptions(
-                                width: 100.0,
-                                height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).celadon,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Urbanist',
-                                      color: Colors.white,
-                                    ),
-                                elevation: 2.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
-                                ),
-                                borderRadius: BorderRadius.circular(50.0),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -222,7 +205,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                     Align(
                       alignment: Alignment(0.0, 0),
                       child: TabBar(
-                        labelColor: FlutterFlowTheme.of(context).turquoise,
+                        labelColor: FlutterFlowTheme.of(context).gray600,
                         unselectedLabelColor:
                             FlutterFlowTheme.of(context).grayIcon,
                         labelStyle:
@@ -230,7 +213,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                   fontFamily: 'Urbanist',
                                   fontWeight: FontWeight.w500,
                                 ),
-                        indicatorColor: FlutterFlowTheme.of(context).turquoise,
+                        indicatorColor: Color(0xFF7409F8),
                         indicatorWeight: 4.0,
                         tabs: [
                           Tab(
@@ -305,17 +288,20 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            await Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    GarageDetailsWidget(
-                                                  garageRef:
-                                                      listViewGaragesRecord
-                                                          .reference,
-                                                  isKeyboxVisible: false,
+                                            context.pushNamed(
+                                              'garageDetails',
+                                              queryParameters: {
+                                                'garageRef': serializeParam(
+                                                  listViewGaragesRecord
+                                                      .reference,
+                                                  ParamType.DocumentReference,
                                                 ),
-                                              ),
+                                                'isKeyboxVisible':
+                                                    serializeParam(
+                                                  false,
+                                                  ParamType.bool,
+                                                ),
+                                              }.withoutNulls,
                                             );
                                           },
                                           child: Container(
@@ -549,12 +535,12 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                                           Colors.transparent,
                                                       enableDrag: false,
                                                       context: context,
-                                                      builder:
-                                                          (bottomSheetContext) {
+                                                      builder: (context) {
                                                         return Padding(
-                                                          padding: MediaQuery.of(
-                                                                  bottomSheetContext)
-                                                              .viewInsets,
+                                                          padding:
+                                                              MediaQuery.of(
+                                                                      context)
+                                                                  .viewInsets,
                                                           child:
                                                               BottomSheetGaragesJustViewWidget(
                                                             garage:
@@ -571,7 +557,7 @@ class _HomePageGaragesWidgetState extends State<HomePageGaragesWidget> {
                                           markerColor: GoogleMarkerColor.red,
                                           mapType: MapType.normal,
                                           style: GoogleMapStyle.standard,
-                                          initialZoom: 14.0,
+                                          initialZoom: 3.0,
                                           allowInteraction: true,
                                           allowZoom: true,
                                           showZoomControls: true,

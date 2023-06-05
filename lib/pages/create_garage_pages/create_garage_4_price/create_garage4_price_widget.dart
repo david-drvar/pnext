@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/garage_availabilities/garage_availabilities_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +36,7 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
     _model = createModel(context, () => CreateGarage4PriceModel());
 
     _model.pricePerNightController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -66,14 +66,14 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'tue3tzn4' /* Crea un Garage */,
+              '1kkbbo0i' /* Crea un Garage */,
             ),
             style: FlutterFlowTheme.of(context).headlineSmall.override(
                   fontFamily: 'Urbanist',
@@ -125,7 +125,7 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: FFLocalizations.of(context).getText(
-                            'kqfrxfjx' /* 0,00 € */,
+                            'kqfrxfjx' /* 0.00 € */,
                           ),
                           hintStyle: FlutterFlowTheme.of(context)
                               .headlineMedium
@@ -229,14 +229,15 @@ class _CreateGarage4PriceWidgetState extends State<CreateGarage4PriceWidget> {
                             );
                             await widget.newGarageRef!
                                 .update(garagesUpdateData);
-                            await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    GarageAvailabilitiesWidget(
-                                  newGarageRef: widget.newGarageRef,
+
+                            context.pushNamed(
+                              'Confirm_Page',
+                              queryParameters: {
+                                'newGarageRef': serializeParam(
+                                  widget.newGarageRef,
+                                  ParamType.DocumentReference,
                                 ),
-                              ),
+                              }.withoutNulls,
                             );
                           }
                         },

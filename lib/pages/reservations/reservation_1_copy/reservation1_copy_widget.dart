@@ -6,9 +6,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/pages/reservations/reservation_2/reservation2_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,6 +40,8 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Reservation1CopyModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -73,7 +75,7 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
           actions: [],
@@ -99,23 +101,42 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                   alignment: AlignmentDirectional(-0.07, -0.77),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      await DatePicker.showDatePicker(
-                        context,
-                        showTitleActions: true,
-                        onConfirm: (date) {
+                      if (kIsWeb) {
+                        final _datePickedDate = await showDatePicker(
+                          context: context,
+                          initialDate: getCurrentTimestamp,
+                          firstDate: getCurrentTimestamp,
+                          lastDate: DateTime(2050),
+                        );
+
+                        if (_datePickedDate != null) {
                           setState(() {
-                            _model.datePicked = date;
+                            _model.datePicked = DateTime(
+                              _datePickedDate.year,
+                              _datePickedDate.month,
+                              _datePickedDate.day,
+                            );
                           });
-                        },
-                        currentTime: getCurrentTimestamp,
-                        minTime: getCurrentTimestamp,
-                        locale: LocaleType.values.firstWhere(
-                          (l) =>
-                              l.name ==
-                              FFLocalizations.of(context).languageCode,
-                          orElse: () => LocaleType.en,
-                        ),
-                      );
+                        }
+                      } else {
+                        await DatePicker.showDatePicker(
+                          context,
+                          showTitleActions: true,
+                          onConfirm: (date) {
+                            setState(() {
+                              _model.datePicked = date;
+                            });
+                          },
+                          currentTime: getCurrentTimestamp,
+                          minTime: getCurrentTimestamp,
+                          locale: LocaleType.values.firstWhere(
+                            (l) =>
+                                l.name ==
+                                FFLocalizations.of(context).languageCode,
+                            orElse: () => LocaleType.en,
+                          ),
+                        );
+                      }
                     },
                     text: FFLocalizations.of(context).getText(
                       'y8oijhcv' /* Data  */,
@@ -187,13 +208,15 @@ class _Reservation1CopyWidgetState extends State<Reservation1CopyWidget> {
                             ReservationRecord.getDocumentFromData(
                                 reservationCreateData,
                                 reservationRecordReference);
-                        await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Reservation2Widget(
-                              reservationref: _model.reservationDoc!.reference,
+
+                        context.pushNamed(
+                          'reservation_2',
+                          queryParameters: {
+                            'reservationref': serializeParam(
+                              _model.reservationDoc!.reference,
+                              ParamType.DocumentReference,
                             ),
-                          ),
+                          }.withoutNulls,
                         );
                       } else {
                         await showDialog(

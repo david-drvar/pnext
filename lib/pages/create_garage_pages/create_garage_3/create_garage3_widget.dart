@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/create_garage_pages/create_garage_4_price/create_garage4_price_widget.dart';
-import '/pages/create_garage_pages/create_garage_disclaimer_page/create_garage_disclaimer_page_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,6 +33,8 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateGarage3Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -68,16 +68,19 @@ class _CreateGarage3WidgetState extends State<CreateGarage3Widget> {
               size: 30.0,
             ),
             onPressed: () async {
-              Navigator.pop(context);
+              context.safePop();
             },
           ),
-          title: Align(
-            alignment: AlignmentDirectional(-0.4, 0.0),
+          title: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 0.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
-                'k5mec075' /* Crea un Garage */,
+                '6lt9w9wp' /* Crea un Garage */,
               ),
-              style: FlutterFlowTheme.of(context).headlineMedium,
+              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                    fontFamily: 'Urbanist',
+                    fontWeight: FontWeight.w600,
+                  ),
             ),
           ),
           actions: [],
@@ -114,13 +117,15 @@ per ... */
                       isKey: false,
                     );
                     await widget.newGarageRef!.update(garagesUpdateData);
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CreateGarage4PriceWidget(
-                          newGarageRef: widget.newGarageRef,
+
+                    context.pushNamed(
+                      'create_garage_4_price',
+                      queryParameters: {
+                        'newGarageRef': serializeParam(
+                          widget.newGarageRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                      }.withoutNulls,
                     );
                   },
                   text: FFLocalizations.of(context).getText(
@@ -150,13 +155,14 @@ per ... */
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CreateGarageDisclaimerPageWidget(
-                          newGarageRef: widget.newGarageRef,
+                    context.pushNamed(
+                      'create_garage_disclaimer_page',
+                      queryParameters: {
+                        'newGarageRef': serializeParam(
+                          widget.newGarageRef,
+                          ParamType.DocumentReference,
                         ),
-                      ),
+                      }.withoutNulls,
                     );
                   },
                   text: FFLocalizations.of(context).getText(

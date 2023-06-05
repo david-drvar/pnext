@@ -27,6 +27,8 @@ class _SocialsSignInWidgetState extends State<SocialsSignInWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SocialsSignInModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

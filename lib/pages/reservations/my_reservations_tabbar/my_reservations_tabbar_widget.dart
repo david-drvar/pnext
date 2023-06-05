@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/reservations/reservation_details/reservation_details_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,6 +27,8 @@ class _MyReservationsTabbarWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MyReservationsTabbarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -45,18 +46,22 @@ class _MyReservationsTabbarWidgetState
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Text(
           FFLocalizations.of(context).getText(
-            'zilpryox' /* Le mie Prenotazioni */,
+            'il9t2r3y' /* Tutte le Prenotazioni */,
           ),
-          textAlign: TextAlign.center,
-          style: FlutterFlowTheme.of(context).headlineMedium,
+          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                fontFamily: 'Urbanist',
+                color: Colors.black,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
         ),
         actions: [],
-        centerTitle: false,
-        elevation: 0.0,
+        centerTitle: true,
+        elevation: 4.0,
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -70,7 +75,7 @@ class _MyReservationsTabbarWidgetState
                   Align(
                     alignment: Alignment(0.0, 0),
                     child: TabBar(
-                      labelColor: FlutterFlowTheme.of(context).turquoise,
+                      labelColor: FlutterFlowTheme.of(context).gray600,
                       unselectedLabelColor:
                           FlutterFlowTheme.of(context).grayIcon,
                       labelStyle:
@@ -78,7 +83,7 @@ class _MyReservationsTabbarWidgetState
                                 fontFamily: 'Urbanist',
                                 fontWeight: FontWeight.w500,
                               ),
-                      indicatorColor: FlutterFlowTheme.of(context).turquoise,
+                      indicatorColor: Color(0xFF7409F8),
                       indicatorWeight: 4.0,
                       tabs: [
                         Tab(
@@ -155,19 +160,20 @@ class _MyReservationsTabbarWidgetState
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ReservationDetailsWidget(
-                                                reservationRef:
-                                                    listViewReservationRecord
-                                                        .reference,
-                                                garageRef:
-                                                    listViewReservationRecord
-                                                        .garageReference!,
+                                          context.pushNamed(
+                                            'reservationDetails',
+                                            queryParameters: {
+                                              'reservationRef': serializeParam(
+                                                listViewReservationRecord
+                                                    .reference,
+                                                ParamType.DocumentReference,
                                               ),
-                                            ),
+                                              'garageRef': serializeParam(
+                                                listViewReservationRecord
+                                                    .garageReference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
                                           );
                                         },
                                         child: Container(
@@ -466,19 +472,20 @@ class _MyReservationsTabbarWidgetState
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          await Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ReservationDetailsWidget(
-                                                reservationRef:
-                                                    listViewReservationRecord
-                                                        .reference,
-                                                garageRef:
-                                                    listViewReservationRecord
-                                                        .garageReference!,
+                                          context.pushNamed(
+                                            'reservationDetails',
+                                            queryParameters: {
+                                              'reservationRef': serializeParam(
+                                                listViewReservationRecord
+                                                    .reference,
+                                                ParamType.DocumentReference,
                                               ),
-                                            ),
+                                              'garageRef': serializeParam(
+                                                listViewReservationRecord
+                                                    .garageReference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                            }.withoutNulls,
                                           );
                                         },
                                         child: Container(

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/pages/login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +34,8 @@ class _EmailVerificationComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EmailVerificationComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -83,12 +84,7 @@ class _EmailVerificationComponentWidgetState
             ),
             FFButtonWidget(
               onPressed: () async {
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LoginWidget(),
-                  ),
-                );
+                context.pushNamed('login');
               },
               text: FFLocalizations.of(context).getText(
                 'va3a8t7u' /* OK */,

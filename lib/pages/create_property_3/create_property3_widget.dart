@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,6 +38,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
     _model.taxRateController ??= TextEditingController();
     _model.cleaningFeeController ??= TextEditingController();
     _model.notesController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -68,7 +68,7 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
             size: 24.0,
           ),
           onPressed: () async {
-            Navigator.pop(context);
+            context.pop();
           },
         ),
         title: Text(
@@ -550,15 +550,16 @@ class _CreateProperty3WidgetState extends State<CreateProperty3Widget> {
                       );
                       await widget.propertyRef!.reference
                           .update(propertiesUpdateData);
-                      await Navigator.pushAndRemoveUntil(
-                        context,
-                        PageTransition(
-                          type: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 250),
-                          reverseDuration: Duration(milliseconds: 250),
-                          child: NavBarPage(initialPage: 'profilePage'),
-                        ),
-                        (r) => false,
+
+                      context.goNamed(
+                        'profilePage',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 250),
+                          ),
+                        },
                       );
                     },
                     text: FFLocalizations.of(context).getText(
